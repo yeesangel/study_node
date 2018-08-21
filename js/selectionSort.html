@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>选择排序</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+    <script>
+        function selectionSort(arr){ //选择排序
+            for(var i=0; i<arr.length-1; i++){
+                var min = arr[i];
+                var tmp;
+                var index = i;
+                for(var j=i+1; j<arr.length; j++){
+                    if(arr[j]<min){
+                        min = arr[j];
+                        index = j;
+                    }
+                }
+                tmp = arr[i];
+                arr[i] = min;
+                arr[index] = tmp;
+            }
+            return arr;
+        }
+
+        // console.time('maopaoSort')
+        // console.log(selectionSort([7,6,2,5,1,8,9,3,2]));//4
+        // console.timeEnd('maopaoSort')
+
+        function erfenfaSort(arr){ //二分法排序
+            if(arr.length<=1){
+                return arr;
+            }
+            var num = Math.floor(arr.length/2);
+            var valueNum = arr.splice(num, 1);
+            var left = []
+            var right = []
+            for(var i=0;i<arr.length; i++){
+                if(arr[i]>valueNum){
+                    right.push(arr[i]);
+                }else if(arr[i]<valueNum){
+                    left.push(arr[i])
+                }
+            }
+
+            return erfenfaSort(left).concat(valueNum, erfenfaSort(right));
+        }
+        // console.time('maopaoSort')
+        // console.log(erfenfaSort([7,6,2,5,1,8,9,3,2])) //4
+        // console.timeEnd('maopaoSort')
+
+        function maopaoSort(arr){
+            var tmp = 0;
+            for(var i=arr.length; i>0; i--){
+                for(var j=0; j<i-1; j++){
+                    if(arr[j]>arr[j+1]){
+                        var tmp  = arr[j];
+                        arr[j] = arr[j+1];
+                        arr[j+1] = tmp;
+                    }
+                }
+            }
+            return arr;
+        }
+        // console.time('maopaoSort')
+        // console.log(maopaoSort([7,6,2,5,1,8,9,3,2])) //4.3
+        // console.timeEnd('maopaoSort')
+    </script>
+    </body>
+</html>

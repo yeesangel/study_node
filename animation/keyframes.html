@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .box {
+        width: 100px;
+        height: 100px;
+        background: red;
+        position: relative;
+        left: 100px;
+        animation: world 0.5s ease-out;
+        /* animation-fill-mode: backwards; 向后倒 */
+        /* animation-fill-mode: forwards; 保留最后一帧动画 */
+        animation-fill-mode: forwards;
+        /* -webkit-animation: waord 0.5s ease-out; */
+    }
+    
+    @keyframes world {
+        0% {
+            left: 100px;
+        }
+        30% {
+            left: 300px;
+        }
+        100% {
+            left: 500px
+        }
+    }
+</style>
+
+<body>
+    <div class="box"></div>
+</body>
+
+</html>

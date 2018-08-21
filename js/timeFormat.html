@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        
+    </body>
+    <script>
+        //Time format
+        function timeFormat(tmp){
+            var mydate = new Date(tmp),
+            curdate = new Date(),
+            week = ['周日 ', '周一 ', '周二 ', '周三 ', '周四 ', '周五 ', '周六 '],                                       
+            Y = mydate.getFullYear(),
+            M = mydate.getMonth(),
+            D = mydate.getDate(),
+            H = mydate.getHours(),
+            MM = mydate.getMinutes(),
+            y = curdate.getFullYear(),
+            m = curdate.getMonth(),
+            d = curdate.getDate(),
+            disdate = (dayStamp(y,m,d) - dayStamp(Y,M,D))/86400000,
+            timeFormat = '';
+
+            if(disdate === 0) { //今天
+                timeFormat = timZero(H) + ':' + timZero(MM);
+            } else if (disdate === 1) { // 昨天
+                timeFormat = '昨天 ' + timZero(H) + ':' + timZero(MM);
+            } else if (1 < disdate && disdate<7 ) { // 一周之内
+                timeFormat = weeks(tmp) + timZero(H) + ':' + timZero(MM);
+            } else { //一周之外
+                timeFormat = Y +'年'+ M +'月'+ D +'日 '+ timZero(H) + ':' + timZero(MM);
+            }
+
+            function dayStamp(year, month, day){ //整天时间戳
+                var d = new Date(year, month, day);
+                return d.getTime();
+            }
+
+            function weeks( tmp ){
+                var d = new Date(tmp).getDay();
+                return week[d];
+            }
+
+            function timZero(num) {
+                return num > 9 ? num : '0' + num;
+            }
+
+            return timeFormat;
+        }
+
+
+
+        console.log(timeFormat(+new Date(2017,6,25,10,19,6)))
+    </script>
+</html>

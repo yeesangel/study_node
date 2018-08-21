@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <script>
+function JSClass() {
+  this.m_Text = 'division element';
+  this.m_Element = document.createElement('div');
+  this.m_Element.innerHTML = this.m_Text;
+  this.m_Element.addEventListener('click', this.func);
+  // this.m_Element.onclick = this.func;
+}
+ 
+JSClass.prototype.Render = function() {
+  document.body.appendChild(this.m_Element);
+}
+ 
+JSClass.prototype.func = function() {
+  alert(this.m_Text);
+};
+ 
+var jc = new JSClass();
+jc.Render();  // add div
+jc.func();  // 输出 division element
+//click添加的div元素division element会输出underfined，为什么？
+    </script>
+    <body>
+
+    </body>
+</html>

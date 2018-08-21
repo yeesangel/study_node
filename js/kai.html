@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            *{margin:0; padding: 0; list-style: none;  border:0;}
+            #box li{ width: 100px; height: 100px; border:1px solid #000; background:yellow}
+        </style>
+    </head>
+    <body>
+        <ul id="box">
+            
+        </ul>
+        <script>
+            var oBox=document.getElementById('box');
+            var oLi=oBox.getElementsByTagName('li');
+            var html='';
+            var pos=[],H=[];
+
+            for(var i=0; i<100; i++){
+                html+='<li>'+i+'</li>' ;
+            }
+            oBox.innerHTML=html;
+            for(var i=0; i<100; i++){
+                pos.push(getRelativeRect(oLi[i]).top);
+                H.push(oLi[i].offsetHeight);
+            }
+            
+            var seeHeight=document.documentElement.clientHeight;
+            window.onscroll=function(){
+                onScro()
+
+            }
+            function onScro (){
+                var scrollTop=document.documentElement.scrollTop || document.body.scrollTop;
+                for(var i=0;i<100;i++){
+                    if(pos[i]>=scrollTop-H[i] && pos[i]<=scrollTop+seeHeight){
+                        oLi[i].style.background = 'red';
+                    } else {
+                        oLi[i].style.background = 'yellow';
+                    }
+                }
+            }
+            onScro()
+            function getRelativeRect (child) {
+                let pos = {
+                    top: 0,
+                    left: 0
+                }
+                while (child) {
+                    pos.top += child.offsetTop;
+                    pos.left += child.offsetLeft;
+                    child = child.offsetParent;
+                }
+                return pos;
+            }
+            
+        </script>
+    </body>
+</html>

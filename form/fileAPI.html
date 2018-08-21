@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="file" onchange="handleFiles(this.files)" />
+    <script>
+        function handleFiles(files) {
+
+            for (var i = 0; i < files.length; i++) {
+
+                var file = files[i];
+
+                var imageType = /^image\//;
+
+                if (!imageType.test(file.type)) continue;
+
+                var img = document.createElement('img');
+
+                //img.file = file;
+
+                document.body.appendChild(img);
+
+
+                if (typeof FileReader == 'function') {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        img.src = e.target.result;
+                    };
+                    reader.readAsDataURL(file);
+                    console.log(file, 'file')
+                    console.log(reader, 88888888)
+                } else {
+                    window.URL = URL || webkitURL
+                    img.src = URL.createObjectURL(file);
+                }
+
+
+            }
+
+        }
+    </script>
+</body>
+
+</html>

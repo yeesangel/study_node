@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <style>
+
+    </style>
+    <body>
+        <a href="http://www.baidu.com">跳转百度</a>
+        <input type="button" name="" value="点击" class="btn">
+        
+        <textarea rows="" cols=""></textarea>
+    <script>
+    //    window.addEventListener('beforeunload', function(e){
+    //        var message = '你确定要离开吗！';
+    //        e.returnValue = message;
+    //        return message;
+    //    })
+
+    // window.addEventListener('unload', function(){
+    //     confirm('你确定要关闭窗口？')
+    // },false)
+    var btn = document.querySelector('.btn');
+    btn.onclick = function(){
+        window.location.hash = new Date().getTime();
+    }
+
+    window.onhashchange = function(){
+        alert(1231231)
+    }
+
+
+    document.oncut = function(){
+        alert(111);
+    }
+    document.oncopy = function(){
+        alert(2222);
+    }
+
+    document.onpaste = function(){
+        alert(3333);
+    }
+    </script>
+    </body>
+</html>

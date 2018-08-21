@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var obj = {
+            name: '张三',
+            age: 27,
+            children: {
+                item: 1,
+                name1: '吴钰萱',
+                age: 2
+            }
+        }
+
+        var obj2 = deepCopy(obj)
+
+        function deepCopy(obj) {
+            var copy = obj.constructor === Array ? [] : {};
+            if (typeof obj !== 'object') {
+                return;
+            } else {
+                for (var i in obj) {
+                    if (obj.hasOwnProperty(i)) {
+                        copy[i] = typeof obj[i] === 'object' ? deepCopy(obj[i]) : obj[i];
+                    }
+                }
+            }
+            return copy
+        }
+
+        console.log(obj2)
+    </script>
+</body>
+
+</html>

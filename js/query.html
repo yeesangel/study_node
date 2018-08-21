@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+    <script>
+        getQueryString(url, name){
+            var params = url.substring(url.indexOf('?'));
+            var paramList = [];
+            var param = null;
+            var parami;
+            if (params.length > 0) {
+                if (params.indexOf("&") >= 0) {
+                    paramList = params.split("&");
+                } else {
+                    paramList[0] = params;
+                }
+                for (var i = 0, listLength = paramList.length; i < listLength; i++) {
+                    parami = paramList[i].indexOf(name + "=");
+                    if (parami >= 0) {
+                        param = paramList[i].substr(parami + (name + "=").length);
+                    }
+                }
+            }
+            return param;
+        }
+    </script>
+    </body>
+</html>

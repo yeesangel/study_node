@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var str = 'aaasdjeiwgjnewoigweggjlkwegnbsgvwedgewgweg'
+
+        function frist(str) {
+            var len = str.length;
+            var obj = {};
+            var _str = '';
+            var index = len;
+
+            for (var i = 0; i < len; i++) {
+                if (!obj[str[i]]) {
+                    obj[str[i]] = [i];
+                } else {
+                    obj[str[i]].push(i)
+                }
+            }
+
+            console.log(obj, '构建的数据结构')
+
+            for (i in obj) {
+                repeat(obj[i], i)
+            }
+            console.log(_str, 88888888)
+            return _str;
+
+            function repeat(arr, s) {
+                if (arr.length < 3) return;
+                for (var i = 0; i < arr.length; i++) {
+                    if (i === 2 && arr[i] < index) {
+                        _str = s;
+                        index = arr[i]
+                    }
+                }
+            }
+        }
+
+        console.log(frist(str), '计算出最早出现的三次字母')
+    </script>
+</body>
+
+</html>

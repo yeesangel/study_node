@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .ul-list{
+            overflow: hidden;
+        }
+        .ul-list li{
+            width: auto;
+            height: 200px;
+            background: pink;
+            float: left;
+            list-style: none;
+            margin: 5px;
+        }
+        .ul-list li img{
+            height: 100%;
+        }
+        /*清浮动*/
+.clearfix:after{content:"";display:block;clear:both; height: 0; visibility: hidden;}
+.clearfix{zoom:1;}
+
+    </style>
+    <body>
+        <ul class="ul-list clearfix">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    <script>
+        function imageLoad(){
+            var imageArr = [
+                "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1504026329492&di=ddd1a6a622b7e597ad02f1f64b1e2032&imgtype=0&src=http%3A%2F%2Fpic38.nipic.com%2F20140222%2F2656254_095504906000_2.jpg",
+                "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1504026329491&di=7dea52e6d717a20674bc26df830b3571&imgtype=0&src=http%3A%2F%2Fs2.lvjs.com.cn%2Fuploads%2Fpc%2Fplace2%2F2015-11-20%2F824ff408-a72c-4e9c-a678-5a9881a3b363.jpg",
+                "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1504026406370&di=192f8ddeaa60e8c10c0cb7598866af9a&imgtype=jpg&src=http%3A%2F%2Fc.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2Fd788d43f8794a4c2674c7f1804f41bd5ad6e3991.jpg",
+                "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1504026429201&di=da991fa5c2b814e0e00f6e71019e5bbb&imgtype=jpg&src=http%3A%2F%2Fb.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F86d6277f9e2f0708c91531c1e024b899a801f2db.jpg",
+                "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1504026329491&di=0becdcfaecc24f6debe05c9e15715a10&imgtype=0&src=http%3A%2F%2Fimg1.qunarzz.com%2Ftravel%2Fd3%2F1503%2Fcf%2F21676878535c99.jpg_r_1024x683x95_6439a344.jpg",
+                "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1504026329491&di=f76a308117ca2cfaec80ae2c6715e483&imgtype=0&src=http%3A%2F%2Fpic.68ps.com%2Fdown%2FUploadFile%2F20100325%2Fsc100325_1.jpg",
+                "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1504026329491&di=a72e84b38843c4c6c5ce8c7dad4432af&imgtype=0&src=http%3A%2F%2Fi1.s2.dpfile.com%2Fpc%2Ftrip%2Fe4f50ea8a1dba0b3cd8a9abf60698a83(640c360)%2Fthumb.jpg",
+                "https://ss0.baidu.com/94o3dSag_xI4khGko9WTAnF6hhy/image/h%3D220/sign=0aa1c5e0b012c8fcabf3f1cfcc0292b4/cefc1e178a82b90132ba74f37a8da9773812efdf.jpg",
+                "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1504026329698&di=112ca423a45e615c8cf974f441998367&imgtype=0&src=http%3A%2F%2Fimg0.ph.126.net%2FveUyZ0DPrnfLk9vYkg-YjA%3D%3D%2F2207889717418847685.jpg",
+                "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1504026329698&di=fbf2af33c056001ee5ac291000078b3f&imgtype=0&src=http%3A%2F%2Fimg1.bimg.126.net%2Fphoto%2FmcEZrWhVK5vmtqIKHMrjaw%3D%3D%2F5728297251039182470.jpg",
+            ]
+
+
+            var img = new Image();
+            var iNum = 0;
+            var aLi = document.querySelectorAll('li');
+            addImage()
+            function addImage(){
+                img.src = imageArr[iNum];
+                var oImg = document.createElement('img');
+                if(img.complete){
+                    oImg.src = imageArr[iNum];
+                    aLi[iNum].appendChild(oImg);
+                    addImage();
+                }else{
+                    img.onload = function(){
+                        oImg.src = imageArr[iNum-1];
+                        aLi[iNum-1].appendChild(oImg);
+                        addImage();
+                    }
+                }
+                console.log(imageArr.length)
+                if(iNum < imageArr.length){
+                    console.log(888888)
+                    iNum++;
+                }
+            }
+        }
+        imageLoad()
+    </script>
+    </body>
+</html>

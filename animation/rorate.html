@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .box {
+        width: 200px;
+        height: 200px;
+        -border-radius: 50%;
+        background: red;
+    }
+    
+    .play {
+        animation: rotate 20s linear infinite;
+        -webkit-animation: rotate 20s linear infinite;
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+    }
+    
+    @keyframes rotate {
+        0% {
+            transform: rotateZ(0deg);
+            -webkit-transform: rotateZ(0deg);
+        }
+        100% {
+            -webkit-transform: rotateZ(360deg);
+            transform: rotateZ(360deg);
+        }
+    }
+</style>
+
+<body>
+    <input type="button" value="按鈕" id="btn">
+    <div class="box" id="box"></div>
+</body>
+<script>
+    var btn = document.getElementById('btn');
+    var box = document.getElementById('box');
+    var flag = true
+    btn.onclick = function() {
+        if (flag) {
+            box.className += ' play'
+        } else {
+            box.className = 'box'
+        }
+        flag = !flag
+    }
+</script>
+
+</html>

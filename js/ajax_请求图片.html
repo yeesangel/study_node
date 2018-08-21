@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function imgUrl(url) {
+            return new Promise(function(resolve, reject) {
+                let xhr = new XMLHttpRequest()
+                xhr.open('GET', url, true)
+                xhr.responseType = 'blob'
+                xhr.onload = function() {
+                    if (xhr.status === 200) {
+                        resolve(xhr.response)
+                    } else {
+                        reject(new Error('图片加载失败：' + xhr.statusText))
+                    }
+                }
+                xhr.onerror = function(err) {
+                    reject(err)
+                }
+                xhr.send()
+            })
+        }
+
+
+        imgUrl('http://pic36.photophoto.cn/20150827/0034034435207606_b.jpg').then(function(data) {
+            console.log(data, 'blob')
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<style>
+    .ul1, body{
+        padding: 0;
+        margin: 0;
+    }
+    body{
+        /* position: fixed; */
+        /* width: 100%;
+        height: 100%;
+        background: #999;
+        overflow-y: scroll; */
+        
+    }
+    #box{
+        width: 300px;
+        height: 500px;
+        margin: 100px auto 0;
+        border: 1px solid cyan;
+        overflow-y: scroll;
+        position: relative;
+    }
+    .ul1 li{
+        height: 6.25rem;
+        width: 6.25rem;
+        background: pink;
+        border: 0.0625rem solid cyan;
+        list-style: none;
+    }
+</style>
+
+<body>
+    
+<!-- <div id="box">
+        
+</div> -->
+<ul class="ul1"> </ul> 
+
+<script>
+
+    // console.log(document.querySelectorAll('[dada-image=images]'),2222)
+    //var box = document.getElementById('box')
+    var ul = document.querySelector('.ul1');
+    var aLi = ul.getElementsByTagName('li');
+    var str = '';
+    var _num = 0;
+    //document.getElementsByClassName
+    var html = '';
+    for(var i=0;i<1000; i++){
+        html+="<li>"+(i+1)+"</li>"
+    }
+    ul.innerHTML = html;
+    var len = aLi.length;
+    var posArr = [];
+    var boxArr = [];
+    var H = document.documentElement.clientHeight;
+    var timer = null;
+    
+    for(var i=0; i<len; i++){
+        posArr.push({
+            top: getRelativeRect(aLi[i]).top,
+            isShow: false,
+            id: i + Math.floor(Math.random()*100000)
+        });
+        boxArr.push(aLi[i].offsetHeight);
+    }
+scrollClient()
+// 采用了节流函数
+window.addEventListener('scroll', throttle(0.5));
+
+function throttle(mustRun) {
+    var timeout,
+    timer = null,
+    startY = document.documentElement.scrollTop || document.body.scrollTop,
+    num = 0,
+    startTime = new Date();
+    return function(e) {
+        console.log(e, 'event')
+        var curTime = new Date(),
+        endY = document.documentElement.scrollTop || document.body.scrollTop;
+        
+        let iSeep = Math.abs(endY-startY)/(curTime - startTime);
+        startY = endY;
+        startTime = curTime;
+        document.title = iSeep;
+        
+        //console.log(curTime);
+        //console.log(endY-startY)
+        // 如果达到了规定的滚动速度，触发 handler
+        if(iSeep < 0.5){
+            scrollClient();
+        }
+        if(timer){
+            clearInterval(timer);
+        }
+        
+        timer = setTimeout(()=>{
+            document.title = num++;
+            // scrollClient();
+        }, 100);
+    };
+}
+
+function scrollClient(){
+    var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    console.time('runtime')
+    for(var i=0; i<len; i++){
+        if(!posArr[i].isShow && posArr[i].top >= scrollTop - boxArr[i] && posArr[i].top <= scrollTop+H){ //进入可是区域并且没有曝光
+            aLi[i].style.background = 'red';
+            posArr[i].isShow = true;
+            str += `{id: ${posArr[i].id}, ca_kw: ${i+1}},`;
+            _num++ //计数
+            // console.log(_num)
+            // console.log(str)
+            if(_num === 20) { //上报
+                // console.log(str, '上报埋点');
+                //str,_num 归零
+                _num = 0,
+                str = ''
+            }
+        } else {
+            //aLi[i].style.background = 'gray';
+        }
+    }
+    console.timeEnd('runtime')
+}
+
+function getRelativeRect (child) {
+    let pos = {
+        top: 0,
+        left: 0
+    }
+    while (child) {
+        pos.top += child.offsetTop;
+        pos.left += child.offsetLeft;
+        child = child.offsetParent;
+    }
+    return pos;
+}
+
+
+ul.onclick = function(){
+    document.documentElement.scrollTop = 3000
+}
+</script>
+</body>
+</html>

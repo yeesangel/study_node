@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box">
+        <input id="number" type="number" oninput="onlyNumber11()" v-model="message[0]"> {{message}}
+
+        <button @click="clickBtn()">按钮</button>
+    </div>
+</body>
+<script src="./vue.min.js"></script>
+<script>
+    var vm = new Vue({
+        el: '.box',
+        data: {
+            message: ['']
+        },
+        methods: {
+            clickBtn() {
+                //console.log(this.message)
+            },
+            onlyNumber() {
+                //得到第一个字符是否为负号    
+                //var t = obj.value.charAt(0);
+                //先把非数字的都替换掉，除了数字和. 
+                var text = this.message[0]
+                console.log(text, 1111)
+                text = text.replace(/[^\d\.]/g, '');
+                console.log(text, 2222)
+                    //必须保证第一个为数字而不是.       
+                text = text.replace(/^\./g, '');
+                console.log(text, 3333)
+                    //保证只有出现一个.而没有多个.       
+                text = text.replace(/\.{2,}/g, '.');
+                console.log(text, 4444)
+                    //保证.只出现一次，而不能出现两次以上       
+                text = text.replace('.', '$#$').replace(/\./g, '').replace('$#$', '.');
+                console.log(text, 4444)
+                text = text.replace(/^(\-)*(\d+)\.(\d\d).*$/, '$1$2.$3');
+                console.log(text, 5555)
+                    //如果第一位是负号，则允许添加
+
+                this.message[0] = text;
+                // if (t == '-') {
+                //     return;
+                // }
+            }
+        }
+
+    })
+
+    var dom = document.getElementById('number')
+    var btn = document.getElementById('btn')
+
+    function inputEvent() {
+        console.log(dom.value * 2)
+        dom.value = dom.value * 2
+    }
+
+    function onlyNumber11() {
+        var obj = dom
+        console.log(obj)
+            //得到第一个字符是否为负号    
+        var t = obj.value.charAt(0);
+        //先把非数字的都替换掉，除了数字和.     
+        obj.value = obj.value.replace(/[^\d\.]/g, '');
+        //必须保证第一个为数字而不是.       
+        obj.value = obj.value.replace(/^\./g, '');
+        //保证只有出现一个.而没有多个.       
+        obj.value = obj.value.replace(/\.{2,}/g, '.');
+        //保证.只出现一次，而不能出现两次以上       
+        obj.value = obj.value.replace('.', '$#$').replace(/\./g, '').replace('$#$', '.');
+        obj.value = obj.value.replace(/^(\-)*(\d+)\.(\d\d).*$/, '$1$2.$3');
+        //如果第一位是负号，则允许添加
+        if (t == '-') {
+            return;
+        }
+    }
+</script>
+
+</html>

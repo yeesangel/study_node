@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no" /> 
+	<title>Document</title>
+	<style>
+	
+	#div1{width: 100px; height: 100px; background: red;}
+	</style>
+	<script>
+	/*var a = 5;
+	var b = 6;
+	a = a + b;
+	b = a-b;
+	a = a-b;
+	alert(a);
+	alert(b);
+*/
+	
+
+	/*var a = 'hello';
+	var b = 'hi';
+	a = [a,b];
+	b = a[0];
+	a = a[1];
+	alert(a);
+	alert(b);*/
+
+	//第二题 有一个数n = 5；不用for循环，怎么返回数组[1,2,3,4,5];
+
+	/*function test(n){ //利用for循环实现
+		var arr = [];
+		for(var i=1;i<n+1;i++){
+			arr.push(i);
+		};
+		return arr;
+	};
+	alert(test(5));*/
+
+	//var n = 5;
+	/*function show(n){//利用递归实现方法一；
+		var arr = [];
+		return (function (){
+			arr.unshift(n);
+			n--;
+			if(n != 0){
+				arguments.callee();
+			}
+			return arr;
+		})();
+	};
+	alert(show(n));*/
+
+	/*var arr = [];
+	function test(n){//利用递归实现方法一；
+		arr.unshift(n);
+		n--;
+		if(n!=0){
+			test(n);
+		};
+		return arr;
+	};
+	alert(test(n));*/
+
+	/*function show(n){//利用正则replace中的回调函数实现；
+		var arr = [];
+		arr.length = n+1; //arr = [,,,,,];
+		var str = arr.join('a'); //str = 'aaaaa';
+		var arr2 = [];
+		str.replace(/a/g,function(){
+			 arr2.unshift(n--);
+		})
+		return arr2;
+	};
+	alert(show(n))*/
+
+	//第三题 有一个数n 当n小于100就返回n,否则就返回100；不让用if else ? ;  switch Math.min() ;
+	
+	var n=20;
+	n = ''+20;
+	alert(typeof n)
+
+	function test(n){
+		/*if(n<100){
+			return n;
+		}else{
+			return 100;
+		}*/
+
+		//return n<100 ? n : 100;
+		
+		/*switch(n<100){
+			case true:
+				return n;
+			break;
+			case false:
+				return 100;
+			break;
+		}*/
+
+		//return Math.min(n,100);
+		var arr = [n,100];
+		arr.sort(function(a,b){
+			return a-b
+		});
+		return arr[0];
+
+	};
+	alert(test(n));
+	
+
+	/*var arr = [8,5,3,4];
+
+	alert(arr.sort(function(b,a){
+		//return a-b //从大到小;
+		//return b-a //从小到大;
+	}));
+*/
+
+	</script>
+</head>
+<body>
+
+
+</body>
+</html>

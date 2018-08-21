@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+#test,
+#test2
+{
+    height:24px;
+    line-height: 24px;
+    background-color: greenyellow;
+    margin: 15px 0;
+}
+</style>
+<body>
+    <div id="test">0 %</div>
+
+    <div id="test2">0 %</div>
+    <input id="btn" type="button" value="run">
+    <script>
+        window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame;
+        var test = document.getElementById('test');
+        var test2 = document.getElementById('test2');
+        var btn = document.getElementById('btn');
+        var num = 0;
+        var num2 = 0;
+        var timer = null;
+
+        function step(){
+            num +=1;
+            test.style.width = num +'%';
+            test.innerHTML = num + '%';
+            if(num < 100){
+                requestAnimationFrame(step);
+            }
+        }
+
+
+        function step2(){
+            num2 +=1;
+            test2.style.width = num2 + '%';
+            test2.innerHTML = num2 + '%';
+            if(num2>=100){
+                clearInterval(timer);
+            }
+        }
+
+        btn.onclick = function(){
+            test.style.width = 0 + '%';
+            num = 0;
+
+            clearInterval(timer);
+            timer = setInterval(step2, 1000/60);
+
+            test2.style.width = 0 + '%';
+            num2 = 0;
+            requestAnimationFrame(step);
+
+        }
+
+    </script>
+</body>
+</html>

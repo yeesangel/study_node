@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+        <a download="data.txt" id="getData">下载</a>   
+    
+    <div id="myLocation"></div>
+    <script>
+        var data= 'Hello world!'+'添加无奇不有';  
+        
+        var blob = new Blob([data], {   
+        
+          type: 'text/html,charset=UTF-8'   
+        
+        });
+        
+        window.URL = window.URL || window.webkitURL; 
+        
+        document.querySelector("#getData").href = URL.createObjectURL(blob);
+
+
+        var ml=document.getElementById("myLocation");
+        function getUserLocation(){
+            if("geolocation" in navigator){
+                var options={
+                    enableHighAccuracy: true, 
+            maximumAge: 30000, 
+            timeout: 27000
+            };	   
+    
+                 navigator.geolocation.getCurrentPosition(success,error,options);
+    
+                var watchID = navigator.geolocation.watchPosition(success,error, options);
+    
+         }else{
+            ml.innerHTML="您的浏览器不支持定位！";
+    
+             }
+    
+        }
+    
+        function success(position){
+        var coords=position.coords;
+        var lat=coords.latitude;
+        var lng=coords.longitude;
+        ml.innerHTML="您当前所在的位置：经度"+lat+";纬度："+lng;
+    
+            //只有firefox支持address属性
+    
+            if(typeof position.address !== "undefined"){  
+            var country = position.address.country;  
+            var province = position.address.region;  
+            var city = position.address.city;  
+            ml.innerHTML +="您的地址" + country + province + city;  
+        }  
+        }
+        function error(error){
+        switch(error.code){  
+            case error.TIMEOUT:  
+            ml.innerHTML="连接超时，请重试";break;  
+            case error.PERMISSION_DENIED:  
+            ml.innerHTML="您拒绝了使用位置共享服务，查询已取消";break;  
+            case error.POSITION_UNAVAILABLE:  
+            ml.innerHTML="亲，非常抱歉，我们暂时无法为您提供位置服务";break;  
+        }  
+        ml.style.color="red";
+        }
+        window.onload=function(){
+        getUserLocation();
+        }
+    </script>
+</body>
+</html>

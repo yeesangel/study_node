@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" id="form">
+        用户名：<input type="text" name="user" /></br>
+        密码：<input type="password" name="pass" /></br>
+        性别：<input type="radio" name="sex" value="男" />男
+        <input type="radio" name="sex" value="女" />女 头像：
+        <input type="file" id="file" name="file" /></br>
+        <button id="btn" type="button">提交</button>
+    </form>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script>
+    console.log($)
+    var imgs = []; //存储图片链接
+    //为文件上传添加change事件
+    var fileM = document.querySelector("#file");
+    $("#file").on("change", function() {
+        console.log(12121212)
+        //console.log(fileM.files);
+        //获取文件对象，files是文件选取控件的属性，存储的是文件选取控件选取的文件对象，类型是一个数组
+        var fileObj = fileM.files[0];
+        console.log(fileObj, 'arr')
+        //创建formdata对象，formData用来存储表单的数据，表单数据时以键值对形式存储的。
+        var formData = new FormData();
+        console.log(formData, 1111111)
+        formData.append('file', fileObj);
+        console.log(formData, 2222222)
+    })
+
+
+    $('#btn').click(function() {
+        $('#from').submit()
+    })
+</script>
+
+</html>
