@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Document</title>
+</head>
+   <style>
+       *{
+           padding: 0;
+           margin: 0;
+       }
+       ul li{
+           list-style: none;
+       }
+       .tab-box{
+           /* overflow: hidden; */
+           margin-left:10px;
+           margin-right:10px;
+           overflow: scroll;
+           border-bottom: 0.5px solid #eeeeee;
+       }
+       .tab-wrap{
+           overflow: hidden;
+           /* position: absolute; */
+       }
+       .tab-box::-webkit-scrollbar {display: none;}
+
+       .tab-wrap .item{
+           float: left;
+           padding: 16px 10px;
+           line-height: 16px;
+           font-size: 16px;
+           color: #404040 ;
+           position: relative;
+       }
+       .current{
+           font-weight: bold;
+       }
+       .current::before{
+           content: "";
+           position: absolute;
+           left: 50%;
+           bottom: 0;
+           margin-left: -10px;
+           width: 20px;
+           height:4px;
+           background: #FFAA00;
+           border-radius: 2px;
+           transform: translateX();
+       }
+   </style>
+<body>
+   <div class="tab-box">
+       <ul class="tab-wrap">
+           <li class="item current">推荐</li>
+           <li class="item">游戏推广</li>
+           <li class="item">微商</li>
+           <li class="item">优惠券推广</li>
+           <li class="item">APP试玩</li>
+           <li class="item">推荐</li>
+           <li class="item">游戏推广</li>
+           <li class="item">微商</li>
+           <li class="item">优惠券推广</li>
+           <li class="item">APP试玩</li>
+           <li class="item">推荐</li>
+           <li class="item">游戏推广</li>
+           <li class="item">微商</li>
+           <li class="item">优惠券推广</li>
+           <li class="item">APP试玩</li>
+           <li class="item">推荐</li>
+           <li class="item">游戏推广</li>
+           <li class="item">微商</li>
+           <li class="item">优惠券推广</li>
+           <li class="item">APP试玩</li>
+       </ul>
+   </div>
+   <script>
+       let tabWrap = document.querySelector('.tab-wrap'),
+           boxWrap = document.querySelector('.tab-box'),
+           child = tabWrap.children,
+           tabW = [],
+           clientW = window.innerWidth,
+           len = child.length,
+           tabPos = [];
+
+       setTabWidth();
+       function setTabWidth() {
+           let w = 0;
+           for(let i=0; i < len; i++) {
+               setTimeout(() => {
+                tabPos.push(getAbsPoint(child[i]).x);
+               })
+               w += parseFloat(getStyle(child[i], 'width'));
+               tabW.push(parseFloat(getStyle(child[i], 'width')) + 20);
+           }
+           w = Math.ceil(w+(20*child.length));
+           tabWrap.style.width = w+'px';
+       }
+
+       for(let i=0; i<len; i++) {
+            child[i].onclick = () => {
+                let sLeft = tabPos[i]-((clientW-tabW[i])/2);
+                boxWrap.scrollLeft = sLeft;
+                removeAddClass(i);
+                setTabWidth();
+            }
+
+       }
+       console.log(tabW)
+
+
+       function removeAddClass(i) {
+            for(let j=0; j<len; j++) {
+                if(child[j].className === 'item current') {
+                    child[j].className = 'item';
+                }
+            }
+            child[i].className = 'item current';
+       }
+
+       // tabWrap.scrollLeft
+       // tabWrap.addEventListener('scroll', clickItem())
+       boxWrap.onscroll = (e) => {
+        //    console.log(e)
+       }
+
+
+
+       function getAbsPoint(ele){
+            var x = ele.offsetLeft;
+            var y = ele.offsetTop;
+            while(ele = ele.offsetParent)
+            {
+                x += ele.offsetLeft;
+                y += ele.offsetTop;
+            }
+            return {'x': x, 'y': y};
+        }
+
+       function getStyle(el, property) {
+           return document.defaultView.getComputedStyle(el, null)[property]
+       }
+   </script>
+</body>
+</html>
