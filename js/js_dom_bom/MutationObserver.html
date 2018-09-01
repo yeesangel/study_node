@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box"></div>
+
+    <script>
+
+
+        var box = document.querySelector(".box");
+
+        setTimeout(() => {
+            console.log(121212)
+        })
+
+        var observer = new MutationObserver(function(mutation, abserver) {
+            console.log(mutation, 999)
+            mutation.forEach((item) => {
+                // console.log(item);
+            })
+        })
+
+        var options = {
+            'childList': true,
+            'attributes': true
+        }
+
+        observer.observe(box, options)
+
+        // for(var i=0; i<100; i++) {
+        //     var p = document.createElement('p');
+        //     p.innerHTML = i+'12';
+        //     box.appendChild(p);
+        // }
+        var p = '';
+        for(var i=0; i<100; i++) {
+            p += `<p>${i+'12'}</p>`
+        }
+        box.innerHTML = p
+        
+
+
+    </script>
+</body>
+</html>
