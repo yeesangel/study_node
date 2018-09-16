@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .parent{
+        padding: 100px;
+        background: red;
+    }
+    #box{
+        background: white;
+        padding: 30px;
+    }
+</style>
+<body>
+    <!-- <div id="box" onclick="clickEvent()">我是吴凯</div> -->
+    <div class="parent">
+        <div id="box">我是box</div>
+    </div>
+    <script>
+        //javascript 中 有三种事件绑定方式
+        // 1. dom 元素直接绑定
+        // 2. 在javascript 代码中绑定
+        // 3. 绑定事件监听函数
+        var Box = document.getElementById("box");
+
+        var clickEvent = function() {
+            alert('1')
+        }
+        
+        var clickEvent1 = function() {
+            alert('2')
+        }
+        // Box.onclick = clickEvent //不执行
+        // Box.onclick = clickEvent1 //执行了
+
+        // addEventListener('click', clickEvent) // 执行力
+        // addEventListener('click', clickEvent1) // 执行了
+
+        // Box.parentNode.addEventListener('click', (e) => {
+        //     e.cancelBubble = true;
+        //     console.log(11111)
+        // })
+        // Box.addEventListener('click', (e) => {
+        //     console.log(e, 99999)
+        //     e.cancelBubble = true
+        //     console.log(22222)
+        // })
+
+        // box.attachEvent('onclick', function(){
+        //     console.log(1212)
+        // })
+
+        Box.addEventListener('click', function() {
+            console.log(1212121)
+        })
+
+        
+    </script>
+</body>
+</html>
