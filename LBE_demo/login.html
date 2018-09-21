@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Facebook Login JavaScript Example</title>
+<meta charset="UTF-8">
+</head>
+<script src="https://connect.facebook.net/en_US/all.js"></script>
+<body>
+<script>
+  function statusChangeCallback(response) {
+    console.log('statusChangeCallback', response);
+    if (response.status === 'connected') {
+      testAPI();
+    } else {
+      console.log('没有提交代码')
+      document.getElementById('status').innerHTML = 'Please log ' +
+        'into this app.';
+    }
+  }
+
+  function checkLoginState() {
+    console.log(9999999)
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  }
+
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '527885507623401',
+      xfbml      : true,  // parse social plugins on this page
+      version    : 'v3.1' // use graph api version 2.8
+    });
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+
+  };
+
+  // Load the SDK asynchronously
+  // (function(d, s, id) {
+  //   var js, fjs = d.getElementsByTagName(s)[0];
+  //   if (d.getElementById(id)) return;
+  //   js = d.createElement(s); js.id = id;
+  //   js.src = "https://connect.facebook.net/en_US/sdk.js";
+  //   fjs.parentNode.insertBefore(js, fjs);
+  // }(document, 'script', 'facebook-jssdk'));
+
+  // Here we run a very simple test of the Graph API after login is
+  // successful.  See statusChangeCallback() for when this call is made.
+  function testAPI() {
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', function(response) {
+      console.log('Successful login for: ' + response.name);
+      document.getElementById('status').innerHTML =
+        'Thanks for logging in, ' + response.name + '!';
+    });
+  }
+</script>
+
+<script type="text/javascript">
+  var FB_APP_ID = '221889011278088';
+  var doOnFrontend = false;
+  
+  $(function() {
+      var system = 'fb';
+      var redirectUrl = 'https://vichatter.net/vichatter.php';
+      Multitoken.Main.init(system);
+      $('.multitoken-link').click(function() {
+          if(!redirectUrl) {
+              console.log('Incorrect redirect_url');
+              return false;
+          }
+          Multitoken.Main.login(system, function(data) {
+              $.ajax({
+                  url: '/putdata/',
+                  data: {atype: system, adata: data},
+                  type: 'post',
+                  dataType: 'json'
+              }).done(function(data) {
+                  if((data != undefined) && (data.token != undefined)) {
+                      if((redirectUrl.indexOf('http://')==-1) && (redirectUrl.indexOf('https://')==-1))
+                          redirectUrl = 'http://'+redirectUrl;
+                      
+                      if(doOnFrontend) {
+                          if(redirectUrl.indexOf('#') > -1)
+                              redirectUrl = redirectUrl.replace(/[^#]*(#.*)/i, '');
+                          top.location = redirectUrl+'#multitoken='+data.token;
+                      }
+                      else {
+                          redirectUrl += (redirectUrl.indexOf('?')==-1)?'?':'&';
+                          top.location = redirectUrl+'multitoken='+data.token;
+                      }
+                  }
+              });
+          });
+  
+          return false;
+      });
+  });
+  </script>
+
+<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+</fb:login-button>
+
+<div id="status">
+</div>
+
+</body>
+</html>
