@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 字符类 一组相似的元素 []整体 只代表一个元素
+    // var str = 'abdc'
+    // var re = /a[bcd]c/
+    // alert(re.test(str))
+    // str.replace(re, function($0, $1) {
+    //   // alert($1)
+    // })
+
+    // 排除 如果^ 写在里面的话 就是排除的意思
+    // var str = 'abc'
+    // var re = /[^cmf]/
+    // alert(re.test(str))
+
+    // 范围 [a-z0-9A-Z] 
+    var str = '121awsds'
+    var re = /[a-z0-9A-Z]/
+    alert(re.test(str))
+  </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var str = 'asdssskdfsssggfsssssdgss';
+    var arr = str.split('');
+    str = arr.sort().join('');
+    var rg = /(\w)\1+/g;
+    var index = 0;
+    var value = '';
+
+    str.replace(rg, function($0, $1) {
+      // console.log($0)
+      if(index<$0.length) {
+        index = $0.length
+        value = $1
+      }
+    })
+
+    console.log('出现次数最多是'+ index + '字符是' + value )
+  </script>
+</body>
+</html>

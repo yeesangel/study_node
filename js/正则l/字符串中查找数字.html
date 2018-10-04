@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+    <script>
+      var str = 'dasas12dfdf565sdfsd6768asda121'
+
+      function test() {
+        var strArr = []
+        var tmp = ''
+        for(var i=0; i < str.length; i++){
+          if(str.charAt(i)>=0 && str.charAt(i)<=9) { //数字类型
+            tmp+=str.charAt(i)
+          } else {
+            if(tmp){
+              strArr.push(tmp)
+              tmp = ''
+            }
+          }
+        }
+        if(tmp){
+          strArr.push(tmp)
+          tmp = ''
+        }
+
+        return strArr
+      }
+
+      // alert(test())
+
+      //用正则的方式来写
+
+      var reg = /\d\d\d/g
+
+      var strArr = str.match(reg)
+
+      alert(strArr)
+    </script>
+</body>
+</html>

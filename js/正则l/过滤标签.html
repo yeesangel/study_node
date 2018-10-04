@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <textarea name="" cols="30" rows="10"></textarea><br>
+  <textarea name="" cols="30" rows="10"></textarea><br>
+  <input type="button" id="btn" value="确定">
+  <script>
+    var aText = document.getElementsByTagName('textarea')
+    var btn = document.getElementById('btn')
+    // var rg = /<\w+>|<\/\w+>/g
+    // var rg = /<[^>]+>|<\/\w+>/g
+    var rg = /<[\w]+>/g
+    
+    function test() {
+      result = aText[0].value.replace(rg, '')
+      console.log(aText[1].value, 121212)
+      aText[1].value = result
+    }
+
+    btn.onclick = function() {
+      test()
+    }
+
+
+
+
+
+    var str  = `
+    case "al": //albania
+        return "flag_albania";
+    case "am": //armenia
+        return "flag_armenia";
+    case "ao": //angola
+        return "flag_angola";
+    case "aq": //antarctica // custom
+        return "flag_antarctica";
+    case "ar": //argentina
+        return "flag_argentina";
+    case "at": //austria`
+    // var str = 'return "flag_albania";'
+
+    window.onclick = () => {
+      let reg = /flag\w+/g
+      console.log(str.match(reg, function($1){
+        console.log($1, 33333)
+      })) 
+
+      // let re = /"/g
+      // console.log(str.match(re))
+    }
+  </script>
+</body>
+</html>
