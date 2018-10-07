@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div class="box"></div>
+  <script>
+    var ele = document.createElement('div')
+
+    // var str = ''
+    // console.log(ele, 'div')
+    // for(var key in ele) {
+    //   str = str + key + "\n"
+    // }
+    // console.log(str, 12121)
+    
+    var parent = document.querySelector('.box');
+    var aa = document.createTextNode('hello world');
+    console.log(aa)
+    parent.appendChild(aa)
+  </script>
+</body>
+</html>
