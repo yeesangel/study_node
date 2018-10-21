@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style>
+  html, body{
+    width: 100%;
+    height: 100%;
+  }
+  .video{
+    height: 100%;
+    width: auto;
+  }
+  .box{
+    width: 100px;
+    height: 100px;
+    background: red;
+    float: right;
+  }
+</style>
+<body>
+  <!-- <object > -->
+    <!-- <embed src="http://www.runoob.com/try/demo_source/movie.mp4" width="200" height="150" > -->
+  <!-- </object> -->
+
+  <!-- <video controls loop src="http://www.runoob.com/try/demo_source/movie.mp4"></video> -->
+  <video class="video">
+    <source src="http://www.runoob.com/try/demo_source/movie.mp4" type="video/mp4">
+  </video>
+
+  <div class="box"></div>
+
+  <script>
+    var video = document.querySelector('video');
+    
+    
+    var box = document.querySelector('.box')
+    box.onclick = () => {
+      video.play()
+    }
+    // return
+    // setTimeout(() => {
+    //   video.play()
+    //   console.log(1212)
+    // }, 5000)
+  </script>
+</body>
+</html>
