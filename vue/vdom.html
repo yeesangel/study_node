@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+    <div id="container">
+        <h1 style="color:red">simple virtual dom</h1>
+        <p>hello world</p>
+        <ul>
+            <li>item #1</li>
+            <li>item #2</li>
+        </ul>   
+    </div>
+    
+  <script>
+    //虚拟dom，参数分别为标签名、属性对象、子DOM列表
+    var VElement = function(tagName, props, children) {
+        //保证只能通过如下方式调用：new VElement
+        if (!(this instanceof VElement)) {
+            return new VElement(tagName, props, children);
+        }
+    
+        //可以通过只传递tagName和children参数
+        if (Array.isArray(props)) {
+            children = props;
+            props = {};
+        }
+        console.log(tagName, 'wukai')
+        //设置虚拟dom的相关属性
+        this.tagName = tagName;
+        this.props = props || {};
+        this.children = children || [];
+        this.key = props ? props.key : void 666;
+        var count = 0;
+        this.children.forEach(function(child, i) {
+            console.log(child.count, child.tagName)
+            if (child instanceof VElement) {
+                count += child.count;
+            } else {
+                // console.log(child, 'child')
+                children[i] = '' + child;
+            }
+            count++;
+            console.log(count, child.tagName)
+        });
+        this.count = count;
+    }
+
+
+    var vdom = VElement('div', { 'id': 'container' }, [
+        VElement('h1', { style: 'color:red' }, ['simple virtual dom']),
+        VElement('p', ['hello world']),
+        VElement('ul', [VElement('li', ['item #1']), VElement('li', ['item #2'])]),
+    ]);
+
+    console.log(vdom)
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+    <video id="localVideo"></video>
+    <script>
+      // function hasGetUserMedia() {
+      //   // Note: Opera builds are unprefixed.
+      //   return !!(navigator.getUserMedia || navigator.webkitGetUserMedia ||
+      //             navigator.mozGetUserMedia || navigator.msGetUserMedia);
+      // }
+
+      // if (hasGetUserMedia()) {
+      //   alert('Good to go!')
+      // } else {
+      //   alert('getUserMedia() is not supported in your browser');
+      // }
+
+    navigator.getUserMedia = navigator.getUserMedia || navigator.mozGetUserMedia || navigator.webkitGetUserMedia;
+    var localVideo = document.getElementById('localVideo')
+    var config = {
+            "audio": true,
+            "video": true
+        }
+    navigator.getUserMedia(config, successMedia, errorMedia);
+    
+
+    function successMedia(e) {
+      // localVideo.src = window.URL.createObjectURL(e)
+      console.log(e, 'wukai')
+      localVideo.srcObject = e
+    }
+
+    function errorMedia() {
+      alert('get stream fail')
+    }
+
+    </script>
+</body>
+</html>

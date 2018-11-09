@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- <video src="./local.mp4" id="localVideo"></video> -->
+  <!-- <video src="../下载.jpeg" id="localVideo"></video> -->
+
+  <canvas id="localVideo"></canvas>
+  <script>
+    var localVideo = document.getElementById('localVideo')
+    var stream = localVideo.captureStream();
+
+    localVideo.oncanplay = function() {
+      console.log(1212121)
+    }
+
+
+    localVideo.onerror = function(err) {
+      console.log(err, 'wukai')
+    }
+
+    console.log(JSON.stringify(stream), 'wukai')
+    console.log(stream, 'wukai')
+  </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div class="box">
+
+  </div>
+  <script>
+    let box = document.querySelector('.box');
+
+    let canvas = document.createElement('canvas');
+    // canvas.setAttribute('width', '1920');
+    // canvas.setAttribute('height', '1080');
+    var img = new Image()
+    img.src = 'http://img03.tooopen.com/uploadfile/downs/images/20110714/sy_20110714135215645030.jpg'
+    canvas.width = 1920
+    canvas.height = 1080
+    let context = canvas.getContext('2d');
+
+    img.onload = function() {
+      context.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+    }
+
+
+    box.appendChild(canvas)
+  </script>
+</body>
+</html>

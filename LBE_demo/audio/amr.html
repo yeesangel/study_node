@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<script src="./BenzAMRRecorder.min.js"></script>
+<body>
+  <input type="file" id="selected" accept=".amr">
+
+  <script>
+
+    // 测试播放 amr 格式音频
+    var amr = new BenzAMRRecorder();
+    var dom = document.getElementById('selected');
+    dom.onchange = function() {
+      console.log(this.files, 'wukai')
+      amr.initWithBlob(this.files[0]).then(function() {
+        amr.play();
+      });
+    }
+      
+
+    // 测试录音 生成 amr 格式文件 
+    // var amrRec = new BenzAMRRecorder();
+    // document.onclick = function() {
+    //   console.log('wukai')
+    //   amrRec.initWithRecord().then(function() {
+    //     console.log('start')
+    //     amrRec.startRecord();
+
+    //     setTimeout(() => {
+    //       amrRec.finishRecord().then(() => {
+    //         console.log(amrRec.getBlob(), 'wukai')
+    //         window.location.href = window.URL.createObjectURL(amrRec.getBlob());
+    //         console.log('结束录音');
+    //       })
+    //     }, 5000)
+    //   });
+    // }
+
+  </script>
+</body>
+</html>
