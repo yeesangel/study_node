@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="js/vue.min.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/vconsole.min.js"></script>
+</head>
+<body>
+  <div id="app">
+    <h1>{{name}}</h1>
+    <p>{{$t("guide_text")}}</p>
+  </div>
+</body>
+</html>
+<script>
+   var messages = {
+        en: {
+            guide_text: "Please download according to mobile system",
+            install_failed_text: "Please refer to the following guide for installtion",
+            android_version_statrement: "This guide is suitable for Android 8.0 below.",
+            android_1_step: "When the installation starts, a pop-up window appears, and then click \"Settings\" button.",
+            android_2_step: "Turn on \"Unknown sources\".",
+            android_3_step: "Click \"OK\" button and go to installation interface. ",
+            android_4_step: "Click \"Install\" button. Start to use app after the installation is completed.",
+            android_1_pic: "static/pic/Android8.0_down/en/en1.jpg",
+            android_2_pic: "static/pic/Android8.0_down/en/en2.jpg",
+            android_3_pic: "static/pic/Android8.0_down/en/en3.jpg",
+            android_4_pic: "static/pic/Android8.0_down/en/en4.jpg",
+            android_version_statrement8: "This guide is suitable for Android 8.0 or above. ",
+            android_1_step8: "When the installation starts, a pop-up window appears, and then click \"Settings\" button.",
+            android_2_step8: "Turn on \"Allow from this source\". ",
+            android_3_step8: "Click \"Back\" button to return to the installation interface.",
+            android_4_step8: "Click \"Install\" button. Start to use app after the installation is completed.",
+            android_1_pic8: "static/pic/Android8.0_up/en/en1.jpg",
+            android_2_pic8: "static/pic/Android8.0_up/en/en2.jpg",
+            android_3_pic8: "static/pic/Android8.0_up/en/en3.jpg",
+            android_4_pic8: "static/pic/Android8.0_up/en/en4.jpg",
+            ios_1_step: "Click the link to get UDID",
+            ios_2_step: "Submit UDID to administrator",
+            submit_id_text: "Submit your Hiyaa ID",
+            ios:{
+                ios_setup_desc: "After installation, you'll see a pop-up \"Untrusted Enterprise Developer\". Then please follow the steps as shown:",
+                ios_1_step: "Go to \"Settings\" and tap \"General\" ",
+                ios_2_step: "Tap \"Device Management\"",
+                ios_3_step: "Within \"Device Management\", tap the description file,\"Gimatis UAB\"",
+                ios_4_step: "After reading the description file, tap Trust \"Gimatis UAB\"  ",
+                ios_5_step: "Then, you'll see a pop-up asking whether you trust this file, tap \"Trust\"  ",
+                ios_6_step: "After trusting,you'll see the page as shown below. Back to homepage and open the App to start using. ",
+            }
+        },
+        ar: {
+            guide_text: "الرجاء اختيار التحميل وفقًا لنظام الهاتف المحمول الخاص بك",
+            install_failed_text: "يرجى الرجوع إلى الدليل التالي للتثبيت",
+            android_version_statrement: "هذا الدليل مناسب لنظام التشغيل Android 8.0 أدناه.",
+            android_1_step: "عند بدء التثبيت ، تظهر نافذة منبثقة ، ثم انقر فوق الزر \"الإعدادات\".",
+            android_2_step: "تشغيل \"مصادر غير معروفة\".",
+            android_3_step: "انقر على زر \"موافق\" وانتقل إلى واجهة التثبيت.",
+            android_4_step: "انقر فوق زر\"تثبيت\" . البدء في استخدام التطبيق بعد اكتمال التثبيت.",
+            android_1_pic: "static/pic/Android8.0_down/ar/ar1.jpg",
+            android_2_pic: "static/pic/Android8.0_down/ar/ar2.jpg",
+            android_3_pic: "static/pic/Android8.0_down/ar/ar3.jpg",
+            android_4_pic: "static/pic/Android8.0_down/ar/ar4.jpg",
+            android_version_statrement8: "هذا الدليل مناسب لنظام التشغيل Android 8.0 أو أعلى.",
+            android_1_step8: "عند بدء التثبيت ، تظهر نافذة منبثقة ، ثم انقر فوق الزر \"الإعدادات\".",
+            android_2_step8: "اضغط على \"السماح من هذا المصدر\".",
+            android_3_step8: "انقر فوق زر \"رجوع\" للعودة إلى واجهة التثبيت.",
+            android_4_step8: "انقر فوق زر\"تثبيت\" . البدء في استخدام التطبيق بعد اكتمال التثبيت.",
+            android_1_pic8: "static/pic/Android8.0_up/ar/ar1.jpg",
+            android_2_pic8: "static/pic/Android8.0_up/ar/ar2.jpg",
+            android_3_pic8: "static/pic/Android8.0_up/ar/ar3.jpg",
+            android_4_pic8: "static/pic/Android8.0_up/ar/ar4.jpg",
+            ios_1_step: "انقر على الرابط للوصول الى UDID",
+            ios_2_step: "يسلم ال UDID للمسوؤل",
+            submit_id_text: "Submit your Hiyaa ID",
+            ios:{
+                ios_setup_desc: "بعد الانتهاء من التثبيت  تظهر \"مطور مؤسسة غير موثوق فيه\". يرجى اتباع الخطوات كما هو موضح:",
+                ios_1_step: " انتقل إلى \"الإعدادات\" وانقر على \"عام\"",
+                ios_2_step: " اضغط على \"إدارة الجهاز\"",
+                ios_3_step: " في \"إدارة الجهاز\" انقر فوق ملف الوصف ،\"Gimatis UAB\"",
+                ios_4_step: " بعد قراءة وصف الملف انقر فوق \"الوثوق\"\"Gimatis UAB\" ",
+                ios_5_step: " بعد ذلك ستظهر نافذة منبثقة تسألك ما إذا كنت تثق بهذا الملف انقر على \"الوثوق\" ",
+                ios_6_step: " بعد الوثوق سترى الصفحة كما هو موضح أدناه. العودة إلى الصفحة الرئيسية وفتح التطبيق لبدء الاستخدام.",
+            }
+        },
+        es: {
+            guide_text: "Descargue de acuerdo con su sistema de teléfono ",
+            install_failed_text: "Consulte la siguiente guía para la instalación",
+            android_version_statrement: "Esta guía es adecuada para Android 8.0 anterior.",
+            android_1_step: "Cuando se inicia la instalación, aparece una ventana emergente y luego haz clic en el botón \"Ajustes\".",
+            android_2_step: "Activar \"Fuentes desconocidas\".",
+            android_3_step: "Haga clic en el botón \"Aceptar\" y vaya a la interfaz de instalación.",
+            android_4_step: "Haga clic en el botón \"Instalar\". Comience a usar la app una vez completada la instalación.",
+            android_1_pic: "static/pic/Android8.0_down/es/es1.jpg",
+            android_2_pic: "static/pic/Android8.0_down/es/es2.jpg",
+            android_3_pic: "static/pic/Android8.0_down/es/es3.jpg",
+            android_4_pic: "static/pic/Android8.0_down/es/es4.jpg",
+            android_version_statrement8: "Esta guía es adecuada para Android 8.0 o posteriores del sistema.",
+            android_1_step8: "Cuando se inicia la instalación, aparece una ventana emergente y luego haz clic en el botón \"Ajustes\".",
+            android_2_step8: "Activar \"Permitir desde esta fuente\".",
+            android_3_step8: "Haga clic en el botón \"Atrás\" para volver a la interfaz de instalación.",
+            android_4_step8: "Haga clic en el botón \"Instalar\". Comience a usar la app una vez completada la instalación.",
+            android_1_pic8: "static/pic/Android8.0_up/es/es1.jpg",
+            android_2_pic8: "static/pic/Android8.0_up/es/es2.jpg",
+            android_3_pic8: "static/pic/Android8.0_up/es/es3.jpg",
+            android_4_pic8: "static/pic/Android8.0_up/es/es4.jpg",
+            ios_1_step: "Haga clic en el enlace para obtener UDID",
+            ios_2_step: "Enviar UDID al administrador",
+            submit_id_text: "Submit your Hiyaa ID",
+            ios:{
+                ios_setup_desc: "Después de la instalación, verá una ventana emergente \"Desarrollador empresarial no fiable\". Luego, siga los pasos que se muestran a continuación:",
+                ios_1_step: "Vaya a \"Ajustes\" y toque \"General\"",
+                ios_2_step: "Toque \"Gestión de dispositivos\"",
+                ios_3_step: "Dentro de \"Gestión de dispositivos\", toque el archivo de descripción, \"Gimatis UAB\"",
+                ios_4_step: "Después de leer el archivo de descripción, toque Confiar en \"Gimatis UAB\"",
+                ios_5_step: "Luego, verá una ventana emergente preguntando si confía en este archivo, toque \"Confiar\"",
+                ios_6_step: "Después de confiar, verá la página como se muestra a continuación. Regrese a la página de inicio y abra la App para comenzar a usar.",
+            }
+        },
+        tr: {
+            guide_text: "Lütfen mobil sisteme göre indirin",
+            install_failed_text: "Lütfen kurulum için aşağıdaki klavuza başvurun",
+            android_version_statrement: "Bu kılavuz aşağıdaki Android 8.0 için uygundur.",
+            android_1_step: "Yükleme başladığında, bir açılır pencere belirir ve ardından \"Ayarlar\" düğmesine tıklayın.",
+            android_2_step: "\"Bilinmeyen kaynaklar\" ı açın.",
+            android_3_step: "\"Tamam\" düğmesini tıklayın ve kurulum arayüzüne gidin.",
+            android_4_step: "\"Yükle\" düğmesine tıklayın. Yükleme tamamlandıktan sonra uygulamayı kullanmaya başlayın.",
+            android_1_pic: "static/pic/Android8.0_down/tr/tr1.jpg",
+            android_2_pic: "static/pic/Android8.0_down/tr/tr2.jpg",
+            android_3_pic: "static/pic/Android8.0_down/tr/tr3.jpg",
+            android_4_pic: "static/pic/Android8.0_down/tr/tr4.jpg",
+            android_version_statrement8: "Bu kılavuz Android 8.0 veya üstü için uygundur.",
+            android_1_step8: "Yükleme başladığında, bir açılır pencere belirir ve ardından \"Ayarlar\" düğmesine tıklayın.",
+            android_2_step8: "\"Bu kaynaktan izin ver\" düğmesini açın.",
+            android_3_step8: "Kurulum arayüzüne geri dönmek için \"Geri\" düğmesine tıklayın.",
+            android_4_step8: "\"Yükle\" düğmesine tıklayın. Yükleme tamamlandıktan sonra uygulamayı kullanmaya başlayabilirsiniz.",
+            android_1_pic8: "static/pic/Android8.0_up/tr/tr1.jpg",
+            android_2_pic8: "static/pic/Android8.0_up/tr/tr2.jpg",
+            android_3_pic8: "static/pic/Android8.0_up/tr/tr3.jpg",
+            android_4_pic8: "static/pic/Android8.0_up/tr/tr4.jpg",
+            ios_1_step: "UDID almak için bağlantıyı tıklayın",
+            ios_2_step: "UDID'yi yöneticiye gönder",
+            submit_id_text: "Submit your Hiyaa ID",
+            ios:{
+                ios_setup_desc: "Yüklemeden sonra bir pop-up \"Güvenilir Olmayan Kurumsal Geliştirici\"‘yi göreceksiniz. Sonra lütfen aşağıdaki adımları izleyin:",
+                ios_1_step: "\"Ayarlar\" a gidin ve \"Genel\" e dokunun.",
+                ios_2_step: "\"Aygıt Yönetimi\" ne dokunun.",
+                ios_3_step: "\"Aygıt Yönetimi\" içinde \"Gimatis UAB\" açıklama dosyasına dokunun.",
+                ios_4_step: "Açıklama dosyasını okuduktan sonra, Güven \"Gimatis UAB\" öğesine dokunun.",
+                ios_5_step: "Ardından, bu dosyaya güvenip güvenmediğinizi soran bir pop-up görürsünüz, \"Güven\" e dokunun.",
+                ios_6_step: "Güvendikten sonra, sayfayı aşağıda gösterildiği gibi göreceksiniz. Ana sayfaya dönün ve kullanmaya başlamak için Uygulamayı açın.",
+            }
+        },
+        fr: {
+            guide_text: "Veuillez télécharger en fonction du système d'exploitation mobile",
+            install_failed_text: "Veuillez vous référer au guide suivant.",
+            android_version_statrement: "Ce guide concerne les versions antérieures à Android 8.0.",
+            android_1_step: "Lorsque l'installation démarre, une fenêtre surgissante apparaît. Cliquez alors sur le bouton « Paramètres. »",
+            android_2_step: "Activez « Sources inconnues. »",
+            android_3_step: "Cliquez sur « OK » et allez à l'interface d'installation.",
+            android_4_step: "Cliquez sur le bouton « Installer. » Commencez à utiliser l'application une fois l'installation terminée.",
+            android_1_pic: "static/pic/Android8.0_down/en/en1.jpg",
+            android_2_pic: "static/pic/Android8.0_down/en/en2.jpg",
+            android_3_pic: "static/pic/Android8.0_down/en/en3.jpg",
+            android_4_pic: "static/pic/Android8.0_down/en/en4.jpg",
+            android_version_statrement8: "Ce guide concerne Android 8.0 et les versions ultérieures.",
+            android_1_step8: "Lorsque l'installation démarre, une fenêtre surgissante apparaît. Cliquez alors sur le bouton « Paramètres. »",
+            android_2_step8: "Activez « Autoriser à partir de cette source. »",
+            android_3_step8: "Cliquez sur le bouton « Retour » pour retourner à l'interface d'installation.",
+            android_4_step8: "Cliquez sur le bouton « Installer. » Commencez à utiliser l'application une fois l'installation terminée.",
+            android_1_pic8: "static/pic/Android8.0_up/en/en1.jpg",
+            android_2_pic8: "static/pic/Android8.0_up/en/en2.jpg",
+            android_3_pic8: "static/pic/Android8.0_up/en/en3.jpg",
+            android_4_pic8: "static/pic/Android8.0_up/en/en4.jpg",
+            ios_1_step: "Cliquez sur le lien pour obtenir l'UDID",
+            ios_2_step: "Envoyez l'UDID à l'administrateur",
+            submit_id_text: "Submit your Hiyaa ID",
+            ios:{
+                ios_setup_desc: "Après l'installation, vous verrez un pop-up \"Développeur Entreprise non approuvé\". Suivez ensuite les étapes comme indiqué :",
+                ios_1_step: "Allez dans \"Réglages\" et appuyez sur \"Général\". ",
+                ios_2_step: "Tapez sur \"Gestion de l\'appareil\".",
+                ios_3_step: "Dans \"Gestion de l'appareil\", tapez sur le fichier de description, \"Gimatis UAB\".",
+                ios_4_step: "Après avoir lu le fichier de description, appuyez sur faire confiance à \"Gimatis UAB\". ",
+                ios_5_step: "Ensuite, vous verrez une fenêtre pop-up vous demandant si vous faites confiance à ce fichier, appuyez sur \"Faire confiance\". ",
+                ios_6_step: "Après cela, vous verrez la page comme indiqué ci-dessous. Retour à la page d'accueil et ouvrez l'application pour commencer à l'utiliser. ",
+            }
+        },
+        de: {
+            guide_text: "Bitte je nach mobilem System herunterladen",
+            install_failed_text: "Beachten Sie bitte die folgende Installationsanleitung",
+            android_version_statrement: "Diese Anleitung bezieht sich auf Versionen kleiner Android 8.0.",
+            android_1_step: "Zu Beginn der Installation erscheint ein Popup-Fenster. Klicken Sie dann auf „Einstellungen“.",
+            android_2_step: "Aktivieren Sie „Unbekannte Quellen“.",
+            android_3_step: "Klicken Sie auf „OK“ und gehen Sie zur Installationsoberfläche.",
+            android_4_step: "Klicken Sie auf „Installieren“. Starten Sie die Anwendung nach Abschluss der Installation.",
+            android_1_pic: "static/pic/Android8.0_down/en/en1.jpg",
+            android_2_pic: "static/pic/Android8.0_down/en/en2.jpg",
+            android_3_pic: "static/pic/Android8.0_down/en/en3.jpg",
+            android_4_pic: "static/pic/Android8.0_down/en/en4.jpg",
+            android_version_statrement8: "Diese Anleitung bezieht sich auf Android 8.0 und höher. ",
+            android_1_step8: "Zu Beginn der Installation erscheint ein Popup-Fenster. Klicken Sie dann auf „Einstellungen“.",
+            android_2_step8: "Aktivieren Sie „Von dieser Quelle zulassen“. ",
+            android_3_step8: "Klicken Sie für eine Rückkehr zur Installationsoberfläche auf „Zurück“.",
+            android_4_step8: "Klicken Sie auf „Installieren“. Starten Sie die Anwendung nach Abschluss der Installation.",
+            android_1_pic8: "static/pic/Android8.0_up/en/en1.jpg",
+            android_2_pic8: "static/pic/Android8.0_up/en/en2.jpg",
+            android_3_pic8: "static/pic/Android8.0_up/en/en3.jpg",
+            android_4_pic8: "static/pic/Android8.0_up/en/en4.jpg",
+            ios_1_step: "Klicken Sie für die UDID auf den Link",
+            ios_2_step: "Legen Sie die UDID dem Administrator vor",
+            submit_id_text: "Submit your Hiyaa ID"
+        },
+        in: {
+            guide_text: "Silakan unduh sesuai sistem seluler",
+            install_failed_text: "Silakan lihat panduan berikut untuk instalasi",
+            android_version_statrement: "Panduan ini sesuai untuk Android 8.0 ke bawah.",
+            android_1_step: "Saat instalasi dimulai, jendela pop-up muncul, lalu klik tombol \"Pengaturan\".",
+            android_2_step: "Aktifkan \"Sumber Tidak Dikenal\".",
+            android_3_step: "Klik tombol \"Oke\" dan pergi ke antarmuka instalasi.",
+            android_4_step: "Klik tombol \"Instal\". Mulai gunakan aplikasi setelah instalasi selesai.",
+            android_1_pic: "static/pic/Android8.0_down/en/en1.jpg",
+            android_2_pic: "static/pic/Android8.0_down/en/en2.jpg",
+            android_3_pic: "static/pic/Android8.0_down/en/en3.jpg",
+            android_4_pic: "static/pic/Android8.0_down/en/en4.jpg",
+            android_version_statrement8: "Panduan ini cocok untuk Android 8.0 atau yang lebih tinggi.",
+            android_1_step8: "Saat instalasi dimulai, jendela pop-up muncul, lalu klik tombol \"Pengaturan\".",
+            android_2_step8: "Aktifkan \"Izinkan dari sumber ini\".",
+            android_3_step8: "Klik tombol \"Kembali\" untuk kembali ke antarmuka instalasi.",
+            android_4_step8: "Klik tombol \"Pasang\". Mulai gunakan aplikasi setelah instalasi selesai.",
+            android_1_pic8: "static/pic/Android8.0_up/en/en1.jpg",
+            android_2_pic8: "static/pic/Android8.0_up/en/en2.jpg",
+            android_3_pic8: "static/pic/Android8.0_up/en/en3.jpg",
+            android_4_pic8: "static/pic/Android8.0_up/en/en4.jpg",
+            ios_1_step: "Klik tautan untuk mendapatkan UDID",
+            ios_2_step: "Kirimkan UDID ke administrator",
+            submit_id_text: "Submit your Hiyaa ID",
+        },
+        hi: {
+            guide_text: "कृपया मोबाइल सिस्टम के अनुसार डाउनलोड करें",
+            install_failed_text: "कृपया इंस्टॉलेशन के लिए निम्न मार्गदर्शिका देखें",
+            android_version_statrement: "यह गाइड एंड्रॉइड 8.0 से नीचे के लिए उपयुक्त है।",
+            android_1_step: "जब इंस्टॉलेशन शुरू होता है, तो पॉप-अप विंडो दिखाई देगी, और फिर \"सेटिंग्स\" बटन पर क्लिक करें।",
+            android_2_step: "\"अज्ञात स्रोत\" पर टर्न करें।",
+            android_3_step: "\"ठीक\" बटन पर क्लिक करें और इंस्टॉलेशन इंटरफ़ेस पर जाएं।",
+            android_4_step: "\"इंस्टॉल करें\" बटन पर क्लिक करें। इंस्टॉलेशन पूर्ण होने के बाद ऐप का उपयोग शुरू करें।",
+            android_1_pic: "static/pic/Android8.0_down/en/en1.jpg",
+            android_2_pic: "static/pic/Android8.0_down/en/en2.jpg",
+            android_3_pic: "static/pic/Android8.0_down/en/en3.jpg",
+            android_4_pic: "static/pic/Android8.0_down/en/en4.jpg",
+            android_version_statrement8: "यह गाइड एंड्रॉइड 8.0 या उसके ऊपर के संस्करण के लिए उपयुक्त है।",
+            android_1_step8: "जब इंस्टॉलेशन शुरू होता है, तो पॉप-अप विंडो दिखाई देगी, और फिर \"सेटिंग्स\" बटन पर क्लिक करें।",
+            android_2_step8: "\"इस स्रोत से अनुमति दें\" पर चालू करें।",
+            android_3_step8: "इंस्टॉलेशन इंटरफ़ेस पर वापस जाने के लिए \"वापस\" बटन पर क्लिक करें।",
+            android_4_step8: "\"इंस्टॉल करें\" बटन पर क्लिक करें। इंस्टॉलेशन पूर्ण होने के बाद ऐप का उपयोग शुरू करें।",
+            android_1_pic8: "static/pic/Android8.0_up/en/en1.jpg",
+            android_2_pic8: "static/pic/Android8.0_up/en/en2.jpg",
+            android_3_pic8: "static/pic/Android8.0_up/en/en3.jpg",
+            android_4_pic8: "static/pic/Android8.0_up/en/en4.jpg",
+            ios_1_step: "UDID/यूडीआईडी ​​प्राप्त करने के लिए लिंक पर क्लिक करें",
+            ios_2_step: "व्यवस्थापक को UDID/यूडीआईडी ​​जमा करें",
+            submit_id_text: "Submit your Hiyaa ID",
+            ios:{
+                ios_setup_desc: "इंस्टॉल करने के बाद, आपको एक \"अविश्वसनीय एंटरप्राइज़ डेवलपर\" का पॉप- अप दिखाई देगा. इसके बाद कृपया दर्शाए गए चरणों का पालन करें.",
+                ios_1_step: "\"सेटिंग्ज़\" पर जाएँ और \"सामान्य\" पर टेप करें.",
+                ios_2_step: "\"उपकरण प्रबंधन\" को टेप करें.",
+                ios_3_step: "\"उपकरण प्रबंधन\" के भीतर, विवरण फ़ाइल को टेप करें,\"Gimatis UAB\"",
+                ios_4_step: "विवरण फ़ाइल पढ़ने के बाद, \"भरोसा\" पर टेप करें \"Gimatis UAB\"",
+                ios_5_step: "इसके पश्चात, आपको एक पॉप-अप दिखेगा जिसमें आप से पूछा जाएगा की आप इस फ़ाइल पर भरोसा करते हैं या नहीं, \"भरोसा\" पर टेप करें.",
+                ios_6_step: "भरोसा करने के बाद, आप निचे दिए गए पेज की तरह दिखेगा. होम पेज पर वापस जाएँ और एप को दोबारा इस्तेमाल करने के लिए खोलें.",
+            }
+        }
+    };
+
+   var i18n = new VueI18n({
+        locale: 'hi', // set locale
+        messages: messages // set locale message
+    });
+
+
+
+  var vm = new Vue({
+    el: '#app',
+    i18n: i18n,
+    data: {
+      name: 'hello world'
+    },
+    created: function() {
+      var self = this
+      setTimeout(function() {
+        self.$i18n.locale = 'es';
+      }, 4000)
+    },
+  })
+</script>
