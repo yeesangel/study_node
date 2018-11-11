@@ -1,2 +1,4 @@
 /LBE_demo/webrtc/demo1/node_modules
 /LBE_demo/webrtc/webrtc-server-client-demo/node_modules
+/LBE_demo/react/bower_components
+/LBE_demo/vue-ssr/ssr/node_modules
