@@ -8,7 +8,8 @@ export function createRouter() {
         mode: 'history',
         routes: [
             { path: '/', component: Halo },
-            { path: '/hello/:id', component: () => import ('./components/hello.vue')}
+            { path: '/hello/:id', component: () => import ('./components/hello.vue')},
+            { path: '/item/:id', component: () => import ('./components/Item.vue')}
         ]
     })
 }
