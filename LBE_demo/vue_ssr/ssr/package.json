@@ -8,8 +8,8 @@
     "scripts": {
         "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
         "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
-        "bserver": "webpack --config ./build/webpack.server.config.js",
-        "bclient": "webpack --config ./build/webpack.client.config.js"
+        "bserver": "webpack -w --config ./build/webpack.server.config.js",
+        "bclient": "webpack -w --config ./build/webpack.client.config.js"
     },
     "dependencies": {
         "babel-preset-stage-2": "^6.24.1",

@@ -1,25 +1,26 @@
 // app.js
 import Vue from 'vue'
 import App from './App.vue'
-import { createRouter } from './router'
 import { createStore } from './store'
+import { createRouter } from './router'
 import { sync } from 'vuex-router-sync'
 
-export function createApp () {
-  // 创建 router 和 store 实例
-  const router = createRouter()
-  const store = createStore()
+export function createApp() {
+    // 创建 router 实例
+    const router = createRouter()
 
-  // 同步路由状态(route state)到 store
-  sync(store, router)
+    const store = createStore()
 
-  // 创建应用程序实例，将 router 和 store 注入
-  const app = new Vue({
-    router,
-    store,
-    render: h => h(App)
-  })
+    sync(store, router)
 
-  // 暴露 app, router 和 store。
-  return { app, router, store }
+    console.log(app, 'wukai111')
+    const app = new Vue({
+        // 注入 router 到根 Vue 实例
+        router,
+        store,
+        render: h => h(App)
+    })
+
+    // 返回 app 和 router
+    return { app, router, store }
 }
