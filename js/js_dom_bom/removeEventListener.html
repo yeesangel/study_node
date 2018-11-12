@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body id="app">
+  <script>
+    // function foo() {
+    //   console.log('wukai')
+    // }
+    // window.addEventListener('resize', foo)
+
+//     有个小坑记录下，想要移除window的addEventListener，需要把后面的function挂在到this上，
+// removeEventListener 和 addEventListener 中对应的参数要一致。
+
+//       beforeDestroy() { //在组件生命周期结束的时候销毁。
+//             window.removeEventListener('scroll', this.scrollhandle);
+//         },
+//         methods: {
+//             listenerAction() { 
+//                 window.addEventListener('scroll', this.scrollhandle);
+//             },
+//             scrollhandle(event) {
+//                 var scrollY = event.path[1].scrollY;
+//             },
+
+// 作者：butterflyer
+// 链接：https://www.jianshu.com/p/b80e274dc835
+// 來源：简书
+// 简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。
+    
+    
+
+    var vm = new Vue({
+      el: '#app',
+      methods:{
+        foo: function() {
+          console.log('wukai')
+        },
+      },
+      created() {
+        window.addEventListener('resize', this.foo)
+        document.onclick = () => {
+          window.removeEventListener('resize', this.foo)
+        }
+      },
+    })
+  </script>
+</body>
+</html>
