@@ -11,14 +11,25 @@
     width: 200px;
     height: 400px;
     position: relative;
+    border: 1px solid red;
+  }
+  .txt{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .box span, .p-txt{
+    float: left
   }
 </style>
 <body>
   <div class="box">
-    <a href="javascript:;">
-      <span class="txt">afjnsdsdsdcnskd</span>
-      <span class="age"></span>
-    </a>
+    <div class="txt-wrap">
+      <div class="p-txt">
+        <p class="txt">你好你好你好你好你好你好你好你好你好</p>
+      </div>
+      <span class="age">28</span>
+    </div>
   </div>
 </body>
 </html>
