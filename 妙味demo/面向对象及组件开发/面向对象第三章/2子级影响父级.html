@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title></title>
+	<style>
+	#div1{width: 180px; height: 180px; position: relative; background: red;}
+	#div2{width: 100px ; height: 100px; background: yellow;  opacity: 0.5; filter: alpha(opacity=50); position: absolute; left: 0; top: 0; }
+	</style>
+	<script>
+
+	//解决方案
+	//js onmouseenter onmoseleave (子及不会影响父级)
+	//css 加一个遮罩层
+
+	window.onload = function(){
+		var oDiv = document.getElementById('div1');
+		var oDiv2 = document.getElementById('div2');
+
+	/*	oDiv.onmouseover = function(){//子级影响父级
+			document.title+=1;
+		};
+
+		oDiv.onmouseout = function(){//子级影响父级
+			document.title+=2;
+		};*/
+
+			oDiv.onmouseenter = function(){
+			document.title+=1;
+		};
+
+		oDiv.onmouseleave = function(){
+			document.title+=2;
+		};
+	}
+	</script>
+</head>
+<body>
+
+<div id="div1">
+	<div id="div2"></div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no" /> 
+	<title>Document</title>
+	<style>
+	#div1{width: 200px; height: 200px; position: absolute; background: red; border: 1px solid #000;}	
+	#div1 #close{width: 20px; height: 20px; position: absolute; right: 0; bottom: 0; background: yellow;} 
+	#div2{position: absolute; width: 150px; height: 150px; right: 0; bottom: 0; background: blue;}
+	</style>
+	<script src="../sea/sea.js"></script>
+	<script>
+	window.onload = function(){
+		
+	seajs.use('./js/main.js')
+
+
+
+	}
+
+	</script>
+</head>
+<body>
+<input type="button" value="点击" id="input1" /><br />
+<br />
+<br />
+<div id="div1">
+	<div id="close"></div>
+</div>
+
+<div id="div2"></div>
+
+</body>
+</html>

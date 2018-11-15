@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style>
+	span{width: 200px; height: 40px; line-height:40px; text-align: center;display: block; float: left; background:red; color: #fff; font-size:20px;}
+	</style>
+	<script src="jquery-1.7.2.min.js"></script>
+	<script src="jquery.animateNumber.min.js"></script>
+	<script>
+	$(function() {
+		//数字动画效果
+		var donghua = $.animateNumber.numberStepFactories.separator(',')
+		$('#num1').animateNumber({
+			number: 843920892028,
+
+			easing: 'easeInQuad',
+			numberStep: donghua
+		},2000)
+ 		//数字倒计时效果
+		$('#revese-countdown')
+		  .prop('number', 10)
+		  .animateNumber(
+		    {
+		      number: 0,
+		      numberStep: function(now, tween) {
+		        var target = $(tween.elem),
+		            rounded_now = Math.round(now);
+		 
+		        target.text(now === tween.end ? 'Launch!' : rounded_now);
+		      }
+		    },
+		    10000,
+		    'linear'
+		  );
+		  //实例四、自定义数字步阶处理方法（句柄）
+		  $('#points').animateNumber(
+			 {
+			   number: 72,
+			   numberStep: function(now, tween) {
+			   var target = $(tween.elem);
+			   target
+			    .prop('number', now) // keep current prop value
+			    .text(now);
+			   }
+			 }
+			);
+
+ 			//实例五、定义动画数字的开始数据，下面实例定义的是从10到100数据的变化
+			$('#ten')
+			   .prop('number', 10)
+			   .animateNumber(
+			   {
+			     number: 100
+			   },
+			   20000
+			);
+			 //实例六、带小数位
+			 var decimal_places = 2;
+			var decimal_factor = decimal_places === 0 ? 1 : decimal_places * 10;
+			$('#decimals')
+			  .animateNumber(
+			    {
+			      number: 5 * decimal_factor,
+			      numberStep: function(now, tween) {
+			        var floored_number = Math.floor(now) / decimal_factor,
+			            target = $(tween.elem);
+			        if (decimal_places > 0) {
+			          // force decimal places even if they are 0
+			          floored_number = floored_number.toFixed(decimal_places);
+			          // replace '.' separator with ','
+			          floored_number = floored_number.toString().replace('.', ',');
+			        }
+			        target.text('$' + floored_number);
+			      }
+			    },
+			    20000
+			  );
+					
+	});
+	</script>
+</head>
+<body>
+
+	<p id="revese-countdown" style="color:red; font-size:30px;">10</p>
+	<p id="points" style="color:red; font-size:30px;">72</p>
+	 <p id="ten" style="color:red; font-size:30px;">From ten to hundred.</p>
+	 <p id="decimals" style="color:red; font-size:30px;">From $0,00 to $5,00</p>
+	<span  id="num1">843920892028</span>
+	<span id="num2">843920892028</span>
+	<span id="num3">843920892028</span>
+</body>
+</html>

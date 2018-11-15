@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<script>
+window.onload = function(){
+	var oInt1 = document.getElementById('int1');
+	var oT1 = document.getElementById('t1');
+	oInt1.onclick = function(){
+
+		navigator.geolocation.getCurrentPosition(function(position){
+			//alert(000)
+			oT1.value = '经度:'+position.coords.longitude
+			oT1.value += '纬度:'+position.coords.latitude
+			oT1.value += '准确度:'+position.coords.accuracy
+			oT1.value += '海拔 :'+position.coords.altitude
+			oT1.value += '海拔准确度:'+position.coords.altitudeAcuracy
+			oT1.value += '行进方向 :'+position.coords.heading
+			oT1.value += '地面速度:'+position.coords.speed
+			oT1.value += '时间戳 :'+new Date(position.timestamp)
+
+
+		})
+	}
+}
+</script>
+</head>
+<body>
+<input type="button" value="点击" id="int1" /><br>
+<textarea name="" id="t1" cols="30" rows="10"></textarea>
+</body>
+</html>
+

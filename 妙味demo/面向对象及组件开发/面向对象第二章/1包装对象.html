@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script>
+/*function Arr(){
+	this.name = '小明';
+}
+Arr.prototype.showName = function(){
+	alert(this.name);
+};
+var a1 = new Arr();
+a1.showName();*/
+/*var arr = new Array();
+arr.sort()
+arr.push()  //系统对象也是基于原型程序*/
+
+var arr = [1,2,3];
+Array.prototype.push = function(){
+	for(var i=0;i<arguments.length;i++){
+		arr[this.length] = arguments[i];
+	}
+	return this.length;
+} //尽量不要去修改或添加系统下的属性和方法;
+
+/*Array.prototype.pop = function(){
+
+}*/
+arr.pop()
+
+alert(arr);
+
+</script>
+</body>
+</html>

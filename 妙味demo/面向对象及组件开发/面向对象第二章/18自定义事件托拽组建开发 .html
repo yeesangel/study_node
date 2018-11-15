@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style>
+		#div1{position: absolute; width: 100px; height: 100px; background: red; }
+		#div2{position: absolute; width: 100px; height: 100px; background: yellow; left: 100px; }
+		#div3{position: absolute; width: 100px; height: 100px; background: blue; left: 200px; }
+		#div4{position: absolute; width: 100px; height: 100px; background: purple; left: 300px; }
+	</style>
+</head>
+<body>
+<script>
+window.onload = function(){
+	var d1 = new Drag();
+	d1.init({  //配置参数
+		id:'div1'
+	});
+
+	var d2 = new Drag();
+	d2.init({   //配置参数
+		id:'div2',
+	}); //回调函数
+
+	bindEvent(d2,'toDown',function(){
+		document.title = '你好';
+	})
+
+	bindEvent(d2,'toDown',function(){
+		document.body.style.background = 'black'
+	})
+	var d3 = new Drag();
+	d3.init({   //配置参数
+		id:'div3',
+	}); //回调函数
+
+	bindEvent(d3,'toDown',function(){
+		document.title = '妙味';
+	});
+
+	bindEvent(d3,'toUp',function(){
+		document.title = '课堂';
+	});
+
+	var d4 = new Drag();
+	d4.init({   //配置参数
+		id:'div4',
+	}); //回调函数
+	bindEvent(d4,'toUp',function(){
+		document.title = '今天我很高兴';
+	});
+}
+
+function Drag(){ 
+	 this.obj = null;
+	 this.disX = 0;
+	 this.disY = 0;
+
+	 this.settings = {//默认参数；
+	 }
+};
+
+Drag.prototype.init = function(opt){
+	var This = this;
+	this.obj = document.getElementById(opt.id);
+	//alert(this.obj);
+	extend(opt,this.settings);
+	this.obj.onmousedown = function(ev){
+		var ev = ev || window.event;
+		//This.settings.toDown();
+		This.fnDown(ev);
+		frieEvent(This,'toDown');
+		document.onmousemove = function(ev){
+			var ev = ev || window.event;
+			This.fnMove(ev);
+		}
+		document.onmouseup = function(){
+			frieEvent(This,'toUp');
+			This.fnUp();
+			//This.settings.toUp();
+		}
+		return false;
+	};
+};
+Drag.prototype.fnDown = function(ev){
+	this.disX = ev.clientX - this.obj.offsetLeft;
+	this.disY = ev.clientY - this.obj.offsetTop;
+};
+
+Drag.prototype.fnMove = function(ev){
+	this.obj.style.left = ev.clientX - this.disX +'px';
+	this.obj.style.top = ev.clientY - this.disY +'px';
+};
+Drag.prototype.fnUp = function(){
+	document.onmousemove = null;
+	document.onmouseup = null;
+};
+
+function bindEvent(obj,events,fn){
+	//obj 楼层
+	//events 书架
+	//fn 一本书
+	obj.listeners = obj.listeners || {};
+	obj.listeners[events] = obj.listeners[events] || [];
+	obj.listeners[events].push(fn);
+	if(obj.nodeType){
+		if(obj.addEventListener){
+			obj.addEventListener(events, fn, false);
+		}else{
+			obj.attachEvent('on'+events, fn);
+		};
+	};
+};
+
+function frieEvent(obj,events){//主动触发事件函数
+	//alert(obj.listeners[events].length)
+	if(obj.listeners&&obj.listeners[events]){
+		for(var i=0;i<obj.listeners[events].length;i++){
+			obj.listeners[events][i]();
+		}
+	}
+
+}
+
+function extend(obj1,obj2){
+	for(var attr in obj1){
+		//alert(11)
+		obj2[attr] = obj1[attr];
+	}
+}
+</script>
+<div id="div1"></div>
+<div id="div2"></div>
+<div id="div3"></div>
+<div id="div4"></div>
+</body>
+</html>

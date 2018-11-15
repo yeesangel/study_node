@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+
+	<script>
+	window.onload = function(){
+		var oForm = document.getElementById('form1');
+		var aInput = document.getElementsByTagName('input');
+		var opener = null;
+	
+
+		aInput[0].onclick = function(){
+			//window.open('http://www.baidu.com','_self')
+			
+			opener = window.open()
+
+			//alert(opener==window);
+			opener.document.body.style.background = 'red';
+		}
+
+		aInput[1].onclick = function(){
+			opener.window.close()
+			//可以关闭通过js在本窗口打开的新窗口
+		}
+
+
+		
+		
+
+
+
+	}
+
+	</script>
+</head>
+<body>
+	<form id="form1" action="http://www.baidu.com">
+		<input type="button" value="打开新窗口" />
+		<input type="button" value="关闭窗口" />
+
+	</form>
+</body>
+</html>

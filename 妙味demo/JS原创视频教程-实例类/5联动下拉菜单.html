@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <style>	
+    </style>
+    <script>
+    window.onload = function(){
+        var s1 = new sel('div1');
+        s1.add('0',['1','2','3']);
+        s1.add('0_0',['1_1','1_2','1_3']);
+         s1.add('0_0_0',['1_1_1','1_1_2','1_1_3']);
+         s1.add('0_0_1',['1_2_1','1_2_2','1_2_3']);
+         s1.add('0_0_2',['1_3_1','1_3_2','1_3_3']);
+        s1.add('0_1',['2_1','2_2','2_3']);
+         s1.add('0_1_0',['2_1_1','2_1_2','2_1_3']);
+         s1.add('0_1_1',['2_2_1','2_2_2','2_2_3']);
+         s1.add('0_1_2',['2_3_1','2_3_2','2_3_3']);
+        s1.add('0_2',['3_1','3_2','3_3']);
+         s1.add('0_2_0',['3_1_1','3_1_2','3_1_3']);
+         s1.add('0_2_1',['3_2_1','3_2_2','3_2_3']);
+         s1.add('0_2_2',['3_3_1','3_3_2','3_3_3']);
+
+         s1.init(3);
+
+    }
+    function sel(id){
+        this.oParent = document.getElementById('div1');
+        this.data = {};
+        this.aSel = this.oParent.getElementsByTagName('select');
+    }
+    sel.prototype = {
+        init : function(num){
+            var This = this;
+          for(var i=1;i<=num;i++){
+            var sel = document.createElement('select');
+            var opt = document.createElement('option');
+            opt.innerHTML = '默认';
+            sel.appendChild(opt);
+            this.oParent.appendChild(sel);
+            sel.index = i;
+            sel.onchange = function(){
+                This.change(this.index);
+            }
+          }
+          this.frist();
+        },
+        add : function(key,value){
+            this.data[key] = value;
+        },
+        frist : function(){
+            var arr = this.data['0'];
+            for(var i=0;i<arr.length;i++){
+                var opt = document.createElement('option');
+                opt.innerHTML = arr[i];
+                this.aSel[0].appendChild(opt);
+            }
+        },
+        change : function(iNow){
+            var str = '0';
+            for(var i=0;i<iNow;i++){
+                str += '_'+(this.aSel[i].selectedIndex-1);
+            }
+
+            if(this.data[str]){
+                var arr = this.data[str];
+               this.aSel[iNow].options.length = 1;
+                for(var i=0;i<arr.length;i++){
+                    var opt = document.createElement('option');
+                    opt.innerHTML = arr[i];
+                    this.aSel[iNow].appendChild(opt);
+                }
+                this.aSel[iNow].options[1].selected = true;
+                iNow++
+                if(iNow<this.aSel.length){
+                    this.change(iNow);
+                }
+            }else{
+                if(iNow<this.aSel.length){
+                    this.aSel[iNow].options.length = 1;
+                }
+                
+            }
+
+        }
+    }
+    </script>
+    <body style="height:2000px;">
+    	<div id="div1"></div>
+    </body>
+</html>

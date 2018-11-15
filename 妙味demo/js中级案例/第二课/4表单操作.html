@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+
+	<script>
+	window.onload = function(){
+	var oForm = document.getElementById('form1');
+	// oForm.text1 name可以获取form表单下的表单元素
+	
+	//alert(oForm.text1.value);
+	//alert(oForm.sex[0].value);
+	
+	//onchange // text 当光标离开 如果值改变时触发；
+	
+
+	/*oForm.text1.onchange = function(){
+		alert(this.value);
+	}*/
+
+	/*oForm.sex[0].onchange = function(){
+		alert(this.checked);
+	}*/
+
+
+	//alert(oForm.a[0].value)
+	/*oForm.a[0].onchange = function(){
+		alert(this.value);
+	}*/
+
+	//alert(oForm.s.value)
+	oForm.s.onchange = function(){
+		alert(this.value);
+	}
+
+
+
+	
+
+
+
+
+
+
+	}
+
+	</script>
+</head>
+<body>
+	<form id="form1" action="">
+		<input type="text" name="text1" value="内容">
+
+
+		<input type="radio" name="sex"  value="男"> 男
+		<input type="radio" name="sex" value="女"> 女
+
+		<input type="checkbox" name="a" value="html"> html
+		<input type="checkbox" name="a" value="css"> css
+		<input type="checkbox" name="a" value="javascript"> javascript
+
+		<select name="s" id="" value="">
+			<option value="北京">北京</option>
+			<option value="上海" selected>上海</option>
+			<option value="广州">广州</option>
+		</select>
+	</form>
+</body>
+</html>

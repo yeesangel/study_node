@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{background: #000;}
+		#c{background: white; }
+		span{color:red;}
+
+	</style>
+<script>
+window.onload = function(){
+	var oC = document.getElementById('c');
+	var oGc = oC.getContext("2d");
+	var timer = null;
+
+
+	function toDraw(){
+		var x = 300;
+		var y = 300;
+		var r = 200;
+
+		//oGc.clearRect(0, 0, oC.width, oC.height);
+
+		var oDate = new Date();
+		var oHours = oDate.getHours();
+		var oMin = oDate.getMinutes();
+		var oSen = oDate.getSeconds();
+
+		var oHoursValue = (-90+oHours*30+oMin/2)*Math.PI/180;
+		var oMinValue = (-90+oMin*6)*Math.PI/180;
+		var oSenValue = (-90+oSen*6)*Math.PI/180;
+
+
+
+
+		oGc.beginPath();
+
+		for(var i=0;i<60;i++){
+			oGc.moveTo(x, y);
+			oGc.arc(x, y, r, 6*i*Math.PI/180, 6*(i+1)*Math.PI/180, false);
+
+		};
+		oGc.closePath();
+		oGc.stroke();
+
+		oGc.beginPath();
+		oGc.fillStyle = 'white';
+		oGc.moveTo(x, y);
+		oGc.arc(x, y, r*19/20, 0, 360*Math.PI/180, false);
+		oGc.closePath();
+		oGc.fill();
+
+		oGc.beginPath();
+		oGc.lineWidth = 3;
+		for(var i=0;i<12;i++){
+			oGc.moveTo(x, y);
+			oGc.arc(x, y, r, 30*i*Math.PI/180, 30*(i+1)*Math.PI/180, false);
+		};
+		oGc.closePath();
+		oGc.stroke();
+
+		oGc.beginPath();
+		oGc.fillStyle = 'white';
+		oGc.moveTo(x, y);
+		oGc.arc(x, y, r*18/20, 0, 360*Math.PI/180, false);
+		oGc.closePath();
+		oGc.fill();
+
+		oGc.beginPath();
+		oGc.lineWidth = 5;
+		oGc.moveTo(x, y);
+		oGc.arc(x, y, r*2/5, oHoursValue, oHoursValue, false);
+		oGc.closePath();
+		oGc.stroke();
+
+		oGc.beginPath();
+		oGc.lineWidth = 3;
+		oGc.moveTo(x, y);
+		oGc.arc(x, y, r*4/6, oMinValue, oMinValue, false);
+		oGc.closePath();
+		oGc.stroke();
+
+		oGc.beginPath();
+		oGc.lineWidth = 1;
+		oGc.moveTo(x, y);
+		oGc.arc(x, y, r*5/6, oSenValue, oSenValue, false);
+		oGc.closePath();
+		oGc.stroke();
+	}
+
+
+	timer = setInterval(toDraw, 1000);
+
+	
+	
+
+
+
+	
+
+	
+	
+	
+
+
+	
+}
+
+
+</script>
+
+</head>
+<body>
+<canvas id="c" height="600" width="600">
+	<span>不支持canvas的浏览器显示</span>
+</canvas>
+</body>
+</html>
+

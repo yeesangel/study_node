@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no" /> 
+	<title>Document</title>
+	<style>
+	body{background:black;}
+	#cl{background: #fff; position: relative;}
+	</style>
+	<script>
+	window.onload = function(){
+		var oC = document.getElementById('cl');
+		var oGC = oC.getContext("2d");
+		var setArr = []; //收集所有元素的集合（绘制的图形）
+
+		
+		setInterval(function(){
+			oGC.clearRect(0, 0, oC.width, oC.height);
+			// for(var i=0; i<setArr.length;i++){
+			// 	setArr[i].r +=1;
+			// 	setArr[i].c4 -=0.01;
+			// }
+			for(var i=0;i<setArr.length;i++){
+
+
+				if(setArr[i].c4<=0){  //优化性能将透明度为0的删除
+					setArr.splice(i,1);
+				};
+
+				setArr[i].r +=1; //圆圈每隔1000/60秒时累加1；
+				setArr[i].c4 -=0.01 //圆圈每隔1000/60累减0.01；
+				oGC.beginPath();
+				oGC.fillStyle = 'rgba('+setArr[i].c1+','+setArr[i].c2+','+setArr[i].c3+','+setArr[i].c4+')';
+				oGC.moveTo(setArr[i].X, setArr[i].Y);
+				oGC.arc(setArr[i].X, setArr[i].Y, setArr[i].r, 0, 360*Math.PI/180, false);
+				oGC.closePath();
+				oGC.fill();
+			};
+		}, 1000/60);
+
+		setInterval(function(){
+
+			var X = Math.floor(Math.random()*oC.width);
+			var Y = Math.floor(Math.random()*oC.height);
+			var r = 10;
+			var c1 = Math.floor(Math.random()*255);
+			var c2 = Math.floor(Math.random()*255);
+			var c3 = Math.floor(Math.random()*255);
+			var c4 = 1;
+			setArr.push({
+				X : X,
+				Y : Y,
+				r : r,
+				c1 :c1,
+				c2 :c2,
+				c3 :c3,
+				c4 :c4
+			})
+		}, 300)
+
+	}
+	</script>
+</head>
+<body>
+<canvas id="cl" width="500" height="500"></canvas>
+</body>
+</html>

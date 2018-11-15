@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no" /> 
+	<title>Document</title>
+	<style>
+	
+	table{border-collapse:collapse; }
+	a{text-decoration:underline;}
+	
+	</style>
+	<script>
+	window.onload = function(){
+		var oForm = document.getElementById('form1');
+
+		//alert(oForm.text1.value);  //内容；
+
+		//onchange：   当值改变时触发
+		//text : 当光标离开时值有改变就触发
+		//radio 标准下值一改变就出发，非标准下焦点离开如果只改变就出发
+	/*	oForm.text1.onchange = function(){
+			alert(this.value);
+		}*/
+
+
+		/*oForm.sex[1].onchange = function(){
+			alert(1);
+		}*/
+
+		//alert(oForm.a)
+
+		/*oForm.a[1].onchange = function(){
+			alert(1);
+		}*/
+
+		//alert(oForm.bb.value)
+		/*oForm.bb.onchange = function(){
+			alert(this.value);
+		}*/
+
+		oForm.btn.onclick = function(){
+			//alert(oForm.sex[0].checked);
+			//
+			for(var i=0;i<oForm.sex.length;i++){
+				if(oForm.sex[i].checked){
+					alert(oForm.sex[i].value+' : 是被选中的');
+
+				}else{
+					alert(oForm.sex[i].value+' : 是非选中的');
+				}
+
+			}
+
+			for(var i=0;i<oForm.a.length;i++){
+				if(oForm.a[i].checked){
+					alert(oForm.a[i].value+' : 是被选中的');
+
+				}else{
+					alert(oForm.a[i].value+' : 是非选中的');
+				}
+
+			}
+		}
+
+
+	}
+
+	</script>
+</head>
+<body id="body">
+	<form id="form1" action="">
+		<input type="text" id="input1" name="text1" value="内容"  />
+
+		<input type="radio" name="sex" value="男" checked />男
+		<input type="radio" name="sex" value="女" />女
+
+		<input type="checkbox" name="a" value="html" /> html
+		<input type="checkbox" name="a" value="css" /> css
+		<input type="checkbox" name="a" value="javascript" /> javascript
+
+
+		<select name="bb" id="">
+			<option value="选择所选城市">选择所选城市</option>
+			<option value="北京">北京</option>
+			<option value="上海" selected>上海</option>
+		</select>
+
+		<input type="button" name="btn" value="按钮" />
+
+	</form>
+</body>
+</html>

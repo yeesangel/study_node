@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>碰撞菜单</title>
+<style>
+	#div1{width: 100px; height: 100px; background: red; position: absolute; cursor:move ;}
+	.box{width: 2px; height:2px; background: blue; position: absolute;}
+</style>
+<script>
+window.onload = function(){
+
+	var oDiv = document.getElementById('div1');
+	var disX = 0;
+	var disY = 0;
+
+	oDiv.onmousedown = function(ev){
+		var ev = ev || window.ev;
+		disX = ev.clientX - oDiv.offsetLeft;
+		disY = ev.clientY - oDiv.offsetTop;
+
+		document.onmousemove = function(ev){
+			var ev = ev || window.ev;
+			oDiv.style.left = ev.clientX - disX+'PX';
+			oDiv.style.top = ev.clientY - disY+'PX';
+
+			var aDiv = document.createElement('div');
+			aDiv.className = 'box';
+			
+			aDiv.style.left = ev.clientX + 'px';
+			aDiv.style.top = ev.clientY + 'px';
+			document.body.appendChild(aDiv);
+		};
+
+		document.onmouseup = function(ev){
+			var ev = ev || window.ev;
+			document.onmousemove = null;
+			document.onmouseup = null;
+
+		};
+
+		return false;
+	}
+
+
+};
+</script>
+</head>
+
+<body>
+	<div id="div1"></div>
+</body>
+</html>

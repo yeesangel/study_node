@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no" /> 
+	<title>Document</title>
+	<style>
+	
+	
+	</style>
+	<script>
+	window.onload = function(){
+	//函数声明与函数表达式的区别
+	//1，函数表达式可以直接在后面加括号执行，二函数声明不行
+	//2，函数声明可以提前被预解析
+	/*if(true){
+		function aaa(){
+			alert(1);
+		}
+	}else{
+		function aaa(){//提前被与解析
+			alert(2)
+		}
+	}
+
+	aaa()*/
+
+	if(true){
+		var a = function aaa(){
+			alert(1)
+		}
+	}else{
+		var a = function aaa(){
+			alert(2)
+		}
+	}
+	
+
+	//a();//1
+	
+	aaa()
+
+
+	}
+	</script>
+</head>
+<body>
+
+</body>
+</html>

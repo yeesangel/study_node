@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{background: #000;}
+		canvas{background: white; }
+		span{color:red;} 
+/* .box{background:-webkit-linear-gradient(top right,red,blue,purple,green); height:200px; width:200px;} */
+
+	</style>
+<script>
+window.onload = function(){
+	oC = document.getElementById('c');
+	oGc = oC.getContext("2d");
+
+	//obj = oGc.createLinearGradient(200, 200, 200, 350);
+	
+	obj = oGc.createRadialGradient(300, 300, 0, 300, 300, 200)
+
+	obj.addColorStop(0, 'purple');
+	obj.addColorStop(0.5, 'red');
+	obj.addColorStop(1, 'yellow');
+
+	oGc.fillStyle = obj;
+	oGc.fillRect(0, 0, 600, 600);
+
+
+
+
+	
+
+
+
+	
+}
+
+
+</script>
+
+</head>
+<body>
+<div class="box"></div>
+
+<canvas width="600" height="600" id="c"><span>此浏览器不支持canvas</span></canvas>
+</body>
+</html>
+

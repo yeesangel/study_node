@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no" /> 
+	<title>Document</title>
+	<style>
+	body{background:#000;}
+	#can{background: white;}
+	</style>
+	<script>
+	window.onload = function(){
+		
+		// var oC = document.getElementById('c');
+
+		// oGc = oC.getContext("2d");
+
+		// oGc.beginPath();
+		// oGc.rect(100, 100, 100, 100);
+		// oGc.closePath();
+
+		// oGc.fill();
+
+		//oGc.clearRect(0, 0, oC.width, oC.height);
+		var oCan = document.getElementById('can');
+		oGc = oCan.getContext("2d");
+		
+		oGc.save(); //保存路径
+		oGc.beginPath(); //开始路径
+		oGc.strokeStyle = 'red';
+		oGc.moveTo(100, 100);
+		oGc.lineTo(200, 200);
+		oGc.lineTo(150, 300);
+		oGc.lineTo(100, 100);
+		oGc.closePath(); //结束路径
+		oGc.stroke(); //画线
+		oGc.restore()//恢复路径
+		
+
+
+		oGc.beginPath();
+		oGc.moveTo(100,300);
+		oGc.lineTo(200, 400);
+		oGc.lineTo(150, 500);
+		oGc.lineTo(100,300);
+		oGc.closePath();
+		oGc.stroke(); //填充 ；
+
+		//oGc.clearRect(0, 0, oCan.width, oCan.width); 删除路径
+		
+
+
+
+
+
+		
+
+
+		
+
+		
+
+	}
+	</script>
+</head>
+<body>
+ <canvas width="500" height="500" id="can">
+ 	<sapn>不支持canvas的浏览器显示</sapn>
+ </canvas>
+</body>
+</html>

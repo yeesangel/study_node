@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<!-- <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" name="viewport" id="viewport" /> -->
+	<meta name="viewport" content="width=device-width,target-densitydpi=device-dpi,user-scalable=no">
+	<title>Document</title>
+	<script src="miaov.js"></script>
+	<script>
+	document.getElementsByTagName('html')[0].style.fontSize = window.screen.width/10+'px';
+	</script>
+	<style>
+	body{margin:0; font-size:0.4rem; background:#eee;}
+	#picWarp{width: 100%; overflow: hidden; position: relative;}
+	#picList{width: 40rem; overflow: hidden;}
+	#picList a{float: left; }
+	#picList a img{width: 10rem; }
+	#btns{ margin:0;position: absolute; left: 50%; margin-left: -1rem ; bottom: 0;  padding:0.2rem; height:0.2rem;}
+	#btns span{display: inline-block; width: 0.2rem; height: 0.2rem; margin:0 0.1rem; box-sizing: border-box; border:solid 1px #ccc; border-radius:0.1rem; vertical-align:top;}
+	#btns span.active{background: #f40; -transform: translateX();}
+
+	</style>
+</head>
+<body>
+	<section id="picWarp">
+		<nav id="picList" >
+			<a href="#1"><img src="img/1.jpg" alt=""></a>
+			<a href="#2"><img src="img/2.jpg" alt=""></a>
+			<a href="#3"><img src="img/3.jpg" alt=""></a>
+			<a href="#4"><img src="img/4.jpg" alt=""></a>
+		</nav>
+		<p id="btns">
+			<span class="active"></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</p>
+	</section>
+	<script>
+	var oPicList = document.getElementById('active');
+	var iScroll = 0;
+	var iNow = 0;
+	var iStartX = 0
+	var iStartScroll = 0;
+
+	oPicList.ontouchmove = function(e){
+		e.preventDefault();
+	};
+
+
+	oPicList.ontouchstart = function(e){
+		iStratX = e.changedTouches[0].pageX;
+		iStartScroll = iScroll;
+	};
+
+	oPicList.ontouchmove = function(e){
+		iDis = e.changedTouches[0].pageX-iStartX;
+		iScroll = iStartScroll+iDis;
+		console.log(iScroll);
+		toStyle()
+	};
+
+	function toStyle(){
+		oPicList.style.WebkitTransform = oPicList.style.transform = 'translataX('+iScroll+'px)';
+	};
+
+	
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no" /> 
+	<title>Document</title>
+	<style>
+	body{position: relative;}
+	div{background: yellow;}
+	.div1{width: 200px; height: 200px; position: -absolute;}
+	.box1{position:absolute; width: 150px; height: 150px; left: 25px; top: 25px;border:1px solid #ccc; }
+	</style>
+	<script src="jquery-1.7.2.min.js"></script>
+
+
+	<script>
+	$(function() {
+		$('.box1').offsetParents().css('background', 'blue');
+	})
+	</script>
+</head>
+<body>
+	<div class="div1">
+		<div class="box1"></div>
+	</div>
+</body>
+</html>

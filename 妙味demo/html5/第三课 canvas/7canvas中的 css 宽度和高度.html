@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{background: #000;}
+		#can{background: white; width:800px; height:400px;}
+		span{color:red;}
+
+	</style>
+<script>
+window.onload = function(){
+	var oCan = document.getElementById('can');
+	var oGc = oCan.getContext("2d");
+	var num=0;
+	var timer  =0;
+
+	oGc.fillRect(0, 0, 100, 100);
+
+	// timer = setInterval(function(){
+	// 	num++;
+	// 	oGc.clearRect(0, 0, oCan.width, oCan.height);
+	// 	oGc.fillRect(num, num, 100, 100);
+	// }, 30);
+
+
+
+	
+}
+
+
+</script>
+
+</head>
+<body>
+	<canvas id="can">
+		<span>不支持canvas的浏览器显示</span>
+	</canvas>
+</body>
+</html>
+

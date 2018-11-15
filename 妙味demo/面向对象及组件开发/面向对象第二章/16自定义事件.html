@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script>
+window.onload = function(){
+	/*function show(){
+		alert(1111)
+	};
+
+	function show(){
+		alert(2222)
+	};
+
+	function show(){
+		alert(3333)
+	};*///最后一个覆盖了上面的函数
+
+	window.addEventListener('show', function(){
+		alert(111);
+	}, false);
+
+	window.addEventListener('show', function(){
+		alert(222);
+	}, false);
+
+	window.addEventListener('show', function(){
+		alert(333);
+	}, false);
+
+
+	show()
+
+}
+</script>
+
+
+</body>
+
+</html>

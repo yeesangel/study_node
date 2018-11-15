@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+
+	<script>
+	window.onload = function(){
+	var oDiv = document.getElementById('div1');
+	var oDiv2 = document.getElementById('div2');
+
+	addClass(oDiv,'box');
+	removeClass(oDiv2,'box1');
+
+	function addClass(obj,className){
+		if(obj.className){
+			//如果要添加的对象有class
+			var arrClassname = obj.className.split(' ');
+			var _index = arrIndexOf(arrClassname,className);
+			if(_index == -1){
+				//alert(000)
+				//如果要添加的class在原来class中不存在
+				obj.className += ' '+className;
+			};
+			//如果要添加的class在原来class中存在
+		}else{
+			//如果要添加的对象没有class
+			obj.className = className;
+		};
+	};
+
+
+	function removeClass(obj,className){
+		//如果原来有要删除的class
+		var arrClassname = obj.className.split(' ');
+		var _index = arrIndexOf(arrClassname,className);
+		//alert(_index);
+		if(_index !=-1){
+			arrClassname.splice(_index,1);//将索引号位_index class 删除
+			//alert( arrClassname )
+			obj.className = arrClassname.join(' ');
+		};
+		//如果原来没有要删除的class就不用操作
+		
+	}
+
+
+
+
+	function arrIndexOf(arrClassname,className){
+		for(var i=0;i<arrClassname.length;i++){
+			if(arrClassname[i] == className){
+				return i;
+			};
+		};
+		return -1;
+	};
+
+
+
+
+	}
+
+	</script>
+</head>
+<body>
+	<div id="div1" class="box1">ddddd</div>
+	<div id="div2" class="box box1">ffffff</div>
+</body>
+</html>

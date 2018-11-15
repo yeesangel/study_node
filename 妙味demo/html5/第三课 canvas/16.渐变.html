@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{background: #000;}
+		canvas{background: white; }
+		span{color:red;} 
+/* .box{background:-webkit-linear-gradient(top right,red,blue,purple,green); height:200px; width:200px;} */
+
+	</style>
+<script>
+window.onload = function(){
+	var oC = document.getElementById('c1');
+
+	oGc = oC.getContext("2d");
+	
+	//var obj = oGc.createLinearGradient(200, 200, 400, 400);
+	var obj = oGc.createRadialGradient(200, 200, 0, 200, 200, 150)
+	obj.addColorStop(0, 'red');
+	obj.addColorStop(0.5, 'yellow')
+	obj.addColorStop(1,'blue');
+
+	oGc.fillStyle = obj;
+
+	oGc.fillRect(0, 0, 600, 600);
+
+
+
+
+	
+
+
+
+	
+}
+
+
+</script>
+
+</head>
+<body>
+<div class="box"></div>
+
+<canvas width="600" height="600" id="c1"></canvas>
+</body>
+</html>
+

@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no" /> 
+	<title>Document</title>
+	<style>
+	
+	#div1{width: 100px; height: 100px; background: red;}
+	</style>
+	<script>
+	var str = 'assadjjdsmmdosmskks';
+
+	var obj = {};
+	var num = 0;
+	var value = '';
+
+	/*function test(str){ //用函数来查找 （用到知识点 1，通过json里面装每一项字符，然后用fon in 循环）
+		for(var i=0;i<str.length;i++){
+			if(!obj[ str[i] ]){
+				obj[ str[i] ] = [];
+			};
+			obj[ str[i] ].push(str[i]);
+		};
+
+		for(var attr in obj){
+			if(num < obj[attr].length){
+				num = obj[attr].length;
+				value = obj[attr][0];
+			};
+		};
+
+		return '这是出现次数最多字符'+value+'; 出现的次数为'+num;
+	};
+
+	alert(test(str));*/
+
+	function test(str){ //用正则来查找 （用到知识点1 字符串分割方法， 2 数组排序方法sort（）， 3 将数组转化为字符串犯法join（）， 4，正则重复一次匹配方法\1+, 5 正则中的整体项和子项知识点）
+		var arr = str.split('');
+		arr.sort();
+		str = arr.join('');
+		var num =0;
+		var value = '';
+
+		//alert(str)
+
+		var re = /(\w)\1+/g;
+
+		str.replace(re,function($0,$1){
+			 if( num < $0.length){
+				 num = $0.length;
+				 value = $1;
+			 };
+		});
+		return '这是出现次数最多字符'+value+'; 出现的次数为'+num;
+	};
+
+	alert(test(str));
+
+
+
+
+
+
+	
+
+
+
+	</script>
+</head>
+<body>
+
+
+</body>
+</html>

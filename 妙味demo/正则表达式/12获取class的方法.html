@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no" /> 
+	<title>Document</title>
+	
+
+	<script>
+		window.onload = function(){
+		
+		var aLi = getByClass(document,'box1');
+		for(var i=0;i<aLi.length;i++){
+			aLi[i].style.background = 'red';
+
+		};
+
+		function getByClass(aParent,sClass){
+			var aEle = aParent.getElementsByTagName('*');
+			var arr = [];
+			var re = new RegExp('\\b'+sClass+'\\b');
+			for(var i=0;i<aEle.length;i++){
+				if(re.test(aEle[i].className)){
+					arr.push(aEle[i]);
+				};
+			};
+			return arr;
+
+
+		}
+
+		
+
+		
+		
+		}
+	</script>
+</head>
+<body>
+    <ul>
+    	<li class="box1"></li>
+    	<li></li>
+    	<li class="box1 box2"></li>
+    	<li></li>
+    	<li class="box1 box2"></li>
+    </ul>
+</body>
+</html>

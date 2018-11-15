@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style>
+body{padding: 0; margin:0;}
+	#div1{width: 100px; height: 100px; background: red; position: absolute; left:500px; top: 400px;  }
+</style>
+	<script>
+	window.onload = function(){
+		
+		var oDiv = document.getElementById('div1');
+		
+		oDiv.onmousedown = function(ev){
+			var ev = ev || event;
+			var disW = this.offsetWidth;
+			var disX = ev.clientX;
+			var disL = this.offsetLeft;
+			var b = '';
+			if(ev.clientX > disW+disL-10){
+				b = 'right';
+			}
+
+			if(ev.clientX < disL+10){
+				b = 'left';
+			}
+			document.onmousemove = function(ev){
+				var ev = ev || event;
+
+				switch(b){
+					case 'left':
+						oDiv.style.width = disW-(ev.clientX-disX)+'px';
+						oDiv.style.left = disL+(ev.clientX-disX)+'px'
+						break;
+					case 'right':
+						oDiv.style.width = disW+(ev.clientX-disX)+'px';
+						break;
+				}
+
+			};
+
+			document.onmouseup = function(){
+				document.onmousedown = document.onmousemove = null;
+			}
+			return false;
+		}
+
+
+		
+
+
+
+	}
+
+	</script>
+</head>
+<body>
+
+
+
+
+<div id="div1"></div>
+	
+</body>
+</html>

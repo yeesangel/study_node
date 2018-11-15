@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script>
+//继承：子类不影响父类,子类可以继承父类一些属性 （代码的复用）；
+//属性的继承：调用父类构造函数 call 改this指向
+//方法的继承：for in 拷贝继承 （jquery也是采用拷贝继承的）
+function CreatePerson(name,sex){//父类
+	this.name = name;
+	this.sex = sex;
+};
+
+CreatePerson.prototype.showName = function(){
+	alert(this.sex);
+}
+
+var p1 = new CreatePerson('小明','男');
+//p1.showName();
+
+
+function CreateStart(name,sex,job){ //子类
+	CreatePerson.call(this,name,sex); 
+	this.job = job;
+};
+//CreateStart.prototype = CreatePerson.prototype;  //对象的引用了 影响了父级 不可取
+
+getTtring(CreatePerson.prototype,CreateStart.prototype)
+CreateStart.prototype.showJob = function(){
+	alert(this.job)
+}
+var p2 = new CreateStart('黄晓明','男','演员');
+p2.showJob();
+
+
+function getTtring(obj1,obj2){
+	for(var attr in obj1){
+		obj2[attr] = obj1[attr];
+	}
+}
+</script>
+</body>
+</html>

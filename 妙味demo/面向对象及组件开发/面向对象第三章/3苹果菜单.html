@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title></title>
+	<style>
+	#div1{width: 100%; height: auto; position: absolute; left: 0;bottom: 0; text-align: center;}
+	#div1 img{width: 64px; }
+	</style>
+	<script>
+	window.onload = function(){
+		var aInput = document.getElementsByTagName('input');
+		var oDiv1 = document.getElementById('div1');
+		var aImg = document.getElementsByTagName('img');
+		document.onmousemove = function(event){
+			var ev = event || window.event;
+			for(var i=0;i<aImg.length;i++){
+				var x = aImg[i].offsetLeft+aImg[i].offsetWidth/2;
+				var y = aImg[i].offsetTop+aImg[i].offsetHeight/2+oDiv1.offsetTop;
+				//aInput[i].value = 'x轴'+x+'，y轴'+y;
+				var a = x-ev.pageX;
+				var b = y-ev.pageY;
+				var c = Math.sqrt(Math.pow(a,2)+Math.pow(b,2));
+				var scale = 1-c/300;
+				if(scale<0.5){
+					scale = 0.5
+				}
+				aInput[i].value = scale;
+				
+				aImg[i].style.width = scale*128+'px';
+				aImg[i].style.height = scale*128+'px';
+			}
+		}
+		
+		//alert(aImg[0].offsetLeft)
+	}
+	
+	</script>
+</head>
+<body>
+<input type="text" />
+<input type="text" />
+<input type="text" />
+<input type="text" />
+<input type="text" />
+<div id="div1">
+	<img src="images/1.png" alt="" />
+	<img src="images/2.png" alt="" />
+	<img src="images/3.png" alt="" />
+	<img src="images/4.png" alt="" />
+	<img src="images/5.png" alt="" />
+</div>
+
+</body>
+</html>

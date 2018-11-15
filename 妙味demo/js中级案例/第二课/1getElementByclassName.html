@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+
+	<script>
+	window.onload = function(){
+	var ul1 = document.getElementById('ul1')
+	var ul2 = document.getElementById('ul2')
+		
+	var aLi = getElementsByClassName(document,'li','box');
+
+	
+	//alert(aLi.length);
+	
+	for(var i=0;i<aLi.length;i++){
+		aLi[i].style.background = 'red';
+	};
+
+	function getElementsByClassName(parent,tagname,className){
+		var eleS = parent.getElementsByTagName(tagname);
+		var arr = [];
+		for(var i=0;i<eleS.length;i++){
+			/*if(eleS[i].className == className){
+				arr.push(eleS[i]);
+			}*/
+			var classNames = eleS[i].className.split(' ');
+			for(var j=0;j<classNames.length;j++){
+				if(classNames[j] == className){
+					arr.push(eleS[i]);
+					break;
+				};
+			};
+		};
+		return arr;
+	}
+
+	}
+
+	</script>
+</head>
+<body style="height:2000px;">
+	<ul id="ul1">
+		<li>11111111</li>
+		<li>2222222</li>
+		<li class="box">3333333</li>
+		<li class="box1">44444</li>
+		<li>55555555</li>
+		<li class="box box">66666666</li>
+	</ul>
+
+	<ul id="ul2">
+		<li>11111111</li>
+		<li>2222222</li>
+		<li class="box">3333333</li>
+		<li class="box1">44444</li>
+		<li>55555555</li>
+		<li class="box box">66666666</li>
+	</ul>
+
+	<p class="box">aaaaaa</p>
+</body>
+</html>

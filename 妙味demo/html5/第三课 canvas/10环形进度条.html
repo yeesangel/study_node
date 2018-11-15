@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{background: #000;}
+		#c{background: white;  }
+		span{color:red;}
+    canvas{}
+	</style>
+<script>
+
+ 
+window.onload = function(){
+  var can = document.createElement('canvas');
+  can.id = 'c';
+  document.body.appendChild(can);
+   var oC = document.getElementById('c');
+   oC.width = '500';
+   oC.height = '500';
+   var oGc = oC.getContext("2d");
+   var num = 0;
+   var timer = null;
+
+  alert(!document.createElement('canvas').getContext );
+
+
+  oGc.beginPath()
+  oGc.lineWidth = 10
+  oGc.strokeStyle = 'red';
+   timer = setInterval(function(){
+   	num = num+3;
+   	if(num>=361){
+   		clearInterval(timer)
+   	}
+    oGc.arc(200, 200, 150, num*Math.PI/180, num*Math.PI/180, false);
+    oGc.stroke();
+
+   }, 5);
+   oGc.closePath();
+
+ 
+
+
+	
+}
+
+
+</script>
+
+</head>
+<body>
+<!-- <canvas id="c" height="500" width="500"> -->
+
+</body>
+</html>
+

@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no" /> 
+	<title>Document</title>
+	<style>
+	
+	div{padding:50px; }
+	#div1{background:red;position: relative;}
+	#div2{background:orange; position: relative;}
+	#div3{background:green; position: relative;}
+	</style>
+	<script>
+	window.onload = function(){
+		var oDiv3 = document.getElementById('div3');
+		
+		//父节点parentNoed
+		//alert(oDiv3.parentNode.id)
+		
+		//父节点offsetParent  离当前元素最近并且有定位的父节点；如果没有定位父级，默认body
+		alert(oDiv3.offsetParent.id)
+
+	}
+
+	</script>
+</head>
+<body id="body">
+  <div id="div1">
+  	<div id="div2">
+  		<div id="div3"></div>
+  	</div>
+  </div>
+</body>
+</html>

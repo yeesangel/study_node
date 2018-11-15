@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+
+	<script>
+	window.onload = function(){
+		/*onkeydown
+		onkeyup
+		ev.keyCode
+		ctrlKey altKey shiftKey 布尔值 true false;
+		当一个事件发生的时候 同时按下 ctrl alt shift 键 返回true 否则返回false;*/
+		/*document.onkeydown = function(ev){
+			var ev = ev || event;
+			alert(ev.keyCode);
+		}*/
+
+		document.onclick = function(ev){
+			var ev = ev || event;
+			alert(ev.ctrlKey);
+		}
+		
+
+
+
+	}
+
+	$(function() {
+		
+	});
+
+	$(document).ready(function() {
+		
+	});
+	</script>
+</head>
+<body style="height:2000px;">
+
+</body>
+</html>

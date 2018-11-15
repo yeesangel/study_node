@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  
+</head>
+<body>
+  <div class="box">
+    <video id="video" src="http://54.222.148.146:8000/s/files/fe/09/fe09617e2565486a5f7f5a0249be3ee1b9fdfdc6/CL449F4acYP4IH9qwR3VeYKq2NIel7NgPpOi0doc/Screen-20180206-141513-480x720.mp4"></video>
+  </div>
+  <script>
+    let Media = document.getElementById('video');
+    
+
+setTimeout(() => {
+  console.log(Media.src ,111111111111) //:视频的属性
+    console.log(Media.poster,2222222) //:视频封面,没有播放时显示的图片
+    console.log(Media.preload, 33333) //:预加载
+    console.log(Media.autoplay, 44444) //:自动播放
+    console.log(Media.loop, 555555)  //:循环播放
+    console.log(Media.controls, 666666666) //:浏览器自带的控制条
+    console.log(Media.width, 77777777)  //:视频宽度
+    console.log(Media.height, 8888888)  //:视频高度
+    console.log(Media.currentSrc = 10, 'currentSrc')
+
+    console.log(Media.currentTime, 8888); //当前播放的位置,赋值可改变位置
+    console.log(Media.startTime, 9999); //一般为0,如果为流媒体或者不从0开始的资源,则不为0
+    console.log(Media.duration, 1000); //当前资源长度 流返回无限
+    console.log(Media.paused, 20000); //是否暂停
+}, 4000)
+  </script>
+</body>
+</html>

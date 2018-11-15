@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/bootstrap.css" />
+	<style>
+	.get11-style .dropdown-menu{animation: fadeIn .4s linear;}
+	@keyframes fadeIn{
+		0%{opacity:0; transform: translateY(-20px);}
+		100%{opacity:1; transform:translateY(0);}
+	}
+	</style>
+
+	
+
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4">
+				<div class="dropdown get11-style">
+					<button class="btn btn-default dropdown-toggle " type="button" data-toggle="dropdown">dropdown <span class="caret"></span></button>
+					<ul class="dropdown-menu">
+						<li><a href="#">你是我的小苹果</a></li>
+						<li><a href="#">你是我的小苹果</a></li>
+						<li><a href="#">你是我的小苹果</a></li>
+						<li><a href="#">你是我的小苹果</a></li>
+						<li><a href="#">你是我的小苹果</a></li>
+						<li><a href="#">你是我的小苹果</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="js/jquery-1.9.1.min.js"></script>
+	<script src="js/bootstrap.js"></script>
+
+	<script>
+	$(function(){
+		
+		if(window.navigator.userAgent.toLowerCase().indexOf('mobile') == -1){
+			var timer = null;
+			$('.dropdown-toggle').hover(function() {
+				clearTimeout(timer);
+				$('.dropdown').addClass('open');
+
+			}, function() {
+				timer = setTimeout(function(){
+					
+					$('.dropdown').removeClass('open');
+
+				},100);
+			});
+
+			$('.dropdown-menu').hover(function() {
+				clearTimeout(timer);
+			}, function() {
+				timer = setTimeout(function(){
+
+					$('.dropdown').removeClass('open');
+				
+				},000)
+			});
+
+		}
+		
+	})
+	</script>
+
+</body>
+</html>

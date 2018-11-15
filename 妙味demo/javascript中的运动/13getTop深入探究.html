@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no" /> 
+	<title>Document</title>
+	<style>
+	img{display:block;}
+	</style>
+	<script src="move.js"></script>
+
+	<script>
+	window.onload = function(){
+		var oImg = document.getElementById('img');
+
+		//alert(getTop(oImg)+'：'+oImg.offsetTop);
+		var arr = [1,2,3,4,5,6,7,8,9]
+
+		arr.shift()
+		console.log(arr);
+		
+		//console.log(oImg.offsetParent) //offsetParent当它的父级没有定位时它的offsetTop参照物就是body,如果它的父级定位了那么他的offsetTop参照物就是它有定位属性父级本身
+	}
+	function getTop(obj){
+		var iTop = 0;
+		while(obj){
+			iTop += obj.offsetTop;
+			obj = obj.offsetParent;
+		};
+		return iTop;
+
+	}
+	</script>
+</head>
+<body> 
+<!-- <div id="box" class="box"></div> -->
+	
+	<img src="images/1.jpg" alt="" />
+	<img src="images/1.jpg" alt="" />
+	<img src="images/1.jpg" alt="" />
+	<img src="images/1.jpg" alt="" />
+	<img src="images/1.jpg" alt="" />
+	<img src="images/1.jpg" alt="" />
+	<img src="images/1.jpg" alt="" />
+	<img src="images/1.jpg" alt="" />
+	<img src="images/1.jpg" alt="" />
+	<img src="images/1.jpg" alt="" />
+	<img src="images/1.jpg" alt="" />
+	<img src="images/1.jpg" alt="" />
+	<img src="images/1.jpg" alt="" />
+	<img src="images/1.jpg" alt="" />
+	<img src="images/1.jpg" alt="" />
+	<img src="images/1.jpg" alt="" />
+	<img src="images/1.jpg" alt="" />
+	<img src="images/1.jpg" alt="" />
+	<img src="images/1.jpg" alt="" />
+	<img src="images/1.jpg" alt="" />
+	<img src="images/1.jpg" alt="" />
+	<img src="images/1.jpg" alt="" />
+	<img src="images/1.jpg" alt="" />
+	<img src="images/1.jpg" alt="" />
+	<img src="images/1.jpg" alt="" />
+	<img src="images/1.jpg" alt="" />
+	<img src="images/1.jpg" alt="" />
+	<img src="images/1.jpg" alt="" />
+	<img src="images/1.jpg" alt="" />
+	<img src="images/1.jpg" alt="" />
+	<img src="images/1.jpg" alt="" />
+	<img src="images/1.jpg" alt="" />
+	<img src="images/1.jpg" alt="" />
+	<img src="images/1.jpg" alt="" />
+	<img src="images/1.jpg" alt="" />
+	<img src="images/1.jpg" alt="" />
+	<img src="images/1.jpg" alt="" />
+	<img src="images/1.jpg" alt="" />
+	<img src="images/1.jpg" alt="" />
+	<img id="img" src="images/1.jpg" alt="" />
+</body>
+</html>

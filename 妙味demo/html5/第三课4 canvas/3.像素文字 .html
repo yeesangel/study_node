@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{background: #000;}
+		canvas{background: white; }
+		span{color:red;} 
+
+		ul li{color:#fff; font-size:40px; }
+/* .box{background:-webkit-linear-gradient(top right,red,blue,purple,green); height:200px; width:200px;} */
+
+	</style>
+<script>
+window.onload = function(){
+
+	var  oC= document.getElementById('c');
+	oGc = oC.getContext("2d");
+
+	var aLi = document.getElementsByTagName('li');
+	for(var i=0;i<aLi.length;i++){
+		aLi[i].onclick = function(){
+			str = this.innerHTML
+			//alert(str);
+			var H = 180;
+			oGc.clearRect(0, 0, oC.width, oC.height);
+			oGc.font = H+'px imprat';
+			oGc.fillStyle = 'red';
+			W = oGc.measureText(str).width;
+
+			oGc.fillText(str, (oC.width-W)/2, (oC.height-H)/2);
+		}
+
+	}
+
+	
+
+
+
+
+
+	
+
+
+
+	
+}
+
+
+</script>
+
+</head>
+<body>
+<div class="box"></div>
+	
+<canvas width="600" height="600px" id="c"> </canvas>
+<ul style="float:left;">
+	<li>妙</li>
+	<li>味</li>
+	<li>课</li>
+	<li>堂</li>
+</ul>
+
+</body>
+</html>
+

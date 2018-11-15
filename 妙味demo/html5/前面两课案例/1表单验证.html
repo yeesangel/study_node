@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no" /> 
+	<title>Document</title>
+	<style>
+	div{width: 100px; height: 200px; background: red; border: 1px solid #000; position: absolute; left: 300px; }
+	
+	</style>
+	<script>
+	
+
+	</script>
+</head>
+<body>
+<form action="">
+	<input type="text" id="Text" required />
+	<input type="submit"  />
+</form>
+
+
+<script>
+	var oText = document.getElementById('Text')
+	var reg=/^(13[0-9]|14[0-9]|15[0-9]|17[0-9]|18[0-9])\d{8}$/; 
+	oText.oninput = function(){
+		
+			if(reg.test(this.value)){
+				this.setCustomValidity('输入正确');
+			}else{
+				this.setCustomValidity('请输入正确的手机号码');
+			}
+	}
+</script>
+
+</body>
+</html>

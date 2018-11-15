@@ -1,0 +1,39 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no" /> 
+	<title>Document</title>
+	<style>
+	
+	
+	</style>
+	<script>
+	window.onload = function(){
+	var oText = document.getElementById('text');
+	var oImg = document.getElementById('img')
+	// oText.value = '222';
+	// oText['value'] = '333';
+	
+	//oText.getAttribute('value');  方法 获取指定元素的属性值,可以获取自定义属性
+	//oText.setAttribute('value','hello'); 方法 设置指定元素的属性值
+	//oText.removeAttribute('value');
+	 //alert(oText.getAttribute('shude'));
+	 
+	// alert(oImg.getAttribute('src'));
+
+	alert(oImg.style.getAttribute('width'))
+
+
+	};
+
+	</script>
+</head>
+<body>
+ <input type="text" value="2222" id="text" shude="hello" />
+ <img id="img" src="1icom30.png" alt="" style="width:200px;" />
+
+</body>
+</html>

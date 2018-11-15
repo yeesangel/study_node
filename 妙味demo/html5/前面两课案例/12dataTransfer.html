@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no" /> 
+	<title>Document</title>
+	<style>
+	div{margin:200px; height:200px; width: 200px; background: red;}
+	</style>
+	<script>
+	window.onload = function(){
+		var oDiv = document.getElementById('div1');
+		oDiv.ondragenter = function(){
+			this.innerHTML = '可以释放了';
+		}
+
+		oDiv.ondragover = function(ev){
+			ev.preventDefault()
+		};
+
+		oDiv.ondragleave = function(){
+			//alert('message')
+			this.innerHTML = '将文件拖到此区域'
+		}
+
+		oDiv.ondrop = function(ev){
+			ev.preventDefault()
+
+			var fs = ev.dataTransfer.files;
+
+			//alert(fs[0].type);
+			
+			var fd = new FileReader();
+			fd.readAsDataURL( fs[0] );
+
+			fd.onload = function(){
+				console.log(this.result);
+			};
+			
+		}
+
+
+
+		
+
+		
+
+		
+
+	}
+	</script>
+</head>
+<body>
+
+<div id="div1" oncopy="alert('内容被复制到剪切板上了');return false" draggable="true"></div>
+</body>
+</html>

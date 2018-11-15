@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style>
+
+	</style>
+	<script>
+	window.onload = function(){
+		var oBtn1 = document.getElementById('btn1');
+		var oBtn2 = document.getElementById('btn2');
+		var oBtn3 = document.getElementById('btn3');
+		var oBtn4 = document.getElementById('btn4');
+		var oBtn4 = document.getElementById('btn4');
+		var oImg = document.getElementById('img1');
+		var num = 15;
+		oBtn1.onclick=function(){
+			num+=1
+			oP.style.fontSize = num+'px';
+		}
+		oBtn2.onclick=function(){
+			num-=1;
+			oP.style.fontSize = num+'px';
+		}
+		oBtn3.onclick=function(){
+			// oP.style.width = 500+'px';
+			// oP.style.background ='red';
+			// oP.style.color ='#fff';
+			// oP.style.border ='1px solid #000';
+			oP.className = 'red'
+
+		}
+		oBtn4.onclick=function(){
+			
+			oP.className = 'yellow';
+		}
+
+		oImg.onclick = function(){
+			console.log(this.src);
+			if (this.src == 'file:///C:/Users/%E5%90%B4%E5%87%AF/Desktop/%E6%95%88%E6%9E%9C/%E6%95%88%E6%9E%9C/img/01.jpg') {
+				this.src = 'file:C:/Users/%E5%90%B4%E5%87%AF/Desktop/%E6%95%88%E6%9E%9C/%E6%95%88%E6%9E%9C/img/02.jpg'
+			};
+		}
+	}
+	</script>
+	<style>
+	.red{width: 300px; background: red; color: #fff; border: 1px solid #000;}
+	.yellow{width: 300px; background:yellow; color: red; border: 1px solid #000;}
+	</style>
+</head>
+<body>
+	<input type="button" id="btn1" value="+" />
+	<input type="button" id="btn2" value="-" />
+	<input type="button" id="btn3" value="红" />
+	<input type="button" id="btn4" value="黄" />
+	<p id="p1" style="font-size:15px; color:000;">
+新浪网为全球用户24小时提供全面及时的中文资讯，内容覆盖国内外突发新闻事件、体坛赛事、娱乐时尚、产业资讯、实用信息等，设有新闻、体育、娱乐、财经、科技</p>
+	<img src="img/01.jpg" height="465" width="310" id="img1" alt="" />
+</body>
+</html>

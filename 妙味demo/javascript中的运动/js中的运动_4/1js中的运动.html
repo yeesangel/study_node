@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no" /> 
+	<title>Document</title>
+	<style>
+	#box1{width: 100px; height:100px; background: red;}
+	
+	</style>
+	<script src="jquery-1.12.3.min.js"></script>
+	<script>
+	//1,属性和对应的属性值 一已son{}形式；
+	//2，运动时间 默认400毫秒
+	//3，运动形式 swing ,linear
+	//4,回调函数
+	$(function(){
+		$('#box1').click(function(event) {
+			$('#box1').animate({width:300,height:300},500,'swing',function(){
+				alert('message')
+			});
+		});
+	})
+	</script>
+</head>
+<body>
+
+<div id="box1"></div> 
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{background: #000;}
+		#c{background: white; }
+		span{color:red;}
+
+	</style>
+<script>
+window.onload = function(){
+	var oC = document.getElementById('c');
+
+	oGc = oC.getContext("2d");
+	oImg = new Image();
+
+
+	oImg.onload = function(){
+		draw(this);
+	};
+
+	oImg.src = 'ChinaPing.jpg';
+
+	function draw(obj){
+		oGc.drawImage(obj, 0, 0,600,600);
+	};
+
+	
+
+}
+
+
+</script>
+
+</head>
+<body>
+<canvas id="c" height="600" width="600">
+	
+</canvas>
+</body>
+</html>
+

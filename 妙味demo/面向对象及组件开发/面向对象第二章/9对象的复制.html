@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script>
+/*var a  = {
+	name:'小明'
+};
+var b = a; //对象赋值造成对象的引用了 使得a与b内存地址变成一样了，修改了b，a也一样发生改变
+b.name = '小强';
+alert(a.name); //小强 */
+
+/*var a = {
+	name:'小明'
+}
+
+var b = {}
+
+//for(var attr in a){
+//	b[attr] = a[attr]; //修改字符串，不会在成对象引用
+//};
+getTtring(a)
+
+b.name = '小强';
+alert(a.name);
+
+function getTtring(obj1,obj2){
+	for(var attr in obj1){
+		obj2[attr] = obj1[attr];
+	}
+}*/
+
+/*var a = [1,2,3];
+var b = a;
+
+a.push(4);
+alert(a) [1,2,3,4]*/
+
+var a = [1,2,3];
+var b = a;
+b = [1,2,3,4];
+
+alert(a) //[1,2,3];
+</script>
+</body>
+</html>

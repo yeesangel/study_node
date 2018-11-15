@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no" /> 
+	<title>Document</title>
+	<style>
+	body{margin:0;}
+	#ul1{ width: 700px; min-height: 500px; position: absolute; top: 8px; right: 0; margin:0; padding: 10px; border: 1px solid #000;}
+	li{list-style: none ; line-height: 28px; border-bottom:1px dotted #ccc; word-break: break-all;margin-bottom: 10px; overflow: hidden;} 
+	</style>
+	<script src="move.js"></script>
+
+	<script>
+	window.onload = function(){
+		var oBtn = document.getElementById('btn');
+		var oContent = document.getElementById('content');
+		var oUl1 = document.getElementById('ul1');
+
+		oBtn.onclick = function(){
+			aLi = document.createElement('li');
+			aLi.innerHTML = oContent.value;
+			if(oUl1.children[0]){
+				oUl1.insertBefore( aLi, oUl1.children[0] );
+			}else{
+				oUl1.appendChild(aLi);
+			}
+
+			var iHeight = parseInt(css(aLi,'height'));
+
+			aLi.style.height = '0px';
+			aLi.style.opacity = '0';
+			aLi.style.opacity = 'alpha(opacity=0)';
+
+
+			startMove(aLi,{
+				height:iHeight,
+				opacity:100
+			})
+
+
+		}
+		
+
+
+
+	}
+	</script>
+</head>
+<body style="height:2000px;">
+	<textarea  name="" id="content" cols="50" rows="10"></textarea>
+	<input type="button" id="btn" value="添加留言" />
+	<ul id="ul1">
+		
+	</ul>
+</body>
+</html>

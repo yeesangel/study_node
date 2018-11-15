@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no" /> 
+	<title>Document</title>
+	<style>
+	body{margin:0; font-size: 0.4rem; background: #elelel;}
+	#picwrap{width: 100%; overflow: hidden;}
+	#piclist{width: 40rem; overflow: hidden; position: relative;}
+	#piclist a{float: left; }
+	#piclist a img{width: 10rem; }
+	#btns{margin:0; padding-top:0.1rem; text-align: center;}
+	#btns span{ display: inline-block; width:0.2rem; height: 0.2rem; margin:0 0.1rem; border: 1px solid #000; border-radius:0.1rem;  }
+	#btns .active{background:#f60;}
+	</style>
+	<script>
+	window.onload = function(){
+		document.getElementsByTagName('html')[0].style.fontSize = window.screen.width/10+'px';
+		var opiclist = document.getElementById('piclist');
+		var opicwrap = document.getElementById('picwrap');
+		var iscroll = 0;
+		var inow = 0;
+		var isaratx = 0;
+		var startscroll = 0;
+		opiclist.touchmove = function(e){
+			e.preventDefault();
+		};
+		opiclist.touchstart = function(e){
+			iscroll = e.changedTouches[1].pageX;
+			startscroll = iscroll;
+		};
+		opiclist.touchmove = function(e){
+			var idis = e.changedTouches[1].pageX-iscroll;
+			iscroll = startscroll+idis;
+			console.log(iscroll);
+			tostyle()
+		};
+
+		function tostyle(){
+			opiclist.style.webkitTransform = opiclist.style.transform = "translateX('+iscroll+'px)"
+		}
+
+
+
+
+
+
+	}
+	</script>
+</head>
+<body>
+	<section id="picwrap">
+		<nav id="piclist">
+			<a href="#"><img src="img/1.jpg" /></a>
+			<a href="#"><img src="img/2.jpg" /></a>
+			<a href="#"><img src="img/3.jpg" /></a>
+			<a href="#"><img src="img/4.jpg" /></a>
+		</nav>
+	</section>
+	<p id="btns">
+		<span class="active"></span>
+		<span></span>
+		<span></span>
+		<span></span>
+	</p>
+</body>
+</html>

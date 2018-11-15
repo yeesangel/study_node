@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{background: #000;}
+		canvas{background: white; }
+		span{color:red;} 
+/* .box{background:-webkit-linear-gradient(top right,red,blue,purple,green); height:200px; width:200px;} */
+
+	</style>
+<script>
+window.onload = function(){
+	var oC = document.getElementById('c1');
+
+	oGc = oC.getContext("2d");
+	oGc.font = '60px impact';
+
+	
+	
+	oGc.strokeText('百荣骏金融超市', 200,200);
+	oGc.fillText('百荣骏金融超市', 0,100);
+
+
+
+
+	oGc.textBaseLine = 'bottom';
+
+
+
+	
+
+
+
+	
+}
+
+
+</script>
+
+</head>
+<body>
+<div class="box"></div>
+
+<canvas width="600" height="600" id="c1"></canvas>
+</body>
+</html>
+
+;

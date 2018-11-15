@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{background: #000;}
+		canvas{background: white; }
+		span{color:red;} 
+/* .box{background:-webkit-linear-gradient(top right,red,blue,purple,green); height:200px; width:200px;} */
+
+	</style>
+<script>
+window.onload = function(){
+	var oC = document.getElementById('c1');
+
+	oGc = oC.getContext("2d");
+	oGc.font = '120px impact';
+
+	oGc.shadowOffsetX = 20;
+	oGc.shadowOffsetY = 20;
+	oGc.shadowBlur = 10;
+
+	//alert(oGc.shadowColor) //默认颜色 是黑色 透明；
+	oGc.shadowColor = 'purple';
+	
+	var w = oGc.measureText('妙味课堂').width;
+	oGc.fillText('妙味课堂', (oC.width-w)/2, (oC.height-60)/2);
+
+
+
+	
+
+
+
+	
+}
+
+
+</script>
+
+</head>
+<body>
+<div class="box"></div>
+
+<canvas width="600" height="600" id="c1"></canvas>
+</body>
+</html>
+
+;

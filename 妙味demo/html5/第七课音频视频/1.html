@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<!-- <style>
+*{ margin:0; padding: 0;   }
+	#v1{width: 100%; height: 100%!important;}
+
+</style> -->
+<script>
+	window.onload = function(){
+		var oV = document.getElementById('a1');
+		/*setInterval(function(){
+			console.log(oV.currentTime);
+		}, 1000);*/
+
+		//oV.currentTime = 2;
+		
+		//console.log(oV.duration);
+		
+		//console.log(oV.volume);
+		
+		//oV.volume = 1;
+
+		//console.log(oV.muted);
+		
+		console.log(oV.paused  ); //是否暂停
+		console.log(oV.ended   ); //是否播放结束
+		console.log(oV.error   ); //是否播放错误
+		console.log(oV.currentSrc  ); //一字符串的形式返回媒体文件路径
+	}
+</script>
+
+</head>
+<body>
+<video controls autoplay loop>
+	<source src="home_loop_720p.webm"></source>
+	<source src="home_loop_720p.mp4"></source>
+</video> 
+
+<audio id="a1" controls autoplay src="home.ogg"></audio>
+</body>
+</html>
+

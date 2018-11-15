@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{background: #000;}
+		#can{background: white;}
+		span{color:red;}
+
+	</style>
+
+</head>
+<body>
+	<canvas width="500" height="500" id="can">
+		<span>不支持canvas的浏览器显示</span>
+	</canvas>
+</body>
+</html>
+
+<script>
+	var oCan = document.getElementById('can');
+
+	oGc = oCan.getContext("2d");
+	//oGc.beginPath();
+	oGc.lineWidth = 20;
+	oGc.lineCap = 'square';  //butt 默认 round 圆角 square 宽度比高度多出一半值；
+	oGc.strokeStyle = 'red';
+	oGc.moveTo(100, 100);
+	oGc.lineTo(300, 250);
+	//oGc.closePath();
+	oGc.stroke();
+
+
+</script>

@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style>
+	#div1{width: 180px; height: 180px; position: relative; }
+	#div1 span{width: 100px ; height: 100px; background: yellow;  opacity: 0.5; filter: alpha(opacity=50); position: absolute; left: 0; top: 0; display: none;}
+	#mark{width: 180px; height: 180px; background: red; opacity: 0;filter: alpha(opacity=0); position: absolute; left: 0; top: 0;}
+	#div2{width: 500px; height: 500px; position: absolute; left: 220px; top: 60px; overflow: hidden;}
+	#div2 img{position: absolute; left: 0;top: 0;}
+	</style>
+	<script>
+	window.onload = function(){
+		var oDiv = document.getElementById('div1');
+		var oImg = oDiv.getElementsByTagName('img')[0];
+		var oSpan = oDiv.getElementsByTagName('span')[0];
+		var oDiv2 = document.getElementById('div2');
+		var oImg2 = oDiv2.getElementsByTagName('img')[0];
+
+		oDiv.onmouseover = function(){
+			oSpan.style.display = 'block';
+		};
+
+		oDiv.onmouseout = function(){
+			oSpan.style.display = 'none';
+		};
+
+		/*oDiv.onmouseenter = function(){
+			oSpan.style.display = 'block';
+		};
+
+		oDiv.onmouseleave = function(){
+			oSpan.style.display = 'none';
+		};*/
+
+
+
+		oDiv.onmousemove = function(ev){
+			var ev = ev || window.event;
+			var L = ev.clientX-this.offsetLeft-oSpan.offsetWidth/2;
+			var T = ev.clientY-this.offsetTop-oSpan.offsetHeight/2;
+			if(L<0){
+				L=0
+			}else if(L>this.offsetWidth-oSpan.offsetWidth){
+				L = this.offsetWidth-oSpan.offsetWidth;
+			};
+
+			if(T<0){
+				T=0
+			}else if(T>this.offsetHeight-oSpan.offsetHeight){
+				T = this.offsetHeight-oSpan.offsetHeight;
+			}
+			oSpan.style.left = L + 'px';
+			oSpan.style.top = T + 'px';
+
+			var scaleX = L/(this.offsetWidth-oSpan.offsetWidth);
+			var scaleY = T/(this.offsetHeight-oSpan.offsetHeight);
+			oImg2.style.left = -scaleX*(oImg2.offsetWidth-oDiv2.offsetWidth)+'px';
+			oImg2.style.top = -scaleY*(oImg2.offsetHeight-oDiv2.offsetHeight)+'px';
+		}
+	}
+	</script>
+</head>
+<body>
+
+<div id="div1">
+	<img src="b2.jpg" alt="" />
+	<span></span>
+	<div id="mark"></div>
+</div>
+<div id="div2">
+	<img src="b1.jpg" alt="" />
+</div>
+</body>
+</html>

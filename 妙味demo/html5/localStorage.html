@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+    <script>
+        
+        for(var i=0; i<localStorage.length; i++){
+            var name = localStorage.key(i);
+            console.log(localStorage.getItem(name))
+        }
+        window.addEventListener('storage', onstoragechange)
+
+        function onstoragechange(e){
+            alert('有数据改变了'+e.key)
+            console.log(e.oldValue)
+            console.log(e.newValue)
+            console.log(e.url)
+        }
+
+        localStorage.setItem('colors', 'purple')
+    </script>
+    </body>
+</html>

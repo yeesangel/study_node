@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+
+<script>
+	window.onload = function(){
+		var oV = document.getElementById('v1');
+		var aInput = document.getElementsByTagName('input');
+		var timer = null;
+		var oDiv1 = document.getElementById('div1');
+		var oDiv2 = document.getElementById('div2');
+		var oDiv3 = document.getElementById('div3');
+		var oDiv4 = document.getElementById('div4');
+		
+
+
+		aInput[0].onclick = function(){ //开始暂停
+			if(oV.paused ){
+				oV.play();
+				this.value = '暂停';
+				timer = setInterval(nowTime, 1000);
+			}else{
+				oV.pause();
+				this.value = '开始';
+				clearInterval(timer);
+			};
+		};
+
+
+		function nowTime(){// 当前时间
+			aInput[1].value = changeTime( oV.currentTime );
+			var scale = oV.currentTime/oV.duration;
+			var div_len = oDiv1.offsetWidth-oDiv2.offsetWidth;
+			oDiv2.style.left = scale*div_len+'px';
+		};
+
+		aInput[2].value = changeTime(oV.duration ); //总时间
+
+		aInput[3].onclick = function(){
+			if(oV.muted){
+				this.value = '取消静音';
+				oV.muted = false;
+			}else{
+				this.value = '静音';
+				oV.muted = true;
+			}
+		};
+
+		aInput[4].onclick = function(){
+			oV.webkitRequestFullScreen();
+		}; //全屏操作
+
+		//拖拽
+		
+
+		oDiv2.onmousedown = function(ev){
+			var ev = ev || window.event;
+
+			var DisX1 = ev.pageX- this.offsetLeft;
+
+			document.onmousemove = function(ev){
+				var ev = ev || window.event; 
+				var L = ev.pageX-DisX1;
+
+				if(L<0){
+					L = 0;
+				}else if(L>oDiv1.offsetWidth-oDiv2.offsetWidth){
+					L = oDiv1.offsetWidth-oDiv2.offsetWidth
+				};
+				var scale = L/(oDiv1.offsetWidth-oDiv2.offsetWidth);
+
+				oV.currentTime = scale*oV.duration;
+
+				oDiv2.style.left = L + 'px';
+			};
+
+			document.onmouseup = function(){
+				document.onmousemove = null;
+			};
+			return false;
+
+		};
+
+		oDiv4.onmousedown = function(ev){
+			var ev = ev || window.event;
+
+			var DisX2 = ev.pageX- this.offsetLeft;
+
+			document.onmousemove = function(ev){
+				var ev = ev || window.event; 
+				var L = ev.pageX-DisX2;
+
+				if(L<0){
+					L = 0;
+				}else if(L>oDiv3.offsetWidth-oDiv4.offsetWidth){
+					L = oDiv3.offsetWidth-oDiv4.offsetWidth
+				};
+				var scale = L/(oDiv3.offsetWidth-oDiv4.offsetWidth);
+				oV.volume = scale;
+				oDiv4.style.left = L + 'px';
+			};
+
+			document.onmouseup = function(){
+				document.onmousemove = null;
+			};
+			return false;
+
+		};
+
+
+
+
+
+
+
+		function changeTime(iNum){
+			iNum = parseInt(iNum);
+			var iH = toZero( parseInt( iNum/3600 ) );
+			var iM = toZero( parseInt( iNum%3600/60 ) );
+			var iS = toZero( parseInt( iNum%60 ) );
+
+			return iH+':'+iM+':'+iS ;
+		};
+
+		function toZero(num){
+			if(num<=9){
+				return '0'+num ;
+			}else{
+				return ''+num ;
+			}
+
+		}
+
+
+
+
+	
+	}
+</script>
+
+</head>
+<body>
+<video id="v1" src="Intermission-Walk-in_512kb.mp4"></video><br>
+<input type="button" value="播放">
+<input type="button" value="00:00:00">
+<input type="button" value="00:00:00">
+<input type="button" value="静音">
+<input type="button" value="全屏">
+
+<style>
+	#div1{width: 300px; height: 20px; background: #ccc; position: relative;}
+	#div2{ position: absolute; width: 30px; height: 20px; background: red; cursor:pointer; }
+
+	#div3{width: 300px; height: 10px; background: #ddd; position: relative; margin-top:20px;}
+	#div4{ position: absolute; width: 30px; height: 10px; left: 270px; background: purple; cursor:pointer;}
+</style>
+
+<div id="div1">
+	<div id="div2"></div>	
+</div>
+
+<div id="div3">
+	<div id="div4"></div>	
+</div>
+</body>
+</html>
+

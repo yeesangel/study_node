@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <style>
+	*{padding: 0; margin: 0;}
+	a{text-decoration: none;}
+	#div1{display: none;}
+	#nowTime,#nextTime{float: left; margin:40px 0 0 20px;}
+	#nowTime .title,#nextTime .title{height: 40px; line-height: 40px; text-align: center; color: #fff; background: #17a4eb;} 
+	#nowTime .title .l{color: #fff; float: left; padding-left: 15px;}
+	#nextTime .title .r{color: #fff; float: right; padding-right: 15px;}
+
+	#nowTime table,#nextTime table{ border-collapse: collapse;}
+	#nowTime table tr td,#nextTime table tr td{padding:8px; text-align: center;}
+	#nowTime table tr th,#nextTime table tr th{padding:8px; text-align: center;}
+	#div1 table tr .red{color: red;}
+	#div1 table tr .blue{color: blue;}
+
+    </style>
+    <script>
+	window.onload = function(){
+		var aInput = document.getElementsByTagName('input');
+		var oDiv = document.getElementById('div1'); 
+		var oNowTime = document.getElementById('nowTime');
+		var oNextTime = document.getElementById('nextTime');
+		var aTh = oDiv.getElementsByTagName('th');
+		var aNowSpan = oNowTime.getElementsByTagName('span');
+		var aNextSpan = oNextTime.getElementsByTagName('span');
+		
+		var flag = true;
+		aInput[2].onclick = function(){
+			var oDate = new Date();
+			if(flag){
+				oDiv.style.display = 'block';
+				if(oDate.getMonth() == 11){
+					showDate(oNowTime,oDate.getFullYear(),oDate.getMonth()+1,true);
+					showDate(oNextTime,oDate.getFullYear(),1);
+				}
+				else{
+					showDate(oNowTime,oDate.getFullYear(),oDate.getMonth()+1,true);
+					showDate(oNextTime,oDate.getFullYear(),oDate.getMonth()+2);
+				}
+				showColor(oDate.getDate());
+				showBtn();
+			}else{
+				oDiv.style.display = 'none';
+			}
+			flag = !flag;
+		}
+
+		function showDate(obj,year,month,bBtn){
+			var oDate = new Date();
+			var dayNum = 0;
+			if(!obj.bBtn){
+				obj.oTitle = document.createElement('div');
+				obj.oTitle.className = 'title';
+				obj.appendChild(obj.oTitle);
+
+				var oTable = document.createElement('table');
+				oTable.border = '1';
+				oTable.style.borderColor = '#ccc';
+				var oThead = document.createElement('thead');
+				var oTbody = document.createElement('tbody');
+
+				var arr = ['周一','周二','周三','周四','周五','周六','周日'];
+				var oTr = document.createElement('tr');
+				for(var i=0;i<7;i++){
+					var oTh = document.createElement('td');
+					oTh.innerHTML = arr[i];
+					if(i == 5 || i==6){
+						oTh.className = 'red';
+					}
+					oTr.appendChild(oTh);
+				}
+				oThead.appendChild(oTr);
+				oTable.appendChild(oThead);
+
+				for(var i=0;i<6;i++){
+					var oTr = document.createElement('tr');
+					for(var j=0;j<7;j++){
+						var oTh = document.createElement('th');
+						oTr.appendChild(oTh);
+					}
+					oTbody.appendChild(oTr);
+				}
+				oTable.appendChild(oTbody);
+				obj.appendChild(oTable);
+
+
+				obj.bBtn = true;
+			};
+
+			obj.oTitle.innerHTML = (bBtn ? '<span class="l">'+(month-1)+'月</span>' : '<span class="r">'+(month+1)+'月</span>')+'<span>'+year+'</span>年<span>'+month+'</span>月';
+
+			var aTh = obj.getElementsByTagName('th');
+			for(var i=0;i<aTh.length;i++){
+				aTh[i].innerHTML = '';
+			}
+
+			if(month==1 || month==3 || month==5 || month==7 || month==8 || month==10 || month==12){
+				dayNum = 31;
+			}else if(month==4 || month==6 || month==9 || month==11){
+				dayNum = 30;
+			}else if(month==2 && isLeapYear(year)){
+				dayNum = 29;
+			}else{
+				dayNum = 28;
+			}
+
+			//判断每月第一天开始的位置
+			oDate.setFullYear(year);
+			oDate.setMonth(month-1);
+			oDate.setDate(1);
+			switch(oDate.getDay()){
+				case 0:
+				for(var i=0;i<dayNum;i++){
+					aTh[i+6].innerHTML = i+1;
+				}
+				break;
+				case 1:
+				for(var i=0;i<dayNum;i++){
+					aTh[i].innerHTML = i+1;
+				}
+				break;
+				case 2:
+				for(var i=0;i<dayNum;i++){
+					aTh[i+1].innerHTML = i+1;
+				}
+				break;
+				case 3:
+				for(var i=0;i<dayNum;i++){
+					aTh[i+2].innerHTML = i+1;
+				}
+				break;
+				case 4:
+				for(var i=0;i<dayNum;i++){
+					aTh[i+3].innerHTML = i+1;
+				}
+				break;
+				case 5:
+				for(var i=0;i<dayNum;i++){
+					aTh[i+4].innerHTML = i+1;
+				}
+				break;
+				case 6:
+				for(var i=0;i<dayNum;i++){
+					aTh[i+5].innerHTML = i+1;
+				}
+				break;
+			}
+
+			if(month==1 && bBtn){
+				obj.oTitle.getElementsByTagName('span')[0].innerHTML = 12;
+			}else if(month==12 && !bBtn){
+				obj.oTitle.getElementsByTagName('span')[0].innerHTML = 1
+			}
+
+
+		}
+
+		function isLeapYear(year){
+			if(year%4==0 && year%100!=0){
+				return true;
+			}else{
+				if(year%400==0){
+					return true;
+				}else{
+					return false
+				}
+			}
+		}
+		function showColor(date){
+
+			var result = [];
+			var oDate = new Date();
+			var re = new RegExp(''+date+'(<p>)*');
+			var flag = true;
+			var index = 0;
+			for(var i=0;i<aTh.length;i++){
+				if(aTh[i].innerHTML != ''){
+					result.push(aTh[i]);
+				}
+			}
+			if(aNowSpan[1].innerHTML == oDate.getFullYear() && aNowSpan[2].innerHTML == oDate.getMonth()+1){
+				for(var i=0;i<result.length;i++){
+					if(re.test(result[i].innerHTML)&&flag){
+						result[i].className = 'red';
+						index = i;
+						flag = false;
+					}
+				}
+
+				for(len=index+11;index+1<len;index++){
+					result[index+1].className = 'blue';
+				}
+
+			}else{
+				for(var i=0;i<result.length;i++){
+					result[i].className = '';
+				}
+			}
+		}
+
+		function showBtn(){
+			var leftMonth = parseInt(aNowSpan[0].innerHTML);
+			var leftYear = parseInt(aNowSpan[1].innerHTML);
+			var rightMonth = parseInt(aNextSpan[0].innerHTML);
+			var rightYear = parseInt(aNextSpan[1].innerHTML);
+
+
+			aNowSpan[0].parentNode.onclick = function(){
+				if(leftMonth==12){
+					showDate(oNowTime,leftYear-1,leftMonth,true);
+					showDate(oNextTime,leftYear,1);
+				}else{
+					showDate(oNowTime,leftYear,leftMonth,true);
+					showDate(oNextTime,leftYear,leftMonth+1);
+				}
+				showBtn();
+				showColor(new Date().getDate())
+			}
+
+			aNextSpan[0].parentNode.onclick = function(){
+				if(rightMonth==1){
+					showDate(oNowTime,rightYear,12,true);
+					showDate(oNextTime,rightYear+1,rightMonth);
+				}else{
+					showDate(oNowTime,rightYear,rightMonth,true);
+					showDate(oNextTime,rightYear,rightMonth);
+				}
+				showBtn();
+				showColor(new Date().getDate())
+			}
+		}
+		
+		
+
+	}
+    </script>
+    <body>
+  	<div class="int-wrap">
+  		<input type="text" >
+  		<input type="text">
+  		<input type="button" value="确定">
+  	</div>
+
+  	<div id="div1">
+  		<div id="nowTime">
+  			<!-- <div class="title">
+  				<span href="javascript:;" class="l">7月</span>
+  				<span>2012年7月</span>
+  			</div>
+  			<table border="1" bordercolor="#ccc">
+  				<thead>
+  					<tr>
+  						<th>周一</th>
+  						<th>周二</th>
+  						<th>周三</th>
+  						<th>周四</th>
+  						<th>周五</th>
+  						<th class="red">周六</th>
+  						<th class="red">周日</th>
+  					</tr>
+  				</thead>
+  				<tbody>
+  					<tr>
+  						<th>1</th>
+  						<th>1</th>
+  						<th>1</th>
+  						<th>1</th>
+  						<th>1</th>
+  						<th>1</th>
+  						<th>1</th>
+  					</tr>
+  					<tr>
+  						<th>1</th>
+  						<th>1</th>
+  						<th>1</th>
+  						<th>
+  							1<br>
+  							<span class="red">5000元</span>
+  						</th>
+  						<th>1</th>
+  						<th>1</th>
+  						<th>1</th>
+  					</tr>
+  				</tbody>
+  			</table> -->
+  		</div>
+  		<div id="nextTime">
+  			<!-- <div class="title">
+  				<span href="javascript:;" class="r">8月</span>
+  				<span>2012年8月</span>
+  			</div>
+  			<table border="1" bordercolor="#ccc">
+  				<thead>
+  					<tr>
+  						<th>周一</th>
+  						<th>周二</th>
+  						<th>周三</th>
+  						<th>周四</th>
+  						<th>周五</th>
+  						<th class="red">周六</th>
+  						<th class="red">周日</th>
+  					</tr>
+  				</thead>
+  				<tbody>
+  					<tr>
+  						<th>1</th>
+  						<th>1</th>
+  						<th>1</th>
+  						<th>1</th>
+  						<th>1</th>
+  						<th>1</th>
+  						<th>1</th>
+  					</tr>
+  					<tr>
+  						<th>1</th>
+  						<th>1</th>
+  						<th>1</th>
+  						<th>
+  							1<br>
+  							<span class="red">5000元</span>
+  						</th>
+  						<th>1</th>
+  						<th>1</th>
+  						<th>1</th>
+  					</tr>
+  				</tbody>
+  			</table> -->
+  		</div>
+  	</div>
+
+  
+    </body>
+</html>

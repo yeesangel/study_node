@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style>
+	*{padding: 0; margin: 0;}
+	div{width:100px; height:100px; background: red; position: absolute;}
+	</style>
+	<script>
+	window.onload = function(){
+		var oIinput = document.getElementById('input1');
+		var oDiv = document.getElementById('div1');
+		var timer = null;
+		var speed = 0;
+
+
+		
+		oIinput.onclick = function(){
+			startMove();
+		};
+
+		function startMove(){
+			clearInterval(timer);
+
+			timer = setInterval(function(){
+				speed+=3;
+				T = oDiv.offsetTop + speed;
+				if(T > document.documentElement.clientHeight-oDiv.offsetHeight){
+					T = document.documentElement.clientHeight-oDiv.offsetHeight;
+					speed *=-1;
+					speed *=0.75;
+
+				}
+				oDiv.style.top = T + 'px';
+			}, 30);
+		}
+
+
+
+
+
+	}
+	</script>
+</head>
+<body>
+<input type="button" id="input1" value="自有落体运动" />
+<div id="div1">111</div>
+</body>
+</html>

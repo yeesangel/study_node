@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no" /> 
+	<title>Document</title>
+	<script>
+/*	window.onload = function(){
+		//ie下引发内存泄漏
+		//内存泄漏：当页面跳转时内存无法释放，只有关闭浏览器才会被释放
+		var oDiv = document.getElementById('div1');
+
+		oDiv.onclick = function(){//当js对象属性应用内部时，内部也引用外部对象也就是说相互引用时才会发生内存泄漏
+			alert(oDiv.id);
+		}
+
+		//解决办法一
+		
+		window.onunload = function(){
+			oDvi.onclick = null;
+		}
+
+	}*/
+//解决办法er
+	window.onload = function(){
+		//ie下引发内存泄漏
+		//内存泄漏：当页面跳转时内存无法释放，只有关闭浏览器才会被释放
+		var oDiv = document.getElementById('div1');
+		var id  =oDiv.id
+		oDiv.onclick = function(){//当js对象属性应用内部时，内部也引用外部对象也就是说相互引用时才会发生内存泄漏
+			alert(id);
+		};
+
+		oDiv = null;
+
+
+
+	}
+	</script>
+</head>
+<body>
+<div id="div1"></div>
+
+</body>
+
+</html>

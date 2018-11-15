@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style>
+	*{margin:0;padding: 0;}
+	li{list-style:none;}
+	#div1{min-width:1000px; height: 600px; position: relative; overflow:hidden;}
+	#div1 ul{position: absolute;}
+	#div1 ul li{float: left; }
+	#div1 ul li img{position: relative;}
+	#btn{position: absolute; left: 50%; margin-left:30px; top: 580px; }
+	#btn a{display: inline-block; width: 10px; height: 10px; background: #666; margin-right:10px;}
+
+	#btn a.active{background: White;}
+	#btn a:hover{background: ddd;}
+
+	</style>
+	<script src="move.js"></script>
+	<script>
+	window.onload = function(){
+	var odiv = document.getElementById('div1');
+	var oul = odiv.getElementsByTagName('ul')[0];
+	var oli = oul.getElementsByTagName('li');
+	var oimg = oul.getElementsByTagName('img');
+	console.log(oul);
+
+	var obtn = document.getElementById('btn');
+	var oa = obtn.getElementsByTagName('a');
+
+	var imgWidth = 1920;
+	var inum = 0;
+	var inum1 = 0;
+
+	oul.style.width = oimg.length*imgWidth+'px';
+	// alert(oul.style.width)
+
+	function ToReSize(){
+		var VeiwWidth = document.documentElement.clientWidth;
+		if (VeiwWidth>1000) {
+			for(var i=0;i<oimg.length;i++){
+				oimg[i].style.left = -(imgWidth - VeiwWidth)/2+'px';
+			};
+		};
+	}
+
+	ToReSize()
+
+	window.onresize = function(){
+		ToReSize()
+	}
+
+	for(var i=0;i<oa.length;i++){
+		oa[i].index = i;
+		oa[i].onclick = function(){
+			for(var i=0;i<oa.length;i++){
+				oa[i].className = '';
+			}
+			this.className = 'active';
+			// oul.style.left = -this.index*imgWidth+'px';
+			startMove(oul,{left:-this.index * imgWidth});
+			
+		}
+	}
+
+	setInterval(torun, 3000);
+
+	function torun(){
+
+		if (inum>=oa.length-1) {
+			// oli[0].style.position = 'relative';
+			// oli[0].style.left = oimg.length*imgWidth+'px';
+			inum=0
+		}else{
+			inum++;
+		};
+		inum1++;
+		for(var i=0;i<oa.length;i++){
+			oa[i].className = '';
+		}
+		oa[inum].className = 'active';
+		startMove(oul,{left : -inum1*imgWidth})
+		// console.log(inum1);
+		}
+	}
+
+	</script>
+</head>
+<body>
+	<div id="div1">
+		<ul>
+			<li><img src="images/samsung/1.jpg" height="600" width="1920" alt="" /></li>
+			<li><img src="images/samsung/2.jpg" height="600" width="1920" alt="" /></li>
+			<li><img src="images/samsung/3.jpg" height="600" width="1920" alt="" /></li>
+		</ul>
+	</div>
+	<div id="btn">
+		<a class="active" href="#"></a>
+		<a href="#"></a>
+		<a href="#"></a>
+	</div>
+</body>
+</html>

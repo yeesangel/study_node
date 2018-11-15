@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <script>
+	window.onclick = function(){
+		var oDiv = document.getElementById('div1');
+		var oInput = document.getElementById('input1');
+
+
+
+		oInput.onclick = function(){
+			var arr = oDiv.innerHTML.split(',');
+
+			/*arr.push(arr[0]);//向后添加
+			arr.shift(arr[0]);//删除最后一个 */
+			arr.unshift(arr[arr.length-1]); //向前添加
+			arr.pop(arr[arr.length-1]);  //删除第一个
+
+			oDiv.innerHTML = arr;
+		}
+
+	}
+    </script>
+    <body>
+    <div id="div1">1,2,3,4</div>
+    <input type="button" value="切换" id="input1">
+    </body>
+</html>

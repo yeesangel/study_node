@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script>
+//constructor :判断是不是对象下的属性
+
+/*function Aaa(){
+
+};
+
+var a = new Aaa();
+
+alert(a.constructor)*/ //Aaa
+
+/*var arr = [];
+
+alert(arr.constructor == Array); //Array*/
+
+/*function Aaa(){
+
+};
+//Aaa.prototype.constructor = Aaa; //每一个函数都会有的，都是自动生成的
+var a = new Aaa();
+//alert(a.constructor==Aaa.prototype.constructor) //Aaa true
+
+alert(a.hasOwnProperty == Object.prototype.hasOwnProperty) //true //在对象原型链的最外层*/
+/*function arr(){
+
+}
+
+arr.prototype = {
+	name:'小明',
+	age:20
+};
+
+var a = new arr();
+console.log(a.constructor); *///function Object() { [native code] }
+
+function arr(){
+
+}
+
+arr.prototype.name = '小明';
+
+for(var attr in arr.prototype){
+	alert(attr);
+}
+</script>
+</body>
+</html>

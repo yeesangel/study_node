@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style>
+	*{padding:0; margin: 0; list-style-type: none; box-shadow: border-box;}
+	.box{width:249px; height: 250px; margin: 100px auto 0;  border: 1px solid #EDAFAB; }
+	.box ol {float: left; overflow:hidden;}
+	.box ol li{width: 48px; height: 27px; text-align: center; line-height:27px; border-right: 1px solid #EDAFAB;border-bottom: 1px solid #EDAFAB; background: #FCF2F1; cursor: pointer;}
+	.box ol li.current{background: -webkit-linear-gradient(#F57A76,#9D0612); color: #fff;}
+
+	.box ul{float: left; position: relative;}
+	.box ul li{position: absolute;left:0px; top: 0; cursor: pointer;  z-index:10;}
+	
+
+	</style>
+	<script src="jquery-1.7.2.min.js"></script>
+	<script>
+	$(function() {
+		var znum=10,
+			num=0,
+			speed=500,
+			timer=null;
+		// $('.box ol li').click(function(event) {
+		// 	 znum++;
+		// 	var i=$(this).index();
+		// 	$(this).addClass('current').siblings('li').removeClass('current');
+		// 	$('.box ul li').eq(i).css('zIndex', znum);
+		// });
+		$('.box ol li').hover(function() {
+				 znum++;
+				var i=$(this).index();
+				$(this).addClass('current').siblings('li').removeClass('current');
+				$('.box ul li').eq(i).css('zIndex', znum);
+				num=i
+
+		});
+
+
+		function autoplay(){
+			num++;
+			znum++;
+			if (num>8) {num=0};
+			$('.box ol li').eq(num).addClass('current').siblings('li').removeClass('current');
+			$('.box ul li').eq(num).css('zIndex', znum);
+		}
+
+		timer=setInterval(autoplay, 2000);
+
+
+		$('.box').hover(function() {
+			clearInterval(timer);
+		}, function() {
+			clearInterval(timer);
+			timer=setInterval(autoplay, 2000);
+		});
+		
+	});
+	</script>
+</head>
+<body>
+	<div class="box">
+		<ol>
+			<li class="current">女靴</li>
+			<li>雪地靴</li>
+			<li>冬裙</li>
+			<li>呢大衣</li>
+			<li>毛衣</li>
+			<li>棉服</li>
+			<li>女裤</li>
+			<li>羽绒服</li>
+			<li style="border-bottom:0;">牛仔裤</li>
+		</ol>
+		<ul>
+			<li><img src="images/taobao/女靴.jpg" height="250" width="200" alt="" /></li>
+			<li><img src="images/taobao/雪地靴.jpg" alt="" /></li>
+			<li><img src="images/taobao/冬裙.jpg" alt="" /></li>
+			<li><img src="images/taobao/呢大衣.jpg" alt="" /></li>
+			<li><img src="images/taobao/毛衣.jpg" alt="" /></li>
+			<li><img src="images/taobao/棉服.jpg" alt="" /></li>
+			<li><img src="images/taobao/女裤.jpg" alt="" /></li>
+			<li><img src="images/taobao/羽绒服.jpg" alt="" /></li>
+			<li><img src="images/taobao/牛仔裤.jpg" alt="" /></li>
+		</ul>
+	</div>
+</body>
+</html>

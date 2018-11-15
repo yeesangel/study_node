@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script>
+//原型链：实例对象与原型之间连接，叫做原型链
+/*function Arr(){
+	this.showName = 20
+}
+Arr.prototype.showName = 10
+
+var a = new Arr()
+alert(a.showName)*/
+//原型链的最外层：Object.prototype
+function Arr(){
+	//this.showName = 20
+}
+//Arr.prototype.showName = 10
+Object.prototype.showName = 30
+
+var a = new Arr()
+alert(a.showName)
+
+</script>
+</body>
+</html>

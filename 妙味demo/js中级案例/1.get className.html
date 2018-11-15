@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no" /> 
+	<title>Document</title>
+	<style>
+	
+	
+	</style>
+	<script>
+	window.onload = function(){
+		var oUl1 = document.getElementById('ul1');
+		var oUl2 = document.getElementById('ul2');
+
+		var aLi = getElementsByClassName(document,'p','box1');
+
+
+		alert(aLi.length);
+
+		console.log(aLi);
+
+		for(var i=0;i<aLi.length; i++){
+			aLi[i].style.background = 'red';
+		};
+
+
+		function getElementsByClassName( parent,tagName,className){
+			var aEls = parent.getElementsByTagName(tagName);
+			var arr = [];
+
+
+
+			for(var i=0;i<aEls.length;i++){
+				// if(aEls[i].className == className){
+				// 	arr.push(aEls[i]);
+				// }
+				var aClassName = aEls[i].className.split(' ');
+				for(var j=0;j<aClassName.length; j++){
+
+						if(aClassName[j] ==className){
+							arr.push(aEls[i])
+							break;
+						};
+				};
+			};
+			return arr;
+		}
+
+
+
+
+	}
+
+	</script>
+</head>
+<body>
+  <ul id="ul1">
+  	<li class="box">111111111111111111</li>
+  	<li>111111111111111111</li>
+  	<li>111111111111111111</li>
+  	<li class="box1">111111111111111111</li>
+  	<li>111111111111111111</li>
+  	<li class="box1 box1">111111111111111111</li>
+  </ul>
+
+
+   <ul id="ul2">
+  	<li class="box">111111111111111111</li>
+  	<li>111111111111111111</li>
+  	<li>111111111111111111</li>
+  	<li class="box1">111111111111111111</li>
+  	<li>111111111111111111</li>
+  	<li class="box1 box1">111111111111111111</li>
+  </ul>
+
+  <div id="div1">
+  	<p class="box1">2222222</p>
+  	<p>2222222</p>
+  </div>
+</body>
+</html>

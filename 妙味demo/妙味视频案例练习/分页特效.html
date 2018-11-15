@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style>
+	#page{margin-top:30px; width:1100px; text-align: center;}
+	#page a{display: inline-block; padding: 10px; color: #888;  border: 1px solid #ccc; font-size:18px; margin:0 5px; }
+	.active{background: #f40; color: #fff;}
+	#ul{ margin:0; padding:0; width:1100px; height:440px; overflow:hidden;}
+	#ul li{width: 200px; height: 200px; background: red; margin:20px 0 0 20px; list-style: none; float: left; font-size:40px; color: #fff; text-align: center; line-height:200px;}
+	</style>
+	<script src="miaov.js"></script>
+</head>
+<body>
+
+
+	<ul id="ul"></ul>
+	<div id="page">
+		<a href="javascript:;">1</a>
+		<a href="javascript:;">2</a>
+		<a href="javascript:;">3</a>
+		<a href="javascript:;">4</a>
+	</div>
+	<script>
+	
+	var oPage = document.getElementById('page');
+	var aA = oPage.getElementsByTagName('a');
+	
+
+    function pageStyle(){
+    	var now = 1;
+		var json = {
+			title:[
+			'分页1',
+			'分页2',
+			'分页3',
+			'分页4',
+			'分页5',
+			'分页6',
+			'分页7',
+			'分页8',
+			'分页9',
+			'分页10',
+			'分页11',
+			'分页12',
+			'分页13',
+			'分页14',
+			'分页15',
+			'分页16',
+			'分页17',
+			'分页18',
+			'分页19',
+			'分页20',
+			'分页31',
+			'分页32',
+			'分页33',
+			'分页34',
+			'分页35',
+			'分页36',
+			'分页37',
+			'分页38',
+			'分页39',
+			'分页30',
+			'分页31',
+			'分页32',
+			'分页33',
+			'分页34'
+			]
+		};
+		var num = now*10<json.title.length? 10 : json.title.length-(now-1)*10;
+		var oUl = document.getElementById('ul');
+	    var aLi = oUl.getElementsByTagName('li');
+	    var arr = [];
+	    //var timer = null;
+	  	var inow = num-1;
+	    if(oUl.innerHTML == ''){
+	    	for(var i=0;i<num;i++){
+	    		oLi = document.createElement('li');
+				oLi.innerHTML = json.title[(now-1)*10+i];
+				oUl.appendChild(oLi);
+			};
+
+			for(var i=0;i<aLi.length;i++){
+				arr.push([aLi[i].offsetLeft,aLi[i].offsetTop]);
+			};
+			//console.log(arr);
+
+			for(var i=0;i <aLi.length;i++){
+				aLi[i].style.position = 'absolute';
+				aLi[i].style.left = arr[i][0]+'px';
+				aLi[i].style.top = arr[i][1]+'px';
+				aLi[i].style.margin = '0';
+			};
+	    		
+	    }else{
+	    	timer = setInterval(function(){
+	    		//console.log(inow)
+	    		tweenMove(aLi[inow],{
+	    			left:200,
+	    			top:250,
+	    			opacity:0
+	    		})
+	    		
+	    		if(inow == 0){
+	    			clearInterval(timer);
+	    			inow = num-1;
+	    			for(vari=0;i<num;i++){
+	    				oLi[i].innerHTML = json.title[(now-1)*10+i];
+	    			}
+	    			timer2 = setInterval(function(){
+	    				//console.log(inow)
+	    				tweenMove(aLi[inow],{
+			    			left:arr[inow][0],
+			    			top:arr[inow][1],
+			    			opacity:100
+			    		});
+	    				inow--;
+			    		if(inow == -1){
+			    			clearInterval(timer2);
+			    			inow = num-1;
+			    		};
+			    		
+	    		
+	    			}, 100)
+
+
+	    		}else{
+	    			inow--;
+	    		}
+	    	}, 100);
+	    	
+	    };
+
+    };
+
+    pageStyle();
+
+
+
+    for(var i=0;i<aA.length;i++){
+    	aA[i].index = i;
+
+    	aA[i].onclick = function(){
+    		for(var i=0;i<aA.length;i++){
+    			aA[i].className = '';
+    		};
+    		this.className = 'active';
+
+    		pageStyle();
+
+
+
+    	};
+    };
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style>
+	#div1{width: 100px; height: 100px; background:red; position: absolute; left: 0;}
+	.bg{height: 500px; position: absolute; left: 500px;width: 1px; background: #000;}
+	</style>
+	<script>
+	window.onload = function(){
+		var oInput = document.getElementById('input1');
+		var oDiv = document.getElementById('div1');
+	
+
+		oInput.onclick = function(){
+			
+			stratMove(oDiv,500)
+		}
+
+		function stratMove(obj,target){
+			var timer = null;
+			var iSpeed = 0
+			clearTimeout(timer);
+			timer = setInterval(function(){
+				iSpeed+=(target-obj.offsetLeft)/5;
+				iSpeed *=0.75
+				document.title = iSpeed
+				if(Math.abs(iSpeed)<=1 && Math.abs(target-obj.offsetLeft)<=1){
+					clearInterval(timer);
+					obj.style.left = '500px';
+					iSpeed = 0;
+					//alert('aas')
+				}else{
+					obj.style.left = obj.offsetLeft + iSpeed + 'px';
+				}
+			}, 30)
+
+		}
+
+	
+
+	}
+	</script>
+</head>
+<body>
+<input type="button" value="点击运动" id="input1"  />
+<div id="div1"></div>
+<div class="bg"></div>
+
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style>
+	*{padding: 0; margin: 0;}
+	div{width:100px; height:100px; background: red; float:left; margin-right:10px;}
+	/* #dot{width:150px; height:150px; background: blue; position: absolute; } */
+	</style>
+	<!-- <script src="move.js"></script> -->
+	<script>
+	window.onload = function(){
+		var oDiv = document.getElementsByTagName('div');
+		//var oDot = document.getElementById('dot');
+		var num = -1;
+		var len = oDiv.length;
+		var arr = [];
+
+
+		for(var i=0;i<len;i++){
+
+			arr.push([oDiv[i].offsetLeft,oDiv[i].offsetTop])
+
+		}
+
+		for(var i=0;i<len;i++){
+
+			oDiv[i].style.position = 'absolute';
+			oDiv[i].style.left = arr[i][0]+'px';
+			oDiv[i].style.top = arr[i][1]+'px';
+			oDiv[i].style.margin = 0;
+
+		}
+
+
+
+		document.onclick = function(){
+			var timer = null;
+			timer = setInterval(function(){
+				
+				if(num==len){
+					num=-1
+				}else{
+					num++;
+				};
+				startMove(500,oDiv[num])
+				//console.log(num);
+				for(var i=0;i<len;i++){
+					if(oDiv[i].offsetTop==500){
+						//alert('message')
+						startMove1(0,oDiv[i])
+
+					}
+
+				}
+
+			}, 105);
+		};
+
+
+		//startMove(oDot);
+
+		function startMove(iTarget,obj){
+			var timer = null;
+			clearInterval(timer);
+
+			timer = setInterval(function(){
+
+				if( obj.offsetTop>=iTarget ){
+					//console.log(obj.offsetTop)
+					clearInterval(timer);
+				}else{
+					obj.style.top = obj.offsetTop + 10 +'px';
+				};
+
+			}, 30);
+
+		};
+
+
+		function startMove1(iTarget,obj){
+			var timer = null;
+			clearInterval(timer);
+
+			timer = setInterval(function(){
+
+				if(obj.offsetTop<=iTarget){
+					//console.log(obj.offsetTop)
+					clearInterval(timer);
+				}else{
+					obj.style.top = obj.offsetTop - 10 +'px';
+				};
+
+			}, 30);
+
+		}
+
+		
+		
+
+
+		
+
+	
+
+		
+		
+	
+
+		
+
+
+	}
+	</script>
+</head>
+<body id="body1">
+
+<!-- <p id="dot"></p> -->
+<div>111</div>
+<div></div>
+<div></div>
+<div>22</div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+
+
+</body>
+</html>

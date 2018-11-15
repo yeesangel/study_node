@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no" /> 
+	<title>Document</title>
+	<style>
+	/* body{padding:0; margin: 0;} */
+	
+	
+	</style>
+	<script>
+	window.onload = function(){
+		var oText = document.getElementById('input');
+		var oImg = document.getElementById('img1');
+
+		//oText.value = '222';
+		// alert(oText.value);
+		//alert(oText['value'])
+		
+
+		/*var name = 'value';
+
+		alert(oText[name])*/
+
+
+		//alert(oText.getAttribute('value'))
+		
+
+		//oText.setAttribute('value', '22222');
+		
+		//oText.removeAttribute('value');
+		
+		//.和[]无法操作自定义属性而 getAttribute()可以操作自定义属性
+		
+		//alert(oText._name_)
+		
+		//alert(oText.getAttribute('_name_'))
+
+		// alert(oImg.src);
+		// alert(oImg['src']);
+		
+		//alert(oImg.getAttribute('src'));
+
+		alert(oImg.style.getAttribute('width'));
+		
+
+	}
+
+	</script>
+</head>
+<body id="body">
+	<input type="text" value="11111" id="input" _name_="11111111" />
+	<img id="img1" src="1.jpg" style="width:200px;" alt=""  />
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no" /> 
+	<title>Document</title>
+	<style>
+	
+	
+	</style>
+	<script>
+	//快速排序
+	//找基准点
+	//建立两个数组，分别存左边和右边两个数组
+	//利用递归进行下一次操作
+	
+	function qiuckSort(arr){
+		if(arr<=1){
+			return arr;
+		}
+
+		var num = Math.floor(arr.length/2);
+
+		var Value = arr.splice(num,1);
+		var left = [];
+		var right = [];
+		for(var i=0;i<arr.length;i++){
+			if(arr[i]<Value){
+				left.push(arr[i]);
+			}else{
+				right.push(arr[i]);
+			}
+		}
+		return qiuckSort(left).concat([Value],qiuckSort(right));
+
+
+	}
+
+
+	alert(qiuckSort([10,5,20,4,16,17,30,8]))
+	</script>
+</head>
+<body>
+
+</body>
+</html>

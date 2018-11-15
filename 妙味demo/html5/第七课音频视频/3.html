@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<!-- <style>
+*{ margin:0; padding: 0;   }
+	#v1{width: 100%; height: 100%!important;}
+
+</style> -->
+<script>
+	window.onload = function(){
+		var oV = document.getElementById('v1');
+		
+
+		oV.poster = '2.png';
+		oV.width = 1000;
+		oV.height = 1000;
+
+		alert(oV.videoWidth+":"+oV.videoHeight);
+
+
+	}
+</script>
+
+</head>
+<body>
+
+<input type="button" value="重新加载" id="input1">
+<video id="v1" controls>
+	<source src="home_loop_720p.webm"></source>
+	<source src="home_loop_720p.mp4"></source>
+</video> 
+
+<!-- <audio id="a1" controls autoplay src="home.ogg"></audio> -->
+</body>
+</html>
+

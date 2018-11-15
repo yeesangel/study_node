@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<script>
+window.onload = function(){
+	var oDiv1 = document.getElementById('div1');
+	var oSpan1 = document.getElementById('span1');
+	bindEvent(oDiv1,'click',function(){
+		alert(1)
+	});
+
+	bindEvent(oDiv1,'click',function(){
+		alert(2)
+	});
+
+	bindEvent(oSpan1,'show',function(){
+		alert(3);
+	});
+
+	bindEvent(oSpan1,'show',function(){
+		alert(4);
+	})
+
+	bindEvent(oSpan1,'hide',function(){
+		alert(5);
+	})
+	frieEvent(oDiv1,'click');
+
+function bindEvent(obj,events,fn){
+	//obj 楼层
+	//events 书架
+	//fn 一本书
+	obj.listeners = obj.listeners || {};
+	obj.listeners[events] = obj.listeners[events] || [];
+	obj.listeners[events].push(fn);
+
+	if(obj.addEventListener){
+		obj.addEventListener(events, fn, false);
+	}else{
+		obj.attachEvent('on'+events, fn);
+	}
+};
+
+function frieEvent(obj,events){//主动触发事件函数
+	//alert(obj.listeners[events].length)
+	for(var i=0;i<obj.listeners[events].length;i++){
+		obj.listeners[events][i]();
+	}
+
+}
+
+
+}
+</script>
+<body>
+
+<div id="div1">div1</div>
+
+<span id="span1">span1</span>
+
+</body>
+
+</html>

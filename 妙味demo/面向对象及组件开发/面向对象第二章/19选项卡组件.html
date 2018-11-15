@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<script src="jquery-1.8.2.min.js"></script>
+	<style>
+	#tab-wrap1 div,#tab-wrap2 div,#tab-wrap3 div,#tab-wrap4 div{width: 300px; height: 150px; border: 1px solid #000;background: red; display: none;}
+	 .active{background: red;}
+	</style>
+</head>
+<body>
+<script>
+
+//title 基于jquery 的选项卡
+//options event delay getcontent()
+//events beforeClick afterClick
+//jquery中主动触发 trigger()
+$(function(){
+	var t1 = new Tab();
+	t1.init('tab-wrap1',{})
+
+	var t2 = new Tab();
+	t2.init('tab-wrap2',{//配置参数加事件
+		event:'mouseover'
+	})
+
+	var t3 = new Tab();
+	t3.init('tab-wrap3',{//配置参数加延迟
+		event:'mouseover',
+		delay:200
+	});
+
+	var t4 = new Tab();
+	t4.init('tab-wrap4',{})
+	t4.nowsel(2);
+
+	$('#input1').click(function(event) {
+		alert(t4.getcontent());
+	});
+
+	$(t4).on('beforeClick',function(){
+		alert(t4.getcontent());
+	});
+
+	$(t4).on('afterClick',function(){
+		alert( t4.getcontent() );
+	})
+})
+function Tab(){
+	this.oParent = null;
+	this.aInput = null;
+	this.aDiv = null;
+	this.iNow = 0;
+
+	this.settings = { //默认参数
+		event : 'click'
+	}
+}
+Tab.prototype.init = function(oParent,opt){
+	$.extend(this.settings, opt);
+
+	this.oParent = $('#'+oParent);
+	this.aInput = this.oParent.find('input');
+	this.aDiv = this.oParent.find('div');
+	this.change();
+}
+
+Tab.prototype.change = function(){
+	var This = this;
+	var timer = null;
+	this.aInput.on(this.settings.event,function(){
+		var _this = this;
+		if(This.settings.event == 'mouseover' && This.settings.delay){ //加延迟
+			timer = setTimeout(function(){
+				show(_this)
+			}, This.settings.delay);
+		}else{
+			show(this);
+		};
+
+		
+		
+	}).mouseout(function(event) {
+		clearTimeout(timer);
+	});
+
+	function show(obj){
+		$(This).trigger('beforeClick');
+		This.aInput.attr('class','');
+		This.aDiv.css('display', 'none');
+
+		$(obj).attr('class','active');
+		This.aDiv.eq($(obj).index()).css('display', 'block');
+		This.iNow = $(obj).index();
+		$(This).trigger('afterClick');
+	}
+}
+
+Tab.prototype.nowsel = function(index){
+	this.aInput.attr('class','');
+	this.aDiv.css('display', 'none');
+
+	this.aInput.eq(index).attr('class','active');
+	this.aDiv.eq(index).css('display', 'block');
+	this.iNow = index;
+}
+
+Tab.prototype.getcontent = function(){
+	return this.aDiv.eq(this.iNow).html();
+}
+
+</script>
+<div id="tab-wrap1">
+	<input class="active" type="button" value="按钮1" />
+	<input type="button" value="按钮2" />
+	<input type="button" value="按钮3" />
+	<div style="display:block;">111111111</div>
+	<div>222222222</div>
+	<div>333333333</div>
+</div>
+
+<div id="tab-wrap2">
+	<input class="active" type="button" value="按钮1" />
+	<input type="button" value="按钮2" />
+	<input type="button" value="按钮3" />
+	<div style="display:block;">111111111</div>
+	<div>222222222</div>
+	<div>333333333</div>
+</div>
+
+<div id="tab-wrap3">
+	<input class="active" type="button" value="按钮1" />
+	<input type="button" value="按钮2" />
+	<input type="button" value="按钮3" />
+	<div style="display:block;">111111111</div>
+	<div>222222222</div>
+	<div>333333333</div>
+</div>
+<div id="tab-wrap4">
+	<input class="active" type="button" value="按钮1" />
+	<input type="button" value="按钮2" />
+	<input type="button" value="按钮3" />
+	<div style="display:block;">111111111</div>
+	<div>222222222</div>
+	<div>333333333</div>
+</div>
+<input type="button" value="点击" id="input1" />
+</body>
+</html>

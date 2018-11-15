@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no" /> 
+	<title>Document</title>
+	<script>
+	window.onload = function(){
+		var oInput = document.getElementById('input1');
+		var oIframe = document.getElementById('iframe1');
+
+		oInput.onclick = function(){
+			//oIframe.contentWindow.document.getElementById('div1').style.color = 'red';//所有浏览器都支持
+			oIframe.contentDocument.getElementById('div1').style.color  ='red'; //ie 6 7不支持
+		}
+
+
+
+	}
+
+	</script>
+</head>
+<body>
+<input type="button" value="改变" id="input1" />
+<div id="div1">bbbbbbbbbbbbb</div>
+<iframe src="1iframe.html" id="iframe1"></iframe>
+
+</body>
+</html>

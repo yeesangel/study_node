@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no" /> 
+	<title>Document</title>
+	<style>
+	div[class*=col-]{background: #ccc; border: 1px solid red; min-height: 50px; }
+	</style>
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script>
+	$(function(){
+		var mL = parseInt($('#div1').css('marginLeft'));
+		var W = parseInt($('#div1').css('width'));
+		// var W = $('#div1').outerWidth();
+
+		$('#div1').css('marginLeft', mL-W/2);
+
+	})
+	</script>
+</head>
+<body>
+     <div class="container">
+     	<!-- <div class="col-md-12">11111</div>
+     	<div class="col-md-4">2222</div>
+     	<div class="col-md-4">2222</div>
+     	<div class="col-md-4">2222</div>
+     	<div id="div1" class="col-md-4 col-md-offset-6">2222</div> -->
+
+     	<div class="col-md-12">11111</div>
+     	<div class="col-md-6">
+     		<div style="display:table-cell; vertical-align: middle; height:150px;">
+     			2222aaaaaaaaaaaasssssssssssssqwdddddddddddddddd
+		     	 <br /> ddddddddddddddddddddddddddddxxxxxxxxxxx
+		     	 <br /> ddddddddddddddddddddddddddddxxxxxxxxxxx
+		     	 <br /> ddddddddddddddddddddddddddddxxxxxxxxxxx
+		     	 <br /> ddddddddddddddddddddddddddddxxxxxxxxxxx
+     		</div>
+     	 </div>
+     	<div class="col-md-4">
+     		<div style="display:table-cell; vertical-align:middle; height:150px;">2222ccsssssss</div>
+     	</div>
+     </div>
+</body>
+</html>

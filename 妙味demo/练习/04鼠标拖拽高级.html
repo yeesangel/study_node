@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style>
+	div{width: 1000px;height: 500px;background: #ccc;margin: 100px auto;position: relative;border: 1px solid #000;}
+	div span{width: 100px;height: 100px;background: #f00;position: absolute;left: 0;top: 0;border: 1px solid #000;}
+	</style>
+	<script src="jquery-1.7.2.min.js"></script>
+	<script>
+	$(function() {
+		var m=false;
+		var w=$('div').width();
+		var h=$('div').height();
+		$('span').mousedown(function(event) {
+			m=true;
+			$('div').mousemove(function(event) {
+				if(m==true){
+					var x=event.pageX-$('div').offset().left-50;
+					var y=event.pageY-$('div').offset().top-50;
+					if(x<0){
+						x=0;
+					}
+					if(y<0){
+						y=0;
+					}
+					if(x>w-100){
+						x=w-100;
+					}
+					if(y>h-100){
+						y=h-100;
+					}
+					
+
+
+					$('span').css({
+						left: x,
+						top: y
+					});
+				}
+			});
+
+
+		});
+
+		$(window).mouseup(function(event) {
+			m=false;
+		});
+	});
+	</script>
+</head>
+<body>
+	<div>
+		<span></span>
+	</div>
+</body>
+</html>

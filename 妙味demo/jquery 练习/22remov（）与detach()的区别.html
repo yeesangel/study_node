@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no" /> 
+	<title>Document</title>
+	<style>
+
+	</style>
+	<script src="jquery-1.7.2.min.js"></script>
+	<script>
+	$(document).ready (function() { //等dom加载完就执行，性能要好
+
+		//remove() 可以上出指定标签但是也会删除标签操作
+		// $("div").click(function(event) {
+		// 	alert(111)
+		// });
+		// var odiv = $('div').remove();
+		// $('body').append(odiv)
+		
+		//datech() 跟remover一样，只不过不会删除标签操作行为
+			$("div").click(function(event) {
+			alert(111)
+		});
+		var odiv = $('div').datech();
+		$('body').append(odiv)
+	})
+	</script>
+</head>
+<body>
+	<div>div1 <span>span</span></div>
+	
+</body>
+</html>

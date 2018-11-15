@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+
+	<script>
+	window.onload = function(){
+		//document.documentElement.clientWidth/clientHeight: 可视区的宽度/高度
+		//
+		//alert(document.documentElement.clientWidth)
+		
+		//scrollTop 纵向滚动距离
+		
+	/*	document.onclick = function(){
+			var iTop = document.documentElement.scrollTop || document.body.scrollTop
+			alert(iTop)
+		}
+		*/
+		
+
+		//alert(document.getElementById('div1').scrollHeight);210px
+		
+		alert(document.documentElement.offsetHeight)
+		
+		
+
+
+
+	}
+
+	</script>
+</head>
+<body style="-height:2000px;">
+	<div id="div1" style="width:100px; height:100px; border: 1px solid red; padding:10px; margin:10px; ">
+		<div id="div2" style="width:100px; height:200px; background: red;"></div>
+	</div>
+</body>
+</html>

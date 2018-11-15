@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no" /> 
+	<title>Document</title>
+	
+
+	<script>
+		window.onload = function(){
+			// //字符类：一组相似的元素，[] 中括号中整体代表一个字符
+			var str = 'abc';
+			var re = /a[bef]+c/;
+			alert(re.test(str));
+			
+
+			//排除：^如果^写在[]里面的话，就表示排除的意思；
+			 // var str = 'awc';
+			 // var re = /a[^abs]c/;
+
+			 // alert(re.test(str));
+		}
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

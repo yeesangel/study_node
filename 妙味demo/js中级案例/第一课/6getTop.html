@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no" /> 
+	<title>Document</title>
+	<style>
+	div{padding:40px 50px;}
+	#div1{width: 900px; background: purple;}
+	#div2{ background: cyan;}
+	#div3{ background: pink;}
+	
+	</style>
+	<script>
+	window.onload = function(){
+	var div3 = document.getElementById('div3');
+
+	var t = getTop(div3);
+	alert(t.top);
+	
+	function getTop(obj){
+		var iTop = {left:0,top:0};
+		while(obj){
+			iTop.left += obj.offsetLeft;
+			iTop.top += obj.offsetTop;
+			obj = obj.offsetParent;
+		};
+		return iTop;
+	}
+
+	}
+
+	</script>
+</head>
+<body>
+<div id="div1">
+	<div id="div2">
+		<div id="div3"></div>
+	</div>
+</div>
+</body>
+</html>

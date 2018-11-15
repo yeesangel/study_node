@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{background: #000;}
+		canvas{background: white; }
+
+	</style>
+<script>
+window.onload = function(){
+
+	var oC = document.getElementById('c');
+
+	var oGc = oC.getContext("2d");
+
+	var yImg = new Image();
+
+	yImg.onload = function(){
+		draw(yImg);
+	};
+
+	yImg.src = 'logo1.png' ;
+
+	function draw(obj){
+		oC.width = obj.width;
+		oGc.drawImage(obj, 0, 0);
+		//alert(obj.height)
+		var oImg = oGc.getImageData(0,0,obj.width,obj.height);
+
+		var w = obj.width;
+		var h = obj.height;
+
+		for(var i=0;i<h;i++){
+
+			for(var j=0;j<w;j++){
+				var result = [];
+
+				var color = getXY(obj,j,i);
+
+				result[0] = 255 - color[0];
+				result[1] = 255 - color[1];
+				result[2] = 255 - color[2];
+				result[3] = 255;
+
+				setXY(obj,j,i,result);
+
+			}
+
+		}
+
+		oGc.putImageData(obj,0,obj.height)
+
+	};
+
+
+	function getXY(obj,x,y){ //获取指定坐标下的rgba的色值；
+		var w = oImg.width;
+		var w = oImg.height;
+		var d = oImg.data;
+
+		var color = [];
+
+		color[0] = d[4*(y*w+x)]
+		color[1] = d[4*(y*w+x)+1]
+		color[2] = d[4*(y*w+x)+2]
+		color[3] = d[4*(y*w+x)+3]
+
+		return color;
+	}
+
+	function setXY(obj,x,y,color){ //设置指定坐标下的rgbade色值；
+		var w = oImg.width;
+		var w = oImg.height;
+		var d = oImg.data;
+
+	    d[4*(y*w+x)] =color[0]
+	    d[4*(y*w+x)+1] =color[1]
+	    d[4*(y*w+x)+2] =color[2]
+	    d[4*(y*w+x)+3] =color[3]
+	}
+
+	
+
+
+
+	
+}
+
+
+</script>
+
+</head>
+<body>
+<div class="box"></div>
+	
+<canvas width="400" height="400" id="c"> </canvas>
+
+
+</body>
+</html>
+

@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+
+	<script>
+	window.onload = function(){
+		var oText = document.getElementById('text1');
+		var oUl = document.getElementById('ul1');
+
+		oText.onkeyup = function(){
+
+
+			var  ev = ev || event;
+			if(ev.keyCode == 13 && ev.ctrlKey){
+
+			if(this.value != ""){
+				var aLi = document.createElement('li');
+				aLi.innerHTML = this.value;
+
+				if(oUl.children[0]){
+					oUl.insertBefore(aLi,oUl.children[0]);
+				}else{
+					oUl.appendChild(aLi);
+				};
+			};
+			}
+
+
+
+		};
+
+
+
+
+	};
+
+	</script>
+</head>
+<body >
+<input type="text" id="text1"  >
+<ul id="ul1"></ul>
+</body>
+</html>

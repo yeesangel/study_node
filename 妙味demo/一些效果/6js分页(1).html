@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <style>	
+    .page-wrap{display: inline-block; border:1px solid #f78751; border-right:0; border-radius:4px; overflow: hidden ;}
+    .page-wrap a{display:inline-block; padding:6px 12px; border-right: 1px solid #f78751; font-size: 18px; color:#f78751 ; text-decoration:none;}
+    .page-wrap a.active{color: #fff; background:#f78751 ; }
+    
+    </style>
+    <script>
+    window.onload = function(){
+      page({
+        id : 'main',
+        nowNum : 8,
+        allNum : 50,
+        callBack : function(now,all){
+           /* alert('当前第几页'+now+'总共第几页'+all);*/
+        }
+       })
+    }
+
+
+   function page(opt){
+        if(!opt.id){return false}
+        var obj = document.getElementById(opt.id);
+        var nowNum = opt.nowNum || 1;
+        var allNum = opt.allNum || 5;
+        var callBack = opt.callBack || function(){};
+
+        if(nowNum>=4 && allNum>=6){
+            var oA = document.createElement('a');
+            oA.href = '#1';
+            oA.innerHTML = '首页';
+            obj.appendChild(oA);
+        }
+
+        if(nowNum>=2){
+            var oA = document.createElement('a');
+            oA.href = '#'+(nowNum-1);
+            oA.innerHTML = '上一页';
+            obj.appendChild(oA);
+        }
+
+        if(allNum <= 5){
+            for(var i=1;i<=allNum;i++){
+
+                var oA = document.createElement('a');
+                oA.href = '#' + i;
+                if(nowNum==i){
+                    oA.innerHTML = i ;
+                    oA.className = 'active';
+                }else{
+                    oA.innerHTML = '[' +i+ ']';
+                }
+                obj.appendChild(oA);
+            }
+
+        }else{
+
+            for(var i=1;i<=5;i++){
+                var oA = document.createElement('a');
+                
+                if(nowNum == 1 || nowNum == 2){
+                    oA.href = '#'+i;
+                    if(nowNum == i){
+                        oA.innerHTML = i;
+                        oA.className = 'active';
+                    }else{
+                        oA.innerHTML = '[' +i+ ']';    
+                    }
+                }
+                else if(allNum-nowNum==1 || allNum-nowNum==0){
+                    oA.href = '#'+(allNum-5+i);
+                    if(allNum-nowNum == 0 && i==5){
+                        oA.innerHTML = allNum-5+i;
+                        oA.className = 'active';
+                    }else if(allNum - nowNum == 1 && i==4 ){
+                        oA.innerHTML = allNum-5+i;
+                        oA.className = 'active';
+                    }else{
+                        oA.innerHTML = '[' +(allNum-5+i)+ ']';
+                    }
+                }
+                else{
+                    oA.href = '#' + (nowNum-3+i);
+                    if(nowNum == nowNum-3+i){
+                        oA.innerHTML = nowNum-3+i
+                        oA.className = 'active';
+                    }else{
+                        oA.innerHTML = '[' +(nowNum-3+i)+ ']';    
+                    }
+                }
+                obj.appendChild(oA);
+            }
+
+        }
+
+        if(allNum-nowNum >=1){
+            var oA = document.createElement('a');
+            oA.href = '#'+(nowNum+1);
+            oA.innerHTML = '下一页';
+            obj.appendChild(oA);
+        }
+
+         if(allNum-nowNum >=3 && allNum>=6){
+            var oA = document.createElement('a');
+            oA.href = '#'+allNum;
+            oA.innerHTML = '尾页';
+            obj.appendChild(oA);
+         }
+         callBack(nowNum,allNum);
+
+         var aA = document.getElementsByTagName('a');
+         for(var i=0;i<aA.length;i++){
+         	aA[i].index = i;
+            aA[i].onclick = function(){
+                var nowNum = parseInt(this.getAttribute('href').substring(1));
+                obj.innerHTML = '';
+                page({
+                 id : 'main',
+                 nowNum : nowNum,
+                 allNum : allNum,
+                 callBack : callBack
+                }) 
+               /* for(var i=0;i<aA.length;i++){//点击添加类active
+                	if(i==this.index){
+                		aA[i].className = 'active';
+                	}else{
+                		aA[i].className = '';
+                	}
+                }*/
+            }
+         }
+    }
+
+
+
+    </script>
+    <body>
+    	<div class="page-wrap" id="main">
+       <!--  <a href="#">首页</a>
+        <a href="#2">上一页</a>
+        <a class="active" href="#1">[1]</a>   
+        <a href="#2">[2]</a>   
+        <a href="#3">[3]</a>   
+        <a href="#4">[4]</a>   
+        <a href="#5">[5]</a>   
+        <a href="#5">[6]</a>   
+        <a href="#5">[7]</a>   
+        <a href="#5">[8]</a>   
+        <a href="#5">[9]</a>   
+        <a href="#5">[10]</a>   
+        <a href="#4">下一页</a>
+        <a href="#">尾页</a> -->
+    </div>
+    </body>
+</html>

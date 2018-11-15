@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style>
+	div{width:50px; height: 50px; background: red; position: absolute; top: 0;}
+	#btn{margin-top: 100px;}
+	</style>
+
+	<script>
+	window.onload = function(){
+		var timer = null;
+		var num=0;
+		var timer1 = null;
+		var num1=0;
+
+
+		var adiv = document.getElementsByTagName('div');
+		var obtn = document.getElementById('btn');
+
+		for(var i=0;i<adiv.length;i++){
+			adiv[i].style.left = 10+i*60+'px';
+		};
+
+		
+		obtn.onclick  = function(){
+			clearInterval(timer);
+			timer = setInterval(function(){
+				
+				num++;
+				if( num>=500){
+					num=500
+				};
+				
+				timer1 = setInterval(function(){
+					num1++;
+					if( num1>=adiv.length){
+					num1=adiv.length
+					};
+					adiv[num1].style.top = num+'px';
+
+				}, 50)
+
+				
+			},10);
+			// clearInterval( timer);	
+			// timer=setInterval(function(){
+			// num=num+1;
+			// adiv[0].style.top=num+'px';
+				
+				
+			// }, 50);
+		}
+
+	}
+	</script>
+</head>
+<body>
+	 
+	<button id="btn">按钮</button>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+</body>
+</html>

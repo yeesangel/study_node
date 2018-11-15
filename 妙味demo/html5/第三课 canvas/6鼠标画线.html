@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{background: #000;}
+		#can{background: white;}
+		span{color:red;}
+
+	</style>
+<script>
+window.onload = function(){
+	var oCan = document.getElementById('can');
+	var oGc = oCan.getContext("2d");
+
+	/**/
+
+
+		oCan.onmousedown = function(ev){
+			 ev = ev || window.ev;
+			oGc.moveTo(ev.pageX-oCan.offsetLeft, ev.pageY-oCan.offsetLeft);
+			document.onmousemove = function(ev){
+				 ev = ev || window.ev;
+				oGc.lineTo(ev.pageX-oCan.offsetLeft, ev.pageY-oCan.offsetLeft);
+				oGc.stroke();
+			}
+
+			document.onmouseup = function(){
+				document.onmousedown = false;
+				document.onmouseup = false;
+			}
+		};
+
+
+
+	
+}
+
+
+</script>
+
+</head>
+<body>
+	<canvas width="500" height="500" id="can">
+		<span>不支持canvas的浏览器显示</span>
+	</canvas>
+</body>
+</html>
+

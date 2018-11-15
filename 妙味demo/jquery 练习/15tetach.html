@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no" /> 
+	<title>Document</title>
+	<style>
+	
+	</style>
+	<script src="jquery-1.7.2.min.js"></script>
+	<script>
+	$(function() {
+		// $('div').click(function(event) {
+		// 	alert(123)
+		// });
+		
+		// var odiv = $('div').remove();
+
+		// $('body').append(odiv);
+		
+		// tedach() 与remove()方法类似只不过tedach()将标签删除之后会留下所有操作；
+		
+		$('div').click(function(event) {
+			alert(123)
+		});
+		
+		var odiv = $('div').tedach();
+
+		$('body').tedach(odiv);
+
+
+	})
+	</script>
+</head>
+<body>
+	<div>div <span>span</span></div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no" /> 
+	<title>Document</title>
+	<style>
+	.box div{width: 200px; height: 200px; border:1px solid red; display: none;}
+    .box .active{ background: red;}
+	</style>
+	<script src="jquery-1.7.2.min.js"></script>
+	<!-- <script>
+	window.onload = function(){
+		var obox = document.getElementById('box');
+		var abtn = obox.getElementsByTagName('button');
+		var adiv = obox.getElementsByTagName('div');
+
+		console.log(abtn)
+		for(var i=0;i<abtn.length;i++){
+			abtn[i].index = i;
+			abtn[i].onclick = function(){
+				for(var i=0;i<abtn.length;i++){
+					abtn[i].className = '';
+					adiv[i].style.display = 'none';
+				};
+				this.className = 'active';
+				adiv[this.index].style.display = "block";
+			}
+
+		}
+	}
+	</script> -->
+
+	<script>
+	$(function() {
+		
+		$('button').click(function(event) {
+			$('.box').find('button').attr('class', '');
+			$('.box').find('div').css('display', 'none');
+
+			$(this).attr('class', 'active');
+			$('.box').find('div').eq($(this).index()).css('display', 'block');
+		});
+	});
+	</script>
+</head>
+<body>
+	<div class="box" id="box">
+		<button class="active">1</button>
+		<button>2</button>
+		<button>3</button>
+		<div style="display:block;">1111111</div>
+		<div>2222222</div>
+		<div>3333333</div>
+	</div>
+</body>
+</html>

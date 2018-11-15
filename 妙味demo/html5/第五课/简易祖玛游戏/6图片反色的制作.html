@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<style>
+body{background: #000;}
+canvas{background: white; display:block; width:600px; height:600px; margin:20px auto 0; }
+
+	</style>
+<script>
+window.onload = function(){
+	var oC = document.getElementById('c');
+	var oGc = oC.getContext("2d");
+	var i = 0;
+	
+	
+
+	setInterval(function(){
+
+		oGc.clearRect(0, 0, oC.width, oC.height);
+		oGc.beginPath();
+		oGc.arc(300, 200, 200, -90*Math.PI/180, 180*Math.PI/180, false);
+		oGc.stroke();
+
+		oGc.beginPath();
+		oGc.arc(250, 200, 150, 0, 180*Math.PI/180, true);
+		oGc.stroke();
+
+		oGc.beginPath();
+		oGc.arc(400, 200, 20, 0, 360*Math.PI/180, true);
+		oGc.closePath();
+		oGc.stroke();
+
+		for(var i=0;i<ball.length;i++){
+			oGc.beginPath();
+			oGc.moveTo(ball[i].x, ball[i].y)
+			oGc.arc(ball[i].x, ball[i].y, 20, 0, 360*Math.PI/180, true);
+			oGc.fill();
+		}
+
+
+	}, 1000/60);
+
+	setInterval(function(){
+		for(var i=0;i<ball.length;i++){
+			ball[i].num++;
+			ball[i].x = Math.sin(ball[i].num*Math.PI/180)*ball[i].r + ball[i].startX;
+			ball[i].y = ball[i].r - Math.cos(ball[i].num*Math.PI/180)*ball[i].r + ball[i].startY;
+
+
+		}
+	}, 30)
+
+	
+	var ball = [];
+
+	ball[0] = {
+		x:300,
+		y:0,
+		num:0,
+		startX:300,
+		startY:0,
+		r:200
+	}
+
+
+
+	
+}
+
+
+</script>
+
+</head>
+<body>
+<div class="box"></div>
+	
+<canvas width="600" height="600" id="c"> </canvas>
+
+
+</body>
+</html>
+

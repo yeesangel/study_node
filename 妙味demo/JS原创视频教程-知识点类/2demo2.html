@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no" /> 
+	<title>Document</title>
+	<style>
+	
+	
+	</style>
+	<script>
+	window.onload = function(){
+		//onhashchange: 事件 当hash值有变化的时候就出发
+		//history 历史管理
+		
+		var oInput = document.getElementById('input1');
+		var oDiv = document.getElementById('div1');
+		var obj = {};
+
+		oInput.onclick = function(){
+			var number = randomNum(35,7);
+			oDiv.innerHTML = number;
+
+			history.pushState(number,'');
+		};
+
+		window.onpopstate = function(ev){
+			var number = ev.state || '';
+			oDiv.innerHTML = number;
+		}
+
+
+		function randomNum(all,now){
+			var arr = [];
+			var newarr = [];
+			for(var i=1;i<=all;i++){
+				arr.push(i)
+			};
+
+			for(var i=0;i<now;i++){
+				newarr.push(arr.splice(Math.floor(Math.random()*arr.length),1))
+			}
+			return newarr;
+
+		}
+
+
+	}
+
+	</script>
+</head>
+<body>
+<input type="button" value="点击随机数" id="input1" />
+<div id="div1" ></div>
+
+</body>
+</html>

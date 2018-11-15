@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <style>
+  #box{width:200px; height: 200px; background: red; } 
+    </style>
+    <script>
+   
+    window.onload = function(){
+
+      var oBox = document.getElementById('box');
+
+      oBox.ontouchmove = function(e){
+        e.preventDefault();
+      }
+
+      oBox.ontouchstart = function(){
+        //alert('ontouchstart');
+      }
+
+      oBox.ontouchmove = function(){
+        //alert('ontouchmove');
+      }
+
+      oBox.ontouchend = function(){
+        alert('ontouchend');
+      }
+
+    }
+    </script>
+
+
+    <body>
+    <div id="box"></div>
+   
+    </body>
+</html>

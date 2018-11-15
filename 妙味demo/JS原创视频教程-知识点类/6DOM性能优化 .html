@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no" /> 
+	<title>Document</title>
+	<style>
+	
+	
+	</style>
+	<script>
+	window.onload = function(){
+		/*var oUl = document.getElementById('ul1');
+		var aLi  =oUl.getElementsByTagName('li');
+
+
+
+		for(var i=0;i<5000;i++){
+			var ali = document.createElement('li');
+			oUl.appendChild(ali);
+		};
+
+		console.time('hello');
+		//var len = aLi.length;
+		for(var i=0;i<aLi.length;i++){
+			aLi[i].innerHTML = 'li';
+		};
+		console.timeEnd('hello');
+
+
+		var oDiv = document.getElementsByTagName('div');
+		var oUl = document.getElementById('ul1');
+
+		var dom = document
+		var oDiv = dom.getElementsByTagName('div');
+		var oUl = dom.getElementById('ul1');
+*/
+		//childNodes //获取元素节点 文本节点
+		//children() //只获取元素节点
+		
+		//firstChild
+		//firstElementChild
+		
+		/*var oUl = document.getElementById('ul1');
+		var ali = oUl.getElementsByTagName('li');
+
+		//等同于
+		aLi = document.querySelectorAll('#ul1 li');
+
+		for(var i=0;i<aLi.length;i++){
+			aLi[i].style.background = 'red';
+
+		}*/
+
+		var oUl = document.getElementById('ul1');
+		console.time('hello');
+		for(var i=0;i<5000;i++){
+			var aLi = document.createElement('li');
+			aLi.innerHTML = 'li';
+			oUl.appendChild(aLi);
+			
+		};
+		console.timeEnd('hello');
+
+
+
+
+
+
+
+	}
+
+	</script>
+</head>
+<body>
+<ul id="ul1"><!-- 
+	<li>22222</li>
+	<li>22222</li>
+	<li>22222</li>
+	<li>22222</li>
+	<li>22222</li>
+	<li>22222</li>
+	<li>22222</li>
+	<li>22222</li>
+	<li>22222</li>
+	<li>22222</li> -->
+</ul>
+
+</body>
+</html>

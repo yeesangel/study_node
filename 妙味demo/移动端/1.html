@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style>
+	*{padding:0; margin:0;}
+	li{list-style: none;}
+	#div1{width: 750px; height: 150px; margin:0 auto; position: relative; overflow:hidden;}
+	#ul1{position: absolute; left: 0; }
+	#ul1 li{width: 750px; height: 150px; float: left;}
+
+	</style>
+	<script>
+	window.onload = function(){
+		var odiv1 = document.getElementById('div1');
+		var oul1 = document.getElementById('ul1');
+		var ali = oul1.getElementsByTagName('li');
+
+		var w = ali[0].offsetWidth;
+		oul1.style.width = ali.length*w+'px';
+		// document.ontouchmove = function(ev){
+		// 	ev.preventDefault();
+
+		// }
+
+		var downx = 0;
+		var downleft = 0;
+		oul1.ontouchstart = function(ev){
+			var touchs = ev.changedTouches[0];
+			downx = touchs.pageX;
+			downleft = this.offsetLeft;
+
+			oul1.ontouchmove = function(ev){
+				var touchs = ev.changedTouches[0];
+				if(this.offsetLeft>=0){
+					this.style.left=(touchs.pageX-downx)/3+'px';
+				}
+				else if(this.offsetLeft <= odiv1.offsetLeft-oul1.offsetLeft){
+					this.style.left=(touchs.pageX-downx)/3+(odiv1.offsetLeft-oul1.offsetLeft)+'px';
+				}
+				else{
+					this.style.left=touchs.pageX-downx+downleft+'px';
+				}
+			};
+
+			oul1.ontouchend = function(){
+				this.ontouchmove = unll;
+				this.ontouchend = unll;
+			}
+		};
+
+	}
+	</script>
+</head>
+<body>
+	<div id="div1">
+		<ul id="ul1">
+			<li><img src="images/1.jpg" height="150" width="750" alt="" /></li>
+			<li><img src="images/2.jpg" height="150" width="750" alt="" /></li>
+			<li><img src="images/3.jpg" height="150" width="750" alt="" /></li>
+			<li><img src="images/4.jpg" height="150" width="750" alt="" /></li>
+		</ul>
+	</div>
+</body>
+</html>

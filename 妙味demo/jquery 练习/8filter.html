@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no" /> 
+	<title>Document</title>
+	<style>
+	.box div{width: 200px; height: 200px; border:1px solid red; display: none;}
+    .box .active{ background: red;}
+	</style>
+	<script src="jquery-1.7.2.min.js"></script>
+
+
+	<script>
+	$(function() {
+		//filter 过滤
+		//not 对应的反义词
+		
+		// $('div').filter('.box').css('background', 'red');
+		
+		// $('div').not('.box').css('background', 'red');
+		//has 包含
+		
+		$('div').has('.box').css('background', 'red')
+
+		
+	});
+	</script>
+</head>
+<body>
+	<!-- <div class="box">ffffffffff</div>
+	<div>ffffffffff</div> -->
+	<div>aaaa <span class="box">sss</span></div>
+	<div class="box">bbbb</div>
+
+</body>
+</html>

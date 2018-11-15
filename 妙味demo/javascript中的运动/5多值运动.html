@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no" /> 
+	<title>Document</title>
+	<style>
+
+	#div1{width: 100px; height:300px ; background: red; left:100px; top: 100px; position: absolute;}
+
+
+	
+	</style>
+
+	<script>
+	window.onload = function(){
+		var oDiv1 = document.getElementById('div1');
+		var oDiv2 = document.getElementById('div2');
+		var oImg1 = document.getElementById('img1');
+
+		//var timer = null;
+
+		 //alert(css(oImg1,'opacity'))
+
+
+		 oDiv1.onclick = function(){
+			startMove(this,'width',1000,10);
+			startMove(this,'height',700,10);
+		};
+
+
+
+		
+
+
+
+
+		function startMove(obj,attr,itarget,speed){
+			var iCur = 0
+			clearTimeout(attr.timer)
+			attr.timer = setInterval(function(){
+				if(attr == 'opacity'){
+					iCur = Math.round(css(obj,attr)*100);
+				}else{
+					iCur = parseInt(css(obj,attr));
+				}
+
+				if(iCur == itarget){
+					clearTimeout(attr.timer);
+				}else{
+					if(attr == 'opacity'){
+						obj.style[attr] = (iCur + speed)/100;
+						obj.style.filter = 'alpha(attr='+(iCur+speed)+')'
+					}else{
+						obj.style[attr] = iCur + speed+'px';
+					}
+				};
+			}, 30);
+
+		};
+
+
+
+		function css(obj,attr){
+			if(obj.currentStyle){
+				return obj.currentStyle[attr];
+			}else{
+				return getComputedStyle(obj,false)[attr];
+			}
+		}
+
+	}
+	</script>
+</head>
+<body>
+<div id="div1">
+	<div id="div2">分享到</div>
+</div>
+<!-- <img id="img1" src="1.jpg" height="250" width="300" alt="" /> -->
+</body>
+</html>

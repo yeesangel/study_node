@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style>
+	div{width: 1000px; height: 500px; border: 1px solid #000; background: #ccc; position:relative ; left: 50%; margin-left:-500px; top: 50%; -margin-top:-250px; }
+	span{width: 100px; height: 100px; border: 1px solid #000; background: red; position: absolute;}
+
+	</style>
+	<script src="jquery-1.7.2.min.js"></script>
+	<script>
+	$(function() {
+		var m=false;
+	
+		$('span').mousedown(function(event) {
+			m=true;
+		$('div').mousemove(function(event) {
+			var x=event.pageX-100;
+			var y=event.pageY-100;
+			if (m==true) {
+				$('span').css({
+					left: x,
+					top: y
+				});
+			};
+	    }).mouseup(function(event) {
+	    	m=false;
+	    });;
+
+		});
+	});
+	</script>
+
+</head>
+<body>
+	<div><span></span></div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style>
+	#div1{width:172px; height:172px;position:absolute; background: url(img/11.jpg) 0 0 no-repeat; cursor:move; }
+	</style>
+	<script>
+	window.onload = function(){
+
+
+		var oDiv = document.getElementById('div1');
+		var disX = 0;
+		var disY = 0;
+		oDiv.onmousedown = function(ev){
+
+			var ev = ev||window.ev;
+			disX = ev.clientX -  oDiv.offsetLeft;
+			disY = ev.clientY -  oDiv.offsetTop;
+
+			window.onmousemove = function(ev){
+				var ev = ev||window.ev;
+				oDiv.style.left = ev.clientX - disX+'px';
+				oDiv.style.top = ev.clientY - disY+'px';
+			}
+
+			window.onmouseup = function(){
+				//alert('message')
+				window.onmousemove = null;
+				window.onmouseup = null;
+			}
+		}
+	}
+	</script>
+</head>
+<body>
+	<div id="div1"></div>
+</body>
+</html>

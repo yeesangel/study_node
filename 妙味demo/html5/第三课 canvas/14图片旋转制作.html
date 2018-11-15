@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{background: #000;}
+		canvas{background: white; }
+		span{color:red;}
+
+	</style>
+<script>
+window.onload = function(){
+	var aBtn = document.getElementsByTagName('input');
+	var oImg1 = document.getElementById('img1');
+
+	yImg1 = new Image();
+
+	yImg1.onload = function(){
+		draw(oImg1);
+	};
+
+	yImg1.src = oImg1.src;
+
+	function draw(obj){
+		var oC = document.createElement('canvas');
+		oGc = oC.getContext("2d");
+		oC.width = obj.width;
+		oC.height = obj.height;
+		obj.parentNode.replaceChild(oC, obj);
+		oGc.drawImage(obj, 0, 0,)
+
+	}
+
+
+
+	
+}
+
+
+</script>
+
+</head>
+<body>
+
+	<input type="button" value="←" id="btn">
+	<input type="button" value="→" id="btn">
+<div><img id="img1" src="ChinaPing.jpg" alt=""></div>
+</body>
+</html>
+

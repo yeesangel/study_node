@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no" /> 
+	<title>Document</title>
+	<style>
+	.box div{width: 200px; height: 200px; border:1px solid red; display: none;}
+    .box .active{ background: red;}
+	</style>
+	<script src="jquery-1.7.2.min.js"></script>
+
+
+	<script>
+	$(function() {
+		// $('div').insertBefore($('span')) //将div添加到span前面
+		// $('span').insertAfter($('div')) //将span添加到div后面
+		
+		// $('div').appendTo($('span')); //将div添加到span里头的span的后头
+		
+		// $('div').prependTo($('span'));  //将div添加到span里头的span的前面
+		
+
+		// 区别：后续造作变了
+		
+		// $('div').before($('span')).css('background', 'red'); //div 前面必须是span
+		// $('span').insertBefore($('div')).css('background', 'red'); 
+		
+		// $('div').after($('span')); //div 后面必须是span
+		
+		
+	});
+	</script>
+</head>
+<body>
+	<span>span</span>
+	<div>div</div>
+</body>
+</html>

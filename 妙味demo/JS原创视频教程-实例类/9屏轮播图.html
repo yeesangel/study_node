@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <style>
+    *{padding: 0; margin: 0;}
+    li{list-style: none;}
+	#banner{min-width: 1100px; height: 500px;position: relative; overflow-y:hidden ;}
+	#banner ul{position: absolute; left: 0;}
+	#banner ul li{float: left; }
+	#banner ul li img{position: relative; left: 0;}
+
+	#btn{position: absolute; left: 0; bottom: 0; text-align: center; width: 100%;} 
+	#btn a{display: inline-block; width: 20px; height: 20px; border-radius: 10px; border:1px solid #ccc; }
+	#btn a.active{background: #ccc;}
+    </style>
+    <script src="move.js"></script>
+    <script>
+	window.onload = function(){
+		var banner = document.getElementById('banner');
+		var oUl = banner.getElementsByTagName('ul')[0];
+		var aLi = oUl.getElementsByTagName('li');
+		var aImg = oUl.getElementsByTagName('img');
+
+		var oBtn = document.getElementById('btn');
+		var aBtn = oBtn.getElementsByTagName('a');
+
+		var imgWidth = aImg[0].offsetWidth;
+		var bannerWidth = banner.offsetWidth;
+		var iNow = 0;
+		var iNow2 = 0;
+		oUl.style.width = aImg.length*imgWidth+'px';
+
+		function toreSize(){
+			var veiwWidth = document.documentElement.clientWidth;
+			if(veiwWidth > 1100){
+				for(var i=0;i<aImg.length;i++){
+					aImg[i].style.left = -(imgWidth-veiwWidth)/2+'px';
+				}
+			}
+		}
+		window.onresize = function(){
+			console.log(22)
+			toreSize();
+		}
+
+		for(var i=0;i<aBtn.length;i++){
+			aBtn[i].index = i;
+			aBtn[i].onclick = function(){
+				for(var i=0;i<aBtn.length;i++){
+					aBtn[i].className = '';
+				}
+				this.className = 'active';
+				startMove(oUl,{left:-this.index*bannerWidth})
+
+			}
+		}
+
+		setInterval(autoPlay, 3000);
+
+		function autoPlay(){
+			if(iNow>=aBtn.length-1){
+				aLi[0].style.position = 'relative';
+				aLi[0].style.left = imgWidth*aImg.length+'px';
+				iNow = 0;
+			}else{
+				iNow++;	
+			}
+			for(var i=0;i<aBtn.length;i++){
+				aBtn[i].className = '';
+			}
+			aBtn[iNow].className = 'active';
+			iNow2++;
+			startMove(oUl,{left:-iNow2*bannerWidth},function(){
+				if(iNow == 0){
+					aLi[0].style.position = 'static';
+					oUl.style.left = 0;
+					iNow2 = 0;
+				}
+			})
+
+		}
+
+		
+		
+
+	}
+    </script>
+    <body>
+  
+   <div id="banner">
+	   	<ul>
+	   		<li><img src="images/1.jpg" alt=""></li>
+	   		<li><img src="images/2.jpg" alt=""></li>
+	   		<li><img src="images/3.jpg" alt=""></li>
+	   		<li><img src="images/4.jpg" alt=""></li>
+	   	</ul>
+	   	<div id="btn">
+	   		<a href="javascript:;"></a>
+	   		<a href="javascript:;"></a>
+	   		<a href="javascript:;"></a>
+	   		<a href="javascript:;"></a>
+	   	</div>
+   </div>
+   </body>
+</html>

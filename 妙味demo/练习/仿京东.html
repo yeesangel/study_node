@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+
+	<style>
+	*{padding: 0; margin: 0; list-style-type: none;}
+	.box{width: 170px; height: 60px; margin: 20px auto; }
+	ul li{width: 27px; height: 28px; display: inline-block; background:url(images/star.gif) 0 0 no-repeat; cursor: pointer;}
+	ul li.current{background-position: center -29px; }
+	</style> 
+	<script src="jquery-1.7.2.min.js"></script>
+	<script>
+	$(function() {
+		var num1=0;
+		$('ul li').click(function(event) {
+			var num=$(this).index();
+			$('ul li:lt('+(num+1)+')').addClass('current');
+			$('ul li:gt('+(num)+')').removeClass('current');
+			$('span i').html(num+1)
+			num1=num
+		});
+		$('ul li').hover(function() {
+			var num=$(this).index();
+			$('ul li:lt('+(num+1)+')').addClass('current');
+			$('ul li:gt('+(num)+')').removeClass('current');
+		}, function() {
+			$('ul li:lt('+(num1+1)+')').addClass('current');
+			$('ul li:gt('+(num1)+')').removeClass('current');
+
+		});
+
+	});
+	</script>
+</head>
+<body>
+	<div class="box">
+		<ul>
+			<li class="current"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<span>您的评分：<i></i></span>
+	</div>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style>
+	 span{width: 200px; height: 50px; text-align: center; line-height:50px; background: red;  font-family: "微软雅黑"; display: inline-block;  font-size:20px; letter-spacing:2px;}
+	</style>
+
+
+
+	<script src="jquery-1.7.2.min.js"></script>
+	<script src="jquery.animateNumber.min.js"></script>
+	<!-- <script>
+	$(function() {
+		var comma_separator_number_step = $.animateNumber.numberStepFactories.separator(',')
+		$('#lines').animateNumber(
+		  {
+		    number: 328609389.81,
+			easing: 'easeInOutQuad',
+		    numberStep: comma_separator_number_step
+		  },2000
+		);
+		$('#lines0').animateNumber({
+		    number: 21942431.03,
+			easing: 'easeInOutQuad',
+			numberStep: comma_separator_number_step
+		  },2000
+		);
+		$('#lines1').animateNumber({
+		    number: 8911,
+			easing: 'easeInOutQuad',
+			numberStep: comma_separator_number_step
+		  },1000
+		);
+	});
+	</script> -->
+</head>
+<body>
+
+	<span style="color: #fff;"  class="num1" id="lines">328,609,389</span> 
+	<span class="num2" id="lines0">21,942,431</span> 
+	<span class="num3" id="lines1">89112999</span>
+	<script>
+		var donghua = $.animateNumber.numberStepFactories.separator(',')
+		
+		// $('#lines').animateNumber(
+		//   {
+		//     number: 328609389,
+		// 	easing: 'easeInOutQuad',
+		//     numberStep: donghua
+		//   },2000
+		// );
+		$('#lines').animateNumber(
+		  {
+		    number: 328609389,
+		    color: 'green',
+		    'font-size': '30px',
+
+		    easing: 'easeInQuad',
+
+		    numberStep: donghua
+		  },
+		  15000
+		);
+		$('#lines0').animateNumber({
+		    number: 21942431,
+			easing: 'easeInOutQuad',
+			numberStep: donghua
+		  },2000
+		);
+		$('#lines1').animateNumber({
+		    number: 89112999111111111,
+			easing: 'easeInOutQuad',
+			numberStep: donghua
+		  },1000
+		);
+	</script>
+</body>
+</html>

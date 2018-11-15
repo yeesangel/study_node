@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <script>
+    	//快速排序
+    	//1，找出一组数列的基准
+    	//2，将这一组数列与基准比较大的放到申明的left数组中，小的放到right数组中
+    	//3，递归将left，基准，right 用contac连接起来
+    	/*function quickSort(arr){
+    		if(arr.length<=1){
+    			return arr;
+    		};
+    		var num = Math.floor(arr.length/2);
+    		var valueUnm = arr.splice(num,1);
+
+    		var left = [];
+    		var right = [];
+    		for(var i=0;i<arr.length;i++){
+    			if(arr[i] < valueUnm){
+    				left.push(arr[i]);
+    			}else if(arr[i] > valueUnm){
+    				right.push(arr[i]);
+    			}
+    		};
+    		return quickSort(left).concat([valueUnm],quickSort(right));
+    	}
+    	alert(quickSort([20,14,16,5,30,18,40,22]));
+*/
+
+    	//阶乘
+    	function test(n){
+    		if(n==1){
+    			console.trace()
+    			return 1;
+    		};
+
+    		return n*test(n-1);
+    	}
+
+
+    	alert(test(5))
+
+
+
+    </script>
+    <body>
+    </body>
+</html>

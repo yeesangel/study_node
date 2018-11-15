@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <style>
+    #dropbox{
+        background: red;
+        width: 300px;
+        height: 300px;
+    }
+    </style>
+    <body>
+        <div id="dropbox"></div>
+        <script>
+            dropbox = document.getElementById('dropbox');
+
+            dropbox.addEventListener('dragenter',dragenter,false);
+
+            dropbox.addEventListener('dragover',dragover,false);
+
+            dropbox.addEventListener('drop',drop,false);
+
+            function dragenter(e){
+
+                e.stopPropagation();
+
+                e.preventDefault();
+
+            }
+
+            function dragover(e){
+
+                e.stopPropagation();
+
+                e.preventDefault();
+
+            }
+
+            function drop(e){
+
+                e.stopPropagation();
+
+                e.preventDefault();
+
+                
+
+                var dt = e.dataTransfer;
+
+                var files = dt.files;
+                console.log(files);
+
+            }
+
+        </script>
+    </body>
+</html>

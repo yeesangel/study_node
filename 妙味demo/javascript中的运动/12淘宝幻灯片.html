@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no" /> 
+	<title>Document</title>
+	<style>
+	#div1{width: 520px; height:280px; margin: 100px auto 0;position:relative; border: 1px solid #000; overflow:hidden;} 
+	#ul1{position: absolute; left:0; top: 0; margin:0; padding:0; }
+	#ul1 li{float:left; list-style:none;}
+	#ul1 li img{display:block;}
+	#div1 p{position: absolute;bottom:10px; margin:0;  width:100%; text-align:center;}
+	#div1 p span{width: 10px; height:10px; display:inline-block;border-radius: 50%; background: #ccc; cursor:pointer;}
+	#div1 p span.active{background: #f80;}
+	#div1 em{color:#fff; font-size:30px; position: absolute;left:0; padding:10px; background: #000 ; opacity:0.1;-filter: alpha(opacity=10); top:50%; margin-top:-26px; display: block; font-style:normal; cursor:pointer; opacity:0; transition: all 1s;}
+	#div1:hover em{opacity:1; } 
+
+	#div1 #rigth{left: auto; right:0; }
+	</style>
+	<script src="move.js"></script>
+
+	<script>
+	window.onload = function(){
+		var oDiv1 = document.getElementById('div1');
+		var oUl = document.getElementById('ul1');
+		var aLi = oUl.getElementsByTagName('li');
+		var aSpan = oDiv1.getElementsByTagName('span');
+		var aEm = oDiv1.getElementsByTagName('em');
+		var iLen = aLi.length;
+		var num = 0;
+		var timer = null;
+
+		var iWidth = aLi[0].offsetWidth;
+		oUl.style.width = iLen*iWidth+'px';
+
+
+
+		//点击脚标运动及添加active
+		for(var i=0;i<aSpan.length;i++){
+			aSpan[i].index = i;
+
+			aSpan[i].onclick = function(){
+				for(var i=0;i<iLen;i++){
+					aSpan[i].className = '';
+				};
+				this.className = 'active';
+				startMove(oUl,{
+					left:-this.index*iWidth
+				})
+				num = this.index;
+			}
+		};
+
+		//自动播放
+	
+			function autoPlay(){
+				num ++
+				for(var i=0;i<iLen;i++){
+					aSpan[i].className = '';
+				};
+				aSpan[num%iLen].className = 'active';
+
+				startMove(oUl,{
+						left:-num%iLen*iWidth
+					});
+				num=num%iLen
+			};
+
+			timer = setInterval(autoPlay,2000);
+
+
+
+		//鼠标以上图片轮播停止；
+		oUl.onmouseover = function(){
+			clearInterval(timer);
+		}
+
+		oUl.onmouseout = function(){
+			clearInterval(timer);
+			timer = setInterval(autoPlay,2000);
+		};
+
+		//点击左右轮播图片；
+		
+		aEm[1].onmouseover = function(){
+			clearInterval(timer);
+		}
+
+		aEm[1].onmouseout = function(){
+			clearInterval(timer);
+			timer = setInterval(autoPlay,2000);
+		};
+
+		aEm[1].onclick = function(){
+			autoPlay();
+		}
+
+
+
+
+		aEm[0].onmouseover = function(){
+			clearInterval(timer);
+		}
+
+		aEm[0].onmouseout = function(){
+			clearInterval(timer);
+			timer = setInterval(autoPlay,2000);
+		};
+
+		aEm[0].onclick = function(){
+			num --
+			if(num==-1){
+				num=5
+			}
+
+			console.log(num+':'+num*iWidth);
+			
+				for(var i=0;i<iLen;i++){
+					aSpan[i].className = '';
+				};
+				aSpan[num].className = 'active';
+
+				startMove(oUl,{
+						left:-num*iWidth
+					});
+				
+
+
+		}
+
+
+
+
+
+		
+		
+
+
+
+	}
+	</script>
+</head>
+<body>
+	<div id="div1">
+		<ul id="ul1">
+			<li><a href="javascript:;"><img src="imgs/1.png"  alt="" /></a></li>
+			<li><a href="javascript:;"><img src="imgs/2.jpg"  alt="" /></a></li>
+			<li><a href="javascript:;"><img src="imgs/3.jpg"  alt="" /></a></li>
+			<li><a href="javascript:;"><img src="imgs/4.jpg"  alt="" /></a></li>
+			<li><a href="javascript:;"><img src="imgs/5.jpg"  alt="" /></a></li>
+			<li><a href="javascript:;"><img src="imgs/6.jpg"  alt="" /></a></li>
+		</ul>
+		<p>
+			<span class="active"></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</p>
+
+		<em id="left"> < </em>
+		<em id="rigth"> > </em>
+
+	</div>
+</body>
+</html>

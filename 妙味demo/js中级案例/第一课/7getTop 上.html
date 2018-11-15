@@ -1,0 +1,72 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no" /> 
+	<title>Document</title>
+	<script src="http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=408468"></script>
+	<link rel="stylesheet" href="http://bdimg.share.baidu.com/static/api/css/slide_share.css?v=9c50d088.css">
+	<link rel="stylesheet" href="http://bdimg.share.baidu.com/static/api/css/share_popup.css?v=240f357d.css">
+	<script src="jquery-1.7.2.min.js"></script>
+	<!-- <script src="http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=408423"></script> -->
+	<style>
+
+	div{padding:40px 50px; }
+	#div1{background: red; width:800px; position: relative;}
+	#div2{background: cyan; position: relative;}
+	#div3{background: pink;}
+	#div4{background: yellow; padding:50px;}
+.box{ padding: 50px; background: red; }
+	</style>
+	<script>
+	$(function(){
+
+		var div3 = document.getElementById('div3');
+		//var div4 = document.getElementById('div4');
+
+		//alert(div3.offsetTop);
+		var top = getTop(div3);
+
+		//alert(top);
+	function getTop(obj){
+		var iTop = 0;
+		while(obj){
+			//alert(obj.id+':'+obj.offsetTop);
+			iTop += obj.offsetTop;
+			obj = obj.offsetParent;
+		};
+		return iTop;
+		//alert(iTop);
+	};
+
+	$('#div4').trigger('click');
+
+	$('.box').attr('style', '');
+
+	/*$('#div4').click(function(event) {
+		alert(222);
+	});
+*/
+	});
+
+	</script>
+</head>
+<body>
+  <div id="div1" >
+  	<div id="div2">
+  		<div id="div3"></div>
+  	</div>
+  </div>
+  	
+  	<div class="box" style="width:500px; height:400px; "></div>
+
+  	<!-- <div class="bdsharebuttonbox bdshare-button-style0-24" style="float:left;" data-bd-bind="1470327395268"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div> -->
+
+
+
+  	<div class="bdshare-slide-button-box bdshare-slide-style-l2" style="top: 129px; width: 0px; z-index: 99999; left: 0px;" data-bd-bind="1470491265517"><a href="#" onclick="return false;" class="bdshare-slide-button" style="right: -24px;"></a><div class="bdshare-slide-list-box" style="width: 0px; display: none;"><div class="bdshare-slide-top">分享到</div><div class="bdshare-slide-list"><ul class="bdshare-slide-list-ul" style="width: 116px;"><li><a href="#" onclick="return false;" class="slide-qzone" data-cmd="qzone">QQ空间</a></li><li><a href="#" onclick="return false;" class="slide-weixin" data-cmd="weixin">微信</a></li><li><a href="#" onclick="return false;" class="slide-sqq" data-cmd="sqq">QQ好友</a></li><li><a href="#" onclick="return false;" class="slide-tsina" data-cmd="tsina">新浪微博</a></li><li><a href="#" onclick="return false;" class="slide-tqq" data-cmd="tqq">腾讯微博</a></li><li><a href="#" onclick="return false;" class="slide-tqf" data-cmd="tqf">腾讯朋友</a></li><li><a href="#" onclick="return false;" class="slide-tieba" data-cmd="tieba">百度贴吧</a></li><li><a href="#" onclick="return false;" class="slide-mshare" data-cmd="mshare">一键分享</a></li></ul></div><div class="bdshare-slide-bottom" style="width: 116px;"><a href="#" onclick="return false;" class="slide-more" data-cmd="more">更多...</a></div></div></div>
+
+</body>
+</html>

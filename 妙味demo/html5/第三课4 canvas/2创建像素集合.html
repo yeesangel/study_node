@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{background: #000;}
+		canvas{background: white; }
+		span{color:red;} 
+/* .box{background:-webkit-linear-gradient(top right,red,blue,purple,green); height:200px; width:200px;} */
+
+	</style>
+<script>
+window.onload = function(){
+
+	var  oC= document.getElementById('c');
+	oGc = oC.getContext("2d");
+	//oGc.fillStyle = 'red';
+
+	var oImg = oGc.createImageData(100, 100);
+
+	for(var i=0;i<oImg.width*oImg.height;i++){
+		oImg.data[4*i] = 255;
+		oImg.data[4*i+1] = 0;
+		oImg.data[4*i+2] = 0;
+		oImg.data[4*i+3] = 255;
+
+	}
+	oGc.putImageData(oImg,100,100);
+
+
+
+
+
+	
+
+
+
+	
+}
+
+
+</script>
+
+</head>
+<body>
+<div class="box"></div>
+	
+<canvas width="600" height="600px" id="c"> </canvas>
+
+</body>
+</html>
+

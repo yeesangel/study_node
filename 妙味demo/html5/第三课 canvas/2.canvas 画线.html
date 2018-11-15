@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no" /> 
+	<title>Document</title>
+	<style>
+	body{background: black;}
+	#c{ background: white;}
+	span{color: red;}
+	</style>
+	<script>
+	window.onload = function(){
+		
+		var oC = document.getElementById('c');
+
+		oGc = oC.getContext("2d");
+
+		oGc.beginPath();
+		oGc.moveTo(100, 100);
+		oGc.lineTo(200, 200);
+		oGc.lineTo(300, 100);
+
+		oGc.closePath();
+
+		oGc.stroke();
+
+
+		oGc.beginPath();
+		oGc.moveTo(50, 400);
+		oGc.lineTo(250, 250);
+		oGc.lineTo(250, 100);
+
+		oGc.closePath();
+
+		oGc.stroke();
+		oGc.fill();
+
+		
+
+
+		
+
+		
+
+	}
+	</script>
+</head>
+<body>
+<canvas id="c" width="400" height="400">
+	<span>canvas不支持的浏览器</span>
+</canvas> <!-- //默认是300*150 -->
+
+</body>
+</html>

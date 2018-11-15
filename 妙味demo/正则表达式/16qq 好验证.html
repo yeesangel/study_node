@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no" /> 
+	<title>Document</title>
+	
+
+	<script>
+		window.onload = function(){
+		
+		var aInt = document.getElementsByTagName('input');
+		var re = /^[1-9]\d{4,11}$/;
+		aInt[1].onclick = function(){
+
+
+			if( re.test(aInt[0].value)){
+				alert('是qq号');
+			} else{
+				alert('不是qq号');
+			}
+		}
+		
+		
+		}
+	</script>
+</head>
+<body>
+	<input type="text" id="int" /> <input type="button" value="按钮" />
+</body>
+</html>

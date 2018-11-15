@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no" /> 
+	<title>Document</title>
+	<style>
+	.box{width:100px; height: 100px; background: red;}
+	
+	</style>
+	<script>
+	window.onload = function(){
+	var oUl = document.getElementById('ul1');
+	//元素.childNodes ： 只读属性 子节点列表集合标准下 只包含元素节点类型 非标准下只包含元素节点类型
+	alert(oUl.children[0].nodeType);
+	for(var i=0;i<oUl.children.length;i++){
+			oUl.children[i].style.background = 'red';
+		
+	};
+
+	}
+
+	</script>
+</head>
+<body>
+  <ul id="ul1" style="border:1px solid red">
+  	<li>1111 <span style="background:#fff;">225553333</span></li>
+  	<li>2222</li>
+  	<li>3333</li>
+  	<li>4444</li>
+  	<p>55555</p>
+  </ul>
+</body>
+</html>

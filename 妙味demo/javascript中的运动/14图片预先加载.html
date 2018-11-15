@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no" /> 
+	<title>Document</title>
+	<style>
+	
+	</style>
+	<script src="move.js"></script>
+
+	<script>
+	window.onload = function(){
+		var oImg = document.getElementById('img1');
+		var arr = [
+		'http://pic.to8to.com/attch/day_160218/20160218_d968438a2434b62ba59dH7q5KEzTS6OH.png',
+		'http://pic.to8to.com/attch/day_160218/20160218_6410eaeeba9bc1b3e944xD5gKKhPEuEv.png',
+		'http://www.52ij.com/uploads/allimg/160317/1110104P8-4.jpg',
+		'http://banbao.chazidian.com/uploadfile/2016-01-25/s145368924044608.jpg',
+		'http://pic32.nipic.com/20130829/12906030_124355855000_2.png',
+		'http://pic36.nipic.com/20131217/6704106_233034463381_2.jpg',
+		'http://pic41.nipic.com/20140509/4746986_145156378323_2.jpg',
+		'http://img3.redocn.com/20101213/20101211_0e830c2124ac3d92718fXrUdsYf49nDl.jpg'
+		];
+
+		var oImage = new Image();
+
+		var iCur = 0;
+		var i = 0
+		xunlie()
+
+		oImg.onclick = function(){
+			i++;
+			if(i<arr.length){
+				oImg.src = arr[i];
+
+			}
+		}
+
+	function xunlie(){
+		oImage.src = arr[iCur];
+		oImage.onload = function(){
+			
+			iCur++;
+			if( iCur < arr.length){
+				xunlie() //递归；
+			};
+
+			document.title = iCur+'/'+arr.length;
+			console.log(iCur+'/'+arr.length)
+		}
+
+	}
+
+	
+
+
+
+
+		
+
+
+	}
+
+	
+	</script>
+</head>
+<body> 
+<!-- <div id="box" class="box"></div> -->
+<img src="http://pic.to8to.com/attch/day_160218/20160218_d968438a2434b62ba59dH7q5KEzTS6OH.png" id="img1" alt="" />
+
+</body>
+</html>

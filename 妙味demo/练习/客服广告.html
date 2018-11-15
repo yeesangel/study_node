@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>❀</title>
+	<script src="jquery-1.7.2.min.js"></script>
+	<style>
+	div{width: 131px; height: 311px; position: fixed; right: -131px; top: 50%; margin-top:-155px; }
+	div span{position: absolute; left: -29px; width: 29px; height: 117px; margin-top: -58px; top: 50%; background:url(images/qqL.jpg) 0 0 no-repeat; }
+	
+	</style>
+	<script>
+	$(function() {
+		var speed=500;
+		var flag=false;
+
+		$('div span').click(function(event) {
+			if(flag == false){
+				$(this).parents('div').animate({right:0}, speed);
+				$(this).css('backgroundImage', 'url(images/qqLOPen.jpg)');
+				flag=true;
+			}else{
+				$(this).parents('div').animate({right:-131}, speed);
+				$(this).css('backgroundImage', 'url(images/qqL.jpg)');
+				flag=false;
+			};
+			
+		});
+	});
+	</script>
+</head>
+<body>
+	<div>
+		<img src="images/qq.jpg" height="311" width="131" alt="" />
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+	</div>
+</body>
+</html>

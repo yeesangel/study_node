@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no" /> 
+	<title>Document</title>
+	<style>
+	/* body{padding:0; margin: 0;} */
+	div{padding:50px; }
+	#div1{background:red;}
+	#div2{background:orange;position: relative;}
+	#div3{background:green;}
+	</style>
+	<script>
+	window.onload = function(){
+		var oDiv3 = document.getElementById('div3');
+
+		// var iTop = 0;
+		// var obj = oDiv3;
+		
+		// while(obj){
+		// 	iTop +=obj.offsetTop;
+		// 	obj = obj.offsetParent;
+		// }
+		// alert(iTop);
+		
+
+		var p = getPos(oDiv3);
+
+		alert(p.left)
+		
+
+		//封装获取left top 值得方法
+		
+		function getPos(obj){
+			var pos = {left:0,top:0}
+
+			while(obj){
+				pos.left +=obj.offsetLeft;
+				pos.top +=obj.offsetTop;
+
+				obj = obj.offsetParent;
+
+			};
+
+			return pos;
+		};
+
+	}
+
+	</script>
+</head>
+<body id="body">
+  <div id="div1">
+  	<div id="div2">
+  		<div id="div3"></div>
+  	</div>
+  </div>
+</body>
+</html>

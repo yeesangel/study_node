@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no" /> 
+	<title>Document</title>
+	<style>
+	
+	</style>
+	<script src="move.js"></script>
+
+	<script>
+	window.onload = function(){
+		var oImg = document.getElementById('img1');
+		var oImage = new Image();
+
+		var arr = [
+		'http://pic3.nipic.com/20090512/2619913_090405026_2.jpg',
+		'http://img.taopic.com/uploads/allimg/121026/240425-12102619115329.jpg',
+		'http://g.hiphotos.baidu.com/zhidao/pic/item/80cb39dbb6fd5266065e0cdbaa18972bd5073683.jpg',
+		'http://img3.redocn.com/20100616/20100613_212748131df588c054a2XkcDwdqkVMED.jpg',
+		'http://d.3987.com/chengl_150301/desk_010.jpg'
+		]
+
+		var iCur = 0;
+		var i = -1;
+		document.onclick = function(){
+			//alert('message')
+			if(i<arr.length-1){
+				i++;
+			}
+			oImg.src = arr[i];
+
+		}
+
+
+
+
+		xunlie()
+		function xunlie(){
+			oImage.src = arr[iCur];
+			oImage.onload = function(){
+				iCur++;
+				if(iCur<arr.length){
+					xunlie() //递归
+				}
+				document.title = iCur+'/'+arr.length;
+			}
+		}
+
+	
+
+
+
+
+		
+
+
+	}
+
+	
+	</script>
+</head>
+<body> 
+<!-- <div id="box" class="box"></div> -->
+<img src="" id="img1" alt="" />
+
+</body>
+</html>

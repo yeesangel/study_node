@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no" /> 
+	<title>Document</title>
+	<style>
+	
+	
+	</style>
+	<script>
+	window.onload = function(){
+		//call() 函数下的一个方法 第一个参数可以改变this指向，从第二个参数后都是原函数的参数集合
+		function fn1(a,b){
+			alert(this);
+			alert(a+b);
+		};
+
+		//fn1();		// window
+		
+
+		fn1.call(1,10,20) //fn1()
+
+
+
+	}
+
+	</script>
+</head>
+<body >
+
+</body>
+</html>

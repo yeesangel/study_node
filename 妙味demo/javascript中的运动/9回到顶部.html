@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no" /> 
+	<title>Document</title>
+	<style>
+
+	#box{width: 100px; height:100px ; background: red; right: 0px; top: 0; position: absolute;}
+	
+
+	
+	</style>
+
+	<script>
+	window.onload = function(){
+		var oBox = document.getElementById('box');
+		var timer = speed = 0 ;
+		var b = 1;
+
+		window.onscroll = function(){
+			if(b != 1){ //如果b等于1说明是定时器触发的，如果b不等于1说明非定时器的其他触发
+				clearInterval(timer);
+			}
+			setTop()
+			b=2
+		};
+
+
+		oBox.onclick  =function(){
+			clearInterval(timer);
+
+			timer = setInterval(function(){
+				b=1
+				iCur = document.documentElement.scrollTop || document.body.scrollTop ;  
+				speed = Math.floor(( 0 - iCur ) / 8);
+				if(iCur == 0){
+					clearInterval(timer);
+				}else{
+					 document.documentElement.scrollTop = document.body.scrollTop=iCur+speed;
+				}
+			}, 30)
+		}
+		
+
+
+		function setTop(){
+			var scrollTop = document.documentElement.scrollTop || document.body.scrollTop ;  
+			oBox.style.top = scrollTop+document.documentElement.clientHeight-oBox.offsetHeight+'px';
+		}
+
+	}
+	</script>
+</head>
+<body style="height:2000px;">
+<div id="box"></div>
+</body>
+</html>

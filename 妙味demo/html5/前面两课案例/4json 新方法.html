@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no" /> 
+	<title>Document</title>
+	<script>
+	window.onload = function(){
+	//var str = 'function show(){alert(123)}';
+
+	//eval(str); //eval可以解析任何字符串成js；
+	//show();
+	
+	// JSON.parse(str); 只能解析json形式成字符串; (安全性更高些)
+	// show()
+	
+	// var str = '{"name":"holle"}'; //一定是严格型json
+
+	// var json = JSON.parse(str);
+
+	// alert(json.name);
+	
+	//JSON.stringify 将json转化成字符串
+	
+	var json = {
+		"name":"hello"
+	};
+
+	var str = JSON.stringify(json);
+
+	alert(str);
+
+
+
+
+		
+
+
+		
+	}
+
+	</script>
+</head>
+<body>
+</body>
+</html>

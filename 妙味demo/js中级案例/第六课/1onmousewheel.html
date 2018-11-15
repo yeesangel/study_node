@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no" /> 
+	<title>Document</title>
+	<style>
+	#div1{width:200px; height: 200px; background: red;}
+	
+	</style>
+	<script>
+	window.onload = function(){
+		var oDiv = document.getElementById('div1');
+
+		oDiv.onmousewheel = fn1;  //ie chome
+
+		//DOMMouseScroll //firefox 下的鼠标滚轮事件
+		
+		//oDiv.addEventListener('DOMMouseScroll', fn1, false);
+		
+		if(oDiv.addEventListener){ //ff
+			oDiv.addEventListener('DOMMouseScroll', fn1, false);
+		}
+		//alert(1111)
+
+
+		function fn1(ev){
+			//alert(11);
+			var ev = ev || event;
+			var b = true;
+			//alert(ev.wheelDelta); ie chome
+			//alert(ev.detail)  //ff
+			
+			if(ev.wheelDelta){
+				b = ev.wheelDelta > 0 ? true : false;
+			}else{
+				b = ev.detail < 0 ? true : false;
+			};
+
+			if(b){
+				this.style.height = this.offsetHeight - 10+'px';
+			}else{
+				this.style.height = this.offsetHeight + 10+'px';
+			};
+
+			if(ev.preventDefault){
+				ev.preventDefault();
+			};
+
+			return false;
+		};
+
+
+		//集几种取消默认事件的方法
+		
+		/*document.oncontextmenu = function(){
+			return false;
+		}*/
+
+		/*document.attachEvent('oncontextmenu', function(){ //ie 8一下
+			return false;
+		})
+*/
+/*
+		document.addEventListener('contextmenu',function(ev){ dier
+			var ev = ev || event;
+			ev.preventDefault();
+		})*/
+
+
+	}
+
+	</script>
+</head>
+<body style="height:2000px;"> 
+ <div id="div1"></div>
+</body>
+</html>

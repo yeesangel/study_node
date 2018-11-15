@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script>
+//类：js中是没有类这一概念，把js中的构造函数看作类
+//要做属性和方法继承，要分开继承；
+
+
+function Aaa(){ //父类
+	this.name = [1,2,3];
+};
+Aaa.prototype.showName = function(){
+	alert(this.name);
+};
+
+/*function Bbb(){ //子类
+};*/
+function Bbb(){ //子类
+	Aaa.call(this);//对象属性继承
+};
+//Bbb.prototype = new Aaa(); //对象的引用关系
+var F = function(){};
+F.prototype = Aaa.prototype;//对象的方法继承
+Bbb.prototype = new F();
+Bbb.prototype.constructor = Bbb; //将对象b的构造函数指向Bbb;
+var b = new Bbb();
+//b.showName();
+//alert(b.name);
+//alert(b.constructor);
+b.name.push(4);
+
+var b2 = new Bbb();
+b2.showName()
+
+
+</script>
+</body>
+</html>

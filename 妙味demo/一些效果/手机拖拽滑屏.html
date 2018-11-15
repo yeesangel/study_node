@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no" /> 
+	<title>Document</title>
+	<style>
+	*{padding: 0; margin: 0;}
+	#banner_list{width: 100%; overflow: hidden;}
+	#ul1{padding: 0; margin: 0;width: 50rem;  position: relative; -overflow: hidden;} 
+	#ul1 li{list-style: none; width: 10rem; float: left;}
+	#ul1 li img{width: 10rem; display: block;}
+
+
+
+	
+	</style>
+	<script>
+window.onload = function(){
+	document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/10 + 'px';
+	var oUl = document.getElementById('ul1');
+	var bannerList = document.getElementById('banner_list');
+	var donwX = 0;
+	var donwLeft = 0;
+
+
+	oUl.ontouchstart = function(ev){
+		alert('message')
+		var touchs = ev.changedTouches[0];
+		donwX = touchs.pageX;
+		donwLeft = this.offsetLeft;
+
+		oUl.ontouchmove = function(ev){
+			var touchs = ev.changedTouches[0];
+			this.style.left = touchs.pageX - donwX + donwLeft +'px';
+			console.log(this.style.left)
+		}
+
+		oUl.ontouchend = function(){
+			oUl.ontouchmove = null;
+			oUl.ontouchend = null;
+		}
+
+	}
+
+
+	
+
+}
+
+	</script>
+</head>
+<body>
+	<nav id="banner_list">
+		<ul id="ul1">
+			<li><img src="img/1.jpg" alt="" /></li>
+			<li><img src="img/2.jpg" alt="" /></li>
+			<li><img src="img/3.jpg" alt="" /></li>
+			<li><img src="img/4.jpg" alt="" /></li>
+			<li><img src="img/5.jpg" alt="" /></li>
+		</ul>
+	</nav>
+</body>
+</html>
