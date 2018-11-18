@@ -1,6 +1,6 @@
 <!-- Item.vue -->
 <template>
-  <div>{{ item.title }} ---- {{fooCount}}</div>
+  <div class="tit"{{ item.title }} ---- {{fooCount}}</div>
 </template>
 
 <script>

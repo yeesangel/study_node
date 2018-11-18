@@ -1,5 +1,11 @@
 import { createApp } from './app'
 
+import './styles/reset.css'
+import 'bootstrap/dist/css/bootstrap.css'
+
+import 'jquery'
+import 'bootstrap/dist/js/bootstrap.js'
+
 // 客户端特定引导逻辑……
 
 const { app, router, store } = createApp()

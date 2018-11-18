@@ -1,6 +1,7 @@
 var path = require('path')
 var webpack = require('webpack')
-
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const isProduction = process.env.NODE_ENV === 'production'
 module.exports = {
   output: {
     path: path.resolve(__dirname, '../dist'),
@@ -11,10 +12,13 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: [
-          'vue-style-loader',
-          'css-loader'
-        ],
+        // 重要：使用 vue-style-loader 替代 style-loader
+        use: isProduction
+          ? ExtractTextPlugin.extract({
+              use: 'css-loader',
+              fallback: 'vue-style-loader'
+            })
+          : ['vue-style-loader', 'css-loader']
       },
       {
         test: /\.scss$/,
@@ -50,8 +54,9 @@ module.exports = {
               'css-loader',
               'sass-loader?indentedSyntax'
             ]
-          }
+          },
           // other vue-loader options go here
+          extractCSS: isProduction,
         }
       },
       {
@@ -102,6 +107,7 @@ if (process.env.NODE_ENV === 'production') {
     }),
     new webpack.LoaderOptionsPlugin({
       minimize: true
-    })
+    }),
+    new ExtractTextPlugin({ filename: 'common.[chunkhash].css' })
   ])
 }
