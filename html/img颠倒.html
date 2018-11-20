@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-  <script src="https://cdn.jsdelivr.net/npm/exif-js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/exif-js"></script> -->
 </head>
 <style>
   img{
@@ -25,18 +25,22 @@
   <!-- <img src="./JPEG_20181023_150125_701196328.jpg" alt="">
   <img id="img" src="./JPEG_20181023_150125_701196328.jpg" alt=""> -->
 
-  <img src="https://zhubangbang.com/ssl/demo-img/transform-origin-demo.jpg" alt="">
-  <img id="img" src="https://zhubangbang.com/ssl/demo-img/transform-origin-demo.jpg" alt="">
+  <img src="http://54.222.148.146:8000/s/files/46/c5/46c524644857027f344c062fb94f679545775c85/aC0LWnkIMgjbfFqfDpk9dziowTW9zZd1InaME5jt/JPEG_20181119_183826_2112068343.jpg" alt="">
+  <img id="img" src="http://54.222.148.146:8000/s/files/46/c5/46c524644857027f344c062fb94f679545775c85/aC0LWnkIMgjbfFqfDpk9dziowTW9zZd1InaME5jt/JPEG_20181119_183826_2112068343.jpg" alt="">
+  <!-- <img src="./JPEG_20181015_153101_182522051.jpg" alt="">
+  <img id="img" src="./JPEG_20181023_150125_701196328.jpg" alt=""> -->
 <div class="box">
 
 </div>
-  <!-- <img src="./WechatIMG7.jpeg" alt="">
-  <img id="img" src="./WechatIMG7.jpeg" alt=""> -->
+<script src="./exif.js"></script>
   <script>
     var $fileImg = document.getElementById('img');
 
-    $fileImg.onload = function() {
-      console.log($fileImg,'wukai')
+    console.log($fileImg.width ,$fileImg.height, 'wukai')
+
+    window.onload = function() {
+        alert(1212)
+      console.log($fileImg,'wukai11111')
       EXIF.getData($fileImg, function() {
           console.log(this, 'wukai')
           Orientation = EXIF.getTag(this, "Orientation");
