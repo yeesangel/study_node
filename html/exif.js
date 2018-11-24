@@ -353,7 +353,6 @@
         return buffer;
     }
     function objectURLToBlob(url, callback) {
-        alert(3333)
         var http = new XMLHttpRequest();
         http.open("GET", url, true);
         http.responseType = "blob";
@@ -394,10 +393,10 @@
                     fileReader.readAsArrayBuffer(blob);
                 });
             } else {
-                alert(444444)
                 var http = new XMLHttpRequest();
                 http.onload = function() {
                     if (this.status == 200 || this.status === 0) {
+                        console.log(http.response, 'wukai111')
                         handleBinaryFile(http.response);
                     } else {
                         throw "Could not load image";

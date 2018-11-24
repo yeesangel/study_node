@@ -36,30 +36,51 @@
   <script>
     var $fileImg = document.getElementById('img');
 
-    console.log($fileImg.width ,$fileImg.height, 'wukai')
+    var url = 'http://54.222.148.146:8000/s/files/fe/09/fe09617e2565486a5f7f5a0249be3ee1b9fdfdc6/F3VnBdFLaIuoXmhaFt4NWL5W3pmy2xRWKXaDuiKv/JPEG_20181024_142332_-534957770.jpg'
 
     window.onload = function() {
-        alert(1212)
-      console.log($fileImg,'wukai11111')
-      EXIF.getData($fileImg, function() {
-          console.log(this, 'wukai')
-          Orientation = EXIF.getTag(this, "Orientation");
-          // console.log("拍照Orientation值是：",Orientation);
-          if(Orientation===6){
+        var img = new Image();
+        img.crossOrigin = '';
+        img.onload = function() {
+            var dataUrl = getBase64Image(img);
+            img.src = dataUrl;
+            console.log(img.src, 'wukai')
+            EXIF.getData(img, function() {
+                //   console.log(this, 'wukai')
+                Orientation = EXIF.getTag(this, "Orientation");
+                // console.log("拍照Orientation值是：",Orientation);
+                if(Orientation===6){
 
-              // console.log("这张图片是IOS垂直拍的");
-              //image-orientation: from-image;
-              // $fileImg.css({"image-orientation":"from-image"});
-              $fileImg.style.cssText = `transform:rotate(90deg)`
-              console.log(111111)
-              getImgData(this, Orientation, function(imgData) {
-                console.log(imgData, 22222)
-                var box = document.querySelector('.box')
-                box.style.cssText = `background-image: url(${imgData});background-size: cover; background-position: center center;`
-              })
-          }
-      });
+                    // console.log("这张图片是IOS垂直拍的");
+                    //image-orientation: from-image;
+                    // img.css({"image-orientation":"from-image"});
+                    img.style.cssText = `transform:rotate(90deg)`
+                    //   console.log(111111)
+                    getImgData(this, Orientation, function(imgData) {
+                        // console.log(imgData, 22222)
+                        var box = document.querySelector('.box')
+                        box.style.cssText = `background-image: url(${imgData});background-size: cover; background-position: center center;`
+                    })
+                }
+            });
+        }
+
+        img.src = url
+
+
+      
     }
+
+function getBase64Image(img, width, height) {
+    var canvas = document.createElement("canvas");
+    canvas.width = width ? width : img.width;
+    canvas.height = height ? height : img.height;
+
+    var ctx = canvas.getContext("2d");
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    var dataURL = canvas.toDataURL();
+    return dataURL;
+}
 
 
 
