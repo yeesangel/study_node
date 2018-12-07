@@ -3,11 +3,11 @@
 import Vue from 'vue'
 import App from './App'
 // import router from './router'
-import VueVirtualScroller from 'vue-virtual-scroller'
-
-Vue.use(VueVirtualScroller)
+import RecyclerView from 'vue-recyclerview'
 
 Vue.config.productionTip = false
+
+Vue.use(RecyclerView)
 
 /* eslint-disable no-new */
 new Vue({

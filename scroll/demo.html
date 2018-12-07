@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link href="./Clusterize.js/clusterize.css" rel="stylesheet">
+  <script src="./Clusterize.js/clusterize.min.js"></script>
+</head>
+<body>
+  <div class="clusterize">
+    <table>
+      <thead>
+        <tr>
+          <th>Headers</th>
+        </tr>
+      </thead>
+    </table>
+    <div id="scrollArea" class="clusterize-scroll">
+      <table>
+        <tbody id="contentArea" class="clusterize-content">
+         
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+  <script>
+    var data = [];
+    var str = function(index) {
+      return `<tr class="clusterize-no-data">
+            <td>Loading data${index}</td>
+          </tr>`
+    }
+
+
+    for(var i = 0; i<1000; i++) {
+      data.push(str(i))
+    }
+    // console.log(data+'', 'wukai')
+    
+    let dom = document.querySelector('#contentArea')
+
+    console.log(dom, 'wukai')
+
+    dom.innerHTML = data+'';
+
+
+    var clusterize = new Clusterize({
+      // rows: data,
+      scrollId: 'scrollArea',
+      contentId: 'contentArea',
+      callbacks: {
+        clusterWillChange: function() {},
+        clusterChanged: function() {},
+        scrollingProgress: function(progress) {
+          console.log(progress)
+        }
+      }
+    });
+
+
+    setTimeout(() => {
+      for(var i = 1000; i<2000; i++) {
+        // data = []
+        data.push(str(i))
+      }
+      dom.innerHTML = data+'';
+      console.log(data+'', 'wukai222')
+      clusterize.updated(data+'')
+    }, 5000)
+  </script>
+</body>
+</html>

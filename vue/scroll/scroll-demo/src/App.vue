@@ -1,23 +1,46 @@
+<style>
+html {
+  background: #eeeeee;
+}
+
+html, body {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: 'Roboto', sans-serif;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+.recyclerview-container {
+  height: calc(100vh - 50px);
+}
+</style>
+
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <RecyclerView 
+      :prerender="30"
+      :fetch="MiFetch" 
+      :item="MiItem" 
+    ></RecyclerView>
   </div>
 </template>
 
 <script>
+import MiItem from './components/Item'
+// import MiTomstone from './components/Tombstone'
+import MiFetch from './components/mi-fetch.js'
+
+console.log(MiFetch, 'wukai9999')
+
 export default {
-  name: 'App'
+  name: 'app',
+  data () {
+    return {
+      MiFetch,
+      MiItem,
+      // MiTomstone
+    }
+  }
 }
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
