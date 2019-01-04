@@ -23,5 +23,42 @@
     console.log(aa)
     parent.appendChild(aa)
   </script>
+  <!-- <img src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID" alt=""> -->
+
+<!-- <script src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script> -->
+  <script>
+    // Gets a reference to the form element, assuming
+    // it contains the ID attribute "signup-form".
+    var form = document.getElementById('signup-form');
+
+    // Adds a listener for the "submit" event.
+    form.addEventListener('submit', function(event) {
+
+      // Prevents the browser from submitting the form
+      // and thus unloading the current page.
+      event.preventDefault();
+
+      // Creates a timeout to call submitForm after one second.
+      setTimeout(submitForm, 1000);
+
+      // Keeps track of whether or not the form has been submitted.
+      // This prevents the form from being submitted twice in cases
+      // where the event callback function fires normally.
+      var formSubmitted = false;
+
+      function submitForm() {
+        if (!formSubmitted) {
+          formSubmitted = true;
+          form.submit();
+        }
+      }
+
+      // Sends the event to Google Analytics and
+      // resubmits the form once the hit is done.
+      gtag('event', 'signup_form_complete', { 'event_callback': {
+        submitForm();
+      }});
+    });
+</script>
 </body>
 </html>
