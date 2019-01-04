@@ -8,6 +8,7 @@
 <body>
 <script>
   function statusChangeCallback(response) {
+    alert(JSON.stringify(response))
     console.log('statusChangeCallback', response);
     if (response.status === 'connected') {
       testAPI();
@@ -51,14 +52,14 @@
   function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
-      console.log('Successful login for: ' + response.name);
+      console.log('Successful login for: ', response);
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response.name + '!';
     });
   }
 </script>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   var FB_APP_ID = '221889011278088';
   var doOnFrontend = false;
   
@@ -98,7 +99,7 @@
           return false;
       });
   });
-  </script>
+  </script> -->
 
 <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
 </fb:login-button>
