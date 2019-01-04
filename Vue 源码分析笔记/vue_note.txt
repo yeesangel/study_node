@@ -1,0 +1,2 @@
+1. Vue 选项的规范化:
+  a. 那么 s.constructor 自然就是 Sub 而非 Vue，大家知道这一点即可，但在我们的例子中，这里的 Ctor 就是 Vue 构造函数，而有关于 Vue.extend 的东西，我们后面会专门讨论的??? (resolveConstructorOptions函数里面 后续会讲到)

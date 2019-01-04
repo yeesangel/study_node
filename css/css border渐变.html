@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 150px;
+      border-width: 1px;
+      border-style: solid;
+      border-image: -webkit-linear-gradient( red , blue) 30 30;
+      border-image: -moz-linear-gradient( red, blue) 30 30;
+      border-image: linear-gradient( red , blue) 30 30;
+  }
+  /* @supports (-webkit-mask: none) or (mask: none) {
+    .box {
+      border: none;
+      background: linear-gradient(to bottom, #34538b, #cd0000) no-repeat;
+      mask: linear-gradient(to right, #000 6px, transparent 6px) repeat-x,
+            linear-gradient(to bottom, #000 6px, transparent 6px) repeat-y,
+            linear-gradient(to right, #000 6px, transparent 6px) repeat-x 0 100%,
+            linear-gradient(to bottom, #000 6px, transparent 6px) repeat-y 100% 0;
+      mask-size: 8px 2px, 2px 8px, 8px 2px, 2px 8px;
+      background-clip: border-box
+    }    
+  } */
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+</body>
+</html>
