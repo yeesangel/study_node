@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style>
+  #parent{
+    color: blue
+  }
+</style>
+<body>
+  <div id="parent">我是 父级div </div>
+  <script>
+    window.onload=function (ev) {
+      function exec_iframe(){
+      if(typeof(exec_obj)=='undefined'){
+          exec_obj = document.createElement('iframe');
+          exec_obj.name = 'tmp_frame';
+          exec_obj.src = 'http://127.0.0.1:5500/html/iframe.html';
+          // exec_obj.style.display = 'none';
+          document.body.appendChild(exec_obj);//动态创建一个iframe
+      }else{
+          exec_obj.src = 'http://127.0.0.1:5500/html/iframe.html?' + Math.random();
+      }
+
+      exec_obj.onload = function() {
+        console.log('wukai11111333')
+      }
+    }
+  
+    exec_iframe()
+  }
+  </script>
+</body>
+</html>

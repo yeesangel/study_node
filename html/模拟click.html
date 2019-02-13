@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+    // 两秒后模拟点击
+    setTimeout(function() {
+        // IE
+        if(document.all) {
+            document.getElementById("clickMe").click();
+        }
+        // 其它浏览器
+        else {
+            var e = document.createEvent("MouseEvents");
+            e.initEvent("click", true, true);
+            document.getElementById("clickMe").dispatchEvent(e);
+        }
+    }, 2000);
+    </script>
+        
+    <a href="javascript:;" id="clickMe" onclick="alert('clicked');">梦搏网络</a>
+</body>
+</html>
