@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BFC</title>
+    <style>
+        html *{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- BFC 垂直方向边距重叠 -->
+    <section id="sec">
+        <style>
+            #sec{
+                background: pink;
+            }
+            #sec .top{
+                height: 100px;
+                background: yellow;
+            }
+
+            #sec>p{
+                height: 20px;
+                background: red;
+                margin: 5px auto 25px;
+            }
+        </style>
+        <div class="top"></div>
+        <p>1</p>
+        <div style="overflow: auto;">
+            <p>2</p>
+        </div>
+        <p>3</p>
+    </section>
+
+
+    <!-- BFC 不与float 重叠 -->
+    <section id="layout">
+        <style media="screen">
+            #layout{
+                background: pink;
+            }
+
+            #layout .left{
+                width: 100px;
+                height: 100px;
+                float: left;
+                background: yellow;
+            }
+
+            #layout .right{
+                height: 110px;
+                background: red;
+                overflow: hidden;
+            }
+        </style>
+        <div class="left"></div>
+        <div class="right"></div>
+    </section>
+
+
+    <!-- BFC 子元素即使浮动 也会参与高度计算 -->
+    <section id="float">
+            <style media="screen">
+                #float{
+                    margin-top: 30px;
+
+                    background: pink;
+                }
+    
+                #float .float{
+                    background: yellow;
+                    overflow: auto;
+                    /* float: left; */
+                }
+                #float .left{
+                    float: left;
+                    background: red;
+                }
+            </style>
+            <div class="float">
+                <p class="left">我是浮动元素</p>
+            </div>
+        </section>
+
+</body>
+</html>
