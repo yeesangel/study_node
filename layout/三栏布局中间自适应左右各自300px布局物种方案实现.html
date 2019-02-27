@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>layout</title>
+    <style>
+        html *{
+            margin: 0;
+            padding: 0;
+            
+        }
+    </style>
+</head>
+<body>
+    <section class="layout float">
+        <style>
+            .layout.float .left-center-right, .layout.float{
+                width: 100%
+            }
+            .layout.float .left-center-right{
+                overflow: hidden;
+                height: 100px;
+            }
+            .layout.float .left-center-right div{
+                height: 100px
+            }
+            .layout.float .left{
+                background: red;
+                float: left;
+                width: 300px;
+            }
+            .layout.float .center{
+                background: yellow;
+                margin: 0 300px 0 300px
+            }
+            .layout.float .right{
+                background: blue;
+                float: right;
+                width: 300px;
+            }
+        </style>
+
+        <article class="left-center-right">
+            <div class="left"></div>
+            <div class="right"></div>
+            <div class="center">
+                <h1>浮动布局解决方案</h1>
+                <p>这是浮动布局三栏中的中间部分</p>
+                <p>这是浮动布局三栏中的中间部分</p>
+            </div>
+        </article>
+    </section>
+
+    <section class="layout position">
+        <style>
+            .left-center-right, .layout.position{
+                width: 100%
+            }
+            .layout.position .left-center-right{
+                height: 100px;
+                margin-top: 30px;
+                position: relative;
+            }
+            .layout.position .left-center-right div{
+                /* height: 100px */
+                position: absolute;
+                height: 100px;
+            }
+            .layout.position .left{
+                background: red;
+                left:0;
+                width: 300px;
+                height: 100px;
+            }
+            .layout.position .center{
+                background: yellow;
+                right: 300px;
+                left: 300px;
+                
+            }
+            .layout.position .right{
+                background: blue;
+                right: 0;
+                width: 300px;
+            }
+        </style>
+
+        <article class="left-center-right">
+            <div class="left"></div>
+            <div class="center">
+                <h1>定位布局解决方案</h1>
+                <p>这是定位布局三栏中的中间部分</p>
+                <p>这是定位布局三栏中的中间部分</p>
+            </div>
+            <div class="right"></div>
+        </article>
+    </section>
+
+    <section class="layout flex">
+        <style>
+            .left-center-right, .layout.flex{
+                width: 100%
+            }
+            .layout.flex .left-center-right{
+                height: 100px;
+                margin-top: 30px;
+                display: flex;
+            }
+            .layout.flex .left-center-right div{
+                /* height: 100px */
+            }
+            .layout.flex .left{
+                background: red;
+                width: 300px;
+            }
+            .layout.flex .center{
+                background: yellow;
+                flex: 1;
+            }
+            .layout.flex .right{
+                background: blue;
+                width: 300px;
+            }
+        </style>
+
+        <article class="left-center-right">
+            <div class="left"></div>
+            <div class="center">
+                <h1>flex布局解决方案</h1>
+                <p>这是flex布局三栏中的中间部分</p>
+                <p>这是flex布局三栏中的中间部分</p>
+            </div>
+            <div class="right"></div>
+        </article>
+    </section>
+
+    <section class="layout table">
+        <style>
+            .left-center-right, .layout.table{
+                width: 100%
+            }
+            .layout.table .left-center-right{
+                height: 100px;
+                margin-top: 30px;
+                display: table;
+            }
+            .layout.table .left-center-right div{
+                /* height: 100px; */
+                display: table-cell;
+            }
+            .layout.table .left{
+                background: red;
+                width: 300px;
+            }
+            .layout.table .center{
+                background: yellow;
+            }
+            .layout.table .right{
+                background: blue;
+                width: 300px;
+            }
+        </style>
+
+        <article class="left-center-right">
+            <div class="left"></div>
+            <div class="center">
+                <h1>table布局解决方案</h1>
+                <p>这是table布局三栏中的中间部分</p>
+                <p>这是table布局三栏中的中间部分</p>
+            </div>
+            <div class="right"></div>
+        </article>
+    </section>
+
+    <section class="layout grid">
+        <style>
+            .left-center-right, .layout.grid{
+                width: 100%
+            }
+            .layout.grid .left-center-right{
+                margin-top: 30px;
+                display: grid;
+                grid-template-columns: 300px auto 300px;
+                grid-template-rows: 100px;
+            }
+            .layout.grid .left-center-right div{
+                /* height: 100px; */
+            }
+            .layout.grid .left{
+                background: red;
+                width: 300px;
+            }
+            .layout.grid .center{
+                background: yellow;
+            }
+            .layout.grid .right{
+                background: blue;
+                width: 300px;
+            }
+        </style>
+
+        <article class="left-center-right">
+            <div class="left"></div>
+            <div class="center">
+                <h1>grid布局解决方案</h1>
+                <p>这是grid布局三栏中的中间部分</p>
+                <p>这是grid布局三栏中的中间部分</p>
+                <p>这是grid布局三栏中的中间部分</p>
+                <p>这是grid布局三栏中的中间部分</p>
+                <p>这是grid布局三栏中的中间部分</p>
+                <p>这是grid布局三栏中的中间部分</p>
+            </div>
+            <div class="right"></div>
+        </article>
+    </section>
+    
+</body>
+</html>
