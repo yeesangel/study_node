@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 构造函数继承 
+    // 缺点无法继承原型对象
+    function Parent1() {
+      this.name = 'lilei';
+      this.age = 27;
+    }
+    Parent1.prototype.test = function() {
+      console.log('wukai nihao')
+    }
+    function Child1() {
+      Parent1.call(this)
+    }
+
+    var s1 = new Child1()
+    var s2 = new Child1()
+
+    // 原型继承
+    // 父类属性 引用类型 子类多个实例 共同引用同一个内存地址
+
+    function Parent2() {
+      this.name = 'lilei';
+      this.age = 27;
+      this.arr = [1,2,3]
+    }
+    function Child2() {
+      this.color = 'red'
+    }
+
+    Child2.prototype = new Parent2()
+
+    var s3 = new Child2()
+    var s4 = new Child2()
+
+    // 组合继承1
+    // 父类 构造函数执行了两遍
+    function Parent3() {
+      this.name = 'lilei';
+      this.age = 27;
+      this.arr = [1,2,3]
+    }
+    function Child3() {
+      Parent3.call(this)
+      this.color = 'red'
+    }
+
+    Child3.prototype = new Parent3()
+
+    var s5 = new Child3()
+    var s6 = new Child3()
+
+    // 组合继承 集成上面两种继承的各自优点1
+    // 缺点父类 构造函数执行了两遍
+    function Parent3() {
+      this.name = 'lilei';
+      this.age = 27;
+      this.arr = [1,2,3]
+    }
+    function Child3() {
+      Parent3.call(this)
+      this.color = 'red'
+    }
+    Child3.prototype = new Parent3()
+    var s7 = new Child3()
+    var s8 = new Child3()
+
+    // 组合继承 优化2
+    // 缺点 子类实例 的构造函数指向了父类
+    function Parent4() {
+      this.name = 'lilei';
+      this.age = 27;
+      this.arr = [1,2,3]
+    }
+    function Child4() {
+      Parent4.call(this)
+      this.color = 'red'
+    }
+    Child4.prototype = Parent4.prototype
+    var s9 = new Child4()
+    var s10 = new Child4()
+
+    // 组合继承 优化3
+    // 完美了
+    function Parent5() {
+      this.name = 'lilei';
+      this.age = 27;
+      this.arr = [1,2,3]
+    }
+    function Child5() {
+      Parent5.call(this)
+      this.color = 'red'
+    }
+    Child5.prototype = Object.create(Parent5.prototype)
+    Child5.prototype.constructor = Child5
+    var s9 = new Child5()
+    var s10 = new Child5()
+
+  </script>
+</body>
+</html>
