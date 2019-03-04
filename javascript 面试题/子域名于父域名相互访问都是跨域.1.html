@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Access-Control-Allow-Origin" content="api.test.zakzak.com:3000">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var xhr = new XMLHttpRequest()
+    xhr.open('GET', 'http://api.test.zakzak.com:3000/event', true)
+
+    xhr.onreadystatechange = function(ev) {
+      console.log(ev)
+    }
+
+    xhr.send()
+  </script>
+</body>
+</html>
