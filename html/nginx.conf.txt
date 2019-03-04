@@ -1,0 +1,113 @@
+server {
+    listen              443 ssl;
+    server_name         test.zakzak-live.com;
+    ssl_certificate     /etc/nginx/ssl/nginx.crt;
+    ssl_certificate_key /etc/nginx/ssl/nginx.key;
+
+
+    #charset koi8-r;
+    #access_log  /var/log/nginx/host.access.log  main;
+
+    location / {
+        root   /home/joye/development/VideoShow-Web/dist;
+        index  index.html index.htm;
+    }
+
+    location /hiyaa {
+	root /home/joye/development/demo;
+        index install.html;
+    }
+
+
+    #api proxy
+    location /bosh {
+        proxy_pass  http://54.222.148.146:5280;
+        keepalive_timeout 3600;
+    }
+
+
+    location /events {
+        proxy_pass http://e.1-1.io;
+        proxy_set_header  Host $host;
+        proxy_set_header  X-Real-IP $http_x_forwarded_for;
+        proxy_set_header  X-Forwarded-For $http_x_forwarded_for;
+        proxy_set_header  X-Forwarded-Host $http_x_forwarded_for;
+    }
+
+    location /vshow_login {
+        proxy_pass http://54.222.148.146:81;
+    }
+
+    location /vshow_home {
+        proxy_pass http://54.222.148.146:89;
+    }
+
+    location /account {
+        proxy_pass http://54.222.148.146:81;
+    }
+
+    location /translate {
+        proxy_pass http://54.222.148.146:81;
+    }
+
+    location  /zak-payment-service {
+        proxy_pass http://54.222.148.146:12000;
+    }
+
+   location ^~ /upload/  {
+	proxy_pass http://54.222.148.146:29100;
+   }
+
+
+   location ^~ /amr/ {
+	proxy_pass http://vshow-euc1.1-1.io:5444;
+	rewrite ^/amr/(.*)$ /$1 break;
+   }
+
+   location ^~  /amr2/ {
+      proxy_pass http://52.80.56.203:5444;
+      rewrite ^/amr2/(.*)$ /$1 break;
+   }
+
+   location ^~  /amr1/ {
+      proxy_pass http://54.222.148.146:5444;
+      rewrite ^/amr1/(.*)$ /$1 break;
+   }
+
+    location /zakzak {
+      proxy_pass https://cdn.1-1.io;
+   }
+
+    error_page  405     =200 $uri;
+    #error_page  404              /404.html;
+
+    # redirect server error pages to the static page /50x.html
+    #
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
+
+    # proxy the PHP scripts to Apache listening on 127.0.0.1:80
+    #
+    #location ~ \.php$ {
+    #    proxy_pass   http://127.0.0.1;
+    #}
+
+    # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+    #
+    #location ~ \.php$ {
+    #    root           html;
+    #    fastcgi_pass   127.0.0.1:9000;
+    #    fastcgi_index  index.php;
+    #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
+    #    include        fastcgi_params;
+    #}
+
+    # deny access to .htaccess files, if Apache's document root
+    # concurs with nginx's one
+    #
+    #location ~ /\.ht {
+    #    deny  all;
+    #}
+}
