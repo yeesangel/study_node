@@ -9,14 +9,21 @@
 </head>
 <body>
   <script>
-    var xhr = new XMLHttpRequest()
-    xhr.open('GET', 'http://api.test.zakzak.com:3000', true)
+    document.domain = 'api.test.zakzak.com'
+    // var xhr = new XMLHttpRequest()
+    // xhr.open('GET', 'http://test.zakzak.com:3000', true)
 
-    xhr.onreadystatechange = function(ev) {
-      console.log(ev)
-    }
+    // xhr.onreadystatechange = function(ev) {
+    //   console.log(ev)
+    // }
 
-    xhr.send()
+    // xhr.send()
+
+    fetch('http://test.zakzak.com:3000').then((res) => {
+      console.log('wukai1',res)
+    }).catch((err) => {
+    console.log('wukai',err)
+    })
   </script>
 </body>
 </html>

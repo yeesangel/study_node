@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function P(fn) {
+      var value = null;
+      var event = [];
+      this.then = function(f) {
+        event.push(f)
+        console.log(this)
+        return this
+      }
+
+      function resolve(newValue) {
+        var f = event.shift()
+        console.log(resolve, 1111)
+        f(newValue, resolve)
+      }
+
+      fn(resolve)
+
+    }
+
+
+    function aa() {
+      return new P(function(resolve) {
+        setTimeout(() => {
+          resolve(11)
+        }, 1000)
+      })
+    }
+
+    aa().then(function(res, resolve){
+      console.log('first then',res)
+      setTimeout(() => {
+        resolve(22)
+      }, 1000)
+    }).then(function(res) {
+      console.log('secend then',res)
+    })
+  </script>
+</body>
+</html>

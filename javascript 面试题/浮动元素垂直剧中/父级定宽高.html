@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style>
+  body{
+    margin-top: 100px
+  }
+  /* 父级元素定宽高 */
+  .parent1{
+    width: 100px;
+    height: 100px;
+    background: red;
+    position: relative;
+  }
+  .child1{
+    width: 50px;
+    height: 50px;
+    background: yellow;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -25px;
+    margin-top: -25px;
+  }
+
+  /* 父级自己元素 不定宽高水平垂直居中 */
+  .parent2{
+    /* width: 300px;
+    height: 300px; */
+    border-top: 1px solid red;
+    background: yellow;
+    position: relative;
+  }
+  .child2{
+    width: 50px;
+    height: 50px;
+    background: red;
+    position: absolute;
+    float: left;
+    margin: auto;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+
+.parent3 {
+    width: 300px;
+    height: 200px;
+    background-color: grey;
+    display: table;
+    /* vertical-align: middle; */
+}
+.child3 {
+    display: table-cell;
+    /* float: left; */
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    background-color: black;
+    text-align: center;
+}
+
+.txt{
+  color: cyan;
+}
+
+
+.parent4 {
+      display: table;
+      width: 300px;
+      height: 300px;
+      text-align: center;
+  }
+  .son  {
+      display: table-cell;
+      height: 200px;
+      background-color: yellow;
+      vertical-align: middle;
+  }
+</style>
+<body>
+  <div class="parent1">
+    <div class="child1">1</div>
+  </div>
+
+  <div class="parent2">
+    <div class="child2">2</div>
+  </div>
+
+  <div class="parent3">
+    <div class="child3">
+      <span class="txt">3</span>
+    </div>
+  </div>
+
+  <div class="parent4">
+      <p class="son">会议认为，党的十八大以来，我国经济发展取得历史性成就、
+                   发生历史性变革，为其他领域改革发展提供了重要物质条件。经济实力
+                   再上新台阶，经济年均增长7.1%，成为世界经济增长的主要动力源和稳定器。
+      </p>
+  </div>
+</body>
+</html>

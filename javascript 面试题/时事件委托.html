@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .ul li{
+      background: red;
+      height: 20px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <ul class="ul">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+  </ul>
+  <script>
+    // 利用事件委托原理
+    var ul = document.querySelector('.ul')
+
+    ul.onclick = function(e) {
+      console.log(e.target.innerHTML)
+    }
+  </script>
+</body>
+</html>

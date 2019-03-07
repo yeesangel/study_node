@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var obj = {
+      color: [1,'27',[1,2,3]],
+      name: {
+        time: 29,
+        color: {
+          width: 300
+        }
+      }
+    }
+
+    function deepCopy(obj) {
+      var _obj = {}
+      for(var key in obj) {
+        if(obj.hasOwnProperty(key)) { //只遍历 对象的自身属性
+          console.log(key)
+          if(Object.prototype.toString.call(obj[key]) === "[object Object]") {
+            _obj[key] = deepCopy(obj[key])
+          } else if(Object.prototype.toString.call(obj[key]) === "[object Array]") {
+            _obj[key] = copyArr(obj[key])
+          } else {
+            _obj[key] = obj[key]
+          }
+        }
+      }
+
+      function copyArr(arr) {
+        var _arr = []
+        for(var i=0; i<arr.length; i++) {
+          if(Object.prototype.toString.call(arr[i]) === "[object Array]") {
+            _arr.push(copyArr(arr[i]))
+          } else {
+            _arr.push(arr[i])
+          }
+        }
+        return _arr
+      }
+
+      return _obj
+    }
+
+    var obj1 = deepCopy(obj)
+  </script>
+</body>
+</html>
