@@ -9,7 +9,7 @@
 	#div1{width: 100px; height: 100px; background: red;}
 	</style>
 	<script>
-	var str = '433236545652';
+	var str = '4332365456524';
 	function test(str){
 		var iNum = str.length%3;
 		//alert(iNum)
@@ -34,7 +34,7 @@
 		};
 		return arr
 	};
-	alert(test(str));
+	console.log(test(str).join('.'));
 	/*function test(str){ //正则匹配千分位逗号分隔；用到知识点有前向声明，反前向声明，量词，
 		var re = /(?!\b)(?=(\d{3})+$)/g;
 		return str.replace(re,',');

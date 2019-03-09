@@ -4,12 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- 从上到下同步阻塞执行 不管哪个 js 先网络请求回来 都是先执行完 defer1.js 再执行defer2.js -->
   <!-- <script src="./defer1.js"></script>
   <script src="./defer2.js"></script> -->
 
+
+  <!-- 异步执行 defer下载外部脚本的不是阻塞的，浏览器会另外开启一个线程，进行网络连接下载，这个过程中，文档解析及构建DOM仍可以继续进行，不会出现因下载脚本而出现的页面空白。 
+    关于defer我们需要注意下面几点： 
+    1. defer只适用于外联脚本，如果script标签没有指定src属性，只是内联脚本，不要使用defer 
+    2. 如果有多个声明了defer的脚本，则会按顺序下载和执行 
+    3. defer脚本会在DOMContentLoaded和load事件之前执行 
+   -->
   <!-- <script defer src="./defer1.js"></script>
   <script defer src="./defer2.js"></script> -->
 
+
+
+  <!-- 异步执行 defer下载外部脚本的不是阻塞的，浏览器会另外开启一个线程，进行网络连接下载 那个先回来那个先执行 -->
   <script async src="./defer1.js"></script>
   <script async src="./defer2.js"></script>
   <title>Document</title>
@@ -24,5 +35,14 @@
     }
     console.timeEnd('wukai')
   </script>
+  <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function() {
+        console.log('dom content loaded, ready state:', this.readyState);
+    }, false);
+
+    window.addEventListener('load', function() {
+        console.log('window loaded, dom ready state:', document.readyState);
+    }, false);
+</script>
 </body>
 </html>
