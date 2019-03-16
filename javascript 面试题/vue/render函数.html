@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./vue-2.5.1.js"></script>
+</head>
+<body>
+<div id="app">
+  <div>
+    <input type="text" v-model="title">
+    <button @click="add">点添加</button>
+  </div>
+  <div>
+    <ul>
+      <template v-for="(item,index) in list">
+        <li :key="index" v-if="index != 0">{{item}}</li>
+      </template>
+    </ul>
+  </div>
+  <child :prop-data="message"></child>
+  <div v-if="true">你好吗</div>
+</div>
+
+
+<script>
+  var child = {
+    data: function() {
+      return {
+        name: 'zhangsan'
+      }
+    },
+    template: "<div>{{propData}} {{name}}</div>",
+    props: {
+      propData: {
+        type: String,
+        default: 'attrs'
+      }
+    }
+  }
+  var vm = new Vue({
+    el: '#app',
+    data: {
+      title: '',
+      list: [],
+      message: '传递成功了'
+    },
+    components: {
+      child
+    },
+    methods: {
+      add: function() {
+        this.list.push(this.title);
+        this.title = ''
+      }
+    }
+  })
+</script>
+</body>
+</html>

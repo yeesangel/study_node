@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <p>&lt;script&gt;alert(1)&lt;/script&gt;</p>
+    <p>
+      <!-- <script>alert(12)</script> -->
+    </p>
+    <div class="pasert">
+你好111133333
+    </div>
+  </div>
+</body>
+<script>
+    
+    // var str = `&lt;script&gt;alert(1)&lt;/script&gt;`
+    // var parent = document.createElement('div');
+    // var str = "<script>console.log(12121)<\/script>";
+    // parent.innerHTML = str;
+    // var first = document.body.children[0];
+    // document.body.insertBefore(parent, first);
+
+    var script = document.createElement('script');
+    script.innerHTML = "console.log(12121)";
+    document.body.appendChild(script);
+    
+  </script>
+</html>

@@ -8,47 +8,93 @@
 </head>
 <body>
   <script>
+    // 错误逻辑
+    // var obj = {
+    //   color: [1,'27',[1,2,3]],
+    //   name: {
+    //     time: 29,
+    //     color: {
+    //       width: 300
+    //     }
+    //   }
+    // }
+
+    // function deepCopy(obj) {
+    //   var _obj = {}
+    //   for(var key in obj) {
+    //     if(obj.hasOwnProperty(key)) { //只遍历 对象的自身属性
+    //       console.log(key)
+    //       if(Object.prototype.toString.call(obj[key]) === "[object Object]") {
+    //         _obj[key] = deepCopy(obj[key])
+    //       } else if(Object.prototype.toString.call(obj[key]) === "[object Array]") {
+    //         _obj[key] = copyArr(obj[key])
+    //       } else {
+    //         _obj[key] = obj[key]
+    //       }
+    //     }
+    //   }
+
+    //   function copyArr(arr) {
+    //     var _arr = []
+    //     for(var i=0; i<arr.length; i++) {
+    //       if(Object.prototype.toString.call(arr[i]) === "[object Array]") {
+    //         _arr.push(copyArr(arr[i]))
+    //       } else {
+    //         _arr.push(arr[i])
+    //       }
+    //     }
+    //     return _arr
+    //   }
+
+    //   return _obj
+    // }
+
+    // var obj1 = deepCopy(obj)
+
     var obj = {
       color: [1,'27',[1,2,3]],
       name: {
         time: 29,
         color: {
           width: 300
-        }
+        },
+        foo: function aa() {}
       }
     }
 
-    function deepCopy(obj) {
-      var _obj = {}
-      for(var key in obj) {
-        if(obj.hasOwnProperty(key)) { //只遍历 对象的自身属性
-          console.log(key)
-          if(Object.prototype.toString.call(obj[key]) === "[object Object]") {
-            _obj[key] = deepCopy(obj[key])
-          } else if(Object.prototype.toString.call(obj[key]) === "[object Array]") {
-            _obj[key] = copyArr(obj[key])
-          } else {
-            _obj[key] = obj[key]
-          }
-        }
-      }
+    obj.loopObj = obj
 
-      function copyArr(arr) {
-        var _arr = []
-        for(var i=0; i<arr.length; i++) {
-          if(Object.prototype.toString.call(arr[i]) === "[object Array]") {
-            _arr.push(copyArr(arr[i]))
-          } else {
-            _arr.push(arr[i])
-          }
-        }
-        return _arr
-      }
+    // 方法一
+    // function deepCopy(obj) {
+    //   var copy = obj.constructor === Array ? [] : {};
 
-      return _obj
-    }
+    //   if(typeof(obj) !== "object") {
+    //     return;
+    //   } else {
+    //     for(var key in obj) {
+    //       if(obj.hasOwnProperty(key)) {
+    //         copy[key] = typeof(obj[key]) === "object" ? deepCopy(obj[key]) : obj[key]
+    //       }
+    //     }
+    //   }
 
-    var obj1 = deepCopy(obj)
+    //   return copy;
+    // }
+
+
+    // var obj1 = deepCopy(obj)
+
+    // 方法二
+    // var _obj = JSON.parse(JSON.stringify(obj))
+
+    // 方法三
+    var _obj = Object.assign({}, obj)
+
+    // 方法三 lodash.cloneDeep() 方法实现
+    // var _obj = lodash.cloneDeep(obj)
+
+
+
   </script>
 </body>
 </html>
