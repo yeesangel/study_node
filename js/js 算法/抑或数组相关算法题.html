@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 面试过程中遇到的一个 算法题， 一个数组每一项都是整数，总共是2n+1 项，比如这样 两项a, 两项b， 两项c ......... 一项x， 怎么找出单独的 一项 x， 考虑时间复杂度 只能用一个循环。。
+
+    var arr = [1,23,4,4,23,1,9,10,2,10,2]
+
+
+    // 两个for循环
+
+    // function aaa(arr) {
+    //   var len = arr.length, index = 0;
+    //   for(var i=0; i<len; i++) {
+    //     var item = arr[i]
+    //     for(var j=0;j<len; j++) {
+    //       if(item === arr[j]) {
+    //         index++
+    //       }
+    //     }
+    //     if(index === 1) {
+    //       return item
+    //     }
+    //     index=0
+    //   }
+    // }
+
+    // console.log(aaa(arr), 11111)
+
+    // 用 抑或运算法则
+    function singleNumber(nums) {
+      for (let i = 1; i < nums.length; i++) {
+        nums[0] ^= nums[i];
+      }
+      return nums[0];
+    };
+
+    console.log(singleNumber([2, 2, 1, 4, 4, 5, 5, 1, 8]));
+
+  </script>
+</body>
+</html>

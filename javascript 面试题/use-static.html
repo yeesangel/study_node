@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  
+</head>
+<body>
+  <h1>你好你好你好你好你好</h1>
+  <script>
+    window.addEventListener('load', function() {
+      console.log('触发 onload事件')
+    })
+
+    window.addEventListener('DOMContentLoaded', function() {
+      console.log('触发 DOMContentLoaded 事件')
+    })
+    window.content
+  </script>
+  <script>
+    "use strict"
+
+    function aa() {
+      console.log('use strict', this)
+    }
+
+    aa()
+  </script>
+
+  <script>
+    function bb() {
+      console.log('非严格模式',this)
+    }
+
+    bb()
+  </script>
+
+<script src="./defer_async/defer1.js"></script>
+</body>
+</html>

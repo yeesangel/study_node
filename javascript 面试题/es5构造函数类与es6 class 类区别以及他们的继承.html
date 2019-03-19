@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // es5 构造函数
+    function Person1(name) {
+      this.name = name
+    }
+    Person1.prototype.work = function() {
+      console.log('我会走路')
+    }
+
+
+    // student1 继承父类 Person1
+    function Student1 (name, age) {
+      // 继承父类 constructor
+      Person1.call(this, name)
+      this.age = age
+    }
+    Student1.prototype = Object.create(Person1.prototype)
+    Student1.prototype.constructor = Student1
+    Student1.prototype.speed = function() {
+      console.log('我会睡觉')
+    }
+
+    var o1 = new Person1('wukai')
+    var o2 = new Student1('wukai', 28)
+
+
+
+
+    // es6 class Person2
+    class Person2 {
+      constructor(name) {
+        this.name = name
+        this.eve = []
+      }
+      work() {
+        console.log('我会走路')
+      }
+    }
+
+    // student2 继承父类 Person2
+    class Student2 extends Person2 {
+      constructor(name, age) {
+        super(name)
+        this.age = age
+      }
+      speed() {
+        console.log('我会睡觉')
+      }
+    }
+
+    var o11 = new Person2('wukai')
+    var o22 = new Student2('wukai', 28)
+  </script>
+</body>
+</html>
