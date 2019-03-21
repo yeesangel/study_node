@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script src="./vue-2.5.1.js"></script>
+<body>
+    <div id="box">
+        <input type="text" v-model="text">
+        <input type="radio" v-model="redio" value="男">
+        <input type="radio" v-model="redio" value="女">
+        <textarea name="textarea" v-model="textarea"></textarea>
+        <select name="select" v-model="select">
+            <option value="wukai1">1</option>
+            <option value="wukai2">2</option>
+            <option value="wukai3">3</option>
+            <option value="wukai4">4</option>
+        </select>
+        <p>{{text}}</p>
+        <p>{{textarea}}</p>
+        <p>{{select}}</p>
+        <p>{{redio}}</p>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: "#box",
+            data: {
+                text: 'wukai',
+                textarea: "请输入",
+                select: 'wukai1',
+                redio: '男'
+            },
+            created() {
+                console.log(this.text)
+                console.log(this.textarea)
+                console.log(this.select)
+            }
+        })
+    </script>
+    
+</body>
+</html>
