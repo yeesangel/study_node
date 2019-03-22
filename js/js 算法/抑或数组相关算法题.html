@@ -11,29 +11,54 @@
     // 面试过程中遇到的一个 算法题， 一个数组每一项都是整数，总共是2n+1 项，比如这样 两项a, 两项b， 两项c ......... 一项x， 怎么找出单独的 一项 x， 考虑时间复杂度 只能用一个循环。。
 
     var arr = [1,23,4,4,23,1,9,10,2,10,2]
+    // 两个嵌套for循环
+    function aaa(arr) {
+      var len = arr.length, index = 0;
+      for(var i=0; i<len; i++) {
+        var item = arr[i]
+        for(var j=0;j<len; j++) {
+          if(item === arr[j]) {
+            index++
+          }
+        }
+        if(index === 1) {
+          return item
+        }
+        index=0
+      }
+    }
+
+    console.time('runtime')
+    console.log(aaa(arr))
+    console.timeEnd('runtime')
 
 
-    // 两个for循环
+    // 前后for 一下
+    function computed(arr) {
+      let obj = {}
+      for(let i=0, len = arr.length; i<len; i++){
+        if(!obj[arr[i]]) {
+          obj[arr[i]] = 1
+        } else {
+          obj[arr[i]] = obj[arr[i]] + 1
+        }
+        // obj[arr[i]] = obj[arr[i]] ? obj[arr[i]]+1 : 1
+      }
 
-    // function aaa(arr) {
-    //   var len = arr.length, index = 0;
-    //   for(var i=0; i<len; i++) {
-    //     var item = arr[i]
-    //     for(var j=0;j<len; j++) {
-    //       if(item === arr[j]) {
-    //         index++
-    //       }
-    //     }
-    //     if(index === 1) {
-    //       return item
-    //     }
-    //     index=0
-    //   }
-    // }
+      let keyArr = Object.keys(obj)
+      for(let i=0, len=keyArr.length; i<len; i++) {
+        let key = keyArr[i]
+        if(+obj[key] === 1) {
+          return Number(key)
+        }
+      }
+    }
+    console.time('runtime')
+    console.log(computed(arr))
+    console.timeEnd('runtime')
 
-    // console.log(aaa(arr), 11111)
 
-    // 用 抑或运算法则
+    // 用异或运算法则
     function singleNumber(nums) {
       for (let i = 1; i < nums.length; i++) {
         nums[0] ^= nums[i];
@@ -41,8 +66,9 @@
       return nums[0];
     };
 
-    console.log(singleNumber([2, 2, 1, 4, 4, 5, 5, 1, 8]));
-
+    console.time('singleNumber')
+    console.log(singleNumber(arr));
+    console.timeEnd('singleNumber')
   </script>
 </body>
 </html>
