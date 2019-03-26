@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .box{
+        width: 100px;
+        height: 100px;
+        background: red;
+    }
+</style>
+<body>
+    <div class="box" onclick="_onclick">点击事件</div>
+
+    <script>
+        var box = document.querySelector('.box')
+        box.addEventListener('click', function () { // 最后事件调用
+            console.log('监听 触发 addEventListener2')
+        }, true)
+        box.addEventListener('click', function () { // 最后事件调用
+            console.log('监听 触发 addEventListener1')
+        }, true)
+
+        function _onclick() { // 不会 事件调用
+            console.log('dom 绑定 onclick 触发')
+        }
+
+        box.onclick = function() { // 最先事件调用
+            console.log('js 绑定 onclick1')
+        }
+
+        box.onclick = function() { // 最先事件调用 （覆盖被上面的）
+            console.log('js 绑定 onclick12')
+        }
+    </script>
+</body>
+</html>

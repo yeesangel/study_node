@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body><div id="myDiv" style="height: 100px;width: 100px;background-color: pink;position:absolute;left:0;"></div>
+<script>
+    var myDiv = document.getElementById("myDiv")
+    //使用setInterval()
+// myDiv.onclick = function(){
+//     var timer = setInterval(function(){
+//         if(parseInt(myDiv.style.left) > 200){
+//             clearInterval(timer);
+//             return false;
+//         }
+//         myDiv.style.left = parseInt(myDiv.style.left) + 5 + 'px';    
+
+//     },16);    
+// }
+
+// 使用链式setTimeout()
+myDiv.onclick = function(){
+    setTimeout(function fn(){
+        if(parseInt(myDiv.style.left) <= 200){
+            setTimeout(fn,16);    
+        }else{
+            return false;
+        }
+        myDiv.style.left = parseInt(myDiv.style.left) + 5 + 'px';    
+    },16);    
+}
+</script>
+</body>
+</html>

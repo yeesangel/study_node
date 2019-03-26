@@ -37,8 +37,8 @@
     /* 定位的第二种方案 */
       /* 父级自己元素 不定宽高水平垂直居中 */
   .parent2{
-    /* width: 300px;
-    height: 300px; */
+    width: 300px;
+    height: 300px;
     border-top: 1px solid red;
     background: yellow;
     position: relative;
@@ -48,7 +48,6 @@
     height: 50px;
     background: red;
     position: absolute;
-    float: left;
     margin: auto;
     left: 0;
     top: 0;
@@ -62,7 +61,26 @@
     </div>
 
     <div class="parent2">
-    <div class="child2">2</div>
+        <div class="child2">2</div>
+    </div>
+
+    <div class="flex-wrap">
+        <style>
+            .flex-wrap{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 300px;
+                height: 300px;
+                background: pink;
+            }
+            .flex-child{
+                width: 50px;
+                height: 50px;
+                background: cyan;
+            }
+        </style>
+        <div class="flex-child">2</div>
     </div>
 </body>
 </html>
