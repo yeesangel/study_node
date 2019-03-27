@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr = [12,4,5,6,7,8,1,9,10,2,3,4,5,1,2,3,20]
+        // 传统方法
+        // function computeMinSum(arr) {
+        //     var len = arr.length, _arr = [], sum=1000000*1000000, index = 0;
+        //     for(var i=0; i<len-4; i++) {
+        //         _arr.push(arr.slice(i, 5+i))
+        //     }
+        //     for(var i=0; i<_arr.length; i++){
+        //         if(arr.length === 1) {
+        //             return [_arr[i]]
+        //         }
+        //         var itemSum = _arr[i].reduce((a, b) => {
+        //             return a+b
+        //         })
+        //         if(itemSum < sum) {
+        //             sum = itemSum
+        //             index =i
+        //         }
+        //     }
+        //     return {
+        //         index,
+        //         arr: _arr[index]
+        //     }
+        // }
+        // var minSum = computeMinSum(arr)
+
+        // function computeMinSum(arr) {
+        //     var len = arr.length, _arr = [], max = 100000*100, index;
+        //     for(var i=0; i<len-1; i++) {
+        //         var item = arr.slice(i, 5+i)
+        //         _arr.push(item)
+        //         var sum = item.reduce((a,b) => {
+        //             return a+b;
+        //         })
+        //         if(sum < max) {
+        //             max = sum
+        //             index = i
+        //         }
+        //     }
+        //     return _arr[index]
+        // }
+        // var minSum = computeMinSum(arr)
+
+
+        // 一个数组中有 n 项整数， 找出任意不重复组合 之和最小的一项
+
+        function computeMinSum(arr) {
+            var len = arr.length, _arr = [], min = 1000000*1000, items = [];
+            arr.sort((a, b) => {
+                return a-b
+            })
+            for(var i=0; i<len; i++) {
+                var item1 = arr[i];
+                for(var j=0; j<len-3; j++) {
+                    if(i>0 && arr[i] ===arr[i-1]) continue
+                    if(i !== j && i !== j+1 && i !== j+2 && i !== j+3) {
+                        if(j>0 && arr[j] === arr[j+1]) continue 
+                        var itemArr = [item1, arr[j], arr[j+1], arr[j+2], arr[j+3]]
+                        var sum = itemArr.reduce((a, b) => {
+                            return a + b;
+                        })
+                        _arr.push(itemArr)
+                        if(sum < min) {
+                            min = sum;
+                            items = itemArr
+                        }
+                    }
+                }
+            }
+            return {
+                arr: items,
+                min: min
+            }
+        }
+
+        var minSum = computeMinSum(arr)
+
+    </script>
+</body>
+</html>
