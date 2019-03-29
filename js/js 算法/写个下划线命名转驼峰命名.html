@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var str = 'wukai_weiyan_yuxuan'
+
+    // 方法一
+    // function foo(str) {
+    //   var strArr = str.split('_');
+    //   var _str = "";
+    //   for(var i=0; i<strArr.length; i++){
+    //     var item = strArr[i];
+    //     if(i === 0 ) {
+    //       _str += item
+    //     } else {
+    //       _str += item.charAt(0).toUpperCase()+item.substr(1)
+    //     }
+    //   }
+    //   return _str
+    // }
+    // console.log(foo(str))
+
+    // 方法 二
+    function foo(str) {
+      var reg = /_([a-z]{1})/g
+
+      return str = str.replace(reg, function($0, $1){
+        return $1.toUpperCase()
+      })
+    }
+
+    console.log(foo(str))
+  </script>
+</body>
+</html>

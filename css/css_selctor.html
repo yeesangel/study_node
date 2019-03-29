@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+ 
+</head>
+<body>
+ <div class="box1">
+    <style> 
+    /* 子元素选择器 */
+      .box1 h1>strong{
+        color: red;
+      }
+    </style>
+    <h1>This is <strong>very</strong> <strong>very</strong> important.</h1>
+    <h1>This is <em>really <strong>very</strong></em> important.</h1>
+ </div>
+
+ <div class="box2">
+  <style>
+    /* css 3 子代选择器 */
+    .box2 ul li{
+      height: 30px;
+      background: red;
+    }
+    /* 选择所有的 */
+    /* .box2 ul li:nth-child(n){
+      background: yellow;
+    } */
+    /* 选择 n的2倍整数个 */
+    /* .box2 ul li:nth-child(2n){
+      background: yellow;
+    } */
+    /* 选择奇数个 */
+    /* .box2 ul li:nth-child(odd){
+      background: yellow;
+    } */
+    /* 选择 偶数个 */
+    .box2 ul li:nth-child(even){
+      background: yellow;
+    }
+  </style>
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+ </div>
+
+ <div class="box3">
+  <style>
+    /* 属性选择器 */
+    /* .box3 [title]{
+      color: blue
+    }  */
+
+    /* 单个属性直 (title="hello") */ 
+    /* .box3 [title=hello]{
+      color: blue
+    } */
+
+    /* 用于选择多个属性值 （用空格隔开的属性值 如 title="wikai hello） */
+    /* .box3 [title~=wukai]{
+      color: blue
+    } */
+
+    /* 用于选择多个属性值用-分割开的 （用空格隔开的属性值 如 title="wikai-hello） */
+    .box3 [title|=hello]{
+      color: blue
+    }
+
+
+  </style>
+  <div title="hello-wukai"> hello world</div>
+ </div>
+
+ <div class="box4">
+    <!-- 毗邻元素选择器，匹配所有紧随E元素之后的同级元素F -->
+    <style>
+      .box4 span {
+        background: red;
+      }
+      .box4 .active+span{
+        color: yellow;
+        
+      }
+    </style>
+    <label for="">
+      <input type="radio" class="active" value="男">
+      <span>男</span>
+
+      <input type="radio" value="女">
+      <span>女</span>
+    </label>
+ </div>
+</body>
+</html>
