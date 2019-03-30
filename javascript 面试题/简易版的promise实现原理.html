@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //promise 实现原理
+    function P(fn) {
+      let events = [];
+      this.then = function () {
+        events.push(...arguments)
+        console.log(this)
+        return this
+      }
+
+      function resolve(newValue) {
+          var f = events.shift()
+          f(newValue, resolve)
+      }
+
+      fn(resolve)
+    }
+
+    new P((resolve) => {
+      setTimeout(() => {
+        resolve(1000)
+      }, 2000)
+    }).then((res, resolve) => {
+      console.log(res)
+      setTimeout(() => {
+        resolve(3000)
+      }, 1000)
+    }).then((res) => {
+      console.log(res)
+    })
+
+
+  </script>
+</body>
+</html>
