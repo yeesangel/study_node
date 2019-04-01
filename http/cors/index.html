@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div>你好吗</div>
+  <script>
+    // 触发预检请求 条件 1. 修改了请求有属性 2. 跨域请求也同样会触发预检 3.复杂请求  请求 （预检请求 请求方法为 OPTIONS）
+
+    //  备注 简单请求 有以下 否则为复杂请求
+    // 条件1：使用下列方法之一：
+    // GET
+    // HEAD
+    // POST
+    // 条件2：Content-Type 的值仅限于下列三者之一：
+    // text/plain
+    // multipart/form-data
+    // application/x-www-form-urlencoded
+    // cors相关参考资料 : https://mp.weixin.qq.com/s/dfM7BdU813FkHpZMbMKbfw  http://www.ruanyifeng.com/blog/2016/04/cors.html
+
+    let xhr = new XMLHttpRequest();
+    document.cookie = 'name=xiamen'; // 前端设置 coockie
+    // 注意：请求带 coockie 必须要与服务端 配合设置 res.setHeader('Access-Control-Allow-Credentials', true)才能将coockie 带到服务端
+    // 注意：服务端设置了 res.setHeader('Access-Control-Allow-Origin', "*") 前端 就不能设置 xhr.withCredentials = true
+    // xhr.withCredentials = true; // 前端 设置请求是否带 coockie
+    xhr.open('get', 'http://192.168.1.141:4000/getData', true);
+    // 非简单请求的CORS请求，会在正式通信之前，增加一次HTTP查询请求，称为"预检"请求（preflight）。
+    // 浏览器先询问服务器，当前网页所在的域名是否在服务器的许可名单之中，以及可以使用哪些HTTP动词和头信息字段。只有得到肯定答复，浏览器才会发出正式的XMLHttpRequest请求，否则就报错
+    // xhr.setRequestHeader('name', 'xiamen');
+
+    xhr.onreadystatechange = function(event) {
+      if (xhr.readyState === 4) {
+        if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+          console.log(xhr.response);
+          //得到响应头，后台需设置Access-Control-Expose-Headers
+          console.log(xhr.getResponseHeader('name'));
+        }
+      }
+    }
+    xhr.onerror = function(e) {
+      console.log(e, '--------')
+    }
+    xhr.send()
+  </script>
+</body>
+</html>

@@ -6,3 +6,5 @@
 /vue/scroll/scroll-demo/node_modules
 /vue/scroll/my-project/node_modules
 /react/node_modules
+/http/cors/node_modules
+/http/webSocket/node_modules
