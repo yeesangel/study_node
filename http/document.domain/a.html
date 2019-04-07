@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div>我是 a页面</div>
+  <!-- <iframe src="http://b.zf1.cn:3000/b.html" onload="load()" id="iframe" frameborder="0"></iframe> -->
+  <iframe src="http://api.test.zakzak.live:3000/b.html" onload="load()" id="iframe" frameborder="0"></iframe>
+  <script>
+    var iframe = document.getElementById('iframe');
+    // document.domain = 'zf1.cn';
+    document.domain = 'zakzak.live';
+    function load() {
+      console.log(iframe.contentWindow.a)
+    }
+  </script>
+</body>
+</html>

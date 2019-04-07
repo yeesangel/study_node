@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div>我是 c 页面</div>
+  <script>
+    var iframe = document.createElement('iframe');
+    let hash = location.hash
+    console.log('c页面 接收到了a页面传递的数据',hash)
+    iframe.src = `http://localhost:3000/b.html#${hash}`
+    document.body.appendChild(iframe);
+  </script>
+</body>
+</html>

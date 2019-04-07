@@ -26,11 +26,11 @@
     document.cookie = 'name=xiamen'; // 前端设置 coockie
     // 注意：请求带 coockie 必须要与服务端 配合设置 res.setHeader('Access-Control-Allow-Credentials', true)才能将coockie 带到服务端
     // 注意：服务端设置了 res.setHeader('Access-Control-Allow-Origin', "*") 前端 就不能设置 xhr.withCredentials = true
-    // xhr.withCredentials = true; // 前端 设置请求是否带 coockie
-    xhr.open('get', 'http://192.168.1.141:4000/getData', true);
+    xhr.withCredentials = true; // 前端 设置请求是否带 coockie
+    xhr.open('PUT', 'http://192.168.1.141:4000/getData', true);
     // 非简单请求的CORS请求，会在正式通信之前，增加一次HTTP查询请求，称为"预检"请求（preflight）。
     // 浏览器先询问服务器，当前网页所在的域名是否在服务器的许可名单之中，以及可以使用哪些HTTP动词和头信息字段。只有得到肯定答复，浏览器才会发出正式的XMLHttpRequest请求，否则就报错
-    // xhr.setRequestHeader('name', 'xiamen');
+    xhr.setRequestHeader('name', 'xiamen');
 
     xhr.onreadystatechange = function(event) {
       if (xhr.readyState === 4) {
