@@ -7,6 +7,16 @@
     <title>树形结构2</title>
     <script src="./vue-2.5.1.js"></script>
 </head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    li {
+        list-style: none;
+        padding-left: 14px;
+    }
+</style>
 <body>
     <div id = "app">
         <tree :folder = "trees" :select = "select"></tree>
@@ -18,10 +28,13 @@
             template:`<ul>
                         <li v-for = "item in folder">
                             <span @click = "select(item)">{{ item.label }}</span>
-                            <tree v-if = "item.children" :folder = "item.children" :select = "select"></tree>
+                            <tree v-if="!item.show"  :folder = "item.children" :select = "select"></tree>
                         </li>
                     </ul>`,
             props:["folder","select"],
+            methods:{
+
+            }
         })
         // <tree v-if = "item.children" :folder = "item.children"></tree>
         var app = new Vue({
@@ -146,7 +159,10 @@
                     console.log(23333);
                 },
                 select(data){
-                    console.log(data);
+                    // data.show = !data.show
+                    if(!data.children) return
+                    this.$set(data, 'show', !data.show)
+                    console.log(data)
                 }
             },
             mounted(){
