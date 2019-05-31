@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function Event () {
+      this.handlers = {};
+    }
+
+    Event.prototype = {
+      // 订阅事件
+      on: function(eventType, handler){
+        var self = this;
+        if(!(eventType in self.handlers)) {
+          self.handlers[eventType] = [];
+        }
+        self.handlers[eventType].push(handler);
+        return this;
+      },
+      // 触发事件(发布事件)
+      emit: function(eventType){
+        var self = this;
+        var handlerArgs = Array.prototype.slice.call(arguments,1);
+        for(var i = 0; i < self.handlers[eventType].length; i++) {
+          self.handlers[eventType][i].apply(self,handlerArgs);
+        }
+        return self;
+      },
+      // 删除订阅事件
+      off: function(eventType, handler){
+        var currentEvent = this.handlers[eventType];
+        var len = 0;
+        if (currentEvent) {
+          len = currentEvent.length;
+        for (var i = len - 1; i >= 0; i--){
+          if (currentEvent[i] === handler){
+            currentEvent.splice(i, 1);
+          }
+        }
+        }
+        return this;
+      }
+    };
+
+    let Publisher = new Event ();
+    //订阅事件a
+    Publisher.on('a', function(e){
+      console.log(1 + e);
+    });
+    Publisher.on('a', function(e){
+      console.log(2 + e);
+    });
+
+    //触发事件a
+    Publisher.emit('a', '我是第1次调用');
+
+    Publisher.emit('a', '我是第2次调用');
+
+  </script>
+</body>
+</html>
