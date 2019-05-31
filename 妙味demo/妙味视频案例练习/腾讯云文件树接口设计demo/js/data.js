@@ -76,3 +76,37 @@ var data = {
 		}
 	]
 }
+
+const PID = -1;
+
+function trees(data, PID) {
+	let arr = [];
+	for(let i=0; i<data.length; i++) {
+		let item = data[i]
+		if(item.pid === PID) {
+			item.children = findChildren(item.id, data)
+			arr.push(item)
+		}
+	}
+	console.log('wukai',arr)
+	return arr
+}
+
+function findChildren(id, data) {
+	let children = []
+	for(let i=0; i<data.length; i++) {
+		// debugger
+		let item = data[i]
+		if(item.pid === id) {
+			item.children = []
+			let childs = findChildren(item.id, data)
+			// 还有子集
+			if(childs.length > 0) {
+				item.children = childs
+			}
+			children.push(item)
+		}
+	}
+	return children
+}
+

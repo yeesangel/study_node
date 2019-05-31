@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<script src="./intersection-observer.js"></script>
+<style>
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  ul li{
+    list-style: none;
+    height: 40px;
+    /* background: red; */
+    border-bottom: 1px solid red;
+  }
+</style>
+<body>
+  <ul id="container"></ul>
+  <script>
+    var box = document.getElementById('container')
+    var str = ''
+    for(let i=0; i<1000; i++) {
+      str += "<li>"+i+"</li>"
+    }
+    box.innerHTML = str
+
+
+
+    var callback = function() {
+      var arg = arguments
+      console.log('wukai====', arg)
+    }
+    const options = {
+        root: null,
+        threshold: [0.8]
+    }
+    var io = new IntersectionObserver(callback, options)
+
+    io.observe(box.children[100])
+  </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style>
+  label{
+    display: block;
+    width: 399px;
+    height: 40px;
+    background: red;
+  }
+</style>
+<body>
+  <label class="search-box" for="search_input">
+    <i class="icon-search"></i>
+    <input id="search_input" type="text" v-model="query" :class="inputWidth" class="box" @blur="inputBlur()" @focus="inpuFocus()" :placeholder="placeholder">
+ </label>
+</body>
+</html>
