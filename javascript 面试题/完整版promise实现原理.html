@@ -63,12 +63,11 @@
         onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : value => value;
         onRejected = typeof onRejected === 'function' ? onRejected : reason => { throw reason };
         let self = this;
-        //PromiseA+ 2.2.7
+        //PromiseA+ 2.2.7 // 触发时机过了 承诺 then 方法同样可以拿到成功结果
         let promise2 = new Promise((resolve, reject) => {
             if (self.status === FULFILLED) {
                 //PromiseA+ 2.2.2
                 //PromiseA+ 2.2.4 --- setTimeout
-                console.log(self.status)
                 setTimeout(() => {
                     try {
                         //PromiseA+ 2.2.7.1
@@ -79,6 +78,7 @@
                         reject(e);
                     }
                 });
+            // 触发时机过了 承诺 then 方法同样可以拿到失败结果
             } else if (self.status === REJECTED) {
                 console.log(self.status)
                 //PromiseA+ 2.2.3
@@ -112,6 +112,7 @@
                     });
                 });
             }
+
         });
         return promise2;
     }
@@ -142,7 +143,6 @@
                     });
 
                 }else{
-                    console.log(used, 1212121)
                     //PromiseA+2.3.3.4
                     if (used) return;
                     used = true;
