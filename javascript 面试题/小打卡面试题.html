@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    // 1
+    // 普通遍历
+    function chunk1(arr, n) {
+      let _arr = []
+      while(arr.length > 0) {
+        _arr.push(arr.splice(0, n))
+      }
+      return _arr
+    }
+
+    console.log('wukai', chunk1([1,2,3,4,5,6,7,8,9,0], 3))
+
+    // 递归
+    function chunk2(arr, n, _arr = []) {
+      if(arr.length > 0) {
+        _arr.push(arr.splice(0, n))
+        chunk2(arr, n, _arr)
+      }
+      return _arr
+    }
+
+    console.log('wukai', chunk2([1,2,3,4,5,6,7,8,9,0], 3, []))
+
+/* ======================= */
+    // 2
+    function Fn(v) {
+      this.vArr = v.substring(1).split('.')
+      this.before = []
+    }
+
+    Fn.prototype.computed = function (index) {
+      // 保留上一次副本数据
+      this.before = this.vArr.slice()
+
+      for(let i=0; i<this.vArr.length; i++) {
+        if(i === index) {
+          this.vArr[i] ++
+        } else if(i > index) {
+          this.vArr[i] = 0
+        }
+      }
+
+      return `v${this.vArr.join('.')}`
+    }
+
+    Fn.prototype.major = function () {
+      return this.computed(0)
+    }
+
+    Fn.prototype.minor = function () {
+      return this.computed(1)
+    }
+
+    Fn.prototype.patch = function () {
+      return this.computed(2)
+    }
+
+    Fn.prototype.rollback = function () {
+      return `v${this.before.join('.')}`
+    }
+
+    var fn = new Fn('v0.11.13')
+
+
+
+/* ======================= */
+    // 3
+    function Foo() {
+      this.curVal;
+      this.curPath;
+    }
+
+    Foo.prototype.get = function(obj, path) {
+      let re = /[\w|\d]/g
+      let arrPath = path.match(re)
+      let err
+      let result
+
+      this.curVal = obj
+
+      while(arrPath.length) {
+        var path = arrPath.shift()
+        this.curVal = this.curVal[path]
+        this.curPath = path
+
+        if(this.curVal === undefined) {
+          break;
+        }
+      }
+
+      result = this.curVal ? this.curVal : null
+      err = this.curVal ? null : `Is err about '${this.curPath}'`
+
+      return [err, result]
+
+    }
+    let foo = new Foo()
+
+
+    let object = {'a': [{'b': {'c': 3}}]};
+    let [err, result] = foo.get(object, 'a[0].d.c');
+    console.log(err, result); // => null, 3
+
+
+    /* ======================= */
+    // 4
+    function Person(str) {
+      if(Object.prototype.toString.call(this) !== "[object Object]") {
+        return new Person(str)
+      } else {
+        this.events = []
+        this.type = '';
+
+        this.events.push(str)
+        setTimeout(() => {
+          if(this.type !== 'sleepFirst') {
+            let str = this.events.shift()
+            console.log(`Hi This is ${str}!`)
+          }
+        }, 0)
+      }
+    }
+
+    Person.prototype.sleep = function (time) {
+      this.type = 'sleep'
+      setTimeout(() => {
+        console.log(`Wake up after ${time}`)
+        for(let ele of this.events) {
+          let item = this.events.shift()
+          console.log(`Eat ${item}~`)
+        }
+
+        this.type = ''
+      }, 1000 * time)
+
+      return this
+    }
+
+    Person.prototype.eat = function (str) {
+
+      this.events.push(str)
+      setTimeout(() => {
+        if(this.type === '') {
+          for(let ele of this.events) {
+            let item = this.events.shift()
+            console.log(`Eat ${item}~`)
+          }
+        }
+      })
+
+      return this
+    }
+
+    Person.prototype.sleepFirst = function (time) {
+      this.type = 'sleepFirst'
+      setTimeout(() => {
+        console.log(`Wake up after ${time}`)
+        for(let item of this.events) {
+          console.log(`Eat ${item}~`)
+        }
+
+        this.type = ''
+      }, 1000 * time)
+
+      return this
+    }
+
+
+    // 发散提：
+    // 1. 遇到过哪些技术难题？如何解决的？
+    // 在用 在用vue 框架得时候 做主播列表图片墙 懒加载， 在低端 pc电脑乌班图系统 chrome 无限加载 到两千多个主播时 出现卡死 性能问题
+    // 解决思路就是 竞品 百度图片，谷歌图片以及其他做的不错的素材网站 他们的实现原理， 找出与他们实现的差异性，最终是 通过flex布局 和 渲染列表规整分组 才解决
+
+    // 2. 平时的一些学习方法？以及如何平衡工作和学习上的关系？目前关注哪些技术方向（技术栈）
+    // 在学习知识点时 要求自己不单单停留在会用这个层面 还要深入 探索知识的底层原理， 以及设计思想等。
+    // 在工作中就专心做好自己的本职工作，作出最好的产品和最好的用户体验，在完成本职工作空间时间学习技能提高自己
+    // 关注 vue 将要出来的 vue3， 以及 学习 ts
+
+    // 3. 简单描述下你对前端的看法，以及自身的发展方向（职业规划）
+    // 首先乐爱 前端这行，现在前技术这么火热，技术更新，发展变化飞速的时代，坚信前端会发展的越来越好
+    // 首先自己还年轻，主要经历还是放在提升自己的技能方向，在有机会和条件的前提考虑 带团队，做一个既有技术又能够管理团队的理想规划
+
+  </script>
+</body>
+</html>
