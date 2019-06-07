@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 发布/订阅 观察者模式
+    function Observer() {
+      this.events = {}
+
+    }
+
+    // 订阅
+    Observer.prototype.on = function (eventType, handelFn) {
+      if(!this.events[eventType]) {
+        this.events[eventType] = [handelFn]
+      } else {
+        this.events[eventType].push(handelFn)
+      }
+
+      return this
+    }
+
+    // 发布订阅
+    Observer.prototype.emit = function (eventType) {
+      // 数组
+      let arg = Array.prototype.slice.call(arguments, 1)
+      let events = this.events[eventType]
+      for(let i=0; i<events.length; i++) {
+        events[i].apply(this, arg)
+      }
+
+      return this
+    }
+
+    // 删除订阅
+    Observer.prototype.off = function (eventType, handelFn) {
+      let handels = this.events[eventType]
+      for(let i=0; i<handels.length; i++) {
+        if(handels[i] === handelFn) {
+          handels.splice(i, 1)
+        }
+      }
+
+      return this
+    }
+
+
+    var o = new Observer()
+
+    let fn1 = function (res) {
+      console.log('接收到了数据1', res)
+    }
+
+    let fn2 = function (res) {
+      console.log('接收到了数据2', res)
+    }
+
+    o.on('click', fn1).on('click', fn2)
+
+    setTimeout(() => {
+      o.emit('click', {name: 'liwei'})
+
+      o.off('click', fn1)
+    }, 3000)
+  </script>
+</body>
+</html>

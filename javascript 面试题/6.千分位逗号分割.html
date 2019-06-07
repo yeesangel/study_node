@@ -35,6 +35,31 @@
 		return arr
 	};
 	console.log(test(str).join('.'));
+
+
+	var num = 1000000001221
+
+	function test(num) {
+		var str = num+""
+
+		var arr = str.split('')
+
+		var _arr = []
+
+		while(arr.length) {
+			let start = arr.length-3
+			if(arr.length>=3) {
+				_arr.unshift(arr.splice(arr.length-3, 3).join(''))
+			} else {
+				_arr.unshift(arr.splice(0, arr.length).join(''))
+			}
+		}
+		console.log(_arr)
+		return _arr.join(',')
+	}
+
+	test(num)
+
 	/*function test(str){ //正则匹配千分位逗号分隔；用到知识点有前向声明，反前向声明，量词，
 		var re = /(?!\b)(?=(\d{3})+$)/g;
 		return str.replace(re,',');

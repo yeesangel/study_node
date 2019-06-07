@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+    <script src="https://cdn.bootcss.com/clipboard.js/2.0.4/clipboard.js"></script>
+  <button class="btn">按钮</button>  
+  <script>
+    new ClipboardJS('.btn', {
+        target: function(trigger) {
+            console.log('wukai',trigger.nextElementSibling)
+            return trigger.nextElementSibling;
+        }
+    });
+
+    // 参考资料 https://blog.csdn.net/forAlienZHOU/article/details/52437929
+    // https://www.jianshu.com/p/008479a7712d
+  </script>
+</body>
+</html>

@@ -8,19 +8,24 @@
 </head>
 <body>
   <script>
-    var nums = [-1, 0, 1, 2, -1, -4, -3];
+    var nums = [-1, 0, 1, 2, -1, -1, -4, -3];
     
     function threeSum(nums) {
+      // 先排序
       nums.sort((a,b) => {
         return a-b
       })
       var len = nums.length, arr = [];
       for(var i=0; i<len; i++) {
-        if(i>0 && nums[i] === nums[i-1]) continue
+        if(i>0 && nums[i] === nums[i-1]) {
+          continue
+        }
         var item1 = nums[i];
         for(var j=0; j<len-1; j++) {
           if(j !== i && j+1 !== i) {
-            if(j>0 && nums[j] === nums[j-1]) continue
+            if(j>0 && nums[j] === nums[j-1]) {
+              continue
+            }
             var item2 = nums[j];
             var item3 = nums[j+1];
             if(item1+item2+item3 === 0) {

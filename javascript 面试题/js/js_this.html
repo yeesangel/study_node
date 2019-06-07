@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 参考资料 https://blog.csdn.net/qq_38890813/article/details/84028726 -->
+  <div>
+
+      3. 什么出现this
+      this是在运行时绑定，而不是在编写时绑定，this实际值取决于函数调用时的上下文。this的绑定和函数声明的位置没有关系，只取决于函数的调用方式。在JavaScript中，当函数被调用时，会创建一个活动记录（执行时上下文），这个记录包含函数在何处调用、函数的调用方法和传入参数等信息，this会记录其中一个属性。判断this实际绑定值，关键在于分析函数实际调用的位置。
+      ES6打破了这种局面，在定义的时候已经定义好了this
+
+
+      版权声明：本文为博主原创文章，转载请附上博文链接！
+      4. 如何修改this指向; call/apply/bind第一个参数
+      call/apply的区别?
+      call单个传值，apply已数组打包的方式传值  => fn.call(obj, 1,2,3)  fn.apply(obj, [1,2,3]);
+      bind:预处理，事先处理好了，事件常用  IE6 ~ IE8不兼容
+      eg: oDiv.onclick = function() {}.bind(this)
+      
+      模拟call
+      
+      capply和apply用途, 快速求数组最值
+        Array.prototype.getMax = function() {
+          return Math.max.apply(this, this);
+          };
+        Array.prototype.getMix = function() {
+          return Math.min.apply(this, this);
+        };
+
+      5. 总结this出现的情况
+      自执行函数中的this(自执行函数) ==>window
+      函数执行返回函数中的this ==>匿名函数是window
+      对象中的this ==> 这个对象，对象的方法用箭头函数是window
+      普通函数执行的两种情况(前面有没有点<.>) ===>有点，this就是前面的，没有就是window
+      给DOM元素绑定事件中的this ==> DOM元素
+      call/apply中的this ==>> params1参数
+      bind中的this 在类的构造函数中 oDiv.onclick = function() {this.num =1}.bind(this);
+      定时器和超时器中的this(setInterval/setTimeout) ==> window
+      *回调函数中的this(callback), ==> window
+      构造函数中的this(new Class) ==> 类的某个实例
+      *ES6中箭头函数中的this ==> 上级作用域里面的this
+      当前作用域里面没有this，上级作用域里的this，上级没有在上级，直到window为止
+      在Node里面没有this，都是模块
+      --------------------- 
+
+      // 肩头函数 特性
+      - 1.箭头函数里面没有this，上级this，解决定时器，赋值问题(函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象。)  **this对象的指向是可变的，但是在箭头函数中，它是固定**
+
+      - 2.箭头函数不能用类，不能new ，因为没有constructor,和原型prototype
+      
+      - 3.箭头函数没有arguments,用reset代替
+      
+      - 4.不可以使用yield命令，因此箭头函数不能用作 Generator 函数。
+  </div>
+
+</body>
+</html>
