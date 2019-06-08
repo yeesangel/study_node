@@ -11,7 +11,7 @@
     // 防抖函数
     function debounce(fn, delay) {
       var timer = null
-      return (...arg) => {
+      return function (...arg) {
         clearTimeout(timer)
 
         setTimeout(() => {
@@ -24,7 +24,7 @@
 
     function throttle(fn, delay) {
       let canRun = false
-      return (...arg) => {
+      return function (...arg) {
         if(canRun) {
           return false;
         }
