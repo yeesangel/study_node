@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var name = 'wukai'
+    var obj = {
+      name:"lilei",
+      foo: () => {
+        console.log(this)
+        console.log(11,this.name)
+      }
+    }
+
+    var aa = {
+      name: 'zhangsan',
+      cc: obj.foo
+    }
+
+    // 尖头函数 里面的this 是不会改变的
+    // obj.foo() // wukai
+    // aa.cc() // wukai
+
+    // aa.cc.call(obj) // wukai
+
+    // var ss = obj.foo
+
+    // ss.call(obj)
+
+  </script>
+</body>
+</html>
