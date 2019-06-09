@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    invokeAll([
+      function (resolve) {
+        setTimeout(() => {
+          resolve("res1")
+          resolve('res11')
+        }, 1000)
+      },
+      function (resolve) {
+        setTimeout(() => {
+          resolve("res2")
+        }, 500)
+      }
+    ], function (res) {
+      // res1 res2
+      console.log('111',res)
+    })
+
+    function invokeAll(arrFn, callBack) {
+      let arr = []
+      let count = 0
+
+      for(let i=0; i<arrFn.length; i++) {
+        arrFn[i](resolve.bind(this, i))
+      }
+
+      function resolve(index, data) {
+        if(arr[index]) return // 同一个异步任务只能 resolve 一次，后续处理无效
+        
+        arr[index] = data
+        count++
+
+        if(count === arrFn.length) {
+          if(typeof callBack === 'function') callBack(arr)
+        }
+      }
+    }
+  </script>
+</body>
+</html>

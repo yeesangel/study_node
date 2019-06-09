@@ -46,6 +46,23 @@
         }
 
         console.log(frist(str), '计算出最早出现的三次字母')
+
+        // 优化 时间
+        function test(str) {
+            var obj = {}
+            for(let i=0; i<str.length; i++) {
+                if(!obj[str[i]]) {
+                    obj[str[i]] = []
+                }
+                obj[str[i]].push(i)
+                if(obj[str[i]].length === 3) {
+                    return str[i]
+                }
+            }
+        }
+
+
+        test(str)
     </script>
 </body>
 

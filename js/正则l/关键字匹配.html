@@ -17,6 +17,7 @@
     function test() {
       var rg = /韩国|澳大利亚|联合军演/g
       aText[1].value = aText[0].value.replace(rg, function(str) {
+          console.log('wukai---',str)
         var result = ''
         for(let i=0, len=str.length; i<len; i++) {
           result+='*'
