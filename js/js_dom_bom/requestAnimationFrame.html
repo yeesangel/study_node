@@ -15,14 +15,21 @@
     background-color: greenyellow;
     margin: 15px 0;
 }
+.div{
+    width: 50px;
+    height: 50px;
+    background: red;
+}
 </style>
 <body>
     <div id="test">0 %</div>
 
     <div id="test2">0 %</div>
     <input id="btn" type="button" value="run">
+
+    <div class="div"></div>
     <script>
-        window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame;
+        // window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame;
         var test = document.getElementById('test');
         var test2 = document.getElementById('test2');
         var btn = document.getElementById('btn');
@@ -30,12 +37,13 @@
         var num2 = 0;
         var timer = null;
 
-        function step(){
+        function step(IdleDeadline){
+            console.log(IdleDeadline)
             num +=1;
             test.style.width = num +'%';
             test.innerHTML = num + '%';
             if(num < 100){
-                requestAnimationFrame(step);
+                requestIdleCallback(step);
             }
         }
 
@@ -61,6 +69,14 @@
             requestAnimationFrame(step);
 
         }
+
+        let offsetTop = 0;
+        const div = document.querySelector(".div");
+        const run = () => {
+        div.style.transform = `translate3d(${offsetTop += 10}px, 0, 0)`;
+        window.requestAnimationFrame(run);
+        };
+        run();
 
     </script>
 </body>
