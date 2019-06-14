@@ -46,7 +46,33 @@
       console.log(maxArr, minArr)
     }
 
-    test(arr)
+
+    function test1(arr) {
+      let maxArr = [], minArr = [];
+
+      if(arr[0] >= arr[1]) {
+        maxArr.push(arr[0])
+      } else {
+        minArr.push(arr[0])
+      }
+
+      for(let i=0,len=arr.length; i<len-2; i++) {
+
+        // 波峰求值
+        if(i>= 2 && arr[i-1] <= arr[i] && arr[i+1] < arr[i]) {
+          maxArr.push(arr[i])
+        }
+
+        // 波谷求值
+        if(i>= 2 && arr[i-1] > arr[i] && arr[i+1] > arr[i]) {
+          minArr.push(arr[i])
+        }
+      }
+
+      console.log(maxArr, minArr)
+    } 
+
+    test1(arr)
   </script>
 </body>
 </html>
