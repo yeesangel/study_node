@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  .banner-wrap {
+    width: 100vw;
+    height: 100vh;
+    background: purple;
+    position: relative;
+    overflow: hidden;
+  }
+  .rorate-wrap {
+    position: absolute;
+    right: 400px;
+    bottom: -290px;
+    width: 500px;
+    height: 500px;
+    border: 1px solid red;
+    transform: rotate(80deg);
+  }
+  .grid, .startlight {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background-size: cover;
+    transform: translate3d(-50%, -50%, 0);
+  }
+  .grid {
+    opacity: 0.1;
+    width: calc(3443px/1.7);
+    height: calc(3468px/1.7);
+    background-image: url('./img/hengshi_grid.png');
+    animation: gridrotate 8s linear infinite;
+    /* -webkit-animation: gridrotate 8s linear infinite; */
+  }
+  .startlight {
+    width: calc(2485px/1.7);
+    height: calc(2604px/1.7);
+    transform: translate3d(-60%, -55%, 0);
+    background-image: url('./img/hengshi_starlight.png');
+  }
+
+  @keyframes gridrotate {
+  0% {
+    transform: rotate(0) translate3d(-50%, -50%, 0);
+    /* -webkit-transform: rotate(0); */
+  }
+  50% {
+    transform: rotate(2deg) translate3d(-50%, -50%, 0);
+    /* -webkit-transform: rotate(2deg) scale(0.95); */
+  }
+  100% {
+    transform: rotate(0deg) translate3d(-50%, -50%, 0);
+    /* -webkit-transform: rotate(0deg); */
+  }
+}
+</style>
+<body>
+  <div class="banner-wrap">
+    <div class="rorate-wrap">
+      <div class="grid"></div>
+      <div class="startlight"></div>
+    </div>
+  </div>
+</body>
+</html>

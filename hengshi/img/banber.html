@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style>
+  .banner{
+    width: 100vw;
+    height: 100vh;
+    background-color: #0A0019;
+    overflow: hidden;
+    position: relative;
+  }
+  .grid, .starlight {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    background-size: cover;
+  }
+  .grid {
+    width: calc(3443px/2);
+    height: calc(3468px/2);
+    opacity: .5;
+  }
+  .starlight {
+    width: calc(2485px/2);
+    height: calc(2604px/2);
+    transform: translate3d(-50%, -50%, 0) rotate(45deg);
+  }
+</style>
+<body>
+  <div class="banner">
+    <div class="banner-center">
+      <div class="grid" style="background-image: url(./hengshi_grid.png)"></div>
+      <div class="starlight" style="background-image: url(./hengshi_starlight.png)"></div>
+    </div>
+  </div>
+</body>
+</html>
