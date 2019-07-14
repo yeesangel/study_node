@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var data = [
+            {
+              key: '1',
+              name: 'John Brown',
+              age: 32,
+              host: '0571-22098909',
+              phone: 18889898989,
+              address: 'New York No. 1 Lake Park',
+            },
+            {
+                key: '5',
+                name: 'Jake White',
+                age: 18,
+                host: '0575-22098909',
+                phone: 18900010002,
+                address: 'Dublin No. 2 Lake Park',
+            },
+            {
+              key: '2',
+              name: 'Jim Green',
+              host: '0571-22098333',
+              phone: 18889898888,
+              age: 42,
+              address: 'London No. 1 Lake Park',
+            },
+            {
+              key: '3',
+              name: 'Joe Black',
+              age: 32,
+              host: '0575-22098909',
+              phone: 18900010002,
+              address: 'Sidney No. 1 Lake Park',
+            },
+            {
+              key: '4',
+              name: 'Jim Red',
+              age: 18,
+              host: '0575-22098909',
+              phone: 18900010002,
+              address: 'London No. 2 Lake Park',
+            },
+            
+          ];
+
+          data.sort((a, b) => {
+            return a.host.replace(/-/g, '') - a.host.replace(/-/g, '')
+          })
+
+          function mergeCell(data) {
+            var arr = []
+            var keysObject = {}
+            for(let i=0; i<data.length; i++) {
+              let item = data[i].host
+              if(!keysObject[item]) {
+                keysObject[item] = [i]
+              } else {
+                keysObject[item].push(i)
+              }
+            }
+
+            for(let key in keysObject) {
+              if(!keysObject.hasOwnProperty(key)) return
+              for(let i=0, len=data.length; i<len; i++) {
+                let item = data[i]
+                if(item.host === key) {
+                  item['indexArr'] = keysObject[key]
+                }
+              }
+            }
+          }
+
+          
+
+          text(data)
+
+
+
+
+  </script>
+</body>
+</html>
