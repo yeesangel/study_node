@@ -1,0 +1,991 @@
+	deleted:    packages/lhotse/src/containers/Chart/Confs/Axes/Calculations/Retain.js
+	deleted:    packages/lhotse/src/containers/Chart/Confs/Axes/Calculations/Shift.js
+	deleted:    packages/lhotse/src/containers/Chart/Confs/Axes/CustomSort.js
+	deleted:    packages/lhotse/src/containers/Chart/Confs/Axes/CustomSortMapLayers.js
+	deleted:    packages/lhotse/src/containers/Chart/Confs/Axes/DateFormatter.js
+	deleted:    packages/lhotse/src/containers/Chart/Confs/Axes/PolygonMapScope.js
+	deleted:    packages/lhotse/src/containers/Chart/Confs/Axes/RoundingMapRadius.js
+	deleted:    packages/lhotse/src/containers/Chart/Confs/Axes/index.js
+	deleted:    packages/lhotse/src/containers/Chart/Confs/Filters/FDate.js
+	deleted:    packages/lhotse/src/containers/Chart/Confs/Filters/FNumber.js
+	deleted:    packages/lhotse/src/containers/Chart/Confs/Filters/FString.js
+	deleted:    packages/lhotse/src/containers/Chart/Confs/Filters/index.js
+	deleted:    packages/lhotse/src/containers/Chart/Confs/Parameters/FDate.js
+	deleted:    packages/lhotse/src/containers/Chart/Confs/Parameters/FNumber.js
+	deleted:    packages/lhotse/src/containers/Chart/Confs/Parameters/FString.js
+	deleted:    packages/lhotse/src/containers/Chart/Confs/Parameters/index.js
+	deleted:    packages/lhotse/src/containers/Chart/Confs/Styles/Axes.js
+	deleted:    packages/lhotse/src/containers/Chart/Confs/Styles/Content/Color.js
+	deleted:    packages/lhotse/src/containers/Chart/Confs/Styles/Content/Label.js
+	deleted:    packages/lhotse/src/containers/Chart/Confs/Styles/Content/Size.js
+	deleted:    packages/lhotse/src/containers/Chart/Confs/Styles/Content/Tooltip.js
+	deleted:    packages/lhotse/src/containers/Chart/Confs/Styles/Content/index.js
+	deleted:    packages/lhotse/src/containers/Chart/Confs/Styles/Custom.js
+	deleted:    packages/lhotse/src/containers/Chart/Confs/Styles/Legend.js
+	deleted:    packages/lhotse/src/containers/Chart/Confs/Styles/MapConf.js
+	deleted:    packages/lhotse/src/containers/Chart/Confs/Styles/MapLayerConf.js
+	deleted:    packages/lhotse/src/containers/Chart/Confs/Styles/Padding.js
+	deleted:    packages/lhotse/src/containers/Chart/Confs/Styles/ReferenceLine/LineSetting.js
+	deleted:    packages/lhotse/src/containers/Chart/Confs/Styles/ReferenceLine/index.js
+	deleted:    packages/lhotse/src/containers/Chart/Confs/Styles/ReferenceLine/index.less
+	deleted:    packages/lhotse/src/containers/Chart/Confs/Styles/Title.js
+	deleted:    packages/lhotse/src/containers/Chart/Confs/Styles/index.js
+	deleted:    packages/lhotse/src/containers/Chart/Confs/Styles/index.less
+	deleted:    packages/lhotse/src/containers/Chart/Confs/Types.js
+	deleted:    packages/lhotse/src/containers/Chart/Confs/Warnings.js
+	deleted:    packages/lhotse/src/containers/Chart/Confs/index.js
+	deleted:    packages/lhotse/src/containers/Chart/Confs/index.less
+	deleted:    packages/lhotse/src/containers/Chart/Data/Datasets.js
+	deleted:    packages/lhotse/src/containers/Chart/Data/Fields.js
+	deleted:    packages/lhotse/src/containers/Chart/Data/index.js
+	deleted:    packages/lhotse/src/containers/Chart/Data/index.less
+	deleted:    packages/lhotse/src/containers/Chart/Deprecated/Axes/Aggregates.js
+	deleted:    packages/lhotse/src/containers/Chart/Deprecated/Axes/AxesFields.js
+	deleted:    packages/lhotse/src/containers/Chart/Deprecated/Axes/AxesInfo.js
+	deleted:    packages/lhotse/src/containers/Chart/Deprecated/Axes/AxisMultiItem.js
+	deleted:    packages/lhotse/src/containers/Chart/Deprecated/Axes/AxisSingleItem.js
+	deleted:    packages/lhotse/src/containers/Chart/Deprecated/Axes/Container.js
+	deleted:    packages/lhotse/src/containers/Chart/Deprecated/Axes/DateFormatter.js
+	deleted:    packages/lhotse/src/containers/Chart/Deprecated/Axes/FieldsList.js
+	deleted:    packages/lhotse/src/containers/Chart/Deprecated/Axes/GeoPolygonMapSetting.js
+	deleted:    packages/lhotse/src/containers/Chart/Deprecated/Axes/ModalActiveCalc.js
+	deleted:    packages/lhotse/src/containers/Chart/Deprecated/Axes/ModalCumCalc.js
+	deleted:    packages/lhotse/src/containers/Chart/Deprecated/Axes/ModalCustomSort.js
+	deleted:    packages/lhotse/src/containers/Chart/Deprecated/Axes/ModalGrowthCalc.js
+	deleted:    packages/lhotse/src/containers/Chart/Deprecated/Axes/ModalRepeatCalc.js
+	deleted:    packages/lhotse/src/containers/Chart/Deprecated/Axes/ModalRetainCalc.js
+	deleted:    packages/lhotse/src/containers/Chart/Deprecated/Axes/ModalSetScaleRange.js
+	deleted:    packages/lhotse/src/containers/Chart/Deprecated/Axes/ModalShiftCalc.js
+	deleted:    packages/lhotse/src/containers/Chart/Deprecated/Axes/TableSetting.js
+	deleted:    packages/lhotse/src/containers/Chart/Deprecated/Axes/index.js
+	deleted:    packages/lhotse/src/containers/Chart/Deprecated/Axes/index.less
+	deleted:    packages/lhotse/src/containers/Chart/Deprecated/Axes/index_old.js
+	deleted:    packages/lhotse/src/containers/Chart/Deprecated/Filter/CurrentFilters.js
+	deleted:    packages/lhotse/src/containers/Chart/Deprecated/Filter/FilterCheckbox.js
+	deleted:    packages/lhotse/src/containers/Chart/Deprecated/Filter/FilterDate.js
+	deleted:    packages/lhotse/src/containers/Chart/Deprecated/Filter/FilterFields.js
+	deleted:    packages/lhotse/src/containers/Chart/Deprecated/Filter/FilterRange.js
+	deleted:    packages/lhotse/src/containers/Chart/Deprecated/Filter/FilterSetting.js
+	deleted:    packages/lhotse/src/containers/Chart/Deprecated/Filter/index.js
+	deleted:    packages/lhotse/src/containers/Chart/Deprecated/Filter/index.less
+	deleted:    packages/lhotse/src/containers/Chart/Detail.js
+	deleted:    packages/lhotse/src/containers/Chart/Detail.less
+	deleted:    packages/lhotse/src/containers/Chart/MouseAction.js
+	deleted:    packages/lhotse/src/containers/Chart/RawData.js
+	deleted:    packages/lhotse/src/containers/Chart/RawData.less
+	deleted:    packages/lhotse/src/containers/Chart/ShareAction.js
+	deleted:    packages/lhotse/src/containers/Chart/SortAction.js
+	deleted:    packages/lhotse/src/containers/Chart/Timebar.js
+	deleted:    packages/lhotse/src/containers/Chart/Timebar.less
+	deleted:    packages/lhotse/src/containers/Chart/ZoomPath.js
+	deleted:    packages/lhotse/src/containers/Chart/ZoomPath.less
+	deleted:    packages/lhotse/src/containers/Chart/actions.js
+	deleted:    packages/lhotse/src/containers/Chart/constants.js
+	deleted:    packages/lhotse/src/containers/Chart/helper.js
+	deleted:    packages/lhotse/src/containers/Chart/index.js
+	deleted:    packages/lhotse/src/containers/Chart/index.less
+	deleted:    packages/lhotse/src/containers/Chart/publish.less
+	deleted:    packages/lhotse/src/containers/Chart/reducer.js
+	deleted:    packages/lhotse/src/containers/Common/Collaborate.js
+	deleted:    packages/lhotse/src/containers/Common/Collaborate.less
+	deleted:    packages/lhotse/src/containers/Common/NotFound.js
+	deleted:    packages/lhotse/src/containers/Common/OAuthCallback.js
+	deleted:    packages/lhotse/src/containers/Common/Publication.js
+	deleted:    packages/lhotse/src/containers/Common/RenameModal.js
+	deleted:    packages/lhotse/src/containers/Common/WarningSetting/Dialog.js
+	deleted:    packages/lhotse/src/containers/Common/WarningSetting/Icon.js
+	deleted:    packages/lhotse/src/containers/Common/WarningSetting/style.less
+	deleted:    packages/lhotse/src/containers/Common/WarningSetting/util.js
+	deleted:    packages/lhotse/src/containers/Common/layoutController.js
+	deleted:    packages/lhotse/src/containers/Common/publication.less
+	deleted:    packages/lhotse/src/containers/Dashboard/Abstract.js
+	deleted:    packages/lhotse/src/containers/Dashboard/CreateChart.js
+	deleted:    packages/lhotse/src/containers/Dashboard/CreateChart.less
+	deleted:    packages/lhotse/src/containers/Dashboard/Dashboard.js
+	deleted:    packages/lhotse/src/containers/Dashboard/Dashboard.less
+	deleted:    packages/lhotse/src/containers/Dashboard/DashboardItem.js
+	deleted:    packages/lhotse/src/containers/Dashboard/DashboardMobile.js
+	deleted:    packages/lhotse/src/containers/Dashboard/DashboardMobile.less
+	deleted:    packages/lhotse/src/containers/Dashboard/DashboardPublished.js
+	deleted:    packages/lhotse/src/containers/Dashboard/DashboardScreenshot.js
+	deleted:    packages/lhotse/src/containers/Dashboard/DatasetsAndFields.js
+	deleted:    packages/lhotse/src/containers/Dashboard/DatasetsAndFields.less
+	deleted:    packages/lhotse/src/containers/Dashboard/ExportPNGOrPDF.js
+	deleted:    packages/lhotse/src/containers/Dashboard/Filters.js
+	deleted:    packages/lhotse/src/containers/Dashboard/Filters.less
+	deleted:    packages/lhotse/src/containers/Dashboard/FiltersMobile.js
+	deleted:    packages/lhotse/src/containers/Dashboard/FiltersMobile.less
+	deleted:    packages/lhotse/src/containers/Dashboard/InfoGraphic/ColorPad.js
+	deleted:    packages/lhotse/src/containers/Dashboard/InfoGraphic/DragLine.js
+	deleted:    packages/lhotse/src/containers/Dashboard/InfoGraphic/Element.js
+	deleted:    packages/lhotse/src/containers/Dashboard/InfoGraphic/Graph/index.js
+	deleted:    packages/lhotse/src/containers/Dashboard/InfoGraphic/Iframe/index.js
+	deleted:    packages/lhotse/src/containers/Dashboard/InfoGraphic/Image/index.js
+	deleted:    packages/lhotse/src/containers/Dashboard/InfoGraphic/InfoGraphic.js
+	deleted:    packages/lhotse/src/containers/Dashboard/InfoGraphic/Mobile.js
+	deleted:    packages/lhotse/src/containers/Dashboard/InfoGraphic/Operations.js
+	deleted:    packages/lhotse/src/containers/Dashboard/InfoGraphic/Operations.less
+	deleted:    packages/lhotse/src/containers/Dashboard/InfoGraphic/Published.js
+	deleted:    packages/lhotse/src/containers/Dashboard/InfoGraphic/Screenshot.js
+	deleted:    packages/lhotse/src/containers/Dashboard/InfoGraphic/SettingPad.js
+	deleted:    packages/lhotse/src/containers/Dashboard/InfoGraphic/SettingPad.less
+	deleted:    packages/lhotse/src/containers/Dashboard/InfoGraphic/Shape/index.js
+	deleted:    packages/lhotse/src/containers/Dashboard/InfoGraphic/Text/FieldsAndFunctions.js
+	deleted:    packages/lhotse/src/containers/Dashboard/InfoGraphic/Text/HtmlParser.js
+	deleted:    packages/lhotse/src/containers/Dashboard/InfoGraphic/Text/RichText.js
+	deleted:    packages/lhotse/src/containers/Dashboard/InfoGraphic/Text/index.js
+	deleted:    packages/lhotse/src/containers/Dashboard/InfoGraphic/Text/index.less
+	deleted:    packages/lhotse/src/containers/Dashboard/InfoGraphic/index.js
+	deleted:    packages/lhotse/src/containers/Dashboard/InfoGraphic/index.less
+	deleted:    packages/lhotse/src/containers/Dashboard/ShareAction.js
+	deleted:    packages/lhotse/src/containers/Dashboard/Slides.js
+	deleted:    packages/lhotse/src/containers/Dashboard/Slides.less
+	deleted:    packages/lhotse/src/containers/Dashboard/Sort.js
+	deleted:    packages/lhotse/src/containers/Dashboard/actions.js
+	deleted:    packages/lhotse/src/containers/Dashboard/constants.js
+	deleted:    packages/lhotse/src/containers/Dashboard/helper.js
+	deleted:    packages/lhotse/src/containers/Dashboard/index.js
+	deleted:    packages/lhotse/src/containers/Dashboard/index.less
+	deleted:    packages/lhotse/src/containers/Dashboard/reducer.js
+	deleted:    packages/lhotse/src/containers/Dashboard/themes.less
+	deleted:    packages/lhotse/src/containers/Dataset/Aggregate.js
+	deleted:    packages/lhotse/src/containers/Dataset/AppendDatasetModal.js
+	deleted:    packages/lhotse/src/containers/Dataset/AppendRow.js
+	deleted:    packages/lhotse/src/containers/Dataset/BatchLabelModify.js
+	deleted:    packages/lhotse/src/containers/Dataset/Choose.js
+	deleted:    packages/lhotse/src/containers/Dataset/ConnectionConf.js
+	deleted:    packages/lhotse/src/containers/Dataset/ConnectionCreate.js
+	deleted:    packages/lhotse/src/containers/Dataset/ConnectionForm.js
+	deleted:    packages/lhotse/src/containers/Dataset/ConnectionPreview.js
+	deleted:    packages/lhotse/src/containers/Dataset/ConnectionPreviewWithFilter.js
+	deleted:    packages/lhotse/src/containers/Dataset/Connections.js
+	deleted:    packages/lhotse/src/containers/Dataset/CustomSQL.js
+	deleted:    packages/lhotse/src/containers/Dataset/CustomSearchDropdown.js
+	deleted:    packages/lhotse/src/containers/Dataset/DataAuthorize.js
+	deleted:    packages/lhotse/src/containers/Dataset/DataGrid.js
+	deleted:    packages/lhotse/src/containers/Dataset/DataGridTile.js
+	deleted:    packages/lhotse/src/containers/Dataset/DataTable.js
+	deleted:    packages/lhotse/src/containers/Dataset/Datasets.js
+	deleted:    packages/lhotse/src/containers/Dataset/DateFormatter.js
+	deleted:    packages/lhotse/src/containers/Dataset/DuplicateDataset.js
+	deleted:    packages/lhotse/src/containers/Dataset/EngineConf.js
+	deleted:    packages/lhotse/src/containers/Dataset/FileConf.js
+	deleted:    packages/lhotse/src/containers/Dataset/FilePreview.js
+	deleted:    packages/lhotse/src/containers/Dataset/Fusion.js
+	deleted:    packages/lhotse/src/containers/Dataset/FusionConf.js
+	deleted:    packages/lhotse/src/containers/Dataset/MetaDataPopover.js
+	deleted:    packages/lhotse/src/containers/Dataset/NewColumn.js
+	deleted:    packages/lhotse/src/containers/Dataset/NewColumnCalculationValue.js
+	deleted:    packages/lhotse/src/containers/Dataset/NewColumnConstantValue.js
+	deleted:    packages/lhotse/src/containers/Dataset/NewColumnContinuousGroupValue.js
+	deleted:    packages/lhotse/src/containers/Dataset/NewColumnExpressionValue.js
+	deleted:    packages/lhotse/src/containers/Dataset/NewColumnPreview.js
+	deleted:    packages/lhotse/src/containers/Dataset/NewColumnScatterGroupValue.js
+	deleted:    packages/lhotse/src/containers/Dataset/NewColumnSetting.js
+	deleted:    packages/lhotse/src/containers/Dataset/NewColumnShares.js
+	deleted:    packages/lhotse/src/containers/Dataset/NumberFormatter.js
+	deleted:    packages/lhotse/src/containers/Dataset/Overview.js
+	deleted:    packages/lhotse/src/containers/Dataset/OverviewActions.js
+	deleted:    packages/lhotse/src/containers/Dataset/OverviewHeader.js
+	deleted:    packages/lhotse/src/containers/Dataset/ReadOnly.js
+	deleted:    packages/lhotse/src/containers/Dataset/Relations.js
+	deleted:    packages/lhotse/src/containers/Dataset/RelationsDataset.js
+	deleted:    packages/lhotse/src/containers/Dataset/ReplaceData.js
+	deleted:    packages/lhotse/src/containers/Dataset/SchemaManage.js
+	deleted:    packages/lhotse/src/containers/Dataset/Search.js
+	deleted:    packages/lhotse/src/containers/Dataset/SplitJSON.js
+	deleted:    packages/lhotse/src/containers/Dataset/Union.js
+	deleted:    packages/lhotse/src/containers/Dataset/UnionBase.js
+	deleted:    packages/lhotse/src/containers/Dataset/UnionConf.js
+	deleted:    packages/lhotse/src/containers/Dataset/Upload.js
+	deleted:    packages/lhotse/src/containers/Dataset/actions.js
+	deleted:    packages/lhotse/src/containers/Dataset/constants.js
+	deleted:    packages/lhotse/src/containers/Dataset/index.js
+	deleted:    packages/lhotse/src/containers/Dataset/index.less
+	deleted:    packages/lhotse/src/containers/Dataset/reducer.js
+	deleted:    packages/lhotse/src/containers/Dataset/styles/Aggregate.less
+	deleted:    packages/lhotse/src/containers/Dataset/styles/Choose.less
+	deleted:    packages/lhotse/src/containers/Dataset/styles/ConnectionConf.less
+	deleted:    packages/lhotse/src/containers/Dataset/styles/Connections.less
+	deleted:    packages/lhotse/src/containers/Dataset/styles/CustomSQL.less
+	deleted:    packages/lhotse/src/containers/Dataset/styles/CustomSearchDropdown.less
+	deleted:    packages/lhotse/src/containers/Dataset/styles/DataAuthorize.less
+	deleted:    packages/lhotse/src/containers/Dataset/styles/DataGroup.less
+	deleted:    packages/lhotse/src/containers/Dataset/styles/DuplicateDataset.less
+	deleted:    packages/lhotse/src/containers/Dataset/styles/Explore.less
+	deleted:    packages/lhotse/src/containers/Dataset/styles/Formatter.less
+	deleted:    packages/lhotse/src/containers/Dataset/styles/Fullpage-modal.less
+	deleted:    packages/lhotse/src/containers/Dataset/styles/Fusion.less
+	deleted:    packages/lhotse/src/containers/Dataset/styles/Gridview.less
+	deleted:    packages/lhotse/src/containers/Dataset/styles/Miscs.less
+	deleted:    packages/lhotse/src/containers/Dataset/styles/NewColumn.less
+	deleted:    packages/lhotse/src/containers/Dataset/styles/Overview.less
+	deleted:    packages/lhotse/src/containers/Dataset/styles/Preview.less
+	deleted:    packages/lhotse/src/containers/Dataset/styles/Relations.less
+	deleted:    packages/lhotse/src/containers/Dataset/styles/SchemaManage.less
+	deleted:    packages/lhotse/src/containers/Dataset/styles/SplitJSON.less
+	deleted:    packages/lhotse/src/containers/Dataset/styles/Tableview.less
+	deleted:    packages/lhotse/src/containers/Dataset/styles/Union.less
+	deleted:    packages/lhotse/src/containers/Dataset/styles/UnionBase.less
+	deleted:    packages/lhotse/src/containers/Dataset/styles/Upload.less
+	deleted:    packages/lhotse/src/containers/Pipeline/NewNodeConnectionModal.js
+	deleted:    packages/lhotse/src/containers/Pipeline/NewPipelineModal.js
+	deleted:    packages/lhotse/src/containers/Pipeline/Pipeline.js
+	deleted:    packages/lhotse/src/containers/Pipeline/Pipeline.less
+	deleted:    packages/lhotse/src/containers/Pipeline/PipelineCanvas.js
+	deleted:    packages/lhotse/src/containers/Pipeline/PipelineDetail.js
+	deleted:    packages/lhotse/src/containers/Pipeline/PipelineNode.js
+	deleted:    packages/lhotse/src/containers/Pipeline/PipelineOutput.js
+	deleted:    packages/lhotse/src/containers/Pipeline/actions.js
+	deleted:    packages/lhotse/src/containers/Pipeline/constants.js
+	deleted:    packages/lhotse/src/containers/Pipeline/index.js
+	deleted:    packages/lhotse/src/containers/Pipeline/index.less
+	deleted:    packages/lhotse/src/containers/Pipeline/reducer.js
+	deleted:    packages/lhotse/src/containers/Publish/Publish.js
+	deleted:    packages/lhotse/src/containers/Publish/actions.js
+	deleted:    packages/lhotse/src/containers/Publish/constants.js
+	deleted:    packages/lhotse/src/containers/Publish/index.js
+	deleted:    packages/lhotse/src/containers/Publish/index.less
+	deleted:    packages/lhotse/src/containers/Publish/reducer.js
+	deleted:    packages/lhotse/src/containers/Scenes/Scenes.js
+	deleted:    packages/lhotse/src/containers/Scenes/actions.js
+	deleted:    packages/lhotse/src/containers/Scenes/constants.js
+	deleted:    packages/lhotse/src/containers/Scenes/index.js
+	deleted:    packages/lhotse/src/containers/Scenes/index.less
+	deleted:    packages/lhotse/src/containers/Scenes/reducer.js
+	deleted:    packages/lhotse/src/containers/Setting/ApiProvider.js
+	deleted:    packages/lhotse/src/containers/Setting/ApiProvider.less
+	deleted:    packages/lhotse/src/containers/Setting/Auth.js
+	deleted:    packages/lhotse/src/containers/Setting/Auth.less
+	deleted:    packages/lhotse/src/containers/Setting/Cas.js
+	deleted:    packages/lhotse/src/containers/Setting/ClusterManage.js
+	deleted:    packages/lhotse/src/containers/Setting/ClusterManage.less
+	deleted:    packages/lhotse/src/containers/Setting/Collaborate.js
+	deleted:    packages/lhotse/src/containers/Setting/Debug.js
+	deleted:    packages/lhotse/src/containers/Setting/Github.js
+	deleted:    packages/lhotse/src/containers/Setting/GoogleAnalytics.js
+	deleted:    packages/lhotse/src/containers/Setting/History.js
+	deleted:    packages/lhotse/src/containers/Setting/History.less
+	deleted:    packages/lhotse/src/containers/Setting/Ldap.js
+	deleted:    packages/lhotse/src/containers/Setting/License.js
+	deleted:    packages/lhotse/src/containers/Setting/Link.js
+	deleted:    packages/lhotse/src/containers/Setting/OAuth.js
+	deleted:    packages/lhotse/src/containers/Setting/Preferences/Everest.js
+	deleted:    packages/lhotse/src/containers/Setting/Preferences/MainSpark.js
+	deleted:    packages/lhotse/src/containers/Setting/Preferences/ScientistSpark.js
+	deleted:    packages/lhotse/src/containers/Setting/Preferences/index.js
+	deleted:    packages/lhotse/src/containers/Setting/Preferences/index.less
+	deleted:    packages/lhotse/src/containers/Setting/Publication.js
+	deleted:    packages/lhotse/src/containers/Setting/ResetPassword.js
+	deleted:    packages/lhotse/src/containers/Setting/Saml.js
+	deleted:    packages/lhotse/src/containers/Setting/Security.js
+	deleted:    packages/lhotse/src/containers/Setting/Security.less
+	deleted:    packages/lhotse/src/containers/Setting/Smtp.js
+	deleted:    packages/lhotse/src/containers/Setting/SystemLog/Filters.js
+	deleted:    packages/lhotse/src/containers/Setting/SystemLog/index.js
+	deleted:    packages/lhotse/src/containers/Setting/SystemLog/index.less
+	deleted:    packages/lhotse/src/containers/Setting/User.js
+	deleted:    packages/lhotse/src/containers/Setting/User.less
+	deleted:    packages/lhotse/src/containers/Setting/UserForm.js
+	deleted:    packages/lhotse/src/containers/Setting/UserOrganizationForm.js
+	deleted:    packages/lhotse/src/containers/Setting/UserOrganizations.js
+	deleted:    packages/lhotse/src/containers/Setting/actions.js
+	deleted:    packages/lhotse/src/containers/Setting/constants.js
+	deleted:    packages/lhotse/src/containers/Setting/index.js
+	deleted:    packages/lhotse/src/containers/Setting/index.less
+	deleted:    packages/lhotse/src/containers/Setting/license.less
+	deleted:    packages/lhotse/src/containers/Setting/reducer.js
+	deleted:    packages/lhotse/src/containers/User/Message.js
+	deleted:    packages/lhotse/src/containers/User/Notice.js
+	deleted:    packages/lhotse/src/containers/User/actions.js
+	deleted:    packages/lhotse/src/containers/User/constants.js
+	deleted:    packages/lhotse/src/containers/User/index.js
+	deleted:    packages/lhotse/src/containers/User/index.less
+	deleted:    packages/lhotse/src/containers/User/reducer.js
+	deleted:    packages/lhotse/src/embed/Chart.js
+	deleted:    packages/lhotse/src/embed/Embed.js
+	deleted:    packages/lhotse/src/embed/index.js
+	deleted:    packages/lhotse/src/embed/reducers.js
+	deleted:    packages/lhotse/src/embed/routes.js
+	deleted:    packages/lhotse/src/embed/store.js
+	deleted:    packages/lhotse/src/i18n.js
+	deleted:    packages/lhotse/src/index.js
+	deleted:    packages/lhotse/src/libs/debug.js
+	deleted:    packages/lhotse/src/libs/everest/app.js
+	deleted:    packages/lhotse/src/libs/everest/auditlogs.js
+	deleted:    packages/lhotse/src/libs/everest/auth.js
+	deleted:    packages/lhotse/src/libs/everest/charts.js
+	deleted:    packages/lhotse/src/libs/everest/collaborate.js
+	deleted:    packages/lhotse/src/libs/everest/configurations.js
+	deleted:    packages/lhotse/src/libs/everest/connections.js
+	deleted:    packages/lhotse/src/libs/everest/dashboards.js
+	deleted:    packages/lhotse/src/libs/everest/datasets.js
+	deleted:    packages/lhotse/src/libs/everest/files.js
+	deleted:    packages/lhotse/src/libs/everest/index.js
+	deleted:    packages/lhotse/src/libs/everest/license.js
+	deleted:    packages/lhotse/src/libs/everest/messages.js
+	deleted:    packages/lhotse/src/libs/everest/oauth2.js
+	deleted:    packages/lhotse/src/libs/everest/organizations.js
+	deleted:    packages/lhotse/src/libs/everest/pipelines.js
+	deleted:    packages/lhotse/src/libs/everest/publication.js
+	deleted:    packages/lhotse/src/libs/everest/publish.js
+	deleted:    packages/lhotse/src/libs/everest/saas.js
+	deleted:    packages/lhotse/src/libs/everest/scenes.js
+	deleted:    packages/lhotse/src/libs/everest/search.js
+	deleted:    packages/lhotse/src/libs/everest/shares.js
+	deleted:    packages/lhotse/src/libs/everest/tasks.js
+	deleted:    packages/lhotse/src/libs/everest/users.js
+	deleted:    packages/lhotse/src/libs/fetch.js
+	deleted:    packages/lhotse/src/libs/handleError.js
+	deleted:    packages/lhotse/src/libs/toJS.js
+	deleted:    packages/lhotse/src/makalu/Chart.js
+	deleted:    packages/lhotse/src/makalu/NamjagbarwaInstance.js
+	deleted:    packages/lhotse/src/makalu/builtIn/DatasetTable/index.js
+	deleted:    packages/lhotse/src/makalu/builtIn/DatasetTable/index.less
+	deleted:    packages/lhotse/src/makalu/builtIn/Geo/ClusterMapLayer.js
+	deleted:    packages/lhotse/src/makalu/builtIn/Geo/GridMapLayer.js
+	deleted:    packages/lhotse/src/makalu/builtIn/Geo/HexbinMapLayer.js
+	deleted:    packages/lhotse/src/makalu/builtIn/Geo/PointMapLayer.js
+	deleted:    packages/lhotse/src/makalu/builtIn/Geo/PolygonMapLayer.js
+	deleted:    packages/lhotse/src/makalu/builtIn/Geo/constants.js
+	deleted:    packages/lhotse/src/makalu/builtIn/Geo/fixSouthChinaSea.json
+	deleted:    packages/lhotse/src/makalu/builtIn/Geo/index.js
+	deleted:    packages/lhotse/src/makalu/builtIn/Geo/index.less
+	deleted:    packages/lhotse/src/makalu/builtIn/Geo/mapThemes/dark.js
+	deleted:    packages/lhotse/src/makalu/builtIn/Geo/mapThemes/index.js
+	deleted:    packages/lhotse/src/makalu/builtIn/Geo/mapThemes/light.js
+	deleted:    packages/lhotse/src/makalu/builtIn/Geo/mapThemes/mapbox-gl.css
+	deleted:    packages/lhotse/src/makalu/builtIn/Geo/mapThemes/pure.js
+	deleted:    packages/lhotse/src/makalu/builtIn/Geo/southChinaSeaLayer.js
+	deleted:    packages/lhotse/src/makalu/builtIn/KPI/index.js
+	deleted:    packages/lhotse/src/makalu/builtIn/KPI/index.less
+	deleted:    packages/lhotse/src/makalu/builtIn/Table/Table.js
+	deleted:    packages/lhotse/src/makalu/builtIn/Table/Table.less
+	deleted:    packages/lhotse/src/makalu/builtIn/Table/index.js
+	deleted:    packages/lhotse/src/makalu/index.js
+	deleted:    packages/lhotse/src/makalu/index.less
+	deleted:    packages/lhotse/src/makalu/predefined/ArcDiagram.js
+	deleted:    packages/lhotse/src/makalu/predefined/Area.js
+	deleted:    packages/lhotse/src/makalu/predefined/AreaGroup.js
+	deleted:    packages/lhotse/src/makalu/predefined/AreaGroupStack.js
+	deleted:    packages/lhotse/src/makalu/predefined/AreaGroupStackPercentage.js
+	deleted:    packages/lhotse/src/makalu/predefined/AreaStack.js
+	deleted:    packages/lhotse/src/makalu/predefined/AreaStackPercentage.js
+	deleted:    packages/lhotse/src/makalu/predefined/AreaStream.js
+	deleted:    packages/lhotse/src/makalu/predefined/Bar.js
+	deleted:    packages/lhotse/src/makalu/predefined/BarCluster.js
+	deleted:    packages/lhotse/src/makalu/predefined/BarGroupCluster.js
+	deleted:    packages/lhotse/src/makalu/predefined/BarGroupStack.js
+	deleted:    packages/lhotse/src/makalu/predefined/BarGroupStackPercentage.js
+	deleted:    packages/lhotse/src/makalu/predefined/BarHorizon.js
+	deleted:    packages/lhotse/src/makalu/predefined/BarHorizonCluster.js
+	deleted:    packages/lhotse/src/makalu/predefined/BarHorizonStack.js
+	deleted:    packages/lhotse/src/makalu/predefined/BarHorizonStackPercentage.js
+	deleted:    packages/lhotse/src/makalu/predefined/BarPolar.js
+	deleted:    packages/lhotse/src/makalu/predefined/BarStack.js
+	deleted:    packages/lhotse/src/makalu/predefined/BarStackPercentage.js
+	deleted:    packages/lhotse/src/makalu/predefined/Boxplot.js
+	deleted:    packages/lhotse/src/makalu/predefined/ChordDiagram.js
+	deleted:    packages/lhotse/src/makalu/predefined/DatasetTable.js
+	deleted:    packages/lhotse/src/makalu/predefined/Donut.js
+	deleted:    packages/lhotse/src/makalu/predefined/Funnel.js
+	deleted:    packages/lhotse/src/makalu/predefined/Gauge.js
+	deleted:    packages/lhotse/src/makalu/predefined/Geo.js
+	deleted:    packages/lhotse/src/makalu/predefined/Heatmap.js
+	deleted:    packages/lhotse/src/makalu/predefined/KPI.js
+	deleted:    packages/lhotse/src/makalu/predefined/Line.js
+	deleted:    packages/lhotse/src/makalu/predefined/LineBar.js
+	deleted:    packages/lhotse/src/makalu/predefined/LineGroup.js
+	deleted:    packages/lhotse/src/makalu/predefined/PackedBubble.js
+	deleted:    packages/lhotse/src/makalu/predefined/Pareto.js
+	deleted:    packages/lhotse/src/makalu/predefined/Pie.js
+	deleted:    packages/lhotse/src/makalu/predefined/Polar.js
+	deleted:    packages/lhotse/src/makalu/predefined/Radar.js
+	deleted:    packages/lhotse/src/makalu/predefined/Sankey.js
+	deleted:    packages/lhotse/src/makalu/predefined/Scatter.js
+	deleted:    packages/lhotse/src/makalu/predefined/SunBurst.js
+	deleted:    packages/lhotse/src/makalu/predefined/Table.js
+	deleted:    packages/lhotse/src/makalu/predefined/Timeline.js
+	deleted:    packages/lhotse/src/makalu/predefined/Treemap.js
+	deleted:    packages/lhotse/src/makalu/predefined/Waterfall.js
+	deleted:    packages/lhotse/src/makalu/predefined/WordCloud.js
+	deleted:    packages/lhotse/src/makalu/predefined/constants.js
+	deleted:    packages/lhotse/src/makalu/predefined/index.js
+	deleted:    packages/lhotse/src/makalu/predefined/locales/enUS.js
+	deleted:    packages/lhotse/src/makalu/predefined/locales/index.js
+	deleted:    packages/lhotse/src/makalu/predefined/locales/zhCN.js
+	deleted:    packages/lhotse/src/makalu/predefined/locales/zhTW.js
+	deleted:    packages/lhotse/src/reducers.js
+	deleted:    packages/lhotse/src/routes.js
+	deleted:    packages/lhotse/src/store.js
+	deleted:    packages/lhotse/src/util/DOMUtils.js
+	deleted:    packages/lhotse/src/util/FunctionUtil.js
+	deleted:    packages/lhotse/src/util/HsEvent.js
+	deleted:    packages/lhotse/src/util/SQLFormatter.js
+	deleted:    packages/lhotse/src/util/apm.js
+	deleted:    packages/lhotse/src/util/function.less
+	deleted:    packages/lhotse/src/util/logger.js
+	deleted:    packages/lhotse/src/util/md5.js
+	deleted:    packages/lhotse/src/util/polyfill.js
+	deleted:    packages/lhotse/src/util/xhr.js
+	deleted:    packages/lhotse/theme.js
+	deleted:    packages/namjagbarwa/demo/demo.html
+	deleted:    packages/namjagbarwa/docs/areaStyle.md
+	deleted:    packages/namjagbarwa/docs/axes.md
+	deleted:    packages/namjagbarwa/docs/axisConf.md
+	deleted:    packages/namjagbarwa/docs/axisPointer.md
+	deleted:    packages/namjagbarwa/docs/data.md
+	deleted:    packages/namjagbarwa/docs/datazoom.md
+	deleted:    packages/namjagbarwa/docs/grids.md
+	deleted:    packages/namjagbarwa/docs/legends.md
+	deleted:    packages/namjagbarwa/docs/lineStyle.md
+	deleted:    packages/namjagbarwa/docs/marks.md
+	deleted:    packages/namjagbarwa/docs/textStyle.md
+	deleted:    packages/namjagbarwa/docs/timeline.md
+	deleted:    packages/namjagbarwa/docs/tooltip.md
+	deleted:    packages/namjagbarwa/docs/visualmap.md
+	deleted:    packages/namjagbarwa/package.json
+	deleted:    packages/namjagbarwa/readme.md
+	deleted:    packages/namjagbarwa/src/bizUtil.js
+	deleted:    packages/namjagbarwa/src/extends/chord/ChordFilter.js
+	deleted:    packages/namjagbarwa/src/extends/chord/ChordSeries.js
+	deleted:    packages/namjagbarwa/src/extends/chord/ChordView.js
+	deleted:    packages/namjagbarwa/src/extends/chord/Ribbon.js
+	deleted:    packages/namjagbarwa/src/extends/chord/chordCircularLayout.js
+	deleted:    packages/namjagbarwa/src/extends/chord/index.js
+	deleted:    packages/namjagbarwa/src/extends/index.js
+	deleted:    packages/namjagbarwa/src/extends/packedBubble/index.js
+	deleted:    packages/namjagbarwa/src/extends/packedBubble/series.js
+	deleted:    packages/namjagbarwa/src/extends/packedBubble/view.js
+	deleted:    packages/namjagbarwa/src/hierarchy.js
+	deleted:    packages/namjagbarwa/src/index.js
+	deleted:    packages/namjagbarwa/src/namjagbarwa.js
+	deleted:    packages/namjagbarwa/src/sandbox.js
+	deleted:    packages/namjagbarwa/src/transform/axes.js
+	deleted:    packages/namjagbarwa/src/transform/datazoom.js
+	deleted:    packages/namjagbarwa/src/transform/grids.js
+	deleted:    packages/namjagbarwa/src/transform/index.js
+	deleted:    packages/namjagbarwa/src/transform/legends.js
+	deleted:    packages/namjagbarwa/src/transform/marks/bar.js
+	deleted:    packages/namjagbarwa/src/transform/marks/boxplot.js
+	deleted:    packages/namjagbarwa/src/transform/marks/candlestick.js
+	deleted:    packages/namjagbarwa/src/transform/marks/chord.js
+	deleted:    packages/namjagbarwa/src/transform/marks/custom.js
+	deleted:    packages/namjagbarwa/src/transform/marks/funnel.js
+	deleted:    packages/namjagbarwa/src/transform/marks/gauge.js
+	deleted:    packages/namjagbarwa/src/transform/marks/graph.js
+	deleted:    packages/namjagbarwa/src/transform/marks/heatmap.js
+	deleted:    packages/namjagbarwa/src/transform/marks/index.js
+	deleted:    packages/namjagbarwa/src/transform/marks/line.js
+	deleted:    packages/namjagbarwa/src/transform/marks/lines.js
+	deleted:    packages/namjagbarwa/src/transform/marks/liquidFill.js
+	deleted:    packages/namjagbarwa/src/transform/marks/map.js
+	deleted:    packages/namjagbarwa/src/transform/marks/packedBubble.js
+	deleted:    packages/namjagbarwa/src/transform/marks/parallel.js
+	deleted:    packages/namjagbarwa/src/transform/marks/pictorialBar.js
+	deleted:    packages/namjagbarwa/src/transform/marks/pie.js
+	deleted:    packages/namjagbarwa/src/transform/marks/radar.js
+	deleted:    packages/namjagbarwa/src/transform/marks/sankey.js
+	deleted:    packages/namjagbarwa/src/transform/marks/scatter.js
+	deleted:    packages/namjagbarwa/src/transform/marks/sunburst.js
+	deleted:    packages/namjagbarwa/src/transform/marks/themeRiver.js
+	deleted:    packages/namjagbarwa/src/transform/marks/timeline.js
+	deleted:    packages/namjagbarwa/src/transform/marks/tree.js
+	deleted:    packages/namjagbarwa/src/transform/marks/treemap.js
+	deleted:    packages/namjagbarwa/src/transform/marks/wordCloud.js
+	deleted:    packages/namjagbarwa/src/transform/polar.js
+	deleted:    packages/namjagbarwa/src/transform/referenceLine.js
+	deleted:    packages/namjagbarwa/src/transform/tooltip.js
+	deleted:    packages/namjagbarwa/src/transform/visualMap.js
+	deleted:    packages/namjagbarwa/src/util.js
+	deleted:    pom.xml
+	deleted:    webpack.config.js
+	deleted:    yarn.lock
+
+no changes added to commit (use "git add" and/or "git commit -a")
+➜  lhotse-2 git:(develop) ✗ cd ..
+➜  hengshi-project rm -rf lhotse-2
+➜  hengshi-project git clone git@gitlab.hengshi.org:henglabs/lhotse.git lhotse-2
+Cloning into 'lhotse-2'...
+remote: Enumerating objects: 85300, done.
+remote: Counting objects: 100% (85300/85300), done.
+remote: Compressing objects: 100% (17529/17529), done.
+remote: Total 85300 (delta 68083), reused 84159 (delta 67115)
+Receiving objects: 100% (85300/85300), 82.85 MiB | 11.02 MiB/s, done.
+Resolving deltas: 100% (68083/68083), done.
+➜  hengshi-project ls
+chooyu      lhotse      lhotse-2    namjagbarwa
+➜  hengshi-project cd lhotse-2
+➜  lhotse-2 git:(develop) ls
+Dockerfile-build.ceotos7 README.md                fix-deps.sh              package.json             pom.xml                  yarn.lock
+Makefile                 bump-version.sh          lerna.json               packages                 webpack.config.js
+➜  lhotse-2 git:(develop) brew update && brew install make
+Updated 1 tap (homebrew/core).
+==> New Formulae
+anime-downloader     contentful-cli       devspace             helmsman             k3d                  kim-api              mariadb@10.3         openkim-models
+antibody             cxxopts              gatsby-cli           janet                k6                   libevhtp             netlify-cli          yapf
+==> Updated Formulae
+nginx ✔                     docker-compose-completion   gpsim                       libebml                     ncdc                        serverless
+node ✔                      doctl                       gqview                      libev                       ncmpc                       shared-mime-info
+yarn ✔                      dopewars                    gr-osmosdr                  libfabric                   nco                         shc
+ack                         drone-cli                   gradio                      libfixbuf                   neo4j                       ship
+acpica                      dspdfviewer                 gradle                      libgda                      neomutt                     silk
+agda                        dub                         grafana                     libgdata                    neovim                      simple-tiles
+aliyun-cli                  duc                         grakn                       libgee                      nethack                     sipp
+alot                        duck                        graphviz                    libgit2                     newman                      siril
+ammonite-repl               dwdiff                      gromacs                     libglade                    newsboat                    sk
+amqp-cpp                    e2fsprogs                   grpc                        libglademm                  newt                        skaffold
+amtk                        easy-tag                    grpcurl                     libgnomecanvas              nghttp2                     skktools
+angle-grinder               efl                         grsync                      libgnomecanvasmm            nordugrid-arc               sleepwatcher
+angular-cli                 eiffelstudio                gsmartcontrol               libgsf                      noti                        sn0int
+anjuta                      elasticsearch               gspell                      libgtop                     notmuch                     snownews
+annie                       elixir                      gst-editing-services        libgweather                 ntfs-3g                     sofia-sip
+ansible                     emscripten                  gst-libav                   libhttpseverywhere          ocaml-num                   sonar-scanner
+apache-arrow-glib           encfs                       gst-plugins-bad             libical                     odpi                        sonarqube
+app-engine-python           enchant                     gst-plugins-base            libidl                      opa                         sonobuoy
+apt-dater                   enigma                      gst-plugins-good            libidn2                     openapi-generator           sphinx-doc
+aqbanking                   enscript                    gst-plugins-ugly            libinfinity                 openconnect                 spice-protocol
+argon2                      erlang                      gst-python                  libiptcdata                 openh264                    spirv-cross
+asciidoctor                 erlang@20                   gst-rtsp-server             liblqr                      openslide                   sqlmap
+asciidoctorj                erlang@21                   gst-validate                liblunar                    opensubdiv                  sshfs
+ask-cli                     eslint                      gstreamer                   libmatroska                 orbit                       stellar-core
+atk                         ettercap                    gstreamermm                 libmp3splt                  orc-tools                   streamripper
+atkmm                       exiv2                       gtk+                        libmpd                      oscats                      stunnel
+audacious                   expat                       gtk+3                       libmpdclient                osm-gps-map                 suil
+auditbeat                   exploitdb                   gtk-chtheme                 libmypaint                  osquery                     swagger-codegen
+autorest                    f3                          gtk-gnutella                libnice                     oxipng                      swagger-codegen@2
+awf                         faas-cli                    gtk-mac-integration         libnids                     paket                       swi-prolog
+aws-sdk-cpp                 fceux                       gtk-vnc                     libnotify                   pango                       swiftformat
+awscli                      ffsend                      gtkdatabox                  libopenmpt                  pangomm                     sylpheed
+axel                        firebase-cli                gtkextra                    libosinfo                   paps                        synfig
+azure-cli                   flex                        gtkglext                    libpeas                     parallel                    tbb
+babel                       flow                        gtkmm                       libphonenumber              passenger                   teleconsole
+babl                        fluid-synth                 gtkmm3                      libpqxx                     pcb                         telegraf
+balena-cli                  fluxctl                     gtksourceview               libpst                      pcb2gcode                   teleport
+baobab                      fn                          gtksourceview3              libqalculate                pdf2htmlex                  template-glib
+bazel                       folly                       gtksourceview4              libquicktime                pdf2svg                     tepl
+beanstalkd                  fontforge                   gtksourceviewmm             librdkafka                  pdfpc                       terraform
+bettercap                   fonttools                   gtksourceviewmm3            libre                       pdftoipe                    terraformer
+bgpstream                   fourstore                   gtkspell3                   librealsense                pdns                        terragrunt
+bind                        freeciv                     gts                         librem                      peg-markdown                terrahub
+bitlbee                     freedink                    gucharmap                   librest                     pgbadger                    tfenv
+blink1                      freetype                    guile                       librsvg                     php                         tiger-vnc
+bookloupe                   frugal                      gupnp-av                    libsass                     php@7.1                     tile38
+bundletool                  fs-uae                      gupnp-tools                 libsecret                   php@7.2                     tmux-xpanes
+byobu                       fuse-emulator               gwenhywfar                  libshout                    phpunit                     tokei
+bzip2                       futhark                     gwyddion                    libsmf                      picard-tools                topgrade
+cadaver                     gabedit                     gxml                        libsoup                     pidgin                      tox
+cairo                       gammu                       h3                          libspectre                  pinboard-notes-backup       triton
+calcurse                    gawk                        hadolint                    libspectrum                 pinfo                       ttyd
+calicoctl                   gbdfed                      hamlib                      libssh2                     pioneers                    ucloud
+cargo-completion            gcab                        harfbuzz                    libsvm                      plplot                      ufraw
+cataclysm                   gdk-pixbuf                  haskell-stack               libtrace                    pmd                         uhd
+catch2                      gdl                         helmfile                    libuninameslist             pms                         unbound
+catimg                      gdmap                       herrie                      libuv                       podofo                      unzip
+cattle                      gearsystem                  hfstospell                  libvirt-glib                poppler                     userspace-rcu
+center-im                   gegl                        hlint                       libxlsxwriter               postgresql@10               util-linux
+cf4ocl                      genometools                 homeassistant-cli           libxml++                    postgresql@9.4              utimer
+cfengine                    gerbv                       homebank                    libxml++3                   postgresql@9.5              uwsgi
+cfn-lint                    gettext                     httping                     libzdb                      postgresql@9.6              vagrant-completion
+cgit                        ghex                        hub                         lldpd                       postgrest                   vala
+chafa                       ghostscript                 hunspell                    lmod                        pqiv                        valabind
+checkstyle                  git                         hydra                       logtalk                     prefixsuffix                vamp-plugin-sdk
+chicken                     git-cinnabar                hyperkit                    loudmouth                   procs                       verilator
+chrome-export               git-cola                    i2pd                        luarocks                    profanity                   vfuse
+circleci                    git-flow-avh                imagemagick                 lynis                       proguard                    vice
+clojure                     git-fresh                   imagemagick@6               magic-wormhole              proteinortho                viewvc
+clozure-cl                  git-recent                  imageoptim-cli              mame                        protobuf-c                  vim
+clutter                     gitg                        influxdb                    mariadb                     prototool                   vips
+clutter-gst                 gitlab-runner               ios-webkit-debug-proxy      mariadb@10.2                pulumi                      virgil
+clutter-gtk                 gjs                         iperf3                      maxwell                     pushpin                     vowpal-wabbit
+cockroach                   gkrellm                     irssi                       mcabber                     py2cairo                    vte
+cocoapods                   glade                       istioctl                    mdbook                      pygobject3                  vte3
+cogl                        glib                        jadx                        mdbtools                    pygtk                       vulkan-headers
+cointop                     glib-networking             jboss-forge                 mdk                         pygtkglext                  wandio
+collectd                    glibmm                      jenkins                     mednafen                    pygtksourceview             wdfs
+commandbox                  glooctl                     jfrog-cli-go                megatools                   pypy3                       wdiff
+consul                      glyr                        jhipster                    meson                       qalculate-gtk               webpack
+convox                      gmic                        jigdo                       metricbeat                  qemu                        webtorrent-cli
+corectl                     gmime                       jnettop                     micronaut                   qmmp                        winetricks
+cpansearch                  gmsh                        json-fortran                midgard2                    r                           wireguard-tools
+cppcheck                    gnome-autoar                json-glib                   midnight-commander          rdesktop                    wla-dx
+cql                         gnome-builder               juju                        mighttpd2                   rdup                        wmctrl
+cracklib                    gnome-latex                 jvgrep                      mikutter                    re2                         wtf
+PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
+cromwell                    gnome-recipes               kallisto                    mill                        reattach-to-user-namespace  wv
+crosstool-ng                gnome-themes-standard       kapacitor                   minbif                      recode                      xboard
+curlftpfs                   gnu-getopt                  kibana                      minio                       recon-ng                    xcodegen
+cutter                      gnu-indent                  klavaro                     minio-mc                    redshift                    xmake
+dartsim                     gnu-typist                  kops                        minizinc                    riemann                     xonsh
+datetime-fortran            gnumeric                    kotlin                      mkl-dnn                     rmlint                      xsane
+dbus-glib                   gnunet                      kubeless                    mkvtoolnix                  rocksdb                     xsimd
+dc3dd                       gnupg                       kubeprod                    mlkit                       root                        yaf
+dehydrated                  gnuplot                     kubernetes-cli              monero                      roswell                     yash
+deno                        gnuradio                    kustomize                   mongoose                    rpm                         ykpers
+dependency-check            goaccess                    lablgtk                     mono-libgdiplus             rrdtool                     youtube-dl
+desktop-file-utils          gobby                       lammps                      mosquitto                   rtags                       zenity
+dfc                         gobject-introspection       lasi                        mp3splt                     rtv                         zimg
+dhall-json                  gobuster                    lasso                       mpdscribble                 rust                        zola
+diff-pdf                    goffice                     latexml                     msitools                    sassc                       zsh-autosuggestions
+diff-so-fancy               gom                         lazygit                     mu                          sbcl                        zshdb
+django-completion           goocanvas                   ldapvi                      mujs                        sccache                     zurl
+dnstwist                    goreleaser                  ldc                         mutt                        sceptre
+docfx                       gpa                         lensfun                     mysql@5.7                   schismtracker
+docker                      gpac                        libchamplain                mysqltuner                  scrollkeeper
+docker-completion           gpgme                       libcroco                    nano                        sd
+docker-compose              gpredict                    libdazzle                   nave                        sdcv
+==> Deleted Formulae
+dsd                                                     guile@2.0                                               varnish@4
+==> Downloading https://homebrew.bintray.com/bottles/make-4.2.1_1.mojave.bottle.3.tar.gz
+==> Downloading from https://akamai.bintray.com/c4/c457485b491cccb4a03059e38244b14e7c7f54abb377fa31874848cc786b54ff?__gda__=exp=1562311944~hmac=9a32fb9c56a35ff12eb290
+######################################################################## 100.0%
+==> Pouring make-4.2.1_1.mojave.bottle.3.tar.gz
+==> Caveats
+GNU "make" has been installed as "gmake".
+If you need to use it as "make", you can add a "gnubin" directory
+to your PATH from your bashrc like:
+
+    PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
+==> Summary
+🍺  /usr/local/Cellar/make/4.2.1_1: 15 files, 959.4KB
+➜  lhotse-2 git:(develop) type make
+make is /usr/local/bin/make
+➜  lhotse-2 git:(develop)
+➜  lhotse-2 git:(develop) vi package.json
+➜  lhotse-2 git:(develop) vi ~/.bash_rc
+➜  lhotse-2 git:(develop) mv ~/.bash_rc mv ~/.bashrc
+usage: mv [-f | -i | -n] [-v] source target
+       mv [-f | -i | -n] [-v] source ... directory
+➜  lhotse-2 git:(develop) mv ~/.bash_rc ~/.bashrc
+➜  lhotse-2 git:(develop) source ~/.bashrc
+➜  lhotse-2 git:(develop) type make
+make is /usr/local/opt/make/libexec/gnubin/make
+➜  lhotse-2 git:(develop) ls
+Dockerfile-build.ceotos7 README.md                fix-deps.sh              package.json             pom.xml                  yarn.lock
+Makefile                 bump-version.sh          lerna.json               packages                 webpack.config.js
+➜  lhotse-2 git:(develop) PROXY=1 API_ADDR=https://develop.hengshi.org make
+rm -rf ./packages/lhotse/Maps/**
+wget -N -c -t0 -P /tmp/ https://s3.cn-north-1.amazonaws.com.cn/hengshi-public/3rd/maps-20190628.tar.gz
+make: wget: Command not found
+make: *** [Makefile:36: download] Error 127
+➜  lhotse-2 git:(develop) ls
+Dockerfile-build.ceotos7 README.md                fix-deps.sh              package.json             pom.xml                  yarn.lock
+Makefile                 bump-version.sh          lerna.json               packages                 webpack.config.js
+➜  lhotse-2 git:(develop) brew install wget
+Updating Homebrew...
+==> Installing dependencies for wget: gettext, libunistring, libidn2 and openssl
+==> Installing wget dependency: gettext
+==> Downloading https://homebrew.bintray.com/bottles/gettext-0.20.1.mojave.bottle.tar.gz
+==> Downloading from https://akamai.bintray.com/fa/fa2096f80238b8f4d9f3724d526626ab4db5c0586f3746ee13fc66e5a625aa1a?__gda__=exp=1562312127~hmac=824f07d17fd33d7c8a2389
+######################################################################## 100.0%
+==> Pouring gettext-0.20.1.mojave.bottle.tar.gz
+==> Caveats
+gettext is keg-only, which means it was not symlinked into /usr/local,
+because macOS provides the BSD gettext library & some software gets confused if both are in the library path.
+
+If you need to have gettext first in your PATH run:
+  echo 'export PATH="/usr/local/opt/gettext/bin:$PATH"' >> ~/.zshrc
+
+For compilers to find gettext you may need to set:
+  export LDFLAGS="-L/usr/local/opt/gettext/lib"
+  export CPPFLAGS="-I/usr/local/opt/gettext/include"
+
+==> Summary
+🍺  /usr/local/Cellar/gettext/0.20.1: 1,899 files, 18.5MB
+==> Installing wget dependency: libunistring
+==> Downloading https://homebrew.bintray.com/bottles/libunistring-0.9.10.mojave.bottle.tar.gz
+==> Downloading from https://akamai.bintray.com/1d/1d0c8e266acddcebeef3d9f6162d6f7fa0b193f5f71837174fb2ef0b39d324f3?__gda__=exp=1562312142~hmac=ca52ab08ad46ac206433a6
+######################################################################## 100.0%
+==> Pouring libunistring-0.9.10.mojave.bottle.tar.gz
+🍺  /usr/local/Cellar/libunistring/0.9.10: 54 files, 4.4MB
+==> Installing wget dependency: libidn2
+==> Downloading https://homebrew.bintray.com/bottles/libidn2-2.2.0_1.mojave.bottle.tar.gz
+==> Downloading from https://akamai.bintray.com/96/96e9b127a4123a1a4ec67f849467bbf9fafe79e7303ef2712c57bfb81b3c95d6?__gda__=exp=1562312148~hmac=cc74ea771c48f0e8a55ea5
+######################################################################## 100.0%
+==> Pouring libidn2-2.2.0_1.mojave.bottle.tar.gz
+🍺  /usr/local/Cellar/libidn2/2.2.0_1: 70 files, 700.9KB
+==> Installing wget dependency: openssl
+==> Downloading https://homebrew.bintray.com/bottles/openssl-1.0.2s.mojave.bottle.tar.gz
+==> Downloading from https://akamai.bintray.com/c4/c4a762d719c2be74ac686f1aafabb32f3c5d5ff3a98935c4925a1ddb9c750ee1?__gda__=exp=1562312156~hmac=8ab1964e4160be1fb43907
+######################################################################## 100.0%
+==> Pouring openssl-1.0.2s.mojave.bottle.tar.gz
+==> Caveats
+A CA file has been bootstrapped using certificates from the SystemRoots
+keychain. To add additional certificates (e.g. the certificates added in
+the System keychain), place .pem files in
+  /usr/local/etc/openssl/certs
+
+and run
+  /usr/local/opt/openssl/bin/c_rehash
+
+openssl is keg-only, which means it was not symlinked into /usr/local,
+because Apple has deprecated use of OpenSSL in favor of its own TLS and crypto libraries.
+
+If you need to have openssl first in your PATH run:
+  echo 'export PATH="/usr/local/opt/openssl/bin:$PATH"' >> ~/.zshrc
+
+For compilers to find openssl you may need to set:
+  export LDFLAGS="-L/usr/local/opt/openssl/lib"
+  export CPPFLAGS="-I/usr/local/opt/openssl/include"
+
+==> Summary
+🍺  /usr/local/Cellar/openssl/1.0.2s: 1,795 files, 12.0MB
+==> Installing wget
+==> Downloading https://homebrew.bintray.com/bottles/wget-1.20.3_1.mojave.bottle.tar.gz
+==> Downloading from https://akamai.bintray.com/96/96a58c26308afae033e6d6325e7af3f20618b4ca84f2d265ba3ca16a5eae7e65?__gda__=exp=1562312169~hmac=d7d99362d03a2cbc62ba1a
+######################################################################## 100.0%
+==> Pouring wget-1.20.3_1.mojave.bottle.tar.gz
+🍺  /usr/local/Cellar/wget/1.20.3_1: 49 files, 4.0MB
+==> Caveats
+==> gettext
+gettext is keg-only, which means it was not symlinked into /usr/local,
+because macOS provides the BSD gettext library & some software gets confused if both are in the library path.
+
+If you need to have gettext first in your PATH run:
+  echo 'export PATH="/usr/local/opt/gettext/bin:$PATH"' >> ~/.zshrc
+
+For compilers to find gettext you may need to set:
+  export LDFLAGS="-L/usr/local/opt/gettext/lib"
+  export CPPFLAGS="-I/usr/local/opt/gettext/include"
+
+==> openssl
+A CA file has been bootstrapped using certificates from the SystemRoots
+keychain. To add additional certificates (e.g. the certificates added in
+the System keychain), place .pem files in
+  /usr/local/etc/openssl/certs
+
+and run
+  /usr/local/opt/openssl/bin/c_rehash
+
+openssl is keg-only, which means it was not symlinked into /usr/local,
+because Apple has deprecated use of OpenSSL in favor of its own TLS and crypto libraries.
+
+If you need to have openssl first in your PATH run:
+  echo 'export PATH="/usr/local/opt/openssl/bin:$PATH"' >> ~/.zshrc
+
+For compilers to find openssl you may need to set:
+  export LDFLAGS="-L/usr/local/opt/openssl/lib"
+  export CPPFLAGS="-I/usr/local/opt/openssl/include"
+
+➜  lhotse-2 git:(develop) type wge
+wge not found
+➜  lhotse-2 git:(develop) type wget
+wget is /usr/local/bin/wget
+➜  lhotse-2 git:(develop) PROXY=1 API_ADDR=https://develop.hengshi.org make
+rm -rf ./packages/lhotse/Maps/**
+wget -N -c -t0 -P /tmp/ https://s3.cn-north-1.amazonaws.com.cn/hengshi-public/3rd/maps-20190628.tar.gz
+--2019-07-05 15:24:31--  https://s3.cn-north-1.amazonaws.com.cn/hengshi-public/3rd/maps-20190628.tar.gz
+正在解析主机 s3.cn-north-1.amazonaws.com.cn (s3.cn-north-1.amazonaws.com.cn)... 54.222.50.57
+正在连接 s3.cn-north-1.amazonaws.com.cn (s3.cn-north-1.amazonaws.com.cn)|54.222.50.57|:443... 已连接。
+已发出 HTTP 请求，正在等待回应... 200 OK
+长度：29806399 (28M) [application/x-tar]
+正在保存至: “/tmp/maps-20190628.tar.gz”
+
+maps-20190628.tar.gz                      100%[===================================================================================>]  28.42M  2.31MB/s  用时 12s
+
+2019-07-05 15:24:43 (2.46 MB/s) - 已保存 “/tmp/maps-20190628.tar.gz” [29806399/29806399])
+
+tar xzf /tmp/maps-20190628.tar.gz -C ./packages/lhotse/Maps/
+lerna clean --yes
+lerna notice cli v3.15.0
+lerna info versioning independent
+lerna info clean removing /Users/mac/hengshi-project/lhotse-2/packages/lhotse/node_modules
+lerna info clean removing /Users/mac/hengshi-project/lhotse-2/packages/namjagbarwa/node_modules
+lerna success clean finished
+lerna bootstrap
+lerna notice cli v3.15.0
+lerna info versioning independent
+lerna info bootstrap root only
+yarn install v1.15.2
+[1/4] 🔍  Resolving packages...
+[2/4] 🚚  Fetching packages...
+[3/4] 🔗  Linking dependencies...
+warning "workspace-aggregator-e113ae66-88da-46f5-aa57-e42e6500a1cc > react-hot-loader@4.5.3" has unmet peer dependency "react@^15.0.0 || ^16.0.0".
+warning "workspace-aggregator-e113ae66-88da-46f5-aa57-e42e6500a1cc > react-hot-loader@4.5.3" has unmet peer dependency "react-dom@^15.0.0 || ^16.0.0".
+warning "workspace-aggregator-e113ae66-88da-46f5-aa57-e42e6500a1cc > @henglabs/lhotse > kepler.gl@1.0.0" has incorrect peer dependency "react@16.x".
+warning "workspace-aggregator-e113ae66-88da-46f5-aa57-e42e6500a1cc > @henglabs/lhotse > kepler.gl@1.0.0" has incorrect peer dependency "react-dom@16.x".
+warning "workspace-aggregator-e113ae66-88da-46f5-aa57-e42e6500a1cc > @henglabs/lhotse > kepler.gl@1.0.0" has unmet peer dependency "styled-components@^4.x".
+warning "workspace-aggregator-e113ae66-88da-46f5-aa57-e42e6500a1cc > @henglabs/lhotse > react-resizable-rotatable-draggable@0.3.0-dev.0" has incorrect peer dependency "react@^16".
+warning "workspace-aggregator-e113ae66-88da-46f5-aa57-e42e6500a1cc > @henglabs/lhotse > kepler.gl > react-map-gl@4.1.2" has incorrect peer dependency "react@>=16.3.0".
+warning "workspace-aggregator-e113ae66-88da-46f5-aa57-e42e6500a1cc > @henglabs/lhotse > kepler.gl > react-palm@2.0.0" has unmet peer dependency "enzyme@^3.6.0".
+warning "workspace-aggregator-e113ae66-88da-46f5-aa57-e42e6500a1cc > @henglabs/lhotse > kepler.gl > react-palm@2.0.0" has unmet peer dependency "enzyme-adapter-utils@^1.8.0".
+warning "workspace-aggregator-e113ae66-88da-46f5-aa57-e42e6500a1cc > @henglabs/lhotse > kepler.gl > react-palm@2.0.0" has incorrect peer dependency "react@^16.4.1".
+warning "workspace-aggregator-e113ae66-88da-46f5-aa57-e42e6500a1cc > @henglabs/lhotse > kepler.gl > react-palm@2.0.0" has unmet peer dependency "react-test-renderer@^16.4.1".
+warning "workspace-aggregator-e113ae66-88da-46f5-aa57-e42e6500a1cc > @henglabs/lhotse > slate-react > slate-plain-serializer@0.7.5" has incorrect peer dependency "slate@>=0.46.0".
+warning "workspace-aggregator-e113ae66-88da-46f5-aa57-e42e6500a1cc > @henglabs/lhotse > antd > react-slick > slick-carousel@1.8.1" has unmet peer dependency "jquery@>=1.8.0".
+warning "workspace-aggregator-e113ae66-88da-46f5-aa57-e42e6500a1cc > @henglabs/lhotse > kepler.gl > react-markdown > html-to-react@1.3.4" has incorrect peer dependency "react@^16.0".
+warning "workspace-aggregator-e113ae66-88da-46f5-aa57-e42e6500a1cc > @henglabs/lhotse > kepler.gl > react-palm > react-dom@16.8.6" has incorrect peer dependency "react@^16.0.0".
+warning "workspace-aggregator-e113ae66-88da-46f5-aa57-e42e6500a1cc > @henglabs/lhotse > kepler.gl > react-palm > react-reconciler@0.12.0" has incorrect peer dependency "react@^16.0.0".
+warning "workspace-aggregator-e113ae66-88da-46f5-aa57-e42e6500a1cc > @henglabs/lhotse > kepler.gl > react-palm > react-test-renderer@16.8.6" has incorrect peer dependency "react@^16.0.0".
+[4/4] 🔨  Building fresh packages...
+✨  Done in 19.69s.
+NODE_ENV=development LHOTSE_CONF=development node ./packages/lhotse/conf
+yarn start
+yarn run v1.15.2
+$ node --max_old_space_size=4096 ./node_modules/.bin/webpack-dev-server --compress --config ./webpack.config.js
+Project is running at http://0.0.0.0:9981/
+webpack output is served from /
+404s will fallback to /index.html
+Hash: e1a861a4c4c2da13c5c4
+Version: webpack 3.12.0
+Time: 74526ms
+                                 Asset     Size  Chunks                    Chunk Names
+                         img/admin.jpg  59.5 kB          [emitted]
+                     img/aggregate.svg  12.6 kB          [emitted]
+                        img/ambari.png    10 kB          [emitted]
+                 img/default_cover.png  28.9 kB          [emitted]
+          img/ext_google_analytics.svg  15.5 kB          [emitted]
+       img/ext_lunar_calendar-mini.svg  10.3 kB          [emitted]
+                  img/ext_miaozhen.svg  25.9 kB          [emitted]
+                          img/logo.png   171 kB          [emitted]
+          img/new_dashboard-active.svg  12.3 kB          [emitted]
+                 img/new_dashboard.svg  12.4 kB          [emitted]
+        img/new_infographic-active.svg  16.7 kB          [emitted]
+               img/new_infographic.svg  14.3 kB          [emitted]
+             img/no-authorize-rule.svg  15.3 kB          [emitted]
+                 img/no_data_error.png  14.1 kB          [emitted]
+                      img/notFound.svg   266 kB          [emitted]  [big]
+                   img/oem_acewill.svg  27.1 kB          [emitted]
+             img/oem_acewill_white.svg   392 kB          [emitted]  [big]
+               img/oem_bkchina-edu.png  79.3 kB          [emitted]
+         img/oem_bkchina-edu_white.png    82 kB          [emitted]
+                 img/oem_gjbigdata.svg  10.1 kB          [emitted]
+           img/oem_gjbigdata_white.svg    10 kB          [emitted]
+               img/oem_hebei-court.svg  50.1 kB          [emitted]
+         img/oem_hebei-court_white.svg  50.1 kB          [emitted]
+                          img/sofa.png  17.2 kB          [emitted]
+                        img/upload.png    36 kB          [emitted]
+   img/welcome-gate-01-layer-right.svg  48.3 kB          [emitted]
+   img/welcome-gate-02-layer-right.svg  39.9 kB          [emitted]
+          img/welcome__graphs-area.svg  11.5 kB          [emitted]
+img/welcome__nav__icon-application.svg   168 kB          [emitted]
+                     font/fontello.eot   126 kB          [emitted]
+                     font/fontello.svg   178 kB          [emitted]
+                     font/fontello.ttf   126 kB          [emitted]
+                    font/fontello.woff  69.4 kB          [emitted]
+                   font/fontello.woff2  57.8 kB          [emitted]
+                          anorlondo.js  74.5 MB       0  [emitted]  [big]  anorlondo
+                           sulyvahn.js  6.26 MB       1  [emitted]  [big]  sulyvahn
+                            index.html  8.58 kB          [emitted]
+                        sulyvahn.js.gz  1.49 MB          [emitted]  [big]
+                       anorlondo.js.gz  16.2 MB          [emitted]  [big]
+   [0] multi (webpack)-dev-server/client?http://0.0.0.0:9981 webpack/hot/dev-server ./src/util/apm.js ./src/util/DOMUtils.js ./src/util/FunctionUtil.js ./src/util/HsEvent.js ./src/util/logger.js ./src/util/md5.js ./src/util/polyfill.js ./src/util/SQLFormatter.js ./src/util/xhr.js 148 bytes {1} [built]
+   [1] multi (webpack)-dev-server/client?http://0.0.0.0:9981 webpack/hot/dev-server ./src/constants.js ./src/builtIn.js ./src/makalu/builtIn/DatasetTable/index.js ./src/makalu/builtIn/Geo/ClusterMapLayer.js ./src/makalu/builtIn/Geo/constants.js ./src/makalu/builtIn/Geo/GridMapLayer.js ./src/makalu/builtIn/Geo/HexbinMapLayer.js ./src/makalu/builtIn/Geo/index.js ./src/makalu/builtIn/Geo/mapThemes/dark.js ./src/makalu/builtIn/Geo/mapThemes/index.js ./src/makalu/builtIn/Geo/mapThemes/light.js ./src/makalu/builtIn/Geo/mapThemes/pure.js ./src/makalu/builtIn/Geo/PointMapLayer.js ./src/makalu/builtIn/Geo/PolygonMapLayer.js ./src/makalu/builtIn/Geo/southChinaSeaLayer.js ./src/makalu/builtIn/KPI/index.js ./src/makalu/builtIn/Table/index.js ./src/makalu/builtIn/Table/Table.js react-hot-loader/patch webpack-dev-server/client?http://localhost:9981 webpack/hot/only-dev-server ./index.js 304 bytes {0} [built]
+[../../node_modules/webpack-dev-server/client/index.js?http://0.0.0.0:9981] (webpack)-dev-server/client?http://0.0.0.0:9981 7.93 kB {0} {1} [built]
+[../../node_modules/webpack/hot/dev-server.js] (webpack)/hot/dev-server.js 1.61 kB {0} {1} [built]
+[./src/builtIn.js] ./packages/lhotse/src/builtIn.js 166 kB {0} [built]
+[./src/constants.js] ./packages/lhotse/src/constants.js 47.6 kB {0} {1} [built]
+[./src/makalu/builtIn/Geo/ClusterMapLayer.js] ./packages/lhotse/src/makalu/builtIn/Geo/ClusterMapLayer.js 3.73 kB {0} [built]
+[./src/makalu/builtIn/Geo/GridMapLayer.js] ./packages/lhotse/src/makalu/builtIn/Geo/GridMapLayer.js 3.85 kB {0} [built]
+[./src/makalu/builtIn/Geo/HexbinMapLayer.js] ./packages/lhotse/src/makalu/builtIn/Geo/HexbinMapLayer.js 5.42 kB {0} [built]
+[./src/makalu/builtIn/Geo/PointMapLayer.js] ./packages/lhotse/src/makalu/builtIn/Geo/PointMapLayer.js 5.6 kB {0} [built]
+[./src/makalu/builtIn/Geo/PolygonMapLayer.js] ./packages/lhotse/src/makalu/builtIn/Geo/PolygonMapLayer.js 16.3 kB {0} [built]
+[./src/makalu/builtIn/Geo/constants.js] ./packages/lhotse/src/makalu/builtIn/Geo/constants.js 3.12 kB {0} [built]
+[./src/makalu/builtIn/Geo/mapThemes/dark.js] ./packages/lhotse/src/makalu/builtIn/Geo/mapThemes/dark.js 6.27 kB {0} [built]
+[./src/makalu/builtIn/Geo/mapThemes/index.js] ./packages/lhotse/src/makalu/builtIn/Geo/mapThemes/index.js 1.32 kB {0} [built]
+[./src/makalu/builtIn/Geo/mapThemes/light.js] ./packages/lhotse/src/makalu/builtIn/Geo/mapThemes/light.js 5.23 kB {0} [built]
+    + 4511 hidden modules
+
+WARNING in ./node_modules/css-loader!./node_modules/postcss-loader/src??postcss!./node_modules/less-loader/dist/cjs.js??ref--1-3!./packages/lhotse/src/containers/Dashboard/CreateChart.less
+Warning
+
+(156:3) start value has mixed support, consider using flex-start instead
+ @ ./packages/lhotse/src/containers/Dashboard/CreateChart.less 4:14-220 18:2-22:4 19:20-226
+ @ ./packages/lhotse/src/containers/Dashboard/CreateChart.js
+ @ ./packages/lhotse/src/containers/Dashboard/InfoGraphic/Operations.js
+ @ ./packages/lhotse/src/containers/Dashboard/InfoGraphic/index.js
+ @ ./packages/lhotse/src/routes.js
+ @ ./packages/lhotse/src/index.js
+ @ ./packages/lhotse/index.js
+ @ multi (webpack)-dev-server/client?http://0.0.0.0:9981 webpack/hot/dev-server ./src/constants.js ./src/builtIn.js ./src/makalu/builtIn/DatasetTable/index.js ./src/makalu/builtIn/Geo/ClusterMapLayer.js ./src/makalu/builtIn/Geo/constants.js ./src/makalu/builtIn/Geo/GridMapLayer.js ./src/makalu/builtIn/Geo/HexbinMapLayer.js ./src/makalu/builtIn/Geo/index.js ./src/makalu/builtIn/Geo/mapThemes/dark.js ./src/makalu/builtIn/Geo/mapThemes/index.js ./src/makalu/builtIn/Geo/mapThemes/light.js ./src/makalu/builtIn/Geo/mapThemes/pure.js ./src/makalu/builtIn/Geo/PointMapLayer.js ./src/makalu/builtIn/Geo/PolygonMapLayer.js ./src/makalu/builtIn/Geo/southChinaSeaLayer.js ./src/makalu/builtIn/KPI/index.js ./src/makalu/builtIn/Table/index.js ./src/makalu/builtIn/Table/Table.js react-hot-loader/patch webpack-dev-server/client?http://localhost:9981 webpack/hot/only-dev-server ./index.js
+
+WARNING in ./node_modules/css-loader!./node_modules/postcss-loader/src??postcss!./node_modules/less-loader/dist/cjs.js??ref--1-3!./packages/lhotse/src/containers/Dashboard/CreateChart.less
+Warning
+
+(156:3) start value has mixed support, consider using flex-start instead
+ @ ./packages/lhotse/src/containers/Dashboard/CreateChart.less 4:14-220 18:2-22:4 19:20-226
+ @ ./packages/lhotse/src/containers/Dashboard/CreateChart.js
+ @ ./packages/lhotse/src/containers/Dashboard/InfoGraphic/Operations.js
+ @ ./packages/lhotse/src/containers/Dashboard/InfoGraphic/index.js
+ @ ./packages/lhotse/src/routes.js
+ @ ./packages/lhotse/src/index.js
+ @ ./packages/lhotse/index.js
+ @ multi (webpack)-dev-server/client?http://0.0.0.0:9981 webpack/hot/dev-server ./src/constants.js ./src/builtIn.js ./src/makalu/builtIn/DatasetTable/index.js ./src/makalu/builtIn/Geo/ClusterMapLayer.js ./src/makalu/builtIn/Geo/constants.js ./src/makalu/builtIn/Geo/GridMapLayer.js ./src/makalu/builtIn/Geo/HexbinMapLayer.js ./src/makalu/builtIn/Geo/index.js ./src/makalu/builtIn/Geo/mapThemes/dark.js ./src/makalu/builtIn/Geo/mapThemes/index.js ./src/makalu/builtIn/Geo/mapThemes/light.js ./src/makalu/builtIn/Geo/mapThemes/pure.js ./src/makalu/builtIn/Geo/PointMapLayer.js ./src/makalu/builtIn/Geo/PolygonMapLayer.js ./src/makalu/builtIn/Geo/southChinaSeaLayer.js ./src/makalu/builtIn/KPI/index.js ./src/makalu/builtIn/Table/index.js ./src/makalu/builtIn/Table/Table.js react-hot-loader/patch webpack-dev-server/client?http://localhost:9981 webpack/hot/only-dev-server ./index.js
+
+WARNING in ./node_modules/css-loader!./node_modules/postcss-loader/src??postcss!./node_modules/less-loader/dist/cjs.js??ref--1-3!./packages/lhotse/src/containers/Dashboard/CreateChart.less
+Warning
+
+(187:3) start value has mixed support, consider using flex-start instead
+ @ ./packages/lhotse/src/containers/Dashboard/CreateChart.less 4:14-220 18:2-22:4 19:20-226
+ @ ./packages/lhotse/src/containers/Dashboard/CreateChart.js
+ @ ./packages/lhotse/src/containers/Dashboard/InfoGraphic/Operations.js
+ @ ./packages/lhotse/src/containers/Dashboard/InfoGraphic/index.js
+ @ ./packages/lhotse/src/routes.js
+ @ ./packages/lhotse/src/index.js
+ @ ./packages/lhotse/index.js
+ @ multi (webpack)-dev-server/client?http://0.0.0.0:9981 webpack/hot/dev-server ./src/constants.js ./src/builtIn.js ./src/makalu/builtIn/DatasetTable/index.js ./src/makalu/builtIn/Geo/ClusterMapLayer.js ./src/makalu/builtIn/Geo/constants.js ./src/makalu/builtIn/Geo/GridMapLayer.js ./src/makalu/builtIn/Geo/HexbinMapLayer.js ./src/makalu/builtIn/Geo/index.js ./src/makalu/builtIn/Geo/mapThemes/dark.js ./src/makalu/builtIn/Geo/mapThemes/index.js ./src/makalu/builtIn/Geo/mapThemes/light.js ./src/makalu/builtIn/Geo/mapThemes/pure.js ./src/makalu/builtIn/Geo/PointMapLayer.js ./src/makalu/builtIn/Geo/PolygonMapLayer.js ./src/makalu/builtIn/Geo/southChinaSeaLayer.js ./src/makalu/builtIn/KPI/index.js ./src/makalu/builtIn/Table/index.js ./src/makalu/builtIn/Table/Table.js react-hot-loader/patch webpack-dev-server/client?http://localhost:9981 webpack/hot/only-dev-server ./index.js
+
+WARNING in ./node_modules/css-loader!./node_modules/postcss-loader/src??postcss!./node_modules/less-loader/dist/cjs.js??ref--1-3!./packages/lhotse/src/containers/Dashboard/CreateChart.less
+Warning
+
+(187:3) start value has mixed support, consider using flex-start instead
+ @ ./packages/lhotse/src/containers/Dashboard/CreateChart.less 4:14-220 18:2-22:4 19:20-226
+ @ ./packages/lhotse/src/containers/Dashboard/CreateChart.js
+ @ ./packages/lhotse/src/containers/Dashboard/InfoGraphic/Operations.js
+ @ ./packages/lhotse/src/containers/Dashboard/InfoGraphic/index.js
+ @ ./packages/lhotse/src/routes.js
+ @ ./packages/lhotse/src/index.js
+ @ ./packages/lhotse/index.js
+ @ multi (webpack)-dev-server/client?http://0.0.0.0:9981 webpack/hot/dev-server ./src/constants.js ./src/builtIn.js ./src/makalu/builtIn/DatasetTable/index.js ./src/makalu/builtIn/Geo/ClusterMapLayer.js ./src/makalu/builtIn/Geo/constants.js ./src/makalu/builtIn/Geo/GridMapLayer.js ./src/makalu/builtIn/Geo/HexbinMapLayer.js ./src/makalu/builtIn/Geo/index.js ./src/makalu/builtIn/Geo/mapThemes/dark.js ./src/makalu/builtIn/Geo/mapThemes/index.js ./src/makalu/builtIn/Geo/mapThemes/light.js ./src/makalu/builtIn/Geo/mapThemes/pure.js ./src/makalu/builtIn/Geo/PointMapLayer.js ./src/makalu/builtIn/Geo/PolygonMapLayer.js ./src/makalu/builtIn/Geo/southChinaSeaLayer.js ./src/makalu/builtIn/KPI/index.js ./src/makalu/builtIn/Table/index.js ./src/makalu/builtIn/Table/Table.js react-hot-loader/patch webpack-dev-server/client?http://localhost:9981 webpack/hot/only-dev-server ./index.js
+
+WARNING in ./node_modules/css-loader!./node_modules/postcss-loader/src??postcss!./node_modules/less-loader/dist/cjs.js??ref--1-3!./node_modules/antd/lib/style/index.less
+Warning
+
+(503:3) Replace text-decoration-skip: ink to text-decoration-skip-ink: auto, because spec had been changed
+ @ ./node_modules/antd/lib/style/index.less 4:14-157 18:2-22:4 19:20-163
+ @ ./node_modules/antd/lib/message/style/index.js
+ @ ./packages/lhotse/src/util/DOMUtils.js
+ @ multi (webpack)-dev-server/client?http://0.0.0.0:9981 webpack/hot/dev-server ./src/util/apm.js ./src/util/DOMUtils.js ./src/util/FunctionUtil.js ./src/util/HsEvent.js ./src/util/logger.js ./src/util/md5.js ./src/util/polyfill.js ./src/util/SQLFormatter.js ./src/util/xhr.js
+
+WARNING in ./node_modules/css-loader!./node_modules/postcss-loader/src??postcss!./node_modules/less-loader/dist/cjs.js??ref--1-3!./node_modules/antd/lib/style/index.less
+Warning
+
+(503:3) Replace text-decoration-skip: ink to text-decoration-skip-ink: auto, because spec had been changed
+ @ ./node_modules/antd/lib/style/index.less 4:14-157 18:2-22:4 19:20-163
+ @ ./node_modules/antd/lib/message/style/index.js
+ @ ./packages/lhotse/src/util/DOMUtils.js
+ @ multi (webpack)-dev-server/client?http://0.0.0.0:9981 webpack/hot/dev-server ./src/util/apm.js ./src/util/DOMUtils.js ./src/util/FunctionUtil.js ./src/util/HsEvent.js ./src/util/logger.js ./src/util/md5.js ./src/util/polyfill.js ./src/util/SQLFormatter.js ./src/util/xhr.js
+
+WARNING in ./node_modules/css-loader!./node_modules/postcss-loader/src??postcss!./node_modules/less-loader/dist/cjs.js??ref--1-3!./node_modules/antd/lib/spin/style/index.less
+Warning
+
+(73:3) Second Autoprefixer control comment was ignored. Autoprefixer applies control comment to whole block, not to next rules.
+ @ ./node_modules/antd/lib/spin/style/index.less 4:14-166 18:2-22:4 19:20-172
+ @ ./node_modules/antd/lib/spin/style/index.js
+ @ ./node_modules/antd/lib/table/style/index.js
+ @ ./packages/lhotse/src/containers/Common/WarningSetting/Dialog.js
+ @ ./packages/lhotse/src/containers/Scenes/index.js
+ @ ./packages/lhotse/src/routes.js
+ @ ./packages/lhotse/src/index.js
+ @ ./packages/lhotse/index.js
+ @ multi (webpack)-dev-server/client?http://0.0.0.0:9981 webpack/hot/dev-server ./src/constants.js ./src/builtIn.js ./src/makalu/builtIn/DatasetTable/index.js ./src/makalu/builtIn/Geo/ClusterMapLayer.js ./src/makalu/builtIn/Geo/constants.js ./src/makalu/builtIn/Geo/GridMapLayer.js ./src/makalu/builtIn/Geo/HexbinMapLayer.js ./src/makalu/builtIn/Geo/index.js ./src/makalu/builtIn/Geo/mapThemes/dark.js ./src/makalu/builtIn/Geo/mapThemes/index.js ./src/makalu/builtIn/Geo/mapThemes/light.js ./src/makalu/builtIn/Geo/mapThemes/pure.js ./src/makalu/builtIn/Geo/PointMapLayer.js ./src/makalu/builtIn/Geo/PolygonMapLayer.js ./src/makalu/builtIn/Geo/southChinaSeaLayer.js ./src/makalu/builtIn/KPI/index.js ./src/makalu/builtIn/Table/index.js ./src/makalu/builtIn/Table/Table.js react-hot-loader/patch webpack-dev-server/client?http://localhost:9981 webpack/hot/only-dev-server ./index.js
+Child html-webpack-plugin for "index.html":
+     30 assets
+    [../../node_modules/html-webpack-plugin/lib/loader.js!./index.ejs] ./node_modules/html-webpack-plugin/lib/loader.js!./packages/lhotse/index.ejs 4.17 kB {0} [built]
+    [../../node_modules/lodash/lodash.js] ./node_modules/lodash/lodash.js 540 kB {0} [built]
+    [../../node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 509 bytes {0} [built]
+    [../../node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 517 bytes {0} [built]
+    [./img recursive ^\.\/.*$] ./packages/lhotse/img ^\.\/.*$ 4.87 kB {0} [built]
+    [./img/admin.jpg] ./packages/lhotse/img/admin.jpg 59 bytes {0} [optional] [built]
+    [./img/aggregate-mini.svg] ./packages/lhotse/img/aggregate-mini.svg 3.35 kB {0} [optional] [built]
+    [./img/aggregate.svg] ./packages/lhotse/img/aggregate.svg 63 bytes {0} [optional] [built]
+    [./img/amazon_aurora-mini.svg] ./packages/lhotse/img/amazon_aurora-mini.svg 1.34 kB {0} [optional] [built]
+    [./img/amazon_aurora.svg] ./packages/lhotse/img/amazon_aurora.svg 1.76 kB {0} [optional] [built]
+    [./img/amazon_redshift-mini.svg] ./packages/lhotse/img/amazon_redshift-mini.svg 5.36 kB {0} [optional] [built]
+    [./img/amazon_redshift.svg] ./packages/lhotse/img/amazon_redshift.svg 1.79 kB {0} [optional] [built]
+    [./img/amazon_s3-mini.svg] ./packages/lhotse/img/amazon_s3-mini.svg 1.32 kB {0} [optional] [built]
+    [./img/amazon_s3.svg] ./packages/lhotse/img/amazon_s3.svg 1.88 kB {0} [optional] [built]
+    [./img/ambari.png] ./packages/lhotse/img/ambari.png 60 bytes {0} [optional] [built]
+        + 174 hidden modules
+webpack: Compiled with warnings.
+

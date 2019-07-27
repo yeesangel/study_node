@@ -1,0 +1,56 @@
+你对css3了解吗? 使用过css3那些属性?
+
+
+
+Css 实现 左右分别300px 400px 中间自适应布局，用多种方式实现?
+
+
+
+简述下你对BFC 的理解?
+
+
+
+Js 的所有变量类型?
+
+
+
+将一维数组切分成二维数组： 按照第二个参数（数字）的值，来决定二维数组长度?
+let a = ['a', 'b', 'c', 'd'];
+// let result = chunk(a, 3);// console.log(result) => [['a','b', 'c'], ['b']];
+// let result = chunk(a, 2);
+// console.log(result) => [['a','b'], ['c','b']];
+// let result = chunk(a, 1);
+// console.log(result) => [['a‘],['b‘],['c‘],['d']];
+
+
+实现一个快速排序 算法?
+
+
+
+数组相关计算当前项在数组中的项数并且以该项数组成一个新的数组?
+
+
+说说call， apply， bind 几种方法的区别，以及谈谈你对this 的理解;?
+var name = 'world'
+var obj = {
+	name: 'hello',
+	foo= () => {
+		console.log(this.name)
+	}
+}
+
+obj.foo() // ?
+var a = obj.foo();
+a() // ?
+
+
+
+发散题：
+1. 遇到过哪些技术难题？如何解决的？
+2. 平时的一些学习方法？以及如何平衡工作和学习上的关系？目前关注哪些技术方向（技术栈）
+3. 简单描述下你对前端的看法，以及自身的发展方向（职业规划）
+
+
+
+
+
