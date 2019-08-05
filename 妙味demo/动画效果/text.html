@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    ul li {
+      list-style: none;
+    }
+    ul li {
+      margin: 30px 0;
+      font-size: 14px;
+      color: #666666;
+      cursor: pointer;
+      position: relative;
+    }
+  </style>
+  <body>
+    <div class="box">
+      <ul class="ul">
+        <li class="flexible-animation">
+          国外cdn_免费拥有长达12个月使用权-亚马逊AWS
+        </li>
+        <li class="flexible-animation">
+          国外cdn_免费拥有长达12个月使用权-亚马逊AWS
+        </li>
+        <li class="flexible-animation">
+          国外cdn_免费拥有长达12个月使用权-亚马逊AWS
+        </li>
+        <li class="flexible-animation">
+          国外cdn_免费拥有长达12个月使用权-亚马逊AWS
+        </li>
+        <li class="flexible-animation">
+          国外cdn_免费拥有长达 12个月使用权-亚马逊AWS
+        </li>
+        <li class="flexible-animation">
+          国外cdn_免费拥有长达12个月使用权-亚马逊AWS
+        </li>
+        <li class="flexible-animation">
+          国外cdn_免费拥有长达12个月使用权 -亚马逊AWS
+        </li>
+      </ul>
+    </div>
+
+    <script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script>
+      bomb($);
+      function bomb($) {
+        const qin = $(".flexible-animation"); // eslint-disable-line
+        for (let i = 0; i < qin.length; i++) {
+          // qin.eq(i).css("width",qin.eq(i).width());
+          qin.eq(i).css("height", qin.eq(i).height(14));
+          const aHtml = qin
+            .eq(i)
+            .html()
+            .split("");
+          for (let j = 0; j < aHtml.length; j++) {
+            aHtml[j] = `<span>${aHtml[j]}</span>`;
+          }
+          qin.eq(i).html(aHtml.join(""));
+        }
+        const aSpan = $(".flexible-animation span");
+        for (let i = 0; i < aSpan.length; i++) {
+          aSpan.eq(i).css("left", `${aSpan.eq(i).position().left}px`);
+        }
+        aSpan.css("position", "absolute");
+        const iStartTop = aSpan.position().top;
+        const iMinTop = -18;
+        const iMaxTop = 18;
+        let obj = null;
+        aSpan.on("mouseenter", aaa);
+        function aaa(ev) {
+          this.parentNode.onmouseout = null;
+          this.parentNode.onmousemove = null;
+          ev = ev || event; // eslint-disable-line
+          const iStartY = ev.clientY;
+          obj = $(this); // eslint-disable-line
+          this.parentNode.onmousemove = function(ev) {
+            // eslint-disable-line
+            $(this)
+              .find("span")
+              .off("mouseenter", aaa);
+            $(this)
+              .find("span")
+              .on("mouseenter", bbb);
+            const iMouseY = ev.clientY;
+            const iTop = iStartTop + (iMouseY - iStartY);
+            const aSpan = $(this).find("span");
+            const iIndex = obj.index();
+            aSpan.stop();
+            if (iTop < iMinTop || iTop > iMaxTop) {
+              aSpan.animate({ top: iStartTop }, 500, "easeOutElastic");
+              $(this)
+                .find("span")
+                .on("mouseenter", aaa);
+              $(this)
+                .find("span")
+                .off("mouseenter", bbb);
+              this.onmouseleave = null;
+              this.onmousemove = null;
+            } else {
+              for (let i = 0; i < aSpan.length; i++) {
+                let iSpanTop;
+                if (iMouseY > iStartY) {
+                  iSpanTop = iTop - Math.abs(i - iIndex);
+                  if (iSpanTop < iStartTop) {
+                    iSpanTop = iStartTop;
+                  }
+                } else if (iMouseY < iStartY) {
+                  iSpanTop = iTop + Math.abs(i - iIndex);
+                  if (iSpanTop > iStartTop) {
+                    iSpanTop = iStartTop;
+                  }
+                }
+                aSpan.eq(i).css("top", `${iSpanTop}px`);
+              }
+            }
+
+            this.onmouseleave = function() {
+              // eslint-disable-line
+              aSpan.animate({ top: iStartTop }, 500, "easeOutElastic");
+              $(this)
+                .find("span")
+                .on("mouseenter", aaa);
+              $(this)
+                .find("span")
+                .off("mouseenter", bbb);
+              this.onmouseleave = null;
+              this.onmousemove = null;
+            };
+          };
+        }
+        function bbb() {
+          obj = $(this); // eslint-disable-line
+        }
+      }
+    </script>
+  </body>
+</html>
