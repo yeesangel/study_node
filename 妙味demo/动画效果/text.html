@@ -142,6 +142,97 @@
           obj = $(this); // eslint-disable-line
         }
       }
+
+      function bomb11($, height = 14) {
+          let qin = $(".flexible-animation"); // eslint-disable-line
+          for (let i = 0; i < qin.length; i++) {
+            // qin.eq(i).css("width",qin.eq(i).width());
+            qin.eq(i).css("height", qin.eq(i).height(height));
+            const aHtml = qin
+              .eq(i)
+              .html()
+              .split("");
+            for (let j = 0; j < aHtml.length; j++) {
+              aHtml[j] = `<span>${aHtml[j]}</span>`;
+            }
+            qin.eq(i).html(aHtml.join(""));
+          }
+          const aSpan = $(".flexible-animation span");
+          for (let i = 0; i < aSpan.length; i++) {
+            aSpan.eq(i).css("left", `${aSpan.eq(i).position().left}px`);
+          }
+          aSpan.css("position", "absolute");
+          let iStartTop;
+          iStartTop = aSpan.position().top; // eslint-disable-line
+          const iMinTop = -18;
+          const iMaxTop = 18;
+          let obj = null;
+          aSpan.on("mouseenter", aaa);
+          function aaa(ev) {
+            this.parentNode.onmouseout = null;
+            this.parentNode.onmousemove = null;
+            ev = ev || event; // eslint-disable-line
+            const iStartY = ev.clientY;
+            obj = $(this);
+            // eslint-disable-line
+            this.parentNode.onmousemove = function (ev) { // eslint-disable-line
+              $(this)
+                .find("span")
+                .off("mouseenter", aaa);
+              $(this)
+                .find("span")
+                .on("mouseenter", bbb);
+              const iMouseY = ev.clientY;
+              const iTop = iStartTop + (iMouseY - iStartY);
+              let aSpan = $(this).find("span"); // eslint-disable-line
+              const iIndex = obj.index();
+              aSpan.stop();
+              if (iTop < iMinTop || iTop > iMaxTop) {
+                aSpan.animate({ top: iStartTop }, 500, "easeOutElastic");
+                $(this)
+                  .find("span")
+                  .on("mouseenter", aaa);
+                $(this)
+                  .find("span")
+                  .off("mouseenter", bbb);
+                this.onmouseleave = null;
+                this.onmousemove = null;
+              } else {
+                for (let i = 0; i < aSpan.length; i++) {
+                  let iSpanTop;
+                  if (iMouseY > iStartY) {
+                    iSpanTop = iTop - Math.abs(i - iIndex);
+                    if (iSpanTop < iStartTop) {
+                      iSpanTop = iStartTop;
+                    }
+                  } else if (iMouseY < iStartY) {
+                    iSpanTop = iTop + Math.abs(i - iIndex);
+                    if (iSpanTop > iStartTop) {
+                      iSpanTop = iStartTop;
+                    }
+                  }
+                  aSpan.eq(i).css("top", `${iSpanTop}px`);
+                }
+              }
+
+              this.onmouseleave = function () { // eslint-disable-line
+                aSpan.animate({ top: iStartTop }, 500, "easeOutElastic");
+                $(this)
+                  .find("span")
+                  .on("mouseenter", aaa);
+                $(this)
+                  .find("span")
+                  .off("mouseenter", bbb);
+                this.onmouseleave = null;
+                this.onmousemove = null;
+              };
+            };
+          }
+          function bbb() {
+            obj = $(this); // eslint-disable-line
+          }
+        }
+
     </script>
   </body>
 </html>
