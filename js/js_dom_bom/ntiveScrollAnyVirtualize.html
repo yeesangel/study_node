@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./perfect-scrollbar.css">
+</head>
+<style>
+  * {
+    padding: 0;
+    margin: 0;
+  }
+  html, body {
+    position: relative;
+    height: 100%;
+  }
+  .container-wrap {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: cyan;
+    /* overflow-y: scroll; */
+  }
+  .container > div {
+    list-style: none;
+    height: 40px;
+    background: pink;
+    border: 1px solid cyan;
+    box-sizing: border-box;
+  }
+  .top, .bottom {
+    width: 1px;
+  }
+</style>
+<body>
+  <div class="container-wrap">
+    <div class="top"></div>
+    <div class="container">
+
+    </div>
+    <div class="bottom"></div>
+  </div>
+</body>
+<!-- <script src="./perfect-scrollbar.min.js"></script> -->
+<script src="./perfect-scrollbar.js"></script>
+<script>
+  var htmls = [];
+  var len = 10000000;
+  var height = 40;
+  var totalHeight = len * height;
+  var topDom = document.querySelector('.top');
+  var bottomDom = document.querySelector('.bottom');
+  for(var i=0; i < len; i++) {
+    htmls.push("<div>"+(i)+"</div>");
+  }
+  var containerDom = document.querySelector('.container');
+  var containerWrap = document.querySelector('.container-wrap');
+  handlerDom();
+  const ps = new PerfectScrollbar(containerWrap, {
+    wheelSpeed: 2,
+    wheelPropagation: true,
+    minScrollbarLength: 20
+  });
+  containerWrap.addEventListener('ps-scroll-y', handlerDom, false);
+
+  function handlerDom(e) {
+      var scrollTop = containerWrap.scrollTop;
+      var scrollIndex = Math.ceil(scrollTop/height);
+      var startIndex = Math.max(scrollIndex - 1, 0);
+      var topStyle = startIndex * height;
+      var endIndex = startIndex + Math.ceil(window.innerHeight/height) + 3;
+      var bottomStyle = totalHeight - (endIndex * height);
+      topDom.style.height = topStyle + 'px';
+      containerDom.innerHTML = htmls.slice(startIndex, endIndex).join('');
+      bottomDom.style.height = bottomStyle + 'px';
+  }
+</script>
+</html>

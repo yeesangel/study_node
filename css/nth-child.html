@@ -15,6 +15,15 @@
   li:nth-child(3) {
     background: red
   }
+
+  .h-tag h2, .h-tag h3 {
+    height: 30px;
+    border: 1px solid #ccc;
+  }
+
+  .h-tag h2:nth-child(odd) {
+    background: red;
+  }
 </style>
 <body>
   <ul>
@@ -27,5 +36,15 @@
     <li></li>
     <li></li>
   </ul>
+
+  <div class="h-tag">
+    <h2></h2>
+    <h3></h3>
+    <h2></h2>
+    <h2></h2>
+    <h3></h3>
+    <h2></h2>
+    <h2></h2>
+  </div>
 </body>
 </html>
