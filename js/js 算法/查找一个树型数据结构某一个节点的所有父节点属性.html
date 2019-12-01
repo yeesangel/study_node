@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var treeData = [
+  {
+    "uid": '2',
+    "name": "所有部门",
+    "parentId": '1',
+    "source": "dingtalk",
+    "type": 'dept',
+    "children": [
+      {
+        "uid": '3',
+        "name": "市场部",
+        "parentId": '2',
+        "source": "dingtalk",
+        "type": 'dept',
+        "children": [
+          {
+            "uid": '11167',
+            "name": "001中国银行河南省分行营业部",
+            "email": "001@localhost.localdomain",
+            "description": "",
+            "enable": true,
+            "userType": "normal",
+            "loginName": "001",
+            "mobile": "13031108889",
+            "type": 'user',
+          },
+          {
+            "uid": '11168',
+            "name": "001中国银行河南省分行营业部11",
+            "email": "001@localhost.localdomain",
+            "description": "",
+            "enable": true,
+            "userType": "normal",
+            "loginName": "001",
+            "mobile": "13031108889",
+            "type": 'user',
+          },
+          {
+            "uid": '11169',
+            "name": "001中国银行河南省分行营业部22",
+            "email": "001@localhost.localdomain",
+            "description": "",
+            "enable": true,
+            "userType": "normal",
+            "loginName": "001",
+            "mobile": "13031108889",
+            "type": 'user',
+          },
+        ],
+      },
+      {
+        "uid": '4',
+        "name": "技术研发部",
+        "parentId": '2',
+        "source": "dingtalk",
+        "type": 'dept',
+        "children": [],
+      },
+      {
+        "uid": '5',
+        "name": "销售部",
+        "parentId": '2',
+        "source": "dingtalk",
+        "type": 'dept',
+        "children": [],
+      },
+      {
+        "uid": '11170',
+        "name": "中国银行",
+        "email": "001@localhost.localdomain",
+        "description": "",
+        "enable": true,
+        "userType": "normal",
+        "loginName": "001",
+        "mobile": "13031108889",
+        "type": 'user',
+      },
+    ],
+  },
+];
+
+function getParent(uid, treeData, key) {
+  let attrs = [];
+  function loop(uid, children) {
+    for(let i=0; i<children.length; i++) {
+      let item = children[i];
+      if(item[key] === uid) {
+        attrs.push(uid);
+        return;
+      }
+      if(item.children){
+        loop(uid, item.children, 'uid');
+        if(attrs.length) {
+          attrs.push(item[key]);
+          return
+        }
+      }
+    }
+  }
+  loop(uid, treeData, key);
+  return attrs
+}
+
+console.log(getParent('11168', treeData, 'uid'));
+  </script>
+</body>
+</html>

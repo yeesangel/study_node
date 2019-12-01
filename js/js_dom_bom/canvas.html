@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <title>Canvas Project</title>
+ <meta charset="utf-8">
+ <script>
+ var canvas, context;
+ var shapes;
+ var timer, timerRestart;
+
+ function makeShapes() {
+	shapes = [];
+	for(var i = 0; i < 50; i++)
+	{
+		shapes.push(new Shape());
+	}
+ }
+
+ function degreesToRadians(degrees) {
+	return (degrees * Math.PI)/180;
+ }
+
+ function Shape(){
+	this.x = Math.random()*canvas.width;
+	this.y = Math.random()*canvas.height;
+	//this.x = canvas.width/2;		*fireworks*
+	//this.y = canvas.height/2;
+	this.vx = Math.random()*20-10;
+	this.vy = Math.random()*20-10;
+	this.size = 30;
+ }
+
+ function makeTitle() {
+	var title = 'Play Station';
+	return(title);
+}
+ function drawText() {
+	var title = makeTitle();
+	context.fillStyle = 'white';
+	context.font = 'bold 1em sans-serif';
+	context.textAlign = 'right';
+	context.fillText(title, canvas.width-20, canvas.height-40);
+}
+
+ function drawCircle(s){
+	context.beginPath();
+	context.arc(s.x, s.y, (s.size/2), 0, degreesToRadians(360), true);
+	context.strokeStyle = 'red';
+	context.stroke();
+ }
+
+ function drawSquare(s){
+	context.strokeStyle = 'orange';
+	context.strokeRect(s.x, s.y, s.size, s.size);
+ }
+
+ function drawSelect(s){
+	context.fillStyle = 'gray';
+	context.fillRect(s.x, s.y, s.size, (s.size/2));
+	context.fillStyle = 'white';
+	context.font = '10px Arial';
+	context.textAlign = 'left';
+	context.fillText('SELECT', s.x, s.y-2);
+ }
+
+ function drawTriangle(s){
+	context.strokeStyle = 'green';
+	context.beginPath();
+	context.moveTo((s.x + 75), (s.y + 55));
+	context.lineTo((s.x + 88), (s.y + 75));
+	context.lineTo((s.x + 62), (s.y + 75));
+	context.closePath();
+	context.lineWidth = 3;
+	context.stroke();
+ }
+
+ function drawX(s){
+	context.strokeStyle = 'blue';
+	context.beginPath();
+	context.moveTo((s.x + (s.size/2)), (s.y + (s.size/2)));
+	context.lineTo((s.x - (s.size/2)), (s.y - (s.size/2)));
+	context.moveTo((s.x - (s.size/2)), (s.y + (s.size/2)));
+	context.lineTo((s.x + (s.size/2)), (s.y - (s.size/2)));
+	context.lineWidth = 3;
+	context.stroke();
+ }
+
+ function moveShapes() {
+	context.globalCompositeOperation = "source-over";
+	context.fillStyle = "black";
+	context.fillRect(0, 0, canvas.width, canvas.height);
+	context.globalCompositeOperation = "lighter";
+	drawText();
+	for(var i = 0; i < shapes.length; i++){
+		var s = shapes[i];
+		if (i%5 === 0){
+			drawCircle(s);
+		}
+		//square
+		else if (i%5 === 1){
+			drawSquare(s);
+		}
+		//rectangle
+		else if (i%5 === 2){
+			drawSelect(s);
+		}
+		//triangle
+		else if (i%5 === 3){
+			drawTriangle(s);
+		}
+		else if (i%5 === 4){
+			drawX(s);
+		}
+		s.x += s.vx;
+		s.y += s.vy;
+		if(s.x < 0) s.vx = -s.vx;
+		if(s.y < 0) s.vy = -s.vy;
+		if(s.x > canvas.width) s.vx = -s.vx;
+		if(s.y > canvas.height) s.vy = -s.vy;
+		//s.size--;
+
+	}
+ }
+
+ window.onload = function() {
+ 	canvas = document.getElementById('canvas');
+	context = canvas.getContext('2d');
+	makeShapes();
+	timer = setInterval(moveShapes, 115);
+	timerRestart = setInterval(makeShapes, 3500);
+ }
+</script>
+</head>
+<body>
+	<canvas id="canvas" width="720" height="480"></canvas>
+</body>
+</html>
