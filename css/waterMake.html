@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+    }
+    html, body {
+      width: 100%;
+      height: 100%;
+    }
+    .box {
+      width: 100%;
+      height: 100px;
+      background: cyan;
+    }
+    .box:hover {
+      background: green;
+    }
+    .watermake {
+      position: fixed;
+      left: 0;
+      top: 0;
+      pointer-events: none;
+    }
+
+  </style>
+  <div class="box"></div>
+  <canvas class="watermake"></canvas>
+  <script>
+    var canvas = document.querySelector('.watermake');
+    const { width, height } = document.body.getBoundingClientRect();
+    const ctx = canvas.getContext('2d');
+    const maxWidth = Math.sqrt(width**2+height**2)
+    const fontSize = 14;
+    const rowDis = 120;
+    const columsDis = 65;
+    const watermMake = 'zhangsan zhangsan.hengshi.com'
+    canvas.setAttribute('width', width);
+    canvas.setAttribute('height', height);
+
+
+    // const { width: textWidth } = ctx.measureText(watermMake, fontSize);
+    const textWidth = computeWidth(watermMake, fontSize);
+    const rows = Math.ceil(maxWidth/columsDis);
+    const colums = Math.ceil(maxWidth/(rowDis+textWidth))*1.3;
+
+    console.log('wukai-1-1-1-', maxWidth, rows, colums);
+    for(let i=0; i<rows; i++) {
+      for(let j=0; j<colums; j++) {
+        ctx.save()
+        ctx.font = `${fontSize}px Sans-serif`;
+        ctx.translate(-(maxWidth-width), 0);
+        ctx.rotate(-15*Math.PI/180);
+        ctx.fillStyle = 'rgba(155, 155, 155, .2)';
+        console.log('hello---', textWidth, columsDis, j*(textWidth+columsDis))
+        ctx.fillText(watermMake, j*(textWidth+columsDis), i*rowDis);
+        ctx.restore();
+      }
+    }
+
+    function computeWidth(text, fontSize) {
+      const width = text.length * fontSize*0.7;
+      return width;
+    }
+
+  </script>
+</body>
+</html>
