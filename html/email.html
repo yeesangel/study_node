@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var REG_EMAIL = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    // var emails = 'wukai@hengshi.com,chenjunyang@hengshi.com;litao@hengshi.com，litao@hengshi.com；litao@hengshi.com litao@hengshi.com'
+    var emails = 'wukai@hengshi.com'
+    var symbol = [';', ',', ' ', '；', '，'];
+    function fn(emails) {
+        var idx = -1;
+        symbol.forEach((ele, index) => {
+          if (emails.indexOf(ele) !== -1) {
+            idx = index;
+          }
+        })
+        return idx;
+    }
+
+
+    function splitFn (emails, arr) {
+      var index = fn(emails);
+      var cut = symbol[index];
+      var emailArr = emails.split(cut);
+      emailArr.forEach((ele, i) => {
+        var aa = fn(ele, symbol)
+        if (aa === -1) {
+          arr.push(ele);
+        } else {
+          splitFn(ele, arr)
+        }
+      });
+
+      return arr
+    }
+
+    console.log(splitFn(emails, []))
+  </script>
+</body>
+</html>

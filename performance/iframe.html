@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <iframe src="https://preview.hengshi.com/#/share/E476D8630/infographic/10?background=transparent&amp;copyright=false&amp;chartAccessible=false&amp;padding=0" frameborder="0" class="svelte-2y8yec iframe1"></iframe>
+
+  <iframe src="https://preview.hengshi.com/#/share/E476D8630/infographic/16?background=transparent&amp;copyright=false&amp;chartAccessible=false&amp;padding=0" frameborder="0" class="svelte-2y8yec iframe2"></iframe>
+
+  <iframe src="https://preview.hengshi.com/#/share/E476D8630/infographic/12?background=transparent&amp;copyright=false&amp;chartAccessible=false&amp;padding=0" frameborder="0" class="svelte-2y8yec iframe3"></iframe>
+
+
+  <script>
+    var dom1 = document.querySelector('.iframe1');
+    var dom2 = document.querySelector('.iframe2');
+    var dom3 = document.querySelector('.iframe3');
+
+    var time = new Date().valueOf();
+
+    dom1.onload = () => {
+      console.log(1, time-new Date().valueOf());
+    }
+
+    dom2.onload = () => {
+      console.log(2, time-new Date().valueOf());
+    }
+
+    dom3.onload = () => {
+      console.log(3, time-new Date().valueOf());
+    }
+  </script>
+</body>
+</html>
