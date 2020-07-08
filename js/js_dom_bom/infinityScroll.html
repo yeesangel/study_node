@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  * {
+    padding: 0;
+    margin: 0;
+  }
+  body, html {
+    position: relative;
+    height: 100%;
+  }
+  .scroll-wrapper {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    overflow-y: scroll;
+  }
+  .scroll-view {
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+  }
+  .item {
+    height: 40px;
+    width: 100%;
+    line-height: 38px;
+    box-sizing: border-box;
+    border: 1px solid red;
+
+  }
+</style>
+<body>
+  <div class="scroll-wrapper">
+    <div class="scroll-content">
+      <duv class="top-height"></duv>
+      <div class="scroll-view">
+        <div class="item">0</div>
+      </div>
+      <duv class="bottom-height"></duv>
+    </div>
+  </div>
+  <script>
+    var wrapper = document.querySelector('.scroll-wrapper');
+    var content = document.querySelector('.scroll-content');
+    var view = document.querySelector('.scroll-view');
+    var topHeight = document.querySelector('.top-height');
+    var bottomHeight = document.querySelector('.bottom-height');
+    var wrapHeight = wrapper.offsetHeight;
+    var timer = null
+    const items = [];
+    const itemHeight = 40;
+    const len = 1000
+    for(var i=0; i<len; i++){
+      items.push(`<div class="item">${i}</div>`);
+    }
+    content.style.height = len*itemHeight + 'px';
+    scrollHandel();
+    // wrapper.addEventListener('scroll', throttle(scrollHandel, 1000/60));
+    wrapper.addEventListener('scroll', debounce(scrollHandel, 1000/60), false);
+    // wrapper.addEventListener('scroll', scrollHandel, false);
+
+    function scrollHandel(e) {
+      const scrollDis = e ? e.target.scrollTop : 0;
+      const scrollIndex = Math.ceil(scrollDis/itemHeight);
+      const startIndex = Math.max(scrollIndex - 1, 0);
+      const endIndex = startIndex + Math.ceil(wrapHeight/itemHeight) + 3;
+      var temp = items.slice(startIndex, endIndex);
+      view.innerHTML = temp.join('');
+      // view.style.top = scrollIndex * itemHeight + 'px';
+      view.style.transform = `translateY(${scrollIndex * itemHeight}px)`;
+    }
+
+    function debounce(fn, delay) {
+      var timer = null
+      return function (...arg) {
+        clearTimeout(timer)
+
+        timer = setTimeout(() => {
+          fn.apply(this, arg)
+        }, delay)
+      }
+    }
+
+    function throttle(fn, delay) {
+      let canRun = false
+      return function (...arg) {
+        if(canRun) {
+          return false;
+        }
+
+        fn.apply(this, arg)
+        canRun = true
+
+        setTimeout(() => {
+          canRun = false
+        }, delay)
+      }
+    }
+
+  </script>
+</body>
+</html>
