@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  div {
+    width: 300px;
+    height: 40px;
+    border: 1px solid red;
+  }
+</style>
+<body>
+  <div id="box" tabindex="121">
+    <p>
+      <input id="int" type="text">
+    </p>
+  </div>
+  <script>
+    var box = document.querySelector('#box');
+    var int = document.querySelector('#int');
+    box.addEventListener('blur', () => {
+      alert('冒泡啦');
+    })
+
+    int.addEventListener('blur', () => {
+      console.log('wukai-----');
+    })
+  </script>
+</body>
+</html>
