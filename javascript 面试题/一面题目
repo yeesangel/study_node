@@ -1,0 +1,56 @@
+宋杰
+
+css 左中右布局  300_自适应_400 实现方式有几种     说出了两种
+
+css 定位 相关                                  回答还可以
+
+js 的数据类型                                   还可以
+
+字符串所有方法                                   了解会用
+
+ajax 发送请求 的流程和原理以及 onreadystatechange 0 到 4 发生了什么
+
+数组的所有 方法                                   了解会用
+
+面向对象                                          不太熟悉
+
+dom 事件委托原理以及dom事件                         还可以
+
+react 生命周期函数                                  都了解
+
+let const var 区别                                 了解
+
+ES6 工作中用到的那些                                （讲的还可以常用的都讲到了）
+
+promise 1                                         都有使用了解
+
+asyn await 1                                      都有使用了解
+
+// 1. 实现下面这个方法：                             通过for循环和递归两种方法实现了 OK
+// 将一维数组切分成二维数组： 按照第二个参数（数字）的值，来决定二维数组长度
+// let a = ['a', 'b', 'c', 'd'];
+// // let result = chunk(a, 3);// console.log(result) => [['a','b', 'c'], ['b']]
+
+
+总结  一些常用基础的 css js 掌握的比较熟练 （对于做项目已经够了）
+个人觉得   （一面通过了）
+
+
+
+杜志茹
+
+let xhr = new XMLHttpRequest()
+
+xhr.open('GET', url, true)
+xhr.onload = function(e) {
+  if(this.status === 200) {
+    let result = JSON.parse(this.responseText);
+    resolve(result)
+  }
+}
+xhr.onerror = function(err) {
+  reject(err)
+}
+xhr.send()
+
+

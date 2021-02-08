@@ -14,7 +14,7 @@
           a
         </div>
       </div>
-      
+
       <div class="child-1-2">
         <div class="child-1-2-1">
           b
@@ -49,7 +49,7 @@
       if(node !== null) {
         let children = node.children
         nodeList.push(node)
-        
+
         for(let i=0; i<children.length; i++) {
           deepTraversal1(children[i], nodeList)
         }
@@ -74,7 +74,7 @@
 
     console.log('wukai----2', deepTraversal2(parent))
 
-    // 非递归 
+    // 非递归
 
     function deepTraversal3(node) {
       let stack = []
@@ -86,10 +86,10 @@
           let children = item.children
           nodes.push(item)
           for(let i=0; i<children.length; i++) {
-            stack.push(children[i])     
+            stack.push(children[i])
           }
         }
-        
+
       }
 
       return nodes
@@ -105,6 +105,7 @@
     let stack = []
     if (node) {
       stack.push(node)
+      console.log('wukai-----11111', nodes, stack)
       while (stack.length) {
         let item = stack.shift()
         let children = item.children
@@ -121,6 +122,8 @@
     }
     return nodes
   }
+
+  console.log('wukai---qqqq', widthTraversal2(parent))
   </script>
 </body>
 </html>

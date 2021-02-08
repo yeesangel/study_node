@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function test (i) {
+      if (i < 0) return
+      console.log('wukai----', i);
+      debugger;
+      test(--i)
+    }
+    // 这个会调用自身11次
+    test(10)
+  </script>
+</body>
+</html>
