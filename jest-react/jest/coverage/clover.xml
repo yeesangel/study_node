@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1612921783692" clover="3.2.0">
+  <project timestamp="1612921783692" name="All files">
+    <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="4" elements="15" coveredelements="12" complexity="0" loc="8" ncloc="8" packages="1" files="3" classes="3"/>
+    <file name="demo.js" path="/Users/mac/ago-project/study_note/jest-react/jest/demo.js">
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <line num="4" count="1" type="stmt"/>
+      <line num="5" count="1" type="stmt"/>
+      <line num="6" count="1" type="stmt"/>
+      <line num="7" count="1" type="stmt"/>
+    </file>
+    <file name="mock.timers.js" path="/Users/mac/ago-project/study_note/jest-react/jest/mock.timers.js">
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+      <line num="5" count="2" type="stmt"/>
+      <line num="6" count="2" type="stmt"/>
+      <line num="7" count="2" type="stmt"/>
+      <line num="8" count="2" type="stmt"/>
+    </file>
+    <file name="util.js" path="/Users/mac/ago-project/study_note/jest-react/jest/util.js">
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+    </file>
+  </project>
+</coverage>

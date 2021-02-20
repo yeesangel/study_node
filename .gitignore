@@ -11,3 +11,6 @@
 /http/node/node_modules
 /http/xss/node_modules
 /http/mukewang/node_modules
+/jest-react/lesson2/node_modules
+/jest-react/jest-react/node_modules
+/jest-react/jest/node_modules
