@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var str = '尊敬的客户您好！<br/> 根据您在平台中的推送设定，系统自动推送{0}应用内容给您。<br/> 您也可以访问<a target="view_frame" href="{1}">应用URL地址</a>获取应用所有仪表盘及数据集。<br/> 如遇到任何问题，请咨询系统管理员。'
+    var reg = /<a\b[^>]+\bhref="([^"]*)"[^>]*>([\s\S]*?)<\/a>/;
+
+    var aa = str.replace(/<br\/>/g, '\r\n').replace(reg, (...args) => {
+      return `{%%${args[2]}}`;
+    });
+    console.log(`${aa}`);
+  </script>
+</body>
+</html>
