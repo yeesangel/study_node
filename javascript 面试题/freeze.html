@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+export const INTERNAL_PROXY_SETTING = '_internalProxySetterGeneration';
+export const ERR_PROXY_FILTERS_CONTEXT_SETTER = 'ERR_PROXY_FILTERS_CONTEXT_SETTER';
+const ORIGIN = Symbol.for('_origin');
+
+export default class Freeze {
+
+  constructor(target) {
+    this.target = target;
+  }
+
+  get sign() {
+    return FREEZE;
+  }
+
+  get origin() {
+    return ORIGIN;
+  }
+
+  setFreeze = status => {
+    this.target[FREEZE] = status;
+  }
+
+  freeze = obj => {
+    if (Object.isObj(obj)) {
+      if (obj[FREEZE]) {
+        return obj;
+      }
+      Object.keys(obj).forEach(prop => {
+        if (Object.isObj(obj[prop])) {
+          obj[prop] = this.freeze(obj[prop]);
+        } else if (Array.isArray(obj[prop])) {
+          obj[prop] = obj[prop].map(this.freeze);
+        }
+      });
+      return new Proxy(obj, {
+        get: (oTarget, oKey) => {
+          if (oKey === FREEZE) {
+            return true;
+          }
+          if (oKey === ORIGIN) {
+            return JSON.deepCopy(oTarget);
+          }
+          return oTarget[oKey];
+        },
+        set: (oTarget, oKey, oValue) => {
+          if (this.isFrozen()) {
+            throw errLog(`冻结状态不允许写入操作, 停止执行写入[${oKey}]到[${JSON.stringify(oTarget.toString)}]`);
+          }
+          oTarget[oKey] = oValue;
+          return this._updateProxyGeneration(oTarget);
+        },
+        deleteProperty: (oTarget, oKey) => {
+          if (this.isFrozen()) {
+            throw errLog(`冻结状态不允许删除操作, 停止执行删除[${JSON.stringify(oTarget.toString)}][${oKey}]`);
+          }
+          delete oTarget[oKey];
+          return this._updateProxyGeneration(oTarget);
+        },
+      });
+    }
+    if (Array.isArray(obj)) {
+      obj = obj.map(this.freeze);
+    }
+    return obj;
+  }
+
+  isFrozen = () => {
+    if (this.target.isFrozen) {
+      return this.target.isFrozen();
+    }
+    return this.target[FREEZE];
+  }
+
+  _updateProxyGeneration = oTarget => {
+    if (oTarget[INTERNAL_PROXY_SETTING] === undefined) {
+      oTarget[INTERNAL_PROXY_SETTING] = 1;
+    } else {
+      oTarget[INTERNAL_PROXY_SETTING] += 1;
+    }
+    this.target[INTERNAL_PROXY_SETTING] += 1;
+    return true;
+  }
+
+}
+
+function errLog(msg) {
+  if (window.DEBUG) {
+    return new Error(msg);
+  }
+  return ERR_PROXY_FILTERS_CONTEXT_SETTER;
+}
+
+  </script>
+</body>
+</html>
