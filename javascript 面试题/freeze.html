@@ -8,11 +8,15 @@
 </head>
 <body>
   <script>
-export const INTERNAL_PROXY_SETTING = '_internalProxySetterGeneration';
-export const ERR_PROXY_FILTERS_CONTEXT_SETTER = 'ERR_PROXY_FILTERS_CONTEXT_SETTER';
+const INTERNAL_PROXY_SETTING = '_internalProxySetterGeneration';
+const ERR_PROXY_FILTERS_CONTEXT_SETTER = 'ERR_PROXY_FILTERS_CONTEXT_SETTER';
 const ORIGIN = Symbol.for('_origin');
+const FREEZE = Symbol.for('_isFrozen');
+Object.isObj = function Object_isObject(obj) {
+  return Object.prototype.toString.call(obj) === '[object Object]';
+};
 
-export default class Freeze {
+class Freeze {
 
   constructor(target) {
     this.target = target;
@@ -99,7 +103,21 @@ function errLog(msg) {
   }
   return ERR_PROXY_FILTERS_CONTEXT_SETTER;
 }
-
+  var freezer = new Freeze({});
+  freezer.setFreeze(true);
+  // var obj = {
+  //   name: 'wukai',
+  //   frames: {
+  //     laopo: 'weiyan',
+  //     soon: 'xuanxaun',
+  //     gilf: 'yihan',
+  //   },
+  //   fazu: [
+  //     'mama',
+  //     'baba',
+  //     {name: 'zhangsan', age: 20, sex: 'man'},
+  //   ],
+  // };
   </script>
 </body>
 </html>
