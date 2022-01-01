@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var trees = [
+    {
+      name: '查看者',
+      children: [
+        {
+          name: '数据血缘',
+          children: [{
+            name: '梭哈',
+            children: [
+              {
+                name: '时间的朋友'
+              },
+              {
+                name: '血缘'
+              },
+              {
+                name: '哈哈'
+              },
+              {
+                name: '你们'
+              },
+          ],
+          }],
+        },
+        {
+          name: 'ee',
+        },
+        {
+          name: 'qw',
+        },
+        {
+          name: 'we',
+        },
+        {
+          name: 'we',
+        },
+      ]
+    },
+    {
+      name: '查看者血缘',
+    },
+    {
+      name: '小明',
+    },
+    {
+      name: 'haha',
+      children: [
+        {
+          name: 'wukai'
+        },
+        {
+          name: 'xiaoming',
+        },
+        {
+          name: 'yellow'
+        },
+        {
+          name: '数据集市血缘'
+        },
+      ],
+    }
+    ];
+
+    function loop (item) {
+      var isContained = item.name.match('血缘');
+      if(item.children) {
+        const children = item.children.filter(loop);
+        item.children = children;
+        return children.length;
+      }
+      if(isContained) {
+        return true;
+      }
+    }
+
+    var aaa = trees.filter(loop);
+  </script>
+</body>
+</html>
