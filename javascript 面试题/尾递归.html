@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 斐波拉切数列 递归实现
+    function recursion(i) {
+      if(i === 1) {
+        return 1;
+      }
+      return i + recursion(i - 1);
+    }
+    console.log(recursion(5));
+
+    // 尾递归实现
+
+    function recursion1(i, num) {
+      if(i === 0) {
+        return num;
+      }
+      return recursion1(i - 1, num + i);
+    }
+
+    console.log('hello----', recursion1(5, 0));
+  </script>
+</body>
+</html>
