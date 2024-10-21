@@ -2,20 +2,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no" /> 
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no" />
 	<title>Document</title>
 	<style>
-	
-	
+
+
 	</style>
 	<script>
 	//快速排序
 	//找基准点
 	//建立两个数组，分别存左边和右边两个数组
 	//利用递归进行下一次操作
-	
+
 	function qiuckSort(arr){
-		if(arr<=1){
+		if(arr.length<=1){
 			return arr;
 		}
 
@@ -37,7 +37,7 @@
 	}
 
 
-	alert(qiuckSort([10,5,20,4,16,17,30,8]))
+	console.log(qiuckSort([10,5,20,4,16,17,30,8]));
 	</script>
 </head>
 <body>

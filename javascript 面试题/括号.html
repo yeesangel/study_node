@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 下面是一个 JavaScript 方法，用于判断给定字符串 s 中的括号是否有效，考虑到 * 可以表示 (、) 或空字符串：
+    // 示例1：
+    // 输入：s="()"
+    // 输出：true
+    // 示例2：
+    // 输入：s="(*)"
+    // 输出：true
+    // 示例3：
+    // 输入：s="(*))"
+    // 输出：true
+
+    function checkValidString(s) {
+      let low = 0;
+      let high = 0;
+
+      for (let char of s) {
+          if (char === '(') {
+              low++;
+              high++;
+          } else if (char === ')') {
+              low--;
+              high--;
+          } else { // char === '*'
+              low--;  // '*' 可以当作 ')'
+              high++; // '*' 可以当作 '('
+          }
+
+          // low 不能小于 0
+          if (low < 0) {
+              low = 0;
+          }
+
+          // 如果 high 小于 0，说明无法匹配
+          if (high < 0) {
+              return false;
+          }
+      }
+
+      // 最终需要所有的左括号都匹配
+      return low === 0;
+  }
+
+  console.log('wukai----', checkValidString("*(()))"));
+
+
+  var str = '4332365456524.45';
+
+
+  </script>
+</body>
+</html>

@@ -2,10 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no" /> 
+	<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no" />
 	<title>Document</title>
 	<style>
-	
+
 	#div1{width: 100px; height: 100px; background: red;}
 	</style>
 	<script>
@@ -68,8 +68,32 @@
 	alert(test(str));
 */
 
+function test(s) {
+    var [a, b] = str.split('.');
+    var iNum = a.length%3;
 
-	
+    var rightStr = a.substring(1);
+    var arr = [];
+    if (iNum !== 0) {
+      var leftStr = a.substring(0, 1);
+      arr.push(leftStr);
+    }
+    let index = 0;
+    var tempStr = '';
+    [...rightStr].forEach((ele, i) => {
+      index++;
+      tempStr += ele;
+      if(index === 3) {
+        arr.push(tempStr);
+        tempStr = '';
+        index = 0;
+      }
+    });
+    return arr.join(',')+`.${b}`;
+  }
+
+
+
 
 
 

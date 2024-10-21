@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position Sticky Example</title>
+    <style>
+        body {
+            /* height: 2000px; 为了演示效果，增加页面高度 */
+            width: 100%;
+            height: 100%;
+            overflow-x: scroll;
+        }
+        header {
+            background-color: #f1f1f1;
+            padding: 10px;
+            text-align: center;
+        }
+        nav {
+            position: sticky;
+            top: 0;
+            background-color: yellow;
+            padding: 10px;
+            font-size: 20px;
+        }
+        section {
+            margin-top: 50px;
+            padding: 10px;
+            background-color: lightblue;
+            height: 1500px;
+        }
+    </style>
+</head>
+<body>
+    <header>Header Content</header>
+    <nav>Sticky Navigation Bar</nav>
+    <section>Main Content Area</section>
+    <!-- <nav>Sticky Navigation Bar1111</nav>
+    <section>Main Content Area</section> -->
+</body>
+</html>
