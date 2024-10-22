@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var arr = [0,1,2,5,6,8,10,19];
+
+    function towSum(arrays, target) {
+      const temp = {};
+      for(let i=0; i<arrays.length; i++) {
+        if(temp[arrays[i]]) {
+          return true;
+        }
+        const val = target - arrays[i];
+        temp[val] = true;
+      };
+      return false;
+    }
+
+    console.log('输出2', towSum(arr, 11));
+    console.log('输出3', towSum(arr, 200));
+    console.log('输出4', towSum(arr, 8));
+  </script>
+</body>
+</html>
