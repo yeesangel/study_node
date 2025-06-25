@@ -61,18 +61,18 @@
 		    }
 		}
 
-    function loop1(data, arr) {
-      arr.push(data.id)
-      if(data.left) {
-          loop1(data.left, arr)
-      }
-      if(data.right) {
-          loop1(data.right, arr)
-      }
-      return arr;
-    }
+    // function loop1(data, arr) {
+    //   arr.push(data.id)
+    //   if(data.left) {
+    //       loop1(data.left, arr)
+    //   }
+    //   if(data.right) {
+    //       loop1(data.right, arr)
+    //   }
+    //   return arr;
+    // }
 
-    console.log('前序', loop1(tree, []));
+    // console.log('前序', loop1(tree, []));
 
     function loop2(data, arr) {
       if(data.left) {
@@ -87,18 +87,18 @@
 
     console.log('中序', loop2(tree, []));
 
-    function loop3(data, arr) {
-      if(data.left) {
-          loop3(data.left, arr)
-      }
-      if(data.right) {
-          loop3(data.right, arr)
-      }
-      arr.push(data.id)
-      return arr;
-    }
+    // function loop3(data, arr) {
+    //   if(data.left) {
+    //       loop3(data.left, arr)
+    //   }
+    //   if(data.right) {
+    //       loop3(data.right, arr)
+    //   }
+    //   arr.push(data.id)
+    //   return arr;
+    // }
 
-    console.log('后续', loop3(tree, []));
+    // console.log('后续', loop3(tree, []));
 
   </script>
 </body>

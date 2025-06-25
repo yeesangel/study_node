@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+
+<script>
+  var arr = [1,2,3,4,5,6,7,8];
+  function fn(list) {
+    return arr.sort(() => Math.random() - 0.5);
+  }
+
+
+  console.log('wukai----', fn(arr));
+
+
+  function fn2() {
+    var arr = [1,2,3,4,5,6,7,8];
+    for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]]; // 交换元素
+    }
+  }
+
+    function fn3() { // 方法2 方法3 等效的
+      var arr = [1,2,3,4,5,6,7,8];
+      for (let i = arr.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          console.log('weizhi', i, j);
+          temp1 = arr[i]
+          temp2 = arr[j]
+
+          arr[i] = temp2;
+          arr[j]  =temp1;
+      }
+    }
+
+    console.log('wukai----', fn2());
+
+
+
+
+
+
+</script>
+</body>
+</html>
