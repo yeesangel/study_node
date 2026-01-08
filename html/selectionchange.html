@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>选中文本弹出菜单</title>
+  <style>
+    #custom-menu {
+      position: absolute;
+      background: #333;
+      color: white;
+      padding: 6px 10px;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      display: none; /* 默认隐藏 */
+      z-index: 1000;
+      min-width: 100px;
+    }
+    #custom-menu button {
+      background: transparent;
+      color: white;
+      border: none;
+      cursor: pointer;
+      padding: 4px 8px;
+      width: 100%;
+      text-align: left;
+    }
+    #custom-menu button:hover {
+      background: #555;
+    }
+
+    body {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .wrapper {
+      position: absolute;
+      padding: 100px;
+    }
+  </style>
+</head>
+<div class="wrapper">
+  <p>请用鼠标选中这段文字，看看会发生什么！你可以复制、翻译或高亮它。</p>
+  <p>这是另一段文字，用于测试多行选择。</p>
+
+  <div id="custom-menu">
+    <button onclick="doCopy()">复制</button>
+    <button onclick="doTranslate()">翻译</btn>
+    <button onclick="doHighlight()">高亮</button>
+  </div>
+</div>
+<body>
+
+
+<script>
+  const menu = document.getElementById('custom-menu');
+
+  // 监听整个文档的选择变化
+  document.addEventListener('mouseup', showMenu);
+  document.addEventListener('selectionchange', showMenu);
+
+  function showMenu() {
+    const selection = window.getSelection();
+    const text = selection.toString().trim();
+
+    if (text.length > 0) {
+      // 获取选区位置
+      const range = selection.getRangeAt(0);
+      const rect = range.getBoundingClientRect();
+
+      // 定位菜单在选中文本下方
+      menu.style.left = rect.left + window.scrollX + 'px';
+      menu.style.top = rect.top + window.scrollY - menu.offsetHeight - 5 + 'px';
+      menu.style.display = 'block';
+    } else {
+      menu.style.display = 'none';
+    }
+  }
+
+  // 点击页面其他地方隐藏菜单
+  document.addEventListener('click', (e) => {
+    if (!menu.contains(e.target)) {
+      menu.style.display = 'none';
+    }
+  });
+
+  // 功能函数
+  function doCopy() {
+    const text = window.getSelection().toString();
+    navigator.clipboard.writeText(text).then(() => {
+      alert('已复制：' + text);
+    });
+    menu.style.display = 'none';
+  }
+
+  function doTranslate() {
+    alert('翻译功能（示例）');
+    menu.style.display = 'none';
+  }
+
+  function doHighlight() {
+    alert('高亮功能（可扩展为包裹<span>标签）');
+    menu.style.display = 'none';
+  }
+</script>
+
+</body>
+</html>

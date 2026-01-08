@@ -12,9 +12,13 @@
             overflow-x: scroll;
         }
         header {
+            position: sticky;
+            top: 0;
             background-color: #f1f1f1;
             padding: 10px;
             text-align: center;
+            height: 100vh;
+            z-index: 0;
         }
         nav {
             position: sticky;
@@ -22,12 +26,17 @@
             background-color: yellow;
             padding: 10px;
             font-size: 20px;
+            height: 100vh;
+            z-index: 1;
         }
         section {
+            position: sticky;
+            top: 0;
+            height: 100vh;
             margin-top: 50px;
             padding: 10px;
             background-color: lightblue;
-            height: 1500px;
+            z-index: 2;
         }
     </style>
 </head>
